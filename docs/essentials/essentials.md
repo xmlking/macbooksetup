@@ -97,7 +97,7 @@ Since many of us won't have _admin_ rights on **Company** issued MacBooks, we wi
 brew install --cask --appdir=~/Applications ghostty
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
-brew install --cask --appdir=~/Applications jetbrains-toolbox
+brew install --cask --appdir=~/Applications webstorm
 # optional
 brew install --cask --appdir=~/Applications windsurf # VSCode alternative
 brew install --cask --appdir=~/Applications marta
