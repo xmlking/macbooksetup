@@ -1,0 +1,46 @@
+# @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
+# Shamelessly copied from https://github.com/gf3/dotfiles
+
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+  export TERM='gnome-256color';
+elif infocmp xterm-256color >/dev/null 2>&1; then
+  export TERM='xterm-256color';
+fi;
+
+if tput setaf 1 &> /dev/null; then
+  tput sgr0; # reset colors
+  bold=$(tput bold);
+  reset=$(tput sgr0);
+  # Oceanic Next colors
+  black=$(tput setaf 16);
+  blue=$(tput setaf 68);
+  cyan=$(tput setaf 73);
+  green=$(tput setaf 114);
+  orange=$(tput setaf 209);
+  magenta=$(tput setaf 176);
+  red=$(tput setaf 203);
+  white=$(tput setaf 66);
+  yellow=$(tput setaf 221);
+else
+  bold='';
+  reset="\e[0m";
+  black="\e[1;30m";
+  blue="\e[1;34m";
+  cyan="\e[1;36m";
+  green="\e[1;32m";
+  orange="\e[1;33m";
+  magenta="\e[1;35m";
+  red="\e[1;31m";
+  white="\e[1;37m";
+  yellow="\e[1;33m";
+fi;
+
+function parse_git_dirty() {
+  [[ $(git status 2> /dev/null | tail -n1) != *"nothing to commit"* ]] && echo "*"
+}
+
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
+PS1="\[${bold}\]\[$green\]\w\[$white\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$magenta\]\$(parse_git_branch)\[$white\]\n\$ \[$reset\]"

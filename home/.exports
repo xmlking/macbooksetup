@@ -1,0 +1,4 @@
+# keep all system wide environment variables here
+
+# replace your npm key
+export NPM_TOKEN="00000000-0000-0000-0000-000000000000"
