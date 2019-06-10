@@ -129,6 +129,8 @@ brew install kubernetes-cli
 ---
 ## Upgrade Bash
 
+Follow: [How to install Bash 5.0 on macOS](https://www.ioannispoulakas.com/2019/03/10/how-to-install-bash-5-on-macos/)
+
 1. upgrade bash to [v5+](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba) following instructions on the link 
 2. [Change the default shell via the terminal gui with the literal path of your new bash](https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx)
 
@@ -140,7 +142,7 @@ GNU bash, version 5.0.2(1)-release (x86_64-apple-darwin17.7.0)
 
 ```
 
-### Bash Completion
+### Bonus: install bash-completion
 
 #### Install bash-completion for MacOS (Bash v5+)
 
@@ -444,7 +446,7 @@ To install the following software, go to terminal and run:
 ```bash
 # if you want to manage java version with `sdkman`
 # java  `11.0.2-open` is current long-term support (LTS). next best version is `8.0.201-oracle` if you need java8
-sdk install java 11.0.2-open
+sdk install java 12.0.1-open
 sdk install gradle
 
 #optional
@@ -492,12 +494,12 @@ to finish this task, run the following commands in terminal:
 ```bash
 # go to your home dir
 cd ~
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.bash_profile
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.aliases
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.bash_prompt
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.extra
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.path
-curl -O https://github.com/raw/xmlking/macbooksetup/master/home/.exports
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.bash_profile
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.aliases
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.bash_prompt
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.extra
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.path
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.exports
 ```
 
 ---
