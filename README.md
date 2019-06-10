@@ -115,15 +115,22 @@ brew install watch
 brew install jq
 brew install git
 
-# languages 
+## languages
+# node
 brew install node
+brew install yarn
+
 brew install python
+
+# GoLang
+brew install protobuf
 brew install go
 
-# optional
-brew install openshift-cli
+## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
 brew install kubernetes-cli
+brew install skaffold
+brew install kubernetes-helm
 ```
 
 ---
@@ -410,6 +417,30 @@ After installation is completed, remove .profile and .bashrc files created from 
 Download Java version at least jdk8 [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 > don't install JRE. developers need JDK
+
+---
+## GoLang
+
+> Install `go` and `protobuf`
+
+```bash
+brew install go
+brew install protobuf
+```
+
+```bash
+cd ~
+mkdir go
+```
+
+set `GOPATH` in `~/.path`
+```bash
+export GOPATH=$HOME/go
+
+export PATH=${PATH}:${GOPATH}/bin 
+```
+
+> keep your GoLang projects outside `GOPATH`, i.e., in `/Developer/Work/go`
 
 ---
 ## Docker
