@@ -273,6 +273,12 @@ To open dir in `Visual Studio Code` from terminal:
 
 `$ ~/bin/code dir.name`
 
+1. Downlaod and use [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) Font
+2. Override Terminal Colors with [Solarized Dark regardless of Theme](https://gist.github.com/berndverst/b6b6972d0ca3d6a569f082f53b777442)
+3. rest-client plugin for REST API UAT Testing 
+
+> Recomended worksapce [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode)
+
 ---
 ## Sublime Text 3
 
