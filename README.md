@@ -1,8 +1,9 @@
 # Mac Developer Setup
 
 * [Mac Admin Privileges](#mac-admin-privileges)
-* [Xcode Request](#xcode)
 * [Self Service Installations](#self-service-installations)
+* [xcode](#post-xcode-install)
+* [Enable Developer Mode](#developer-mode)
 * [Homebrew](#homebrew)
 * [Upgrade Bash](#upgrade-bash)
 * [Node](#node)
@@ -29,21 +30,19 @@
 **Installation steps below assume that you are have Admin Access currently enabled**
 
 ---
-## Xcode
-
----
 ## Self Service Installations
 
-If not yet already installed on your Macbook, you can install the following apps:
-
+If not already installed on your Macbook, you can install the following apps via **jamf** Self-Service App:
+> **jamf** Self-Service App is used by Enterprises to let developers install software on managed MacBooks
+ 
   * Microsoft Office
   * Chrome
-  * Xcode
+  * **Xcode**
+
+`Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
 ---
-## Post XCode install
-
-### Install XCode
+## Post xcode install
 
 Check if the full Xcode package is already installed:
 
@@ -83,6 +82,20 @@ Apple LLVM version 10.0.0 (clang-1000.11.45.5)
 Target: x86_64-apple-darwin17.7.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+```
+---
+## Developer Mode
+
+> Enable `Developer Mode` on this Mac so that you can use debugger and other dev tools
+
+```bash
+# check status
+DevToolsSecurity -status
+# DevToolsSecurity -status -verbose
+
+#  substitute your username in palace of <username>
+DevToolsSecurity -enable
+sudo dscl . append /Groups/_developer GroupMembership <username>
 ```
 ---
 ## Homebrew
