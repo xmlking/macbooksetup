@@ -1,7 +1,7 @@
 {
     "auto_complete_delay": 5,
     "auto_complete_selector": "source, text",
-    "color_scheme": "Packages/User/Monokai (SL).tmTheme",
+    "color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
     "create_window_at_startup": false,
     "folder_exclude_patterns":
     [
@@ -30,7 +30,6 @@
     "font_size": 13,
     "ignored_packages":
     [
-        "Markdown",
         "Vintage"
     ],
     "open_files_in_new_window": false,
@@ -38,6 +37,7 @@
     [
         80
     ],
+    "theme": "Soda Dark 3.sublime-theme",
     "translate_tabs_to_spaces": true,
     "word_wrap": true
 }
