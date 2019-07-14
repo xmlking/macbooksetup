@@ -26,8 +26,8 @@
         "*.idb",
         "*.psd"
     ],
-    "font_face": "Source Code Pro",
-    "font_size": 13,
+    "font_face": "Source Code Pro ExtraLight",
+    "font_size": 15,
     "ignored_packages":
     [
         "Vintage"

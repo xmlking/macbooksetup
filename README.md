@@ -1,18 +1,20 @@
 # Mac Developer Setup
 
 * [Mac Admin Privileges](#mac-admin-privileges)
+* [macOS Setup Guide](#mac-setup)
 * [Self Service Installations](#self-service-installations)
 * [xcode](#post-xcode-install)
 * [Enable Developer Mode](#developer-mode)
 * [Homebrew](#homebrew)
-* [Upgrade Bash](#upgrade-bash)
+* [zsh](#zsh)
+* [iTerm2](#iterm2)
+* [Fonts](#fonts)
 * [Node](#node)
 * [Angular CLI](#angular-cli)
 * [Setup work directories](#setup-work-directories)
 * [Intellij](#intellij)
 * [VSCode](#vscode)
 * [Sublime Text 3](#sublime-text-3)
-* [iTerm2](#iterm2)
 * [Postman](#postman)
 * [SDKman](#sdkman)
 * [RVM](#rvm)
@@ -28,6 +30,12 @@
 * [Setup Citrix](#setup-citrix)
 
 **Installation steps below assume that you are have Admin Access currently enabled**
+
+## Mac Setup
+
+First follow sourabhbajaj's [mac setup](https://sourabhbajaj.com/mac-setup/) Guide
+
+Then, follow this guide for [iTerm2](#iterm2), [Sublime Text 3](#sublime-text-3) setup.
 
 ---
 ## Self Service Installations
@@ -100,6 +108,8 @@ sudo dscl . append /Groups/_developer GroupMembership <username>
 ---
 ## Homebrew
 
+Reference [Homebrew](https://sourabhbajaj.com/mac-setup/Homebrew/) for detailed instructions.
+
 Go to terminal and run:
 
 `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -117,16 +127,15 @@ To update brew:
 
 `$ brew update`
 
-To install the following software, go to terminal and run:
-
->  Highly recommended to upgrade bash to [v5+](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba). and follow [Upgrade Bash](#upgrade-bash) instructions  
-
 ```bash
 # tools
-brew install bash
+brew install zsh
 brew install watch
 brew install jq
 brew install git
+brew install ack 
+brew install tree
+brew install vim
 
 ## languages
 # node
@@ -144,46 +153,105 @@ brew install go
 brew install kubernetes-cli
 brew install skaffold
 brew install kubernetes-helm
+# virtualbox for minikube
+brew cask install virtualbox  
+
+brew cask install minikube
 ```
 
 ---
-## Upgrade Bash
+## zsh
 
-Follow: [How to install Bash 5.0 on macOS](https://www.ioannispoulakas.com/2019/03/10/how-to-install-bash-5-on-macos/)
+Reference [zsh](https://sourabhbajaj.com/mac-setup/iTerm/zsh.html) for detailed instructions. 
 
-1. upgrade bash to [v5+](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba) following instructions on the link 
-2. [Change the default shell via the terminal gui with the literal path of your new bash](https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx)
-
-after following above instructions, you can conform your default shell is upgraded to Bash v5+
-  
-```bash
-bash --version
-GNU bash, version 5.0.2(1)-release (x86_64-apple-darwin17.7.0)
-
-```
-
-### Bonus: install bash-completion
-
-#### Install bash-completion for MacOS (Bash v5+)
+Install `Oh My Zsh`
 
 ```bash
-brew install bash-completion@2
-```
-Paste this into your ~/.extra  file:
-```bash
-# bash-completion used with Bash v5+
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-#### Enable kubectl auto-completion for MacOS (Bash v5+)
+The installation script should set zsh to your default shell, but if it doesn't you can do it manually:
+
 ```bash
-kubectl completion bash > $(brew --prefix)/etc/bash_completion.d/kubectl
-alias k=kubectl
-complete -F __start_kubectl k
+chsh -s $(which zsh)
 ```
 
-> Node: we add the above settings in [.extra](home/.extra) and [.aliases](home/.aliases) for you. follow [Setup Profile](#setup-profile) section later.
+we will be using `powerlevel10k` theme and following plugins with `Oh My Zsh`
+
+```bash
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(
+	git
+	golang
+	brew
+	osx
+	kubectl
+	colored-man-pages
+	zsh-completions
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
+```
+
+> when you copy [home](./home) to your $HOME directory, you will got all the above configuration.
+ 
+### update oh_my_zsh
+> you can upgrade `oh_my_zsh` any time with
+ ```bash
+ upgrade_oh_my_zsh
+ ```
+
+---
+## iTerm2
+
+Reference [iTerm](https://sourabhbajaj.com/mac-setup/iTerm/) for detailed instructions.
+
+Follow  [iTerm2 Configuration](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
+for applying the color scheme, install fonts, `Oh my Zsh`  add-ons. Note: use `Powerlevel10k` instead of `Powerlevel9k`
+
+### Powerlevel10k
+
+Follow instructions for [Powerlevel10k](https://gist.github.com/kevin-smets/8568070)
+
+```bash
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+```
+
+Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
+
+
+### plugins
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+```
+
+Download and install following patched fonts for terminal use
+1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo LG M Regular for Powerline.ttf)
+2. [Source Code Pro for Powerline](apps/iterm2/fonts/Source Code Pro for Powerline.otf)
+3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf)
+
+Recommended to set iTerm2 font to `SourceCodePro+Powerline+Awesome+Regular` and font size to `14`
+
+Download and install following color schema for iTerm2
+
+1. [Clovis-iTerm2-Color-Scheme](apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
+2. [Dracula](apps/iterm2/colors/Dracula.itermcolors)
+3. [Solarized Dark](apps/iterm2/colors/Solarized-Dark-Patched.itermcolors)
+
+Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme` 
+
+---
+## Fonts
+
+We recommend also downland and install following fonts. 
+They are using by `VSCode` and `Sublime Text`
+
+1. Source Code Pro
+    `brew tap caskroom/fonts && brew cask install font-source-code-pro`
+2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)
 
 ---
 ## Setup Work Directories
@@ -230,25 +298,10 @@ Make 'go' directory under /Developer/Work:
 
 ## Git
 
->  Tell Git who you are
-```bash
-git config --global user.name "Your Full Name"
-git config --global user.email "you@example.com"
-```
+Reference [Git](https://sourabhbajaj.com/mac-setup/Git/) for detailed instructions.
 
-> Global settings for line endings
-```bash
-# On macOS and Linux:
-git config --global core.autocrlf input
-# And on Windows:
-git config --global core.autocrlf = true
-```
+copy [.gitconfig](home/.gitconfig) to your home and change `name` and `email`
 
-> (Optional)To push code to your GitHub repositories, we're going to use the recommended HTTPS method (versus SSH). So you don't have to type your username and password everytime, let's enable Git password caching:
-
-```bash
-git config --global credential.helper osxkeychain
-```
 
 ---
 ## IntelliJ/WebStorm/GoLand
@@ -277,14 +330,20 @@ To open dir in `Visual Studio Code` from terminal:
 2. Override Terminal Colors with [Solarized Dark regardless of Theme](https://gist.github.com/berndverst/b6b6972d0ca3d6a569f082f53b777442)
 3. rest-client plugin for REST API UAT Testing 
 
-> Recomended worksapce [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode)
+> Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode)
+ 
+ ### Workspace Settings
+ 
+for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
+for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
+You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
 
 ---
 ## Sublime Text 3
 
-Install Sublime Text at [www.sublimetext.com](www.sublimetext.com).
+Reference [SublimeText](https://sourabhbajaj.com/mac-setup/SublimeText/) for detailed instructions.
 
----
+you can use my user [preferences](apps/sublimetext/preferences.json)
 
 #### Install package control
 
@@ -351,9 +410,7 @@ To open file in Sublime Text from terminal:
 `$ ~/bin/subl file.name`
 
 ---
-## iTerm2
-
-To install iTerm2, from [http://iterm2.com/](http://iterm2.com/)
+## iTerm2 More
 
 #### iTerm2 setup for day-to-day use 
 1. enable iterm2 Session [Restoration]( https://iterm2.com/documentation-restoration.html)
@@ -538,20 +595,29 @@ The files below are files you can open in sublime text to verify that all settin
 
 ---
 ## Setup Profile
-> copy developer tested `profile`, `alias` etc., files to your home directory to make life eazy.
+> copy developer tested `zshrc`, `alias` etc., files to your home directory to make life easy.
 
 to finish this task, run the following commands in terminal:
 ```bash
 # go to your home dir
 cd ~
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.bash_profile
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.aliases
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.bash_prompt
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.extra
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.path
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.exports
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.zshrc
+# change `name` and `email` in `.gitconfig` after copy
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.gitconfig
+mkdir ~/my && cd ~/my
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitattributes
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/settings.zsh
 ```
 
 ---
 ## References
+* https://sourabhbajaj.com/mac-setup/
 * https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html
+* https://gist.github.com/kevin-smets/8568070
+* https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961

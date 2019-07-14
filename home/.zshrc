@@ -70,15 +70,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	colored-man-pages
-	colorize
-	pip
-	python
+	golang
 	brew
 	osx
-	zsh-syntax-highlighting
+	kubectl
+	colored-man-pages
 	zsh-completions
 	zsh-autosuggestions
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,5 +108,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add env.sh
-source ~/my/env.sh
+# Add my scripts, overwrites
+source ~/my/settings.zsh
+source ~/my/exports.zsh
+source ~/my/paths.zsh
+source ~/my/functions.zsh
+source ~/my/aliases.zsh
+source ~/my/extra.zsh
