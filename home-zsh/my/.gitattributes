@@ -1,0 +1,17 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+CONTRIBUTING.md export-ignore
+
+# Declare files that will always have CRLF line endings on checkout.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Declare files that will always have LF line endings on checkout.
+*.sh text eol=lf
+
+# Set yarn.lock and package-lock.json as binary
+# This helps with diffing as those files can generate extremely
+# large diffs
+package-lock.json   binary
+# Since version 1.0, Yarn automatically handle merge conflicts.
+yarn.lock           binary

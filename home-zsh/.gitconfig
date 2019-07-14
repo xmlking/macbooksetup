@@ -1,0 +1,8 @@
+[user]
+	name = first last name
+	email = me@myemail.com
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = ~/my/.gitignore
+	attributesfile = ~/my/.gitattributes
