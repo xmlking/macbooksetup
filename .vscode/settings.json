@@ -1,0 +1,43 @@
+{
+  "window.zoomLevel": 0,
+  "workbench.editor.highlightModifiedTabs": true,
+  "files.autoSave": "afterDelay",
+  "explorer.sortOrder": "type",
+  // Editor
+  "editor.fontFamily": "SourceCodePro-ExtraLight, FiraCode-Retina",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  // Terminal: Override Terminal Colors with Solarized Dark regardless of Theme
+  "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline",
+  "terminal.integrated.fontSize": 14,
+  "workbench.colorCustomizations": {
+    "terminal.foreground": "#839496",
+    // "terminal.foreground": "#e6e1cf",
+    "terminal.background": "#121a21",
+  },
+  // REST client
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "client-id": "ngxapi",
+      "username": "test",
+      "password": "test",
+      "api-gateway-url": "http://localhost:8080"
+    },
+    "local": {
+      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+      "api-url": "http://localhost:3000"
+    },
+    "local-admin": {
+      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+      "api-url": "http://localhost:3000",
+      "username": "ngx-admin",
+      "password": "ngx-admin"
+    },
+    "production": {
+      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+      "api-url": "https://api.kashmora.com"
+    }
+  }
+}

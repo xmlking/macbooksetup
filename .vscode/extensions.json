@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "googlecloudtools.cloudcode",
+    "DavidAnson.vscode-markdownlint",
+    "ms-vscode.Go",
+    "ms-azuretools.vscode-docker",
+    "EditorConfig.EditorConfig",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "humao.rest-client"
+  ]
+}
