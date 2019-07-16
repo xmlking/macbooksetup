@@ -160,6 +160,7 @@ brew cask install minikube
 ```
 
 ---
+
 ## zsh
 
 Reference [zsh](https://sourabhbajaj.com/mac-setup/iTerm/zsh.html) for detailed instructions. 
@@ -195,14 +196,17 @@ plugins=(
 ```
 
 > when you copy [home](./home) to your $HOME directory, you will got all the above configuration.
- 
+
 ### update oh_my_zsh
+
 > you can upgrade `oh_my_zsh` any time with
+
  ```bash
  upgrade_oh_my_zsh
  ```
 
 ---
+
 ## iTerm2
 
 Reference [iTerm](https://sourabhbajaj.com/mac-setup/iTerm/) for detailed instructions.
@@ -222,6 +226,7 @@ Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
 
 
 ### plugins
+
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -229,9 +234,10 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 ```
 
 Download and install following patched fonts for terminal use
-1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo_LG_M_Regular_for_Powerline.ttf)
-2. [Source Code Pro for Powerline](apps/iterm2/fonts/Source_Code_Pro_for_Powerline.otf)
-3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro_Powerline_Awesome_Regular.ttf)
+
+1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
+2. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
+3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
 
 Recommended to set iTerm2 font to `SourceCodePro+Powerline+Awesome+Regular` and font size to `14`
 
