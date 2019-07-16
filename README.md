@@ -229,9 +229,9 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 ```
 
 Download and install following patched fonts for terminal use
-1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo LG M Regular for Powerline.ttf)
-2. [Source Code Pro for Powerline](apps/iterm2/fonts/Source Code Pro for Powerline.otf)
-3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf)
+1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo_LG_M_Regular_for_Powerline.ttf)
+2. [Source Code Pro for Powerline](apps/iterm2/fonts/Source_Code_Pro_for_Powerline.otf)
+3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro_Powerline_Awesome_Regular.ttf)
 
 Recommended to set iTerm2 font to `SourceCodePro+Powerline+Awesome+Regular` and font size to `14`
 
