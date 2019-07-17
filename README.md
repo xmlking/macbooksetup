@@ -103,6 +103,7 @@ DevToolsSecurity -status
 
 #  substitute your username in palace of <username>
 DevToolsSecurity -enable
+# or
 sudo dscl . append /Groups/_developer GroupMembership <username>
 ```
 ---
@@ -147,6 +148,9 @@ brew install python
 # GoLang
 brew install protobuf
 brew install go
+
+# Developer IDE Fonts
+brew tap caskroom/fonts && brew cask install font-source-code-pro
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
