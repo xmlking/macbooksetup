@@ -1,33 +1,33 @@
 # Mac Developer Setup
 
-* [Mac Admin Privileges](#mac-admin-privileges)
-* [macOS Setup Guide](#mac-setup)
-* [Self Service Installations](#self-service-installations)
-* [xcode](#post-xcode-install)
-* [Enable Developer Mode](#developer-mode)
-* [Homebrew](#homebrew)
-* [zsh](#zsh)
-* [iTerm2](#iterm2)
-* [Fonts](#fonts)
-* [Node](#node)
-* [Angular CLI](#angular-cli)
-* [Setup work directories](#setup-work-directories)
-* [Intellij](#intellij)
-* [VSCode](#vscode)
-* [Sublime Text 3](#sublime-text-3)
-* [Postman](#postman)
-* [SDKman](#sdkman)
-* [RVM](#rvm)
-* [Ruby](#ruby)
-* [Java](#java)
-* [Docker](#docker)
-* [Kubernetes](#kubernetes)
-* [Homebrew Software Installations](#homebrew-software-installations)
-* [SDKman Software Installations](#sdkman-software-installations)
-* [File References](#file-references)
-* [Setup Profile](#setup-profile)
-* [Setup Anaconda3](#setup-anaconda3)
-* [Setup Citrix](#setup-citrix)
+- [Mac Admin Privileges](#mac-admin-privileges)
+- [macOS Setup Guide](#mac-setup)
+- [Self Service Installations](#self-service-installations)
+- [xcode](#post-xcode-install)
+- [Enable Developer Mode](#developer-mode)
+- [Homebrew](#homebrew)
+- [zsh](#zsh)
+- [iTerm2](#iterm2)
+- [Fonts](#fonts)
+- [Node](#node)
+- [Angular CLI](#angular-cli)
+- [Setup work directories](#setup-work-directories)
+- [Intellij](#intellij)
+- [VSCode](#vscode)
+- [Sublime Text 3](#sublime-text-3)
+- [Postman](#postman)
+- [SDKman](#sdkman)
+- [RVM](#rvm)
+- [Ruby](#ruby)
+- [Java](#java)
+- [Docker](#docker)
+- [Kubernetes](#kubernetes)
+- [Homebrew Software Installations](#homebrew-software-installations)
+- [SDKman Software Installations](#sdkman-software-installations)
+- [File References](#file-references)
+- [Setup Profile](#setup-profile)
+- [Setup Anaconda3](#setup-anaconda3)
+- [Setup Citrix](#setup-citrix)
 
 **Installation steps below assume that you are have Admin Access currently enabled**
 
@@ -38,18 +38,21 @@ First follow sourabhbajaj's [mac setup](https://sourabhbajaj.com/mac-setup/) Gui
 Then, follow this guide for [iTerm2](#iterm2), [Sublime Text 3](#sublime-text-3) setup.
 
 ---
+
 ## Self Service Installations
 
 If not already installed on your Macbook, you can install the following apps via **jamf** Self-Service App:
+
 > **jamf** Self-Service App is used by Enterprises to let developers install software on managed MacBooks
- 
-  * Microsoft Office
-  * Chrome
-  * **Xcode**
+
+- Microsoft Office
+- Chrome
+- **Xcode**
 
 `Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
 ---
+
 ## Post xcode install
 
 Check if the full Xcode package is already installed:
@@ -66,7 +69,7 @@ the full Xcode package is already installed. Otherwise:
 
 You should see the pop up below on your screen. Click Install when it appears.
 
-Once the software is installed, click Done. 
+Once the software is installed, click Done.
 
 Before you go to the next step, verify that you’ve successfully installed Xcode Command Line Tools:
 
@@ -78,9 +81,9 @@ You should see:
 
 Just to be certain, verify that gcc is installed:
 
-``$ gcc --version``
+`$ gcc --version`
 
-If all went well, you should see the GCC version in the output. 
+If all went well, you should see the GCC version in the output.
 
 It will show something like this:
 
@@ -91,7 +94,9 @@ Target: x86_64-apple-darwin17.7.0
 Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
+
 ---
+
 ## Developer Mode
 
 > Enable `Developer Mode` on this Mac so that you can use debugger and other dev tools
@@ -106,7 +111,9 @@ DevToolsSecurity -enable
 # or
 sudo dscl . append /Groups/_developer GroupMembership <username>
 ```
+
 ---
+
 ## Homebrew
 
 Reference [Homebrew](https://sourabhbajaj.com/mac-setup/Homebrew/) for detailed instructions.
@@ -122,6 +129,7 @@ Once the installation is successful, run the following command:
 If you get Your system is ready to brew, you can move on to the next step.
 
 ---
+
 ## Homebrew Software Installations
 
 To update brew:
@@ -134,7 +142,7 @@ brew install zsh
 brew install watch
 brew install jq
 brew install git
-brew install ack 
+brew install ack
 brew install tree
 brew install vim
 
@@ -158,7 +166,7 @@ brew install kubernetes-cli
 brew install skaffold
 brew install kubernetes-helm
 # virtualbox for minikube
-brew cask install virtualbox  
+brew cask install virtualbox
 
 brew cask install minikube
 ```
@@ -167,7 +175,7 @@ brew cask install minikube
 
 ## zsh
 
-Reference [zsh](https://sourabhbajaj.com/mac-setup/iTerm/zsh.html) for detailed instructions. 
+Reference [zsh](https://sourabhbajaj.com/mac-setup/iTerm/zsh.html) for detailed instructions.
 
 Install `Oh My Zsh`
 
@@ -199,15 +207,15 @@ plugins=(
 )
 ```
 
-> when you copy [home](./home) to your $HOME directory, you will got all the above configuration.
+> when you copy [home](./home) to your \$HOME directory, you will got all the above configuration.
 
 ### update oh_my_zsh
 
 > you can upgrade `oh_my_zsh` any time with
 
- ```bash
- upgrade_oh_my_zsh
- ```
+```bash
+upgrade_oh_my_zsh
+```
 
 ---
 
@@ -215,8 +223,8 @@ plugins=(
 
 Reference [iTerm](https://sourabhbajaj.com/mac-setup/iTerm/) for detailed instructions.
 
-Follow  [iTerm2 Configuration](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
-for applying the color scheme, install fonts, `Oh my Zsh`  add-ons. Note: use `Powerlevel10k` instead of `Powerlevel9k`
+Follow [iTerm2 Configuration](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
+for applying the color scheme, install fonts, `Oh my Zsh` add-ons. Note: use `Powerlevel10k` instead of `Powerlevel9k`
 
 ### Powerlevel10k
 
@@ -227,7 +235,6 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 ```
 
 Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
-
 
 ### plugins
 
@@ -251,19 +258,21 @@ Download and install following color schema for iTerm2
 2. [Dracula](apps/iterm2/colors/Dracula.itermcolors)
 3. [Solarized Dark](apps/iterm2/colors/Solarized-Dark-Patched.itermcolors)
 
-Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme` 
+Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
 ---
+
 ## Fonts
 
-We recommend also downland and install following fonts. 
+We recommend also downland and install following fonts.
 They are using by `VSCode` and `Sublime Text`
 
 1. Source Code Pro
-    `brew tap caskroom/fonts && brew cask install font-source-code-pro`
+   `brew tap caskroom/fonts && brew cask install font-source-code-pro`
 2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)
 
 ---
+
 ## Setup Work Directories
 
 Go to terminal and run the following commands:
@@ -312,43 +321,50 @@ Reference [Git](https://sourabhbajaj.com/mac-setup/Git/) for detailed instructio
 
 copy [.gitconfig](home/.gitconfig) to your home and change `name` and `email`
 
-
 ---
+
 ## IntelliJ/WebStorm/GoLand
 
 ---
+
 ## Android Studio
 
 ---
+
 ## VSCode
 
 Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer VSCode instead of Intellij
 
-#### Create a shortcut to launch Visual Studio Code in terminal
+### Create a shortcut to launch Visual Studio Code in terminal
 
 ```bash
  cd ~
  mkdir bin
 ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
- ```
+```
 
 To open dir in `Visual Studio Code` from terminal:
 
 `$ ~/bin/code dir.name`
 
-1. Downlaod and use [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) Font
-2. Override Terminal Colors with [Solarized Dark regardless of Theme](https://gist.github.com/berndverst/b6b6972d0ca3d6a569f082f53b777442)
-3. rest-client plugin for REST API UAT Testing 
+1. Downlaod and install [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) font
+2. install source-code-pro font via `brew tap caskroom/fonts && brew cask install font-source-code-pro`
+3. Use [rest-client](https://marketplace.visualstudio.com/items?itemname=humao.rest-client]) plugin for REST API UAT Testing
 
-> Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode)
- 
- ### Workspace Settings
- 
+   Recommended [johnpapa's angular-essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) plugin and its settings for **Angular**
+
+   Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode) for **GoLang**
+
+   Recommended workspace [settings](https://github.com/xmlking/ngx-starter-kit/tree/master/.vscode) for **Angular**
+
+### Workspace Settings
+
 for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
 for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
 You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
 
 ---
+
 ## Sublime Text 3
 
 Reference [SublimeText](https://sourabhbajaj.com/mac-setup/SublimeText/) for detailed instructions.
@@ -380,33 +396,27 @@ Install the 5 packages listed below:
 4. Monokai Extended
 5. TypeScript
 
-
-Afterwards, go to **Preferences ->  Settings-User** and copy and paste following JSON
+Afterwards, go to **Preferences -> Settings-User** and copy and paste following JSON
 
 ```json
 {
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
-	"font_face": "Consolas",
-	"font_size": 14,
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"indent_to_bracket": true,
-	"rulers":
-	[
-		79
-	],
-	"tab_size": 2,
-	"translate_tabs_to_spaces": true,
-	"word_wrap": false
+  "bold_folder_labels": true,
+  "color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
+  "font_face": "Consolas",
+  "font_size": 14,
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
+  "ignored_packages": ["Vintage"],
+  "indent_to_bracket": true,
+  "rulers": [79],
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "word_wrap": false
 }
 ```
 
 ---
+
 #### Create a shortcut to launch Sublime Text in terminal
 
 ```bash
@@ -420,12 +430,15 @@ To open file in Sublime Text from terminal:
 `$ ~/bin/subl file.name`
 
 ---
+
 ## iTerm2 More
 
-#### iTerm2 setup for day-to-day use 
-1. enable iterm2 Session [Restoration]( https://iterm2.com/documentation-restoration.html)
+#### iTerm2 setup for day-to-day use
+
+1. enable iterm2 Session [Restoration](https://iterm2.com/documentation-restoration.html)
 
 > in iTerm2
+
 2. split screen horizontally
 3. go to the bottom screen and split it vertically
 
@@ -441,9 +454,7 @@ Right bottom screen was running:
 
 With such setup it was easy to observe in real time how my pods are being created.
 
-
 #### Add some color to your terminal
-
 
 In **iTerm > Preferences...**, under the tab **Profiles**, section **Text**, change both fonts to **Consolas 13pt**.
 
@@ -453,8 +464,8 @@ Afterwards, in **iTerm2 Preferences**, under **Profiles** and **Colors**, go to 
 
 Go back to **Load Presets** and select **Solarized Dark** to activate it.
 
-
 ---
+
 ## Postman
 
 To install Postman go to [https://www.getpostman.com/](https://www.getpostman.com/)
@@ -462,6 +473,7 @@ To install Postman go to [https://www.getpostman.com/](https://www.getpostman.co
 After you install Postman, setup your account
 
 ---
+
 ## SDKMan
 
 Go to terminal and run:
@@ -477,6 +489,7 @@ Verify the installation went well
 `$ sdk version`
 
 ---
+
 ## RVM
 
 Go to terminal and run:
@@ -484,6 +497,7 @@ Go to terminal and run:
 `$ curl -sSL https://get.rvm.io | bash -s stable`
 
 ---
+
 ## Ruby
 
 Go to terminal and run:
@@ -492,8 +506,8 @@ Go to terminal and run:
 
 After installation is completed, remove .profile and .bashrc files created from the Ruby installion. Also, remove ruby related line from .bash_profile at the bottom of the file.
 
-
 ---
+
 ## Java
 
 > Node: we recommend use [SDKMAN](#sdkman-software-installations) to install and upgrade java.
@@ -505,6 +519,7 @@ Download Java version at least jdk8 [here](http://www.oracle.com/technetwork/jav
 > don't install JRE. developers need JDK
 
 ---
+
 ## GoLang
 
 > Install `go` and `protobuf`
@@ -520,29 +535,36 @@ mkdir go
 ```
 
 set `GOPATH` in `~/.path`
+
 ```bash
 export GOPATH=$HOME/go
 
-export PATH=${PATH}:${GOPATH}/bin 
+export PATH=${PATH}:${GOPATH}/bin
 ```
 
 > keep your GoLang projects outside `GOPATH`, i.e., in `/Developer/Work/go`
 
 ---
+
 ## Docker
+
 Download Docker at [https://docs.docker.com/docker-for-mac/](https://docs.docker.com/docker-for-mac/)
+
 > edge version is currently needed for local kubernetes env.
 
 Follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) to setup Docker and kubernetes
 
 ---
+
 ## Kubernetes
 
-Go to [Kubernetes for MacOS](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) 
-and follow instructions to setup **Kubernetes** with **Docker for Mac** for local development 
+Go to [Kubernetes for MacOS](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21)
+and follow instructions to setup **Kubernetes** with **Docker for Mac** for local development
 
 ---
+
 ## Angular CLI
+
 Go to terminal and run:
 
 `npm install -g @angular/cli`
@@ -552,6 +574,7 @@ Go to terminal and run:
 `npm install -g @nrwl/schematics`
 
 ---
+
 ## SDKman Software Installations
 
 To get a list of current or candidate versions for gradle:
@@ -568,10 +591,11 @@ sdk install gradle
 
 #optional
 sdk install maven
-sdk install kotlin 
+sdk install kotlin
 sdk install scala
 sdk install springboot
 ```
+
 When you prompted to set the newly installed software as default enter 'Y'
 
 How to use [sdkman](http://sdkman.io/usage.html)
@@ -584,30 +608,34 @@ To remove old version e.g., gradle 4.8:
 
 `$ sdk remove gradle 4.8`
 
-
 ---
+
 ## File References
+
 The following are files should be downloaded from this repository.
 
 The hidden files below are files that should be in your home directory by the end of the setup.
 
-* .bash_profile
-* .aliases
-* .bash_prompt
-* .extra
-* .path
+- .bash_profile
+- .aliases
+- .bash_prompt
+- .extra
+- .path
 
 The files below are files you can open in sublime text to verify that all settings for sublime are configured correctly (you should hopefully see colorful text) :
 
-* mark.md
-* sss.scss
-* type.ts
+- mark.md
+- sss.scss
+- type.ts
 
 ---
+
 ## Setup Profile
+
 > copy developer tested `zshrc`, `alias` etc., files to your home directory to make life easy.
 
 to finish this task, run the following commands in terminal:
+
 ```bash
 # go to your home dir
 cd ~
@@ -626,8 +654,10 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/se
 ```
 
 ---
+
 ## References
-* https://sourabhbajaj.com/mac-setup/
-* https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html
-* https://gist.github.com/kevin-smets/8568070
-* https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+
+- https://sourabhbajaj.com/mac-setup/
+- https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html
+- https://gist.github.com/kevin-smets/8568070
+- https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
