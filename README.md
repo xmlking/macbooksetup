@@ -47,7 +47,19 @@ If not already installed on your Macbook, you can install the following apps via
 
 - Microsoft Office
 - Chrome
-- **Xcode**
+- **X
+
+
+
+
+
+
+
+
+
+
+
+**
 
 `Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
@@ -351,13 +363,17 @@ To open dir in `Visual Studio Code` from terminal:
 2. install source-code-pro font via `brew tap caskroom/fonts && brew cask install font-source-code-pro`
 3. Use [rest-client](https://marketplace.visualstudio.com/items?itemname=humao.rest-client]) plugin for REST API UAT Testing
 
+
+### Workspace Settings
+
    Recommended [johnpapa's angular-essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) plugin and its settings for **Angular**
 
    Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode) for **GoLang**
 
    Recommended workspace [settings](https://github.com/xmlking/ngx-starter-kit/tree/master/.vscode) for **Angular**
 
-### Workspace Settings
+
+you can install a plugin with command line : `code --install-extension johnpapa.angular-essentials`
 
 for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
 for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
