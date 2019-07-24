@@ -47,19 +47,7 @@ If not already installed on your Macbook, you can install the following apps via
 
 - Microsoft Office
 - Chrome
-- **X
-
-
-
-
-
-
-
-
-
-
-
-**
+- Xcode
 
 `Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
