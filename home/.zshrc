@@ -116,3 +116,4 @@ source ~/my/paths.zsh
 source ~/my/functions.zsh
 source ~/my/aliases.zsh
 source ~/my/extra.zsh
+# keep new line here
