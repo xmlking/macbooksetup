@@ -75,3 +75,8 @@ function iterm2.tab.change {
     ;;
     esac
  }
+
+# Functions for iTerm2 Status Bar (3.3+)
+function iterm2_print_user_vars() {
+  iterm2_set_user_var kubecontext $(kubectl config current-context)
+}

@@ -260,6 +260,23 @@ Download and install following color schema for iTerm2
 
 Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
+### Status Bar Customization (Optional)
+
+> Add kubecontext Status Bar component
+
+#### Install iTerm2 Shell Integration
+
+`iTerm2 > Install Shell Integration`
+
+#### Add kubecontext Status Bar component
+
+- iTerm2 > Preferences > Profiles > Session > Configure Status Bar
+- Drag a new Interpolated String component to Active Components.
+- Select the new component and click Configure Component.
+- Set String Value to `\(user.kubecontext)`
+
+Refer: <https://sig.gy/itermkube/>
+
 ---
 
 ## Fonts

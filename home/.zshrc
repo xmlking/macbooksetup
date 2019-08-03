@@ -116,3 +116,5 @@ source ~/my/paths.zsh
 source ~/my/functions.zsh
 source ~/my/aliases.zsh
 source ~/my/extra.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
