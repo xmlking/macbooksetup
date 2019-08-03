@@ -4,9 +4,8 @@
   // Editor
   "editor.autoIndent": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": false
+    "source.organizeImports": true
   },
-  "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "line",
@@ -30,7 +29,19 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.colorCustomizations": {
     "terminal.foreground": "#839496",
-    "terminal.background": "#121a21"
+    "terminal.background": "#121a21",
+    "activityBar.background": "#fbed80",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#06b9a5",
+    "activityBarBadge.foreground": "#15202b",
+    "titleBar.activeBackground": "#f9e64f",
+    "titleBar.inactiveBackground": "#f9e64f99",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#15202b99",
+    "statusBar.background": "#f9e64f",
+    "statusBarItem.hoverBackground": "#f7df1e",
+    "statusBar.foreground": "#15202b"
   },
   // File settings
   "files.autoSave": "afterDelay",
@@ -48,63 +59,17 @@
   // "files.hotExit": "onExit",
   "files.defaultLanguage": "typescript",
   "files.trimTrailingWhitespace": true,
+  // Peacock Settings
+  "peacock.color": "#f9e64f",
   // Prettier settings
   "prettier.singleQuote": true,
   "prettier.printWidth": 100,
-  // Peacock Settings
-  "peacock.affectActivityBar": true,
-  "peacock.affectStatusBar": true,
-  "peacock.affectTitleBar": false,
-  "peacock.keepBadgeColor": false,
-  "peacock.keepForegroundColor": false,
-  "peacock.favoriteColors": [
-    {
-      "name": "Angular Red",
-      "value": "#b52e31"
-    },
-    {
-      "name": "Auth0 Orange",
-      "value": "#eb5424"
-    },
-    {
-      "name": "Azure Blue",
-      "value": "#007fff"
-    },
-    {
-      "name": "Gatsby Purple",
-      "value": "#639"
-    },
-    {
-      "name": "JavaScript Yellow",
-      "value": "#f9e64f"
-    },
-    {
-      "name": "Mandalorian Blue",
-      "value": "#1857a4"
-    },
-    {
-      "name": "Node Green",
-      "value": "#215732"
-    },
-    {
-      "name": "React Blue",
-      "value": "#00b3e6"
-    },
-    {
-      "name": "Something Different",
-      "value": "#832561"
-    },
-    {
-      "name": "Vue Green",
-      "value": "#42b883"
-    }
-  ],
   // REST client
   "rest-client.environmentVariables": {
     "$shared": {
       "client-id": "ngxapi",
-      "username": "test",
-      "password": "test",
+      "username": "sumo3",
+      "password": "demo",
       "api-gateway-url": "http://localhost:8080"
     },
     "local": {
@@ -114,8 +79,8 @@
     "local-admin": {
       "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
       "api-url": "http://localhost:3000",
-      "username": "ngx-admin",
-      "password": "ngx-admin"
+      "username": "ngxadmin",
+      "password": "ngxadmin"
     },
     "production": {
       "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",

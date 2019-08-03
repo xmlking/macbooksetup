@@ -2,7 +2,7 @@
 
 # Alias
 ## user's extra alias and oh-my-zsh's overwrites
-## Did you know that you can use dots/periods in your alias names? 
+## Did you know that you can use dots/periods in your alias names?
 ## It makes remembering them easier, and allows you to group them.
 
 # ls (overwrite oh-my-zsh's ll alias)
