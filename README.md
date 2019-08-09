@@ -164,6 +164,7 @@ brew tap caskroom/fonts && brew cask install font-source-code-pro
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
 brew install kubernetes-cli
 brew install skaffold
+brew install kustomize
 brew install kubernetes-helm
 # virtualbox for minikube
 brew cask install virtualbox
@@ -368,15 +369,13 @@ To open dir in `Visual Studio Code` from terminal:
 2. install source-code-pro font via `brew tap caskroom/fonts && brew cask install font-source-code-pro`
 3. Use [rest-client](https://marketplace.visualstudio.com/items?itemname=humao.rest-client]) plugin for REST API UAT Testing
 
-
 ### Workspace Settings
 
-   Recommended [johnpapa's angular-essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) plugin and its settings for **Angular**
+Recommended [johnpapa's angular-essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) plugin and its settings for **Angular**
 
-   Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode) for **GoLang**
+Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode) for **GoLang**
 
-   Recommended workspace [settings](https://github.com/xmlking/ngx-starter-kit/tree/master/.vscode) for **Angular**
-
+Recommended workspace [settings](https://github.com/xmlking/ngx-starter-kit/tree/master/.vscode) for **Angular**
 
 you can install a plugin with command line : `code --install-extension johnpapa.angular-essentials`
 
