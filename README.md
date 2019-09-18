@@ -289,6 +289,10 @@ They are using by `VSCode` and `Sublime Text`
    `brew tap caskroom/fonts && brew cask install font-source-code-pro`
 2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)
 
+````bash
+brew untap caskroom/fonts
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 ---
 
 ## Setup Work Directories
@@ -356,10 +360,10 @@ Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer 
 ### Create a shortcut to launch Visual Studio Code in terminal
 
 ```bash
- cd ~
- mkdir bin
+cd ~
+mkdir bin
 ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
-```
+````
 
 To open dir in `Visual Studio Code` from terminal:
 
