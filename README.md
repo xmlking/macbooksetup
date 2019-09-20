@@ -160,6 +160,7 @@ brew install go
 
 # Developer IDE Fonts
 brew tap caskroom/fonts && brew cask install font-source-code-pro
+brew untap caskroom/fonts && brew tap homebrew/cask-fonts && brew cask install font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
@@ -288,13 +289,9 @@ They are using by `VSCode` and `Sublime Text`
 
 1. Source Code Pro
    `brew tap caskroom/fonts && brew cask install font-source-code-pro`
-2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)
+2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/Installing#macos)
+   `brew untap caskroom/fonts && brew tap homebrew/cask-fonts && brew cask install font-fira-code`
 
-````bash
-brew untap caskroom/fonts
-brew tap homebrew/cask-fonts
-brew cask install font-fira-code
-```
 
 ## Setup Work Directories
 
