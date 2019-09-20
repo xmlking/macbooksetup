@@ -294,7 +294,7 @@ They are using by `VSCode` and `Sublime Text`
 brew untap caskroom/fonts
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
----
+```
 
 ## Setup Work Directories
 
