@@ -677,6 +677,7 @@ to finish this task, run the following commands in terminal:
 # go to your home dir
 cd ~
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.zshrc
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.p10k.zsh
 # change `name` and `email` in `.gitconfig` after copy
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.gitconfig
 mkdir ~/my && cd ~/my
@@ -687,7 +688,6 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/ex
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/settings.zsh
 ```
 
 ---
