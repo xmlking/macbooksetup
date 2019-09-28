@@ -110,13 +110,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Add my scripts, overwrites
-source ~/my/settings.zsh
-source ~/my/exports.zsh
-source ~/my/paths.zsh
-source ~/my/functions.zsh
-source ~/my/aliases.zsh
-source ~/my/extra.zsh
+[[ -f ~/my/exports.zsh ]] && source ~/my/exports.zsh
+[[ -f ~/my/paths.zsh ]] && source ~/my/paths.zsh
+[[ -f ~/my/functions.zsh ]] && source ~/my/functions.zsh
+[[ -f ~/my/aliases.zsh ]] && source ~/my/aliases.zsh
+[[ -f ~/my/extra.zsh ]] && source ~/my/extra.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # keep new line here
-
