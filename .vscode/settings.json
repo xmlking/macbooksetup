@@ -28,8 +28,6 @@
   // Workbench
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.colorCustomizations": {
-    "terminal.foreground": "#839496",
-    "terminal.background": "#121a21",
     "activityBar.background": "#fbed80",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
