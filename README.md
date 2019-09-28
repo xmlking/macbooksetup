@@ -233,7 +233,7 @@ for applying the color scheme, install fonts, `Oh my Zsh` add-ons. Note: use `Po
 
 ### Powerlevel10k
 
-Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or  [Opinionated Powerlevel10k](https://gist.github.com/kevin-smets/8568070) instructions
+Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or [Opinionated Powerlevel10k](https://gist.github.com/kevin-smets/8568070) instructions
 
 ```bash
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -243,7 +243,6 @@ Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
 
 After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
 
-
 ### plugins
 
 ```bash
@@ -252,21 +251,19 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
-
 Optinally download and install following patched fonts for terminal use(try which one best suite you)
 
-1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf) 
+1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf)
 2. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
 3. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
 4. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
 
-Recommended to use  **MesloLGS NF Regular**  font all terminals  and font size `14`
+Recommended to use **MesloLGS NF Regular** font all terminals and adjust terminal font size e.g., terminal.integrated.fontSize=14
 
-1. iTerm2: Open iTerm2 → Preferences → Profiles → Text and set Font to *MesloLGS NF Regular*
-2. Visual Studio Code: Open File → Preferences → Settings, enter `terminal.integrated.fontFamily` in the search box and set the value to *MesloLGS NF Regular*
+1. iTerm2: Open iTerm2 → Preferences → Profiles → Text and set Font to _MesloLGS NF Regular_
+2. Visual Studio Code: Open File → Preferences → Settings, enter `terminal.integrated.fontFamily` in the search box and set the value to _MesloLGS NF Regular_
 
-    e.g., `"terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline"`
-
+   e.g., `"terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline"`
 
 Download and install following color schema for iTerm2
 
@@ -293,7 +290,8 @@ Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 - Select the new component and click Configure Component.
 - Set String Value to `\(user.kubecontext)`
 
-Refer: 
+Refer:
+
 1. <https://sig.gy/itermkube/>
 2. <https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal/>
 
@@ -308,7 +306,6 @@ They are using by `VSCode` and `Sublime Text`
    `brew tap caskroom/fonts && brew cask install font-source-code-pro`
 2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/Installing#macos)
    `brew untap caskroom/fonts && brew tap homebrew/cask-fonts && brew cask install font-fira-code`
-
 
 ## Setup Work Directories
 
@@ -378,7 +375,7 @@ Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer 
 cd ~
 mkdir bin
 ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
-````
+```
 
 To open dir in `Visual Studio Code` from terminal:
 

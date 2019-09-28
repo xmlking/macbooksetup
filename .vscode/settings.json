@@ -23,7 +23,7 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   // Terminal
-  "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline",
+  "terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline",
   // "terminal.integrated.fontSize": 16,
   // Workbench
   "workbench.editor.highlightModifiedTabs": true,
