@@ -146,6 +146,8 @@ brew install git-flow-avh
 brew install ack
 brew install tree
 brew install vim
+# a better `cat`
+brew install bat
 
 ## languages
 # node
@@ -271,6 +273,8 @@ Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
 `iTerm2 > Install Shell Integration`
 
+> Go into iTerm preferences and untick the indicators: Profiles > Terminal > Show mark indicators.
+
 #### Add kubecontext Status Bar component
 
 - iTerm2 > Preferences > Profiles > Session > Configure Status Bar
@@ -278,7 +282,9 @@ Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 - Select the new component and click Configure Component.
 - Set String Value to `\(user.kubecontext)`
 
-Refer: <https://sig.gy/itermkube/>
+Refer: 
+1. <https://sig.gy/itermkube/>
+2. <https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal/>
 
 ---
 
