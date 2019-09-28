@@ -265,6 +265,8 @@ Recommended to use  **MesloLGS NF Regular**  font all terminals  and font size `
 1. iTerm2: Open iTerm2 → Preferences → Profiles → Text and set Font to *MesloLGS NF Regular*
 2. Visual Studio Code: Open File → Preferences → Settings, enter `terminal.integrated.fontFamily` in the search box and set the value to *MesloLGS NF Regular*
 
+    e.g., `"terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline"`
+
 
 Download and install following color schema for iTerm2
 
