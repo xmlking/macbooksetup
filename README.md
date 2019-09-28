@@ -233,13 +233,16 @@ for applying the color scheme, install fonts, `Oh my Zsh` add-ons. Note: use `Po
 
 ### Powerlevel10k
 
-Follow instructions for [Powerlevel10k](https://gist.github.com/kevin-smets/8568070)
+Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or  [Opinionated Powerlevel10k](https://gist.github.com/kevin-smets/8568070) instructions
 
 ```bash
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
 Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
+
+After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
+
 
 ### plugins
 
@@ -249,13 +252,19 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
-Download and install following patched fonts for terminal use
 
-1. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
-2. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
-3. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
+Optinally download and install following patched fonts for terminal use(try which one best suite you)
 
-Recommended to set iTerm2 font to `SourceCodePro+Powerline+Awesome+Regular` and font size to `14`
+1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf) 
+2. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
+3. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
+4. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
+
+Recommended to use  **MesloLGS NF Regular**  font all terminals  and font size `14`
+
+1. iTerm2: Open iTerm2 → Preferences → Profiles → Text and set Font to *MesloLGS NF Regular*
+2. Visual Studio Code: Open File → Preferences → Settings, enter `terminal.integrated.fontFamily` in the search box and set the value to *MesloLGS NF Regular*
+
 
 Download and install following color schema for iTerm2
 
