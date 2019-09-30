@@ -313,6 +313,8 @@ Go to terminal and run the following commands:
 
 To go your root directory:
 
+> if you don't have admin privilege, then use your home directory (`$ cd ~/`) in place of root directory (`$ cd /`) for the rest of this document.
+
 `$ cd /`
 
 Make 'Developer' directory:
@@ -333,7 +335,7 @@ Make 'Work' directory under /Developer:
 
 Make 'Applications' directory under /Developer:
 
-`$ mkdir Applications`
+`$ mkdir Apps`
 
 Change directory to /Developer/Work
 
