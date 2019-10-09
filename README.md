@@ -2,7 +2,7 @@
 
 - [Mac Admin Privileges](#mac-admin-privileges)
 - [macOS Setup Guide](#mac-setup)
-- [Self Service Installations](#self-service-installations)
+- [Apps Installation](#apps-installation)
 - [xcode](#post-xcode-install)
 - [Enable Developer Mode](#developer-mode)
 - [Homebrew](#homebrew)
@@ -24,7 +24,6 @@
 - [Kubernetes](#kubernetes)
 - [Homebrew Software Installations](#homebrew-software-installations)
 - [SDKman Software Installations](#sdkman-software-installations)
-- [File References](#file-references)
 - [Setup Profile](#setup-profile)
 - [Setup Anaconda3](#setup-anaconda3)
 - [Setup Citrix](#setup-citrix)
@@ -39,15 +38,14 @@ Then, follow this guide for [iTerm2](#iterm2), [Sublime Text 3](#sublime-text-3)
 
 ---
 
-## Self Service Installations
+## Apps Installation
 
-If not already installed on your Macbook, you can install the following apps via **jamf** Self-Service App:
-
-> **jamf** Self-Service App is used by Enterprises to let developers install software on managed MacBooks
+abased on you needed install following software
 
 - Microsoft Office
 - Chrome
 - Xcode
+- IntelliJ
 
 `Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
@@ -170,10 +168,6 @@ brew install kubernetes-cli
 brew install skaffold
 brew install kustomize
 brew install kubernetes-helm
-# virtualbox for minikube
-brew cask install virtualbox
-
-brew cask install minikube
 ```
 
 ---
@@ -335,11 +329,13 @@ Change directory to ~/Developer/Work
 
 `$ cd Work`
 
-Make 'SPA' , 'go', 'java' etc directories under ~/Developer/Work:
+Make `SPA` , `go`, `java` etc directories under ~/Developer/Work:
 
-`$ mkdir SPA`
-`$ mkdir go`
-`$ mkdir java`
+```bash
+mkdir SPA
+mkdir go
+kdir java
+```
 
 ---
 
@@ -559,20 +555,9 @@ brew install go
 brew install protobuf
 ```
 
-```bash
-cd ~
-mkdir go
-```
+make sure `GOPATH/bin` is in your path
 
-set `GOPATH` in `~/.path`
-
-```bash
-export GOPATH=$HOME/go
-
-export PATH=${PATH}:${GOPATH}/bin
-```
-
-> keep your GoLang projects outside `GOPATH`, i.e., in `~/Developer/Work/go`
+`export PATH=$PATH:$(go env GOPATH)/bin`
 
 ---
 
@@ -640,29 +625,11 @@ To remove old version e.g., gradle 4.8:
 
 ---
 
-## File References
-
-The following are files should be downloaded from this repository.
-
-The hidden files below are files that should be in your home directory by the end of the setup.
-
-- .bash_profile
-- .aliases
-- .bash_prompt
-- .extra
-- .path
-
-The files below are files you can open in sublime text to verify that all settings for sublime are configured correctly (you should hopefully see colorful text) :
-
-- mark.md
-- sss.scss
-- type.ts
-
----
-
 ## Setup Profile
 
-> copy developer tested `zshrc`, `alias` etc., files to your home directory to make life easy.
+All the above setting already backed into following dot(.) files
+
+> copy `zshrc`, `alias` etc., files to your home directory to make life easy.
 
 to finish this task, run the following commands in terminal:
 
