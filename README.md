@@ -311,43 +311,35 @@ They are using by `VSCode` and `Sublime Text`
 
 Go to terminal and run the following commands:
 
-To go your root directory:
+To go your home directory:
 
-> if you don't have admin privilege, then use your home directory (`$ cd ~/`) in place of root directory (`$ cd /`) for the rest of this document.
-
-`$ cd /`
+`$ cd ~`
 
 Make 'Developer' directory:
 
-`$ sudo mkdir Developer`
+`$ mkdir -p ~/Developer`
 
-Make yourself the owner of 'Developer' directory:
+Change directory to Developer
 
-`$ sudo chown -R $USER:admin Developer/`
+`$ cd ~/Developer`
 
-Change directory to /Developer
-
-`$ cd Developer`
-
-Make 'Work' directory under /Developer:
+Make 'Work' directory under ~/Developer:
 
 `$ mkdir Work`
 
-Make 'Applications' directory under /Developer:
+Make 'Apps' directory under ~/Developer:
 
 `$ mkdir Apps`
 
-Change directory to /Developer/Work
+Change directory to ~/Developer/Work
 
 `$ cd Work`
 
-Make 'SPA' directory under /Developer/Work:
+Make 'SPA' , 'go', 'java' etc directories under ~/Developer/Work:
 
 `$ mkdir SPA`
-
-Make 'go' directory under /Developer/Work:
-
 `$ mkdir go`
+`$ mkdir java`
 
 ---
 
@@ -580,7 +572,7 @@ export GOPATH=$HOME/go
 export PATH=${PATH}:${GOPATH}/bin
 ```
 
-> keep your GoLang projects outside `GOPATH`, i.e., in `/Developer/Work/go`
+> keep your GoLang projects outside `GOPATH`, i.e., in `~/Developer/Work/go`
 
 ---
 

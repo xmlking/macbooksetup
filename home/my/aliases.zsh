@@ -18,10 +18,11 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 alias watch="watch "
 
 # Paths
-alias go.work="/Developer/Work"
-alias go.go="/Developer/Work/go"
-alias go.spa="/Developer/Work/SPA"
-alias go.java="/Developer/Work/java"
+alias go.work="~/Developer/Work"
+alias go.go="~/Developer/Work/go"
+alias go.spa="~/Developer/Work/SPA"
+alias go.java="~/Developer/Work/java"
+alias go.tools="~/Developer/Work/tools"
 
 # Mac
 alias mac.showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"

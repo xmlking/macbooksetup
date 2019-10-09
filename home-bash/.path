@@ -1,8 +1,0 @@
-PATH=/usr/local/share/python:$PATH # Executable scripts from Python packages you install will be put in here
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-export GOPATH=$HOME/go
-
-export PATH=${PATH}:${GOPATH}/bin
-
-export PATH

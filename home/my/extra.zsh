@@ -5,10 +5,10 @@
 ## move them here.
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "/Developer/Applications/google-cloud-sdk/path.zsh.inc" ]; then . "/Developer/Applications/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "/Users/schintha/Developer/Apps/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/schintha/Developer/Apps/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "/Developer/Applications/google-cloud-sdk/completion.zsh.inc" ]; then . "/Developer/Applications/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "/Users/schintha/Developer/Apps/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/schintha/Developer/Apps/google-cloud-sdk/completion.zsh.inc"; fi
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
