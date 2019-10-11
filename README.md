@@ -157,6 +157,11 @@ brew install python
 # GoLang
 brew install protobuf
 brew install go
+# grpc cli client
+brew install grpc
+# bloomrpc is a UI client for gRPC
+# install `bloomrpc` via `brew` if you have admin access, or manually download it into ~/Applications)
+brew cask install bloomrpc
 
 # Developer IDE Fonts
 brew tap caskroom/fonts && brew cask install font-source-code-pro
