@@ -46,10 +46,24 @@ abased on you needed install following software
 - Chrome
 - Xcode
 - IntelliJ
+- [kubernetic](https://kubernetic.com)
 
 `Xcode/ Xcode Command Line Tools` is requred even if you don't use xcode, for `NodeJS`, `GoLang` etc to work.
 
 ---
+
+### Install Apps via brew cask
+
+> `brew cask install --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
+> if you have admin privilege you can skip `--appdir=~/Applications` flag
+
+```bash
+# but I prefer installing `Nightly Builds` from https://www.iterm2.com/downloads.html
+brew cask install --appdir=~/Applications iterm2
+brew cask install --appdir=~/Applications sublime-text
+brew cask info --appdir=~/Applications visual-studio-code
+brew cask install --appdir=~/Applications bloomrpc
+```
 
 ## Post xcode install
 
@@ -160,8 +174,8 @@ brew install go
 # grpc cli client
 brew install grpc
 # bloomrpc is a UI client for gRPC
-# install `bloomrpc` via `brew` if you have admin access, or manually download it into ~/Applications)
-brew cask install bloomrpc
+# install `bloomrpc` via `brew` into ~/Applications)
+brew cask install --appdir=~/Applications bloomrpc
 
 # Developer IDE Fonts
 brew tap caskroom/fonts && brew cask install font-source-code-pro
