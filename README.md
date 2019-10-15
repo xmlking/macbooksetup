@@ -299,7 +299,7 @@ Make `SPA` , `go`, `java` etc directories under ~/Developer/Work:
 ```bash
 mkdir SPA
 mkdir go
-kdir java
+mkdir java
 ```
 
 ---
