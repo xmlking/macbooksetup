@@ -8,39 +8,27 @@
 - [Homebrew](#homebrew)
 - [zsh](#zsh)
 - [iTerm2](#iterm2)
-- [Fonts](#fonts)
 - [Node](#node)
-- [Angular CLI](#angular-cli)
 - [Setup work directories](#setup-work-directories)
-- [Intellij](#intellij)
 - [VSCode](#vscode)
 - [Sublime Text 3](#sublime-text-3)
-- [Postman](#postman)
 - [SDKman](#sdkman)
-- [RVM](#rvm)
-- [Ruby](#ruby)
-- [Java](#java)
 - [Docker](#docker)
 - [Kubernetes](#kubernetes)
-- [Homebrew Software Installations](#homebrew-software-installations)
 - [SDKman Software Installations](#sdkman-software-installations)
+- [Cloud SDK](#cloud-sdk)
 - [Setup Profile](#setup-profile)
-- [Setup Anaconda3](#setup-anaconda3)
-- [Setup Citrix](#setup-citrix)
-
+ 
 **Installation steps below assume that you are have Admin Access currently enabled**
 
 ## Mac Setup
 
-First follow sourabhbajaj's [mac setup](https://sourabhbajaj.com/mac-setup/) Guide
-
-Then, follow this guide for [iTerm2](#iterm2), [Sublime Text 3](#sublime-text-3) setup.
 
 ---
 
 ## Apps Installation
 
-abased on you needed install following software
+based on you needed, install following software
 
 - Microsoft Office
 - Chrome
@@ -57,8 +45,9 @@ abased on you needed install following software
 > `brew cask install --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
 > if you have admin privilege you can skip `--appdir=~/Applications` flag
 
+> for **iterm2**, I prefer installing `Nightly Builds` from https://www.iterm2.com/downloads.html
+
 ```bash
-# but I prefer installing `Nightly Builds` from https://www.iterm2.com/downloads.html
 brew cask install --appdir=~/Applications iterm2
 brew cask install --appdir=~/Applications sublime-text
 brew cask info --appdir=~/Applications visual-studio-code
@@ -173,18 +162,15 @@ brew install protobuf
 brew install go
 # grpc cli client
 brew install grpc
-# bloomrpc is a UI client for gRPC
-# install `bloomrpc` via `brew` into ~/Applications)
-brew cask install --appdir=~/Applications bloomrpc
 
 # Developer IDE Fonts
-brew tap caskroom/fonts && brew cask install font-source-code-pro
-brew untap caskroom/fonts && brew tap homebrew/cask-fonts && brew cask install font-fira-code
+brew tap homebrew/cask-fonts 
+brew cask install font-source-code-pro
+brew cask install font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
 brew install kubernetes-cli
-brew install skaffold
 brew install kustomize
 brew install kubernetes-helm
 ```
@@ -207,39 +193,10 @@ The installation script should set zsh to your default shell, but if it doesn't 
 chsh -s $(which zsh)
 ```
 
-we will be using `powerlevel10k` theme and following plugins with `Oh My Zsh`
-
-```bash
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-	git
-	golang
-	brew
-	osx
-	kubectl
-	colored-man-pages
-	zsh-completions
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
-```
-
-> when you copy [home](./home) to your \$HOME directory, you will got all the above configuration.
-
-### update oh_my_zsh
-
-> you can upgrade `oh_my_zsh` any time with
-
-```bash
-upgrade_oh_my_zsh
-```
-
 ---
 
 ## iTerm2
 
-Reference [iTerm](https://sourabhbajaj.com/mac-setup/iTerm/) for detailed instructions.
 
 Follow [iTerm2 Configuration](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
 for applying the color scheme, install fonts, `Oh my Zsh` add-ons. Note: use `Powerlevel10k` instead of `Powerlevel9k`
@@ -252,9 +209,7 @@ Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or [Opi
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k".`
-
-After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
+Node: After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
 
 ### plugins
 
@@ -264,7 +219,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
-Optinally download and install following patched fonts for terminal use(try which one best suite you)
+Download and install first [MesloLGS NF Regular] patched font for terminal use 
+
+> other terminal fonts are optional 
 
 1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf)
 2. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
@@ -278,7 +235,7 @@ Recommended to use **MesloLGS NF Regular** font all terminals and adjust termina
 
    e.g., `"terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline"`
 
-Download and install following color schema for iTerm2
+Download and install following color schemas for iTerm2
 
 1. [Clovis-iTerm2-Color-Scheme](apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
 2. [Dracula](apps/iterm2/colors/Dracula.itermcolors)
@@ -287,8 +244,6 @@ Download and install following color schema for iTerm2
 Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
 ### Status Bar Customization (Optional)
-
-> Add kubecontext Status Bar component
 
 #### Install iTerm2 Shell Integration
 
@@ -310,15 +265,6 @@ Refer:
 
 ---
 
-## Fonts
-
-We recommend also downland and install following fonts.
-They are using by `VSCode` and `Sublime Text`
-
-1. Source Code Pro
-   `brew tap caskroom/fonts && brew cask install font-source-code-pro`
-2. [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/Installing#macos)
-   `brew untap caskroom/fonts && brew tap homebrew/cask-fonts && brew cask install font-fira-code`
 
 ## Setup Work Directories
 
@@ -358,21 +304,6 @@ kdir java
 
 ---
 
-## Git
-
-Reference [Git](https://sourabhbajaj.com/mac-setup/Git/) for detailed instructions.
-
-copy [.gitconfig](home/.gitconfig) to your home and change `name` and `email`
-
----
-
-## IntelliJ/WebStorm/GoLand
-
----
-
-## Android Studio
-
----
 
 ## VSCode
 
@@ -383,30 +314,13 @@ Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer 
 ```bash
 cd ~
 mkdir bin
-ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
+# change `schintha` to your user name
+ln -s "/Users/schintha/Applications/Visual Studio Code.app/Contents/Resources/app/code" ~/bin/code
 ```
 
 To open dir in `Visual Studio Code` from terminal:
 
 `$ ~/bin/code dir.name`
-
-1. Downlaod and install [FiraCode-Retina](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) font
-2. install source-code-pro font via `brew tap caskroom/fonts && brew cask install font-source-code-pro`
-3. Use [rest-client](https://marketplace.visualstudio.com/items?itemname=humao.rest-client]) plugin for REST API UAT Testing
-
-### Workspace Settings
-
-Recommended [johnpapa's angular-essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) plugin and its settings for **Angular**
-
-Recommended workspace [settings](https://github.com/xmlking/micro-starter-kit/tree/master/.vscode) for **GoLang**
-
-Recommended workspace [settings](https://github.com/xmlking/ngx-starter-kit/tree/master/.vscode) for **Angular**
-
-you can install a plugin with command line : `code --install-extension johnpapa.angular-essentials`
-
-for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"
-for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
-You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
 
 ---
 
@@ -467,7 +381,8 @@ Afterwards, go to **Preferences -> Settings-User** and copy and paste following 
 ```bash
  cd ~
  mkdir bin
- ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+# change `schintha` to your user name
+ ln -s "/Users/schintha/Applications/Sublime Text.app/Contents/SharedSupport/binsubl" ~/bin/subl
 ```
 
 To open file in Sublime Text from terminal:
@@ -499,24 +414,6 @@ Right bottom screen was running:
 
 With such setup it was easy to observe in real time how my pods are being created.
 
-#### Add some color to your terminal
-
-In **iTerm > Preferences...**, under the tab **Profiles**, section **Text**, change both fonts to **Consolas 13pt**.
-
-Go to [Solarized](http://ethanschoonover.com/solarized), scroll down, download, and unzip solarized.
-
-Afterwards, in **iTerm2 Preferences**, under **Profiles** and **Colors**, go to **Load Presets > Import**, find and open the two **.itermcolors** files we downloaded and unzipped.
-
-Go back to **Load Presets** and select **Solarized Dark** to activate it.
-
----
-
-## Postman
-
-To install Postman go to [https://www.getpostman.com/](https://www.getpostman.com/)
-
-After you install Postman, setup your account
-
 ---
 
 ## SDKMan
@@ -535,80 +432,6 @@ Verify the installation went well
 
 ---
 
-## RVM
-
-Go to terminal and run:
-
-`$ curl -sSL https://get.rvm.io | bash -s stable`
-
----
-
-## Ruby
-
-Go to terminal and run:
-
-`$ curl -L https://get.rvm.io | bash -s stable --ruby`
-
-After installation is completed, remove .profile and .bashrc files created from the Ruby installion. Also, remove ruby related line from .bash_profile at the bottom of the file.
-
----
-
-## Java
-
-> Node: we recommend use [SDKMAN](#sdkman-software-installations) to install and upgrade java.
-
-### Traditional installation procedure
-
-Download Java version at least jdk8 [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-
-> don't install JRE. developers need JDK
-
----
-
-## GoLang
-
-> Install `go` and `protobuf`
-
-```bash
-brew install go
-brew install protobuf
-```
-
-make sure `GOPATH/bin` is in your path
-
-`export PATH=$PATH:$(go env GOPATH)/bin`
-
----
-
-## Docker
-
-Download Docker at [https://docs.docker.com/docker-for-mac/](https://docs.docker.com/docker-for-mac/)
-
-> edge version is currently needed for local kubernetes env.
-
-Follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) to setup Docker and kubernetes
-
----
-
-## Kubernetes
-
-Go to [Kubernetes for MacOS](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21)
-and follow instructions to setup **Kubernetes** with **Docker for Mac** for local development
-
----
-
-## Angular CLI
-
-Go to terminal and run:
-
-`npm install -g @angular/cli`
-
-## Nrwl's nx CLI
-
-`npm install -g @nrwl/schematics`
-
----
-
 ## SDKman Software Installations
 
 To get a list of current or candidate versions for gradle:
@@ -619,12 +442,12 @@ To install the following software, go to terminal and run:
 
 ```bash
 # if you want to manage java version with `sdkman`
-# java  `11.0.2-open` is current long-term support (LTS). next best version is `8.0.201-oracle` if you need java8
-sdk install java 12.0.1-open
+# java  `13.0.0-open` is current long-term support (LTS). 
+sdk install java 13.0.0-open
 sdk install gradle
+sdk install maven
 
 #optional
-sdk install maven
 sdk install kotlin
 sdk install scala
 sdk install springboot
@@ -638,11 +461,55 @@ To see what is outdated for all Candidates
 
 `sdk upgrade`
 
-To remove old version e.g., gradle 4.8:
+To remove old version e.g., gradle 5.6.2:
 
-`$ sdk remove gradle 4.8`
+`$ sdk remove gradle 5.6.2`
 
 ---
+
+## Docker
+
+Download Docker at [https://docs.docker.com/docker-for-mac/](https://docs.docker.com/docker-for-mac/)
+
+Follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) to setup Docker and kubernetes
+
+---
+
+## Kubernetes
+
+Go to [Kubernetes for MacOS](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21)
+and follow instructions to setup **Kubernetes** with **Docker for Mac** for local development
+
+---
+
+
+## Cloud SDK (optional)
+
+### Step 1: Install
+
+Download latest [cloud-sdk](https://cloud.google.com/sdk/docs/quickstart-macos) and unpack into `~/Developer/Apps/google-cloud-sdk`
+
+### Step 2: Login 
+
+> do this step after you finish [Setup Profile]
+
+```bash
+# first time only
+# initialize the SDK
+gcloud init
+
+# Testing The CLI Setup
+gcloud auth login
+gcloud auth list
+
+# List the sdk configuration
+gcloud config list
+gcloud info
+
+# hook it up to GCR so you can push containers:
+gcloud auth configure-docker
+```
+
 
 ## Setup Profile
 
@@ -664,6 +531,7 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.g
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
+# after downloading `exports.zsh`, edit `exports.zsh` and replace `schintha` with your mac username
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
