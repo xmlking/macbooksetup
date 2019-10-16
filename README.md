@@ -177,6 +177,9 @@ brew install kubernetes-helm
 
 # gcloud cli
 brew cask install google-cloud-sdk
+# Note: if you see failures (e.g., 503) during the google-cloud-sdk installation, you may need to set your python proxy and re-run the command. e.g.,
+# export HTTP_PROXY="http://user:password@hostname:port"
+# export HTTPS_PROXY="http://user:password@hostname:port"
 ```
 
 ---
