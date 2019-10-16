@@ -16,7 +16,7 @@
 - [Docker](#docker)
 - [Kubernetes](#kubernetes)
 - [SDKman Software Installations](#sdkman-software-installations)
-- [Cloud SDK](#cloud-sdk)
+- [Cloud SDK](#cloud-sdk-optional)
 - [Setup Profile](#setup-profile)
  
 **Installation steps below assume that you are have Admin Access currently enabled**
@@ -541,11 +541,13 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.g
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
-# after downloading `exports.zsh`, edit `exports.zsh` and replace `schintha` with your mac username
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
 curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
 ```
+
+
+> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc` 
 
 ---
 
