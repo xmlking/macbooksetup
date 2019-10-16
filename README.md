@@ -62,7 +62,7 @@ Check if the full Xcode package is already installed:
 
 If you see:
 
-`/Applications/Xcode.app/Contents/Developer`
+`/Library/Developer/CommandLineTools`
 
 the full Xcode package is already installed. Otherwise:
 
