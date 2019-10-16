@@ -170,6 +170,7 @@ brew cask install font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
+brew install kubectx
 brew install kubernetes-cli
 brew install kustomize
 brew install kubernetes-helm
