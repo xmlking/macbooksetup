@@ -174,6 +174,9 @@ brew install kubectx
 brew install kubernetes-cli
 brew install kustomize
 brew install kubernetes-helm
+
+# gcloud cli
+brew cask install google-cloud-sdk
 ```
 
 ---
@@ -486,22 +489,28 @@ and follow instructions to setup **Kubernetes** with **Docker for Mac** for loca
 
 ## Cloud SDK (optional)
 
-### Step 1: Install
 
-Download latest [cloud-sdk](https://cloud.google.com/sdk/docs/quickstart-macos) and unpack into `~/Developer/Apps/google-cloud-sdk`
 
-### Step 2: Login 
+Install Google cloud SDK using your favourite method, e.g.
 
-> do this step after you finish [Setup Profile]
+`brew cask install google-cloud-sdk`
+
+Log in to Google Cloud and select your project, region, etc.
 
 ```bash
-# first time only
-# initialize the SDK
-gcloud init
+gcloud init # --console-only if in a remote shell
+```
+
+gcloud has an interactive shell if you wish to use it:
+
+```bash
+gcloud components install beta
+gcloud beta interactive
 
 # Testing The CLI Setup
 gcloud auth login
 gcloud auth list
+
 
 # List the sdk configuration
 gcloud config list
@@ -546,3 +555,5 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/pa
 - https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html
 - https://gist.github.com/kevin-smets/8568070
 - https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+- https://github.com/micro/micro/blob/master/network/config/kubernetes/gcloud.md
+
