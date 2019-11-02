@@ -174,6 +174,8 @@ brew install kubectx
 brew install kubernetes-cli
 brew install kustomize
 brew install kubernetes-helm
+# Manage Your lk8s In Style!
+brew install derailed/k9s/k9s
 
 # gcloud cli
 brew cask install google-cloud-sdk
