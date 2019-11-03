@@ -80,3 +80,29 @@ function iterm2.tab.change {
 function iterm2_print_user_vars() {
   iterm2_set_user_var kubecontext $(kubectl config current-context)
 }
+
+# minikube functions
+function minikube-eval() {
+    test $(minikube status | grep Running | wc -l) -eq 3 && $(minikube status | grep -q 'kubeconfig: Configured') || minikube start
+      rval=$?
+      if [[ $rval -ge 1 ]]; then
+        echo "Error: Is minikube running?"
+        exit 1
+      fi
+      eval $(minikube docker-env)
+}
+
+function minikube-init() {
+    echo "--> starting minikbe"
+    command minikube status | grep -q 'kubeconfig: Configured'
+    if [[ $? -ne 0 ]]; then
+        command minikube start
+        if [[ $? -ne 0 ]]; then
+            echo "--> failed to start minikube" >&2
+            return 1
+        fi
+        echo "--> started minikube"
+    else
+        echo "--> minikube is already started"
+    fi
+}

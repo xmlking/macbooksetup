@@ -14,3 +14,7 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+if type "minikube" > /dev/null; then
+    minikube-eval
+fi
+
