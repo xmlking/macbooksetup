@@ -82,14 +82,15 @@ function iterm2_print_user_vars() {
 }
 
 # minikube functions
+
 function minikube-eval() {
-    test $(minikube status | grep Running | wc -l) -eq 3 && $(minikube status | grep -q 'kubeconfig: Configured') || minikube start
+    test $(minikube status | grep Running | wc -l) -eq 3 && $(minikube status | grep -q 'kubeconfig: Configured')
       rval=$?
       if [[ $rval -ge 1 ]]; then
-        echo "Error: Is minikube running?"
-        exit 1
+        echo "Error: Is minikube running? start with: minikube-init"
+      else
+        eval $(minikube docker-env)
       fi
-      eval $(minikube docker-env)
 }
 
 function minikube-init() {
@@ -101,6 +102,7 @@ function minikube-init() {
             echo "--> failed to start minikube" >&2
             return 1
         fi
+
         echo "--> started minikube"
     else
         echo "--> minikube is already started"
