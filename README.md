@@ -388,7 +388,7 @@ Afterwards, go to **Preferences -> Settings-User** and copy and paste following 
  cd ~
  mkdir bin
 # change `schintha` to your user name
- ln -s "/Users/schintha/Applications/Sublime Text.app/Contents/SharedSupport/binsubl" ~/bin/subl
+ ln -s "/Users/schintha/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
 
 To open file in Sublime Text from terminal:
