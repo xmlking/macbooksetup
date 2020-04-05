@@ -15,6 +15,7 @@
 - [SDKman](#sdkman)
 - [Docker](#docker)
 - [Kubernetes](#kubernetes)
+- [Istio](#istio)
 - [SDKman Software Installations](#sdkman-software-installations)
 - [Cloud SDK](#cloud-sdk-optional)
 - [Setup Profile](#setup-profile)
@@ -491,6 +492,12 @@ and follow instructions to setup **Kubernetes** with **Docker for Mac** for loca
 
 ---
 
+## Istio
+
+Go to [Istio for MacOS](https://gist.github.com/xmlking/e248bc094ccd6452fb5bac03b91c70f1)
+and follow instructions to setup **Istio** with **Kubernetes** for local development
+
+---
 
 ## Cloud SDK (optional)
 
