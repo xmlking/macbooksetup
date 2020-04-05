@@ -149,6 +149,8 @@ brew install tree
 brew install vim
 # a better `cat`
 brew install bat
+# a better `curl`
+brew install httpie
 
 ## languages
 # node
@@ -176,6 +178,7 @@ brew install kustomize
 brew install kubernetes-helm
 # Manage Your lk8s In Style!
 brew install derailed/k9s/k9s
+brew install istioctl
 
 # gcloud cli
 brew cask install google-cloud-sdk
