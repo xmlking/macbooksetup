@@ -7,7 +7,7 @@
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # Executable scripts from Python packages you install will be put in here
-export PATH=/usr/local/share/python:$PATH
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.rvm/bin  
