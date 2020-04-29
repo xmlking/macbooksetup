@@ -452,8 +452,9 @@ To install the following software, go to terminal and run:
 
 ```bash
 # if you want to manage java version with `sdkman`
-# java  `13.0.0-open` is current long-term support (LTS). 
-sdk install java 13.0.0-open
+# java  `11.0.X.hs-adpt` is current long-term support (LTS). 
+sdk install java 11.0.7.hs-adpt
+
 sdk install gradle
 sdk install maven
 
