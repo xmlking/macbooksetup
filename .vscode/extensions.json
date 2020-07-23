@@ -1,17 +1,13 @@
 {
   "recommendations": [
-    "googlecloudtools.cloudcode",
-    "DavidAnson.vscode-markdownlint",
+    "golang.go",
     "ms-azuretools.vscode-docker",
-    "humao.rest-client",
-    "PKief.material-icon-theme",
-    // Git
-    "donjayamanne.githistory",
-    "eamodio.gitlens",
-    // GoLang
-    "ms-vscode.Go",
     "zxh404.vscode-proto3",
-    // Angular
-    "johnpapa.angular-essentials"
+    "xaver.clang-format",
+    "EditorConfig.EditorConfig",
+    "PKief.material-icon-theme",
+    "hediet.vscode-drawio",
+    "github.github-vscode-theme",
+    "github.vscode-pull-request-github"
   ]
 }
