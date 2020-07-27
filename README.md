@@ -229,6 +229,16 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
+Then add the plugin to the list of plugins in ```~/.zshrc``` configuration file:
+```
+plugins=(
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-completions
+)
+```
+
+
 Download and install first [MesloLGS NF Regular] patched font for terminal use 
 
 > other terminal fonts are optional 
