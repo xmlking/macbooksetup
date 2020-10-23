@@ -51,7 +51,7 @@ based on you needed, install following software
 ```bash
 brew cask install --appdir=~/Applications iterm2
 brew cask install --appdir=~/Applications sublime-text
-brew cask info --appdir=~/Applications visual-studio-code
+brew cask install --appdir=~/Applications visual-studio-code
 brew cask install --appdir=~/Applications bloomrpc
 ```
 
@@ -325,7 +325,7 @@ Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer 
 cd ~
 mkdir bin
 # change `schintha` to your user name
-ln -s "/Users/schintha/Applications/Visual Studio Code.app/Contents/Resources/app/code" ~/bin/code
+ln -s "/Users/schintha/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
 ```
 
 To open dir in `Visual Studio Code` from terminal:
