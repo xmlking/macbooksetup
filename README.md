@@ -234,9 +234,6 @@ Download and install first [MesloLGS NF Regular] patched font for terminal use
 > other terminal fonts are optional 
 
 1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf)
-2. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
-3. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
-4. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
 
 Recommended to use **MesloLGS NF Regular** font all terminals and adjust terminal font size e.g., terminal.integrated.fontSize=14
 
@@ -248,10 +245,6 @@ Recommended to use **MesloLGS NF Regular** font all terminals and adjust termina
 Download and install following color schemas for iTerm2
 
 1. [Clovis-iTerm2-Color-Scheme](apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
-2. [Dracula](apps/iterm2/colors/Dracula.itermcolors)
-3. [Solarized Dark](apps/iterm2/colors/Solarized-Dark-Patched.itermcolors)
-
-Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
 ### Status Bar Customization (Optional)
 
