@@ -30,3 +30,8 @@
     added = yellow
     changed = green
     untracked = cyan
+# extra
+[fetch]
+    prune = true
+[pull]
+    rebase = false
