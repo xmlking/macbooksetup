@@ -140,7 +140,6 @@ To update brew:
 
 ```bash
 # tools
-brew install zsh
 brew install watch
 brew install jq
 brew install git
