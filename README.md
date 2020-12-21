@@ -8,7 +8,7 @@
 - [Homebrew](#homebrew)
 - [zsh](#zsh)
 - [iTerm2](#iterm2)
-- [Node](#node)
+- [Rust](#rust)
 - [Setup work directories](#setup-work-directories)
 - [VSCode](#vscode)
 - [Sublime Text 3](#sublime-text-3)
@@ -218,7 +218,7 @@ Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or [Opi
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Node: After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
+Note: After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
 
 ### plugins
 
@@ -267,7 +267,30 @@ Refer:
 
 ---
 
+## Rust
+ 
+Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 
+### Installation
+For installation, it's advised to use `rustup` as it will (among other things) allow you to switch between versions of Rust without having to download anything additional.
+
+```bash
+brew install rustup
+```
+
+Use rustup to install the Rust compiler (rustc) and the Rust package manager (cargo).
+
+```bash
+rustup-init
+```
+
+To verify you can run:
+
+```bash
+rustc --version
+```
+
+---
 ## Setup Work Directories
 
 Go to terminal and run the following commands:
