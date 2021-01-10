@@ -151,6 +151,8 @@ brew install vim
 brew install bat
 # a better `curl`
 brew install httpie
+# better then a Makefile
+brew install go-task/tap/go-task
 
 ## languages
 # node
@@ -290,6 +292,26 @@ To verify you can run:
 rustc --version
 ```
 
+To upgrade `rustup`
+
+```bash
+brew upgrade rustup
+# or
+rustup self update
+```
+
+Enable tab completion for Zsh
+```bash
+rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
+```
+
+To update `rust`
+
+```bash
+rustup update
+rustup update stable
+```
+
 ---
 ## Setup Work Directories
 
@@ -324,7 +346,10 @@ Make `SPA` , `go`, `java` etc directories under ~/Developer/Work:
 ```bash
 mkdir SPA
 mkdir go
+mkdir rust
 mkdir java
+mkdir node
+mkdir tools
 ```
 
 ---
