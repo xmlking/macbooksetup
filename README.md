@@ -144,6 +144,7 @@ brew install watch
 brew install jq
 brew install git
 brew install git-flow-avh
+brew install hub
 brew install ack
 brew install tree
 brew install vim
