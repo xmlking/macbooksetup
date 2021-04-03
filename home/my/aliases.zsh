@@ -20,6 +20,7 @@ alias watch="watch "
 # Paths
 alias go.work="~/Developer/Work"
 alias go.go="~/Developer/Work/go"
+alias go.rust="~/Developer/Work/rust"
 alias go.spa="~/Developer/Work/SPA"
 alias go.java="~/Developer/Work/java"
 alias go.tools="~/Developer/Work/tools"

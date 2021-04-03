@@ -97,7 +97,7 @@ function minikube-init() {
     echo "--> starting minikbe"
     command minikube status | grep -q 'kubeconfig: Configured'
     if [[ $? -ne 0 ]]; then
-        command minikube start
+        command minikube start --feature-gates=EphemeralContainers=true
         if [[ $? -ne 0 ]]; then
             echo "--> failed to start minikube" >&2
             return 1
