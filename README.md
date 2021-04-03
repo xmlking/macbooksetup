@@ -168,6 +168,9 @@ brew install go
 # grpc cli client
 brew install grpc
 
+# ETL
+brew install benthos
+
 # Developer IDE Fonts
 brew tap homebrew/cask-fonts 
 brew cask install font-source-code-pro
