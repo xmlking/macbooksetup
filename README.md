@@ -19,7 +19,7 @@
 - [SDKman Software Installations](#sdkman-software-installations)
 - [Cloud SDK](#cloud-sdk-optional)
 - [Setup Profile](#setup-profile)
- 
+
 **Installation steps below assume that you are have Admin Access currently enabled**
 
 ## Mac Setup
@@ -43,16 +43,16 @@ based on you needed, install following software
 
 ### Install Apps via brew cask
 
-> `brew cask install --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
+> `brew install --cask --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
 > if you have admin privilege you can skip `--appdir=~/Applications` flag
 
 > for **iterm2**, I prefer installing `Nightly Builds` from https://www.iterm2.com/downloads.html
 
 ```bash
-brew cask install --appdir=~/Applications iterm2
-brew cask install --appdir=~/Applications sublime-text
-brew cask install --appdir=~/Applications visual-studio-code
-brew cask install --appdir=~/Applications bloomrpc
+brew install --cask --appdir=~/Applications iterm2
+brew install --cask --appdir=~/Applications sublime-text
+brew install --cask --appdir=~/Applications visual-studio-code
+brew install --cask --appdir=~/Applications bloomrpc
 ```
 
 ## Post xcode install
@@ -172,9 +172,9 @@ brew install grpc
 brew install benthos
 
 # Developer IDE Fonts
-brew tap homebrew/cask-fonts 
-brew cask install font-source-code-pro
-brew cask install font-fira-code
+brew tap homebrew/cask-fonts
+brew install --cask font-source-code-pro
+brew install --cask font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
@@ -187,7 +187,7 @@ brew install derailed/k9s/k9s
 brew install istioctl
 
 # gcloud cli
-brew cask install google-cloud-sdk
+brew install --cask google-cloud-sdk
 ```
 
 ---
@@ -234,9 +234,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
-Download and install first [MesloLGS NF Regular] patched font for terminal use 
+Download and install first [MesloLGS NF Regular] patched font for terminal use
 
-> other terminal fonts are optional 
+> other terminal fonts are optional
 
 1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf)
 
@@ -274,7 +274,7 @@ Refer:
 ---
 
 ## Rust
- 
+
 Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 
 ### Installation
@@ -496,7 +496,7 @@ To install the following software, go to terminal and run:
 
 ```bash
 # if you want to manage java version with `sdkman`
-# java  `11.0.X.hs-adpt` is current long-term support (LTS). 
+# java  `11.0.X.hs-adpt` is current long-term support (LTS).
 sdk install java 11.0.7.hs-adpt
 
 sdk install gradle
@@ -550,7 +550,7 @@ and follow instructions to setup **Istio** with **Kubernetes** for local develop
 
 Install Google cloud SDK using your favourite method, e.g.
 
-`brew cask install google-cloud-sdk`
+`brew install --cask google-cloud-sdk`
 
 Log in to Google Cloud and select your project, region, etc.
 
@@ -604,7 +604,7 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/pa
 ```
 
 
-> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc` 
+> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc`
 
 ---
 
