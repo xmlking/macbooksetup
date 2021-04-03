@@ -187,7 +187,10 @@ brew install derailed/k9s/k9s
 brew install istioctl
 
 # gcloud cli
-brew install --cask google-cloud-sdk
+brew cask install google-cloud-sdk
+# Note: if you see failures (e.g., 503) during the google-cloud-sdk installation, you may need to set your python proxy and re-run the command. e.g.,
+# export HTTP_PROXY="http://user:password@hostname:port"
+# export HTTPS_PROXY="http://user:password@hostname:port"
 ```
 
 ---
