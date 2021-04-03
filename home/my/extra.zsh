@@ -14,3 +14,10 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# The next line updates PATH for rust language. i.e., append /Users/<username>/.cargo/bin
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+if type "minikube" > /dev/null; then
+    minikube-eval
+fi
+

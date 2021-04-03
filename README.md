@@ -8,17 +8,18 @@
 - [Homebrew](#homebrew)
 - [zsh](#zsh)
 - [iTerm2](#iterm2)
-- [Node](#node)
+- [Rust](#rust)
 - [Setup work directories](#setup-work-directories)
 - [VSCode](#vscode)
 - [Sublime Text 3](#sublime-text-3)
 - [SDKman](#sdkman)
 - [Docker](#docker)
 - [Kubernetes](#kubernetes)
+- [Istio](#istio)
 - [SDKman Software Installations](#sdkman-software-installations)
 - [Cloud SDK](#cloud-sdk-optional)
 - [Setup Profile](#setup-profile)
- 
+
 **Installation steps below assume that you are have Admin Access currently enabled**
 
 ## Mac Setup
@@ -42,16 +43,16 @@ based on you needed, install following software
 
 ### Install Apps via brew cask
 
-> `brew cask install --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
+> `brew install --cask --appdir=~/Applications xyz` will install into user Apps (i.e., `~/Applications`)<br/>
 > if you have admin privilege you can skip `--appdir=~/Applications` flag
 
 > for **iterm2**, I prefer installing `Nightly Builds` from https://www.iterm2.com/downloads.html
 
 ```bash
-brew cask install --appdir=~/Applications iterm2
-brew cask install --appdir=~/Applications sublime-text
-brew cask info --appdir=~/Applications visual-studio-code
-brew cask install --appdir=~/Applications bloomrpc
+brew install --cask --appdir=~/Applications iterm2
+brew install --cask --appdir=~/Applications sublime-text
+brew install --cask --appdir=~/Applications visual-studio-code
+brew install --cask --appdir=~/Applications bloomrpc
 ```
 
 ## Post xcode install
@@ -139,16 +140,20 @@ To update brew:
 
 ```bash
 # tools
-brew install zsh
 brew install watch
 brew install jq
 brew install git
 brew install git-flow-avh
+brew install hub
 brew install ack
 brew install tree
 brew install vim
 # a better `cat`
 brew install bat
+# a better `curl`
+brew install httpie
+# better then a Makefile
+brew install go-task/tap/go-task
 
 ## languages
 # node
@@ -163,10 +168,13 @@ brew install go
 # grpc cli client
 brew install grpc
 
+# ETL
+brew install benthos
+
 # Developer IDE Fonts
-brew tap homebrew/cask-fonts 
-brew cask install font-source-code-pro
-brew cask install font-fira-code
+brew tap homebrew/cask-fonts
+brew install --cask font-source-code-pro
+brew install --cask font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
@@ -174,6 +182,9 @@ brew install kubectx
 brew install kubernetes-cli
 brew install kustomize
 brew install kubernetes-helm
+# Manage Your lk8s In Style!
+brew install derailed/k9s/k9s
+brew install istioctl
 
 # gcloud cli
 brew cask install google-cloud-sdk
@@ -216,7 +227,7 @@ Follow [Offical Powerlevel10k](https://github.com/romkatv/powerlevel10k) or [Opi
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Node: After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
+Note: After Powerlevel10k setup, when you restart iTerm2 first time, it will ask you to install `MesloLGS NF` font and sequence of questions to customize prompt. To customize prompt again, run `p10k configure` or edit ~/.p10k.zsh.
 
 ### plugins
 
@@ -226,14 +237,22 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
+Then add the plugin to the list of plugins in ```~/.zshrc``` configuration file:
+```
+plugins=(
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-completions
+)
+```
+
+
 Download and install first [MesloLGS NF Regular] patched font for terminal use 
 
-> other terminal fonts are optional 
+
+> other terminal fonts are optional
 
 1. [MesloLGS NF Regular](https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf)
-2. [Meslo LG M Regular for Powerline](apps/iterm2/fonts/Meslo-LG-M-Powerline.ttf)
-3. [Source Code Pro for Powerline](apps/iterm2/fonts/SourceCodePro-Powerline.otf)
-4. [SourceCodePro+Powerline+Awesome+Regular](apps/iterm2/fonts/SourceCodePro-Powerline-Awesome.ttf)
 
 Recommended to use **MesloLGS NF Regular** font all terminals and adjust terminal font size e.g., terminal.integrated.fontSize=14
 
@@ -245,10 +264,6 @@ Recommended to use **MesloLGS NF Regular** font all terminals and adjust termina
 Download and install following color schemas for iTerm2
 
 1. [Clovis-iTerm2-Color-Scheme](apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
-2. [Dracula](apps/iterm2/colors/Dracula.itermcolors)
-3. [Solarized Dark](apps/iterm2/colors/Solarized-Dark-Patched.itermcolors)
-
-Recommended to set iTerm2 Color Scheme to `Clovis-iTerm2-Color-Scheme`
 
 ### Status Bar Customization (Optional)
 
@@ -272,7 +287,50 @@ Refer:
 
 ---
 
+## Rust
 
+Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
+
+### Installation
+For installation, it's advised to use `rustup` as it will (among other things) allow you to switch between versions of Rust without having to download anything additional.
+
+```bash
+brew install rustup
+```
+
+Use rustup to install the Rust compiler (rustc) and the Rust package manager (cargo).
+
+```bash
+rustup-init
+```
+
+To verify you can run:
+
+```bash
+rustc --version
+```
+
+To upgrade `rustup`
+
+```bash
+brew upgrade rustup
+# or
+rustup self update
+```
+
+Enable tab completion for Zsh
+```bash
+rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
+```
+
+To update `rust`
+
+```bash
+rustup update
+rustup update stable
+```
+
+---
 ## Setup Work Directories
 
 Go to terminal and run the following commands:
@@ -306,7 +364,10 @@ Make `SPA` , `go`, `java` etc directories under ~/Developer/Work:
 ```bash
 mkdir SPA
 mkdir go
+mkdir rust
 mkdir java
+mkdir node
+mkdir tools
 ```
 
 ---
@@ -322,7 +383,7 @@ Go to [VSCode](https://code.visualstudio.com/) and install VSCode if you prefer 
 cd ~
 mkdir bin
 # change `schintha` to your user name
-ln -s "/Users/schintha/Applications/Visual Studio Code.app/Contents/Resources/app/code" ~/bin/code
+ln -s "/Users/schintha/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ~/bin/code
 ```
 
 To open dir in `Visual Studio Code` from terminal:
@@ -389,7 +450,7 @@ Afterwards, go to **Preferences -> Settings-User** and copy and paste following 
  cd ~
  mkdir bin
 # change `schintha` to your user name
- ln -s "/Users/schintha/Applications/Sublime Text.app/Contents/SharedSupport/binsubl" ~/bin/subl
+ ln -s "/Users/schintha/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
 
 To open file in Sublime Text from terminal:
@@ -449,8 +510,9 @@ To install the following software, go to terminal and run:
 
 ```bash
 # if you want to manage java version with `sdkman`
-# java  `13.0.0-open` is current long-term support (LTS). 
-sdk install java 13.0.0-open
+# java  `11.0.X.hs-adpt` is current long-term support (LTS).
+sdk install java 11.0.7.hs-adpt
+
 sdk install gradle
 sdk install maven
 
@@ -489,6 +551,12 @@ and follow instructions to setup **Kubernetes** with **Docker for Mac** for loca
 
 ---
 
+## Istio
+
+Go to [Istio for MacOS](https://gist.github.com/xmlking/e248bc094ccd6452fb5bac03b91c70f1)
+and follow instructions to setup **Istio** with **Kubernetes** for local development
+
+---
 
 ## Cloud SDK (optional)
 
@@ -496,7 +564,7 @@ and follow instructions to setup **Kubernetes** with **Docker for Mac** for loca
 
 Install Google cloud SDK using your favourite method, e.g.
 
-`brew cask install google-cloud-sdk`
+`brew install --cask google-cloud-sdk`
 
 Log in to Google Cloud and select your project, region, etc.
 
@@ -550,7 +618,7 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/pa
 ```
 
 
-> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc` 
+> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc`
 
 ---
 
