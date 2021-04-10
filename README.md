@@ -629,4 +629,4 @@ curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/pa
 - https://gist.github.com/kevin-smets/8568070
 - https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
 - https://github.com/micro/micro/blob/master/network/config/kubernetes/gcloud.md
-
+- [My Ultimate M1 Mac Developer Setup](https://codeburst.io/my-ultimate-m1-mac-developer-setup-cfdb2daeed2d)
