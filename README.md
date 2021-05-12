@@ -19,6 +19,7 @@
 - [SDKman Software Installations](#sdkman-software-installations)
 - [Cloud SDK](#cloud-sdk-optional)
 - [Setup Profile](#setup-profile)
+- [Optional](#optional)
 
 **Installation steps below assume that you are have Admin Access currently enabled**
 
@@ -558,9 +559,38 @@ and follow instructions to setup **Istio** with **Kubernetes** for local develop
 
 ---
 
-## Cloud SDK (optional)
+## Setup Profile
+
+All the above setting already backed into following dot(.) files
+
+> copy `zshrc`, `alias` etc., files to your home directory to make life easy.
+
+to finish this task, run the following commands in terminal:
+
+```bash
+# go to your home dir
+cd ~
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.zshrc
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.p10k.zsh
+# change `name` and `email` in `.gitconfig` after copy
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.gitconfig
+mkdir ~/my && cd ~/my
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitattributes
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
+```
 
 
+> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc`
+
+---
+## Optional
+
+### Cloud SDK
 
 Install Google cloud SDK using your favourite method, e.g.
 
@@ -591,34 +621,13 @@ gcloud info
 gcloud auth configure-docker
 ```
 
+### Scripting 
 
-## Setup Profile
+Write shell scripts with Google's [zx](https://github.com/google/zx)
 
-All the above setting already backed into following dot(.) files
-
-> copy `zshrc`, `alias` etc., files to your home directory to make life easy.
-
-to finish this task, run the following commands in terminal:
-
-```bash
-# go to your home dir
-cd ~
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.zshrc
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.p10k.zsh
-# change `name` and `email` in `.gitconfig` after copy
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.gitconfig
-mkdir ~/my && cd ~/my
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitattributes
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
 ```
-
-
-> If you want to add **paths** or **exports** use respective files in `~/my` folder instead of editing  `~/.zshrc`
+yarn global add zx
+```
 
 ---
 
