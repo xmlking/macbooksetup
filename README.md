@@ -186,6 +186,8 @@ brew install kubernetes-helm
 # Manage Your lk8s In Style!
 brew install derailed/k9s/k9s
 brew install istioctl
+# A tool for exploring each layer in a docker image
+brew install dive
 
 # gcloud cli
 brew cask install google-cloud-sdk
