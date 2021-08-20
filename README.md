@@ -179,8 +179,9 @@ brew install --cask font-fira-code
 
 ## kubernetes
 # if you are going to install `docker-for-mac`, it comes with `kubectl` and don't need install it again via brew.
+brew install kubectl
+brew install k3d
 brew install kubectx
-brew install kubernetes-cli
 brew install kustomize
 brew install kubernetes-helm
 # Manage Your lk8s In Style!
@@ -549,8 +550,13 @@ Follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e
 
 ## Kubernetes
 
-Go to [Kubernetes for MacOS](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21)
-and follow instructions to setup **Kubernetes** with **Docker for Mac** for local development
+Go to [k3s on macOS](https://habd.as/post/kubernetes-macos-k3s-k3d-rancher/) 
+and follow instructions to setup **Kubernetes** cluster for local testing
+
+### Istio (optional)
+
+Go to [Istio for MacOS](https://gist.github.com/xmlking/e248bc094ccd6452fb5bac03b91c70f1)
+and follow instructions to setup **Istio** with **Kubernetes** for local development
 
 ---
 
