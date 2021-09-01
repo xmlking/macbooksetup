@@ -125,6 +125,24 @@ Go to terminal and run:
 
 `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
+
+If you don't have **admin** access to your laptop(e.g., company issued laptop), recomend installing **brew** in your home directory.
+In this case follow these steps
+
+```bash
+cd ~
+cd $HOME
+git clone https://github.com/mxcl/homebrew.git
+```
+
+then add brew to front of PATH by editing your shell profile file and adding below lines:
+
+```
+export BREW_HOME=$HOME/homebrew
+export PATH=$BREW_HOME/bin:$PATH
+```
+
+
 Once the installation is successful, run the following command:
 
 `$ brew doctor`
@@ -189,6 +207,8 @@ brew install derailed/k9s/k9s
 brew install istioctl
 # A tool for exploring each layer in a docker image
 brew install dive
+# build and deploy docker images
+brew install skaffold
 
 # gcloud cli
 brew cask install google-cloud-sdk
