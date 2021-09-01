@@ -130,7 +130,6 @@ If you don't have **admin** access to your laptop(e.g., company issued laptop), 
 In this case follow these steps
 
 ```bash
-cd ~
 cd $HOME
 git clone https://github.com/mxcl/homebrew.git
 ```
