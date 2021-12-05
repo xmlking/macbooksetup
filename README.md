@@ -185,6 +185,8 @@ brew install protobuf
 brew install go
 # grpc cli client
 brew install grpc
+# certs for mTLS
+brew install step
 
 # ETL
 brew install benthos
