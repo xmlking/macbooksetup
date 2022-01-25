@@ -10,7 +10,8 @@
 - Platforms
     - [Java](platforms/java.md)
     - [Node](platforms/node.md)
-      - [Recovery](platforms/npm.md)
+      - [NPM](platforms/npm.md)
+      - [PNPM](platforms/pnpm.md)
     - [GoLang](platforms/golang.md)
     - [Rust](platforms/rust.md)
     - [Python](platforms/python.md)
