@@ -599,18 +599,18 @@ to finish this task, run the following commands in terminal:
 ```bash
 # go to your home dir
 cd ~
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.zshrc
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.p10k.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/.zshrc
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/.p10k.zsh
 # change `name` and `email` in `.gitconfig` after copy
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/.gitconfig
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/.gitconfig
 mkdir ~/my && cd ~/my
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitattributes
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/.gitignore
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/aliases.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/exports.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/extra.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/functions.zsh
-curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/master/home/my/paths.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/.gitattributes
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/.gitignore
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/aliases.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/exports.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/extra.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/functions.zsh
+curl -O https://raw.githubusercontent.com/xmlking/macbooksetup/main/home/my/paths.zsh
 ```
 
 
