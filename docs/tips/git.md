@@ -25,3 +25,8 @@
     git push origin --delete master
     ```
     Ref: https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/
+
+- When to use Rebase vs merge?
+  - When merging `feature -> main` or `release -> main` use **merge**
+  - When merging `main --> feature` to keep your _feature_ branch up-to-date, use **rebase**
+  Read to jeffkreeftmeijer's [Rebase vs merge](https://jeffkreeftmeijer.com/git-rebase/) blog

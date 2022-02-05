@@ -140,3 +140,7 @@ open dashboard in your favorite browser and **don't forget the second slash**
 ```bash
 open http://traefik.localhost/dashboard/#/
 ```
+
+## Reference 
+
+- StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5) 
