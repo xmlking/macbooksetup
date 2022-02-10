@@ -78,33 +78,6 @@ function iterm2.tab.change {
 
 # Functions for iTerm2 Status Bar (3.3+)
 function iterm2_print_user_vars() {
-  iterm2_set_user_var kubecontext $(kubectl config current-context)
+  iterm2_set_user_var kubecontext $(kubectl config current-context 2>/dev/null)
 }
 
-# minikube functions
-
-function minikube-eval() {
-    test $(minikube status | grep Running | wc -l) -eq 3 && $(minikube status | grep -q 'kubeconfig: Configured')
-      rval=$?
-      if [[ $rval -ge 1 ]]; then
-        echo "Error: Is minikube running? start with: minikube-init"
-      else
-        eval $(minikube docker-env)
-      fi
-}
-
-function minikube-init() {
-    echo "--> starting minikbe"
-    command minikube status | grep -q 'kubeconfig: Configured'
-    if [[ $? -ne 0 ]]; then
-        command minikube start --feature-gates=EphemeralContainers=true
-        if [[ $? -ne 0 ]]; then
-            echo "--> failed to start minikube" >&2
-            return 1
-        fi
-
-        echo "--> started minikube"
-    else
-        echo "--> minikube is already started"
-    fi
-}
