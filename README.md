@@ -1,5 +1,8 @@
 # Mac Developer Setup
 
+Installation guides. For the Mac.
+Community-authored. Write, edit, share.
+
 - [Mac Admin Privileges](#mac-admin-privileges)
 - [macOS Setup Guide](#mac-setup)
 - [Apps Installation](#apps-installation)
