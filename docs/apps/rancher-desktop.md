@@ -1,12 +1,16 @@
 # Rancher Desktop
 
-**[Rancher Desktop](https://rancherdesktop.io)** Kubernetes and Container Management on the Desktop.<br/>
-Is the replacement for **Docker for Mac**
+Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local development.
+
+**[Rancher Desktop](https://rancherdesktop.io)** Kubernetes and Container Management on the Desktop. Is the replacement for **Docker for Mac**
 
 It includes:
-1. [k3s](https://k3s.io/)
-2. [traefik](https://traefik.io/)
-3. [lima](https://github.com/lima-vm/lima)
+
+1. [lima](https://github.com/lima-vm/lima)
+2. [containerD](https://containerd.io)
+3. [k3s](https://k3s.io/)
+4. [traefik](https://traefik.io/)
+
 
 After _Rancher Desktop_ is installed, users will have access to these supporting utilities:
 
@@ -23,7 +27,6 @@ It is recommended assign:
 
 ![rancher-desktop-settings](../images/rancher-desktop-settings.png)
 
-
 ## Install
 
 Download and install the latest binary _[Rancher.Desktop-x.x.x-mac.aarch64.zip]_ for M1 MacBooks from [here](https://github.com/rancher-sandbox/rancher-desktop/releases), 
@@ -32,9 +35,10 @@ if you get Error: `Error Directory /usr/local/bin doesn't exist` , follow [worka
 As of Rancher.Desktop-1.0.1, the temp workaround is:
 ```shell
 sudo chmod 775 /private/var/run/rancher-desktop-lima
-mkdir /usr/local/bin
+#sudo chown -R "$USER":staff /private/var/run/rancher-desktop-lima
+mkdir -p /usr/local/bin
 sudo chmod go+w /usr/local/bin
-#sudo chown $USER /usr/local/bin
+#sudo chown "$USER":staff /usr/local/bin
 ```
 Once the fix is release, consider reverting `/usr/local/bin` mode.
 ```shell
@@ -43,14 +47,15 @@ sudo chmod go-w /usr/local/bin
 
 Optional DevOps tools for SREs
 ```shell
-brew install kubectx # to switch kubecontext quickly 
+brew install kubectx # to switch kube context, namespace quickly. https://github.com/ahmetb/kubectx 
+brew install kubens # to switch kube  quickly 
 brew install kubernetes-helm # package manager for Kubernetes
 brew install kustomize # Kubernetes native configuration management
 brew install stefanprodan/tap/kustomizer # package manager for distributing Kubernetes configuration as OCI artifacts
 brew install derailed/k9s/k9s # Manage Your k8s In Style!
 brew install istioctl # Istio configuration command line utility 
 brew install dive # A tool for exploring each layer in a docker image
-brew install crane # Or, use this to inspect the layer of the image.
+brew install crane # A tool for interacting with remote images and registries.
 brew install skaffold # build and deploy docker images
 ```
 
@@ -146,6 +151,13 @@ syft packages ghcr.io/junaid18183/sampleapp:0.0.1 -o spdx  > latest.spdx
 cosign attach sbom --sbom latest.spdx ghcr.io/xmlking/sampleapp:0.0.1
 ```
 
+### Dive
+To debug docker image layers:
+
+```bash
+dive spring-service:1.6.5-SNAPSHOT
+```
+
 ### Compose
 
 ```shell
@@ -171,11 +183,7 @@ nerdctl exec -it redpanda-1 \
 rpk topic consume twitch_chat --brokers=localhost:9092
 ```
 
-### Kubernetes
-
-```shell
-kubectl apply -f jade-shooter
-```
+### traefik
 
 How to expose traefik v2 dashboard?
 
@@ -214,3 +222,5 @@ open http://traefik.localhost/dashboard/#/
 
 - StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5) 
 - [Signing images and creating SBOM using cosign](https://www.ijuned.com/Signing-images-and-creating-SBOM-using-cosign/)
+- A collection of useful things you can do with `crane` is [here](https://github.com/google/go-containerregistry/blob/main/cmd/crane/recipes.md)
+- [Compendium of Kubernetes Application Deployment Tools](https://medium.com/@KarlKFI/compendium-of-kubernetes-application-deployment-tools-80a828c91e8f)

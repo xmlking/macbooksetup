@@ -8,41 +8,6 @@ Community-authored. Write, edit, share.
 
 Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 
-- Getting Started
-    - [Why](./docs/essentials/why.md)
-    - [Xcode](./docs/essentials/xcode.md)
-    - [Homebrew](./docs/essentials/brew.md)
-    - [System Preferences](./docs/essentials/system-preferences.md)
-    - [Essentials](./docs/essentials/essentials.md)
-    - [Dotfiles](./docs/essentials/dotfiles.md)
-- Applications
-  - [iTerm2](./docs/apps/iterm2.md)
-  - [Sublime-text](./docs/apps/sublime-text.md)
-  - [JetBrains](./docs/apps/jetbrains.md)
-  - [VSCode](./docs/apps/vscode.md)
-  - [Xcode](./docs/apps/xcode.md)
-  - [Benthos](./docs/apps/benthos.md)
-- Platforms
-    - [Java](./docs/platforms/java.md)
-    - [Node](./docs/platforms/node.md)
-        - [NPM](./docs/platforms/npm.md)
-        - [PNPM](./docs/platforms/pnpm.md)
-    - [GoLang](./docs/platforms/golang.md)
-    - [Rust](./docs/platforms/rust.md)
-    - [Python](./docs/platforms/python.md)
-- DevOps
-    - [Rancher Desktop](./docs/devops/rancher-desktop.md)
-    - [kubectl](./docs/devops/kubectl.md)
-    - [helm](./docs/devops/helm.md)
-    - [Kustomize](./docs/devops/kustomize.md)
-    - [kustomizer](./docs/devops/kustomizer.md)
-    - [gcloud](./docs/devops/gcloud.md)
-    - [Changelog](./docs/devops/changelog.md)
-- Tips
-    - [Git](./docs/tips/git.md)
-    - [MacOS](./docs/tips/macos.md)
-
-
 ### Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)
 
 ## Contributors

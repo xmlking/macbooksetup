@@ -1,49 +1,31 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-<a name="unreleased"></a>
-## [Unreleased]
+## [Unreleased](https://github.com/xmlking/macbooksetup/compare/v0.1.3...HEAD) (2022-02-27)
 
 
-<a name="0.1.3"></a>
-## [0.1.3] - 2022-02-26
-### Docs
-- **index:** reorder index
+### Features
+
+* **devops:** polish docs
+ 858ab66
+
+* **devops:** adding dev workflow
+ 67579d7
 
 
-<a name="0.1.2"></a>
-## [0.1.2] - 2022-02-26
-### Docs
-- **all:** changelog
-- **all:** changelog
-- **all:** changelog
-- **devops:** fix images
+### [v0.1.3](https://github.com/xmlking/macbooksetup/compare/v0.1.2...v0.1.3) (2022-02-27)
 
 
-<a name="0.1.0"></a>
-## v0.1.0 - 2022-02-26
-### Build
-- **git:** rename master to main
-
-### Docs
-- polish
-- support of users dont have admin privilege
-- Install Apps via brew cask
-- adding bloomRPC app
-- **platforms:** adding pnpm
-- **rust:** adding rust lang installation docs
-- **tips:** updated git tips with Rebase vs merge
-- **xcode:** adding CommandLineTools steps
-
-### Feat
-- **gitbook:** setup gitbook
-- **rust:** adding rustLang setup and Taskfile setup
+### [v0.1.2](https://github.com/xmlking/macbooksetup/compare/v0.1.0...v0.1.2) (2022-02-27)
 
 
-[Unreleased]: https://github.com/xmlking/macbooksetup/compare/v0.1.3...HEAD
-[v0.1.3]: https://github.com/xmlking/macbooksetup/compare/v0.1.2...v0.1.3
-[v0.1.2]: https://github.com/xmlking/macbooksetup/compare/v0.1.0...v0.1.2
+## v0.1.0 (2022-02-27)
+
+
+### Features
+
+* **gitbook:** setup gitbook
+ 68bbdf1
+
+* **rust:** adding rustLang setup and Taskfile setup
+ e32591e
+

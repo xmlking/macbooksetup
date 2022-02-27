@@ -1,9 +1,33 @@
-# kubectl Cheat Sheets
+# Kubernetes Cheat Sheet
 
 To read more on kubectl, check out the [Kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
-### Usage
+## Usage
 
+### kubectx + kubens
+
+**kubectx** is a tool to switch between contexts (clusters) on kubectl faster.<br/>
+**kubens** is a tool to switch between Kubernetes namespaces (and configure them for kubectl) easily.
+
+```shell
+# switch to another cluster that's in kubeconfig
+kubectx rancher-desktop
+
+# switch back to previous cluster
+kubectx -
+
+# change the active namespace on kubectl
+kubens kube-system
+
+# go back to the previous namespace
+kubens -
+```
+
+### k9s
+Kubernetes CLI To Manage Your Clusters In Style!
+```shell
+k9s
+```
 ### Kubectl commands
 > commonly used Kubectl commands
 
