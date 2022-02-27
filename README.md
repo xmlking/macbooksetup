@@ -15,6 +15,13 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
     - [System Preferences](./docs/essentials/system-preferences.md)
     - [Essentials](./docs/essentials/essentials.md)
     - [Dotfiles](./docs/essentials/dotfiles.md)
+- Applications
+  - [iTerm2](./docs/apps/iterm2.md)
+  - [Sublime-text](./docs/apps/sublime-text.md)
+  - [JetBrains](./docs/apps/jetbrains.md)
+  - [VSCode](./docs/apps/vscode.md)
+  - [Xcode](./docs/apps/xcode.md)
+  - [Benthos](./docs/apps/benthos.md)
 - Platforms
     - [Java](./docs/platforms/java.md)
     - [Node](./docs/platforms/node.md)
@@ -23,13 +30,6 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
     - [GoLang](./docs/platforms/golang.md)
     - [Rust](./docs/platforms/rust.md)
     - [Python](./docs/platforms/python.md)
-- Applications
-    - [iTerm2](./docs/apps/iterm2.md)
-    - [Sublime-text](./docs/apps/sublime-text.md)
-    - [JetBrains](./docs/apps/jetbrains.md)
-    - [VSCode](./docs/apps/vscode.md)
-    - [Xcode](./docs/apps/xcode.md)
-    - [Benthos](./docs/apps/benthos.md)
 - DevOps
     - [Rancher Desktop](./docs/devops/rancher-desktop.md)
     - [kubectl](./docs/devops/kubectl.md)
@@ -41,6 +41,9 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 - Tips
     - [Git](./docs/tips/git.md)
     - [MacOS](./docs/tips/macos.md)
+
+
+### Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)
 
 ## Contributors
 
