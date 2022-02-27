@@ -1,0 +1,91 @@
+
+#[[battery.display]]
+#threshold = 100
+#style = "bold green"
+
+#[memory_usage]
+#disabled = false
+#threshold = 1
+
+right_format = "$kubernetes $gcloud"
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))](dimmed $style)'
+
+[gcloud]
+format = 'on [$symbol$account(@$domain)(\($region\))]($style)'
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "

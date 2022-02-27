@@ -1,0 +1,37 @@
+# Table of Contents
+
+- [Mac Setup](../README.md)
+- Getting Started
+  - [Why](essentials/why.md)
+  - [Xcode](essentials/xcode.md)
+  - [Homebrew](essentials/brew.md)
+  - [System Preferences](essentials/system-preferences.md)
+  - [Essentials](essentials/essentials.md)
+  - [Dotfiles](essentials/dotfiles.md)
+- Platforms
+  - [Java](platforms/java.md)
+  - [Node](platforms/node.md)
+    - [NPM](platforms/npm.md)
+    - [PNPM](platforms/pnpm.md)
+  - [GoLang](platforms/golang.md)
+  - [Rust](platforms/rust.md)
+  - [Python](platforms/python.md)
+- Applications
+  - [iTerm2](apps/iterm2.md)
+  - [Sublime-text](apps/sublime-text.md)
+  - [JetBrains](apps/jetbrains.md)
+  - [VSCode](apps/vscode.md)
+  - [Xcode](apps/xcode.md)
+  - [Benthos](apps/benthos.md)
+- DevOps
+  - [Rancher Desktop](devops/rancher-desktop.md)
+  - [kubectl](devops/kubectl.md)
+  - [helm](devops/helm.md)
+  - [Kustomize](devops/Kustomize.md)
+  - [kustomizer](devops/kustomizer.md)
+  - [gcloud](devops/gcloud.md)
+  - [Changelog](devops/changelog.md)
+- Tips
+  - [Git](tips/git.md)
+  - [MacOS](tips/macos.md)
+

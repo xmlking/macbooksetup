@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "golang.go",
+    "streetsidesoftware.code-spell-checker",
+    "paulvarache.vscode-taskfile",
+    "bufbuild.vscode-buf",
+    "ms-azuretools.vscode-docker",
+    "zxh404.vscode-proto3",
+    "xaver.clang-format",
+    "EditorConfig.EditorConfig",
+    "humao.rest-client",
+    "PKief.material-icon-theme",
+    "hediet.vscode-drawio",
+    "github.github-vscode-theme",
+    "github.vscode-pull-request-github"
+  ]
+}

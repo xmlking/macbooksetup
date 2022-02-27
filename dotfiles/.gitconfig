@@ -1,0 +1,42 @@
+[user]
+	name = first last name
+	email = me@email.com
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = ~/my/.gitignore
+	attributesfile = ~/my/.gitattributes
+	autocrlf = input
+# so much color
+[color]
+    ui = always
+[color "diff"]
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[filesystem "JetBrains s.r.o|11.0.5|/dev/disk1s1"]
+	timestampResolution = 8000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[filesystem "Eclipse OpenJ9|11.0.6|/dev/disk1s1"]
+	timestampResolution = 13000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[init]
+	defaultBranch = develop
+[pull]
+    rebase = false
