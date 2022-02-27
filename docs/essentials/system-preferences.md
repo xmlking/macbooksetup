@@ -1,4 +1,4 @@
-# System Preferences
+fffff# System Preferences
 
 The first thing you should do is update your system. To do that go: **Apple menu () > About This Mac > Software Update.**
 
@@ -22,6 +22,8 @@ The first thing you should do is update your system. To do that go: **Apple menu
 
 * Visual Settings
   * Change position to _Left_ and make the size of icons _Small_
+  * Check `Automatically hide and show the Dock` 
+  * Uncheck `Show recent applications in Dock`
 
 ## Mission Control 
 
@@ -31,16 +33,22 @@ Launch “System Preferences” from the  Apple menu, and click on Mission Co
 
 ## Finder
 
+![finder-favorites](../images/finder-favorites.png)
+
 * General
   * Change New finder window show to open in your Home Directory
 * Sidebar
   * make a `Developer` Directory if not exist: `mkdir -p ~/Developer`
-  * Add _Home_(`~/<username>`) and your _Code_ (`~/Developer`) Directory
+  * Add _Home_(`~/<username>`) and your _Code_ (`~/Developer`) Directories
   * Uncheck all _Shared_ boxes
 
 ## Menubar
 * Add the _Display_ and _Bluetooth_ icons
 * Change _battery to Show percentage symbols_
+
+## Hot Corners
+Got to `Desktop & Screen Saver` _Setting_ and open `Hot Corners...` add `Lanchpad`
+![finder-favorites](../images/hot-corner.png)
 
 ## Spotlight
 
@@ -55,3 +63,7 @@ Uncheck the _keyboard shortcuts_ as we'll be replacing them with Alfred
 * Set R`equire Password ... after sleep or screen saver begins to immediately`
 * Enable FileVault to encrypt your hard drive
 * Turn on Firewall
+
+## Safari
+* Safari --> Preferences --> General
+  * _Safari open with:_ `All windows from last session`

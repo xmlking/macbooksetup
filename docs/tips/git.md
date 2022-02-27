@@ -3,7 +3,7 @@
 
 - 5 steps to change GitHub default branch from master to main
 
-    ```bash
+    ```shell
     # Step 1 
     # create main branch locally, taking the history from master
     git branch -m master main

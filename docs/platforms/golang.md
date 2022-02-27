@@ -1,74 +1,50 @@
-
 # GoLang
 
-Guide to setup `golang` development environment on MacOS without admin privileges
+Guide to setup `golang` development environment on _MacOS_ without admin privileges
 
-you you have local `homebrew`,
-install **GoLang** with `brew install go` and skip to [Project](#project) step
-
-for complete project with **VSCode** settings, refer [hello](https://github.com/xmlking/hello) project
+You can use either JetBrains **GoLand** or **VSCode** as your go IDE.
 
 ### Install
 
-#### Directory structure
-
-we are keeping everything under HOME (~/) as we dont have admin rights.
-
-> I am organizing Directory structure as:
-
-```bash
-mkdir $HOME/go  # this is $GOPATH
-mkdir $HOME/do/Developer/Apps # this is $GOROOT
-mkdir $HOME/do/Developer/Apps/go # this where I download `go` and added to PATH
-mkdir $HOME/do/Developer/Work # this is top level Directory for all my code/projects
-mkdir $HOME/do/Developer/Work/go # this where I keep my go-modules enabled projects
-mkdir $HOME/do/Developer/Work/java # this where I keep my java projects
+```shell
+brew install go
 ```
 
-#### Download
-
-```bash
-mkdir  -p ~/Developer/Apps/go
-# download and unpack
-curl -s https://dl.google.com/go/go1.12.5.darwin-amd64.tar.gz | tar xvz - -C ~/Developer/Apps
-# or in silent mode
-curl -s https://dl.google.com/go/go1.12.5.darwin-amd64.tar.gz | tar zxf - -C ~/Developer/Apps
+Optional tools for GoLang Developers
+```shell
+brew install protobuf
+# grpc cli client
+brew install grpc
+# certs for mTLS
+brew install step
 ```
+
+
+Make sure you have following in your `~/my/paths.zsh`
+```shell
+# Executable scripts from GoLang packages you install will be put in here
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+for complete project example with **VSCode** settings, refer [hello](https://github.com/xmlking/hello) project
 
 #### Workspace
-> Setup Go global Workspace. this is your `GOPATH`
 
-`~/go/bin`, `~/go/pkg`, `~/go/src` are created automatically when you pull your first dependency
-
-```bash
-mkdir -p ~/go
-```
-
-#### Environment
-> export `GOROOT`, `GOPATH` and `PATH`
-```bash
-export GOROOT=$HOME/Developer/Apps/go
-export GOPATH=$HOME/go
-
-export PATH=${PATH}:${GOROOT}/bin:$GOPATH/bin
-
-export PATH
-```
+`~/go/bin`, `~/go/pkg`, `~/go/src` are created automatically when you pull your first dependency.
 
 ### Project
 
 #### Your first project
 
-> create a project directory outside of your GOPATH:
+> create a project directory outside your GOPATH:
 
-```bash
+```shell
 mkdir  -p ~/Developer/Work/go/hello
 ```
 
 #### Initialize module
 
 > this will create `go.mod` file
-```bash
+```shell
 cd ~/Developer/Work/go/hello
 
 go mod init github.com/xmlking/hello
@@ -76,7 +52,7 @@ go mod init github.com/xmlking/hello
 
 #### Write your code
 
-```bash
+```shell
 $ cat <<EOF > hello.go
 package main
 
@@ -93,7 +69,7 @@ EOF
 
 #### Build and Run
 
-```bash
+```shell
 go build
 # run
 ./hello
@@ -105,7 +81,7 @@ go build ./...
 
 #### Test
 
-```bash
+```shell
 # test all the go files within the current directory
 go test
 # test all the packages within the current module
@@ -117,7 +93,7 @@ go test all
 #### Install
 
 > this will copy binary into `$GOPATH/bin` i.e.,  `~/go/bin`
-```bash
+```shell
 $ go install 
 ```
 
@@ -125,7 +101,7 @@ $ go install
 
 > recomdned steps for releasing modules
 
-```bash
+```shell
 # to possibly prune any extraneous requirements
 go mod tidy
 #  test and  validate your module
@@ -137,7 +113,7 @@ A new module version may be published by pushing a tag to the repository that co
 
 #### Docs
 
-```bash
+```shell
 # read docs
 go doc rsc.io/quote
 go help build
@@ -147,7 +123,7 @@ go help build
 
 > format your source code with `prettier` or `fmt`
 
-```bash
+```shell
 go fmt hello.go
 ```
 
@@ -166,7 +142,7 @@ Your typical day-to-day workflow can be:
 
 ### Go Commands
 
-```bash
+```shell
 go env
 #  View final versions that will be used in a build
 go list -m all
@@ -196,8 +172,6 @@ go mod why -m <module>
 #  Go modules ignores the vendor/ directory by default. The idea is to eventually do away with vendoring
 go mod vendor
 ```
-
----
 
 ### Points
 

@@ -3,7 +3,7 @@
 
 - Grep three lines....
 
-  ```bash
+  ```shell
   # highlight `app:`
   kustomize build $BASE | grep -C 3 app:
 
@@ -17,7 +17,7 @@
 - how to add multiple localhosts to mac, sothat I can run multiple services on same port?
 
   Add alias IPs for lo0
-  ```bash
+  ```shell
   sudo ifconfig lo0 alias 127.0.0.2
   sudo ifconfig lo0 alias 127.0.0.3
   ```

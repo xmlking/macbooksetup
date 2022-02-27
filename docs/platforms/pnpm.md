@@ -2,7 +2,7 @@
 
 ## Commands
 
-```bash
+```shell
 npm install -g pnpm
 # Upgrading
 pnpm add -g pnpm
@@ -20,7 +20,7 @@ pnpm why
 
 ### create Nx workspace
 
-```bash
+```shell
 pnpx create-nx-workspace@latest --package-manager pnpm
 ```
 

@@ -2,15 +2,17 @@
 
 ### Usage
 
-```bash
+```shell
 # example installing packages globally. use `-g` flag
 npm install -g npm-check-updates
 npm install -g dynamodump --force 
+# Write shell scripts with Google's [zx](https://github.com/google/zx)
+npm install -g zx
 ```
 
 #### Workspace
 
-```bash
+```shell
 # Run "test" script on all packages
 npm run test --workspaces
 
@@ -18,7 +20,7 @@ npm run test --workspaces
 npm run test  -ws
 ```
 
-```bash
+```shell
 # Runs "test" only on package-a
 npm run test --workspace package-a
 
@@ -26,7 +28,7 @@ npm run test --workspace package-a
 npm run test -w package-a
 ```
 
-```bash
+```shell
 # Install `lodash` on `package-a`
 npm install lodash --workspace package-a
 npm install @nestjs/microservices --workspace apps/api
@@ -43,7 +45,7 @@ npm install eslint --workspaces
 
 ## Update
 
-```bash
+```shell
 # To install major updates globally
 npm install -g npm-check-updates
 

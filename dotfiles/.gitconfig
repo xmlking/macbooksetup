@@ -30,8 +30,13 @@
     added = yellow
     changed = green
     untracked = cyan
-# extra
-[fetch]
-    prune = true
+[filesystem "JetBrains s.r.o|11.0.5|/dev/disk1s1"]
+	timestampResolution = 8000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[filesystem "Eclipse OpenJ9|11.0.6|/dev/disk1s1"]
+	timestampResolution = 13000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[init]
+	defaultBranch = develop
 [pull]
     rebase = false
