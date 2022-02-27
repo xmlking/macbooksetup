@@ -75,7 +75,7 @@ convco version --bump
 # It is useful to use it with release tools, such as cargo-release:
 cargo release $(convco version --bump)
 # changelog
-convco changelog > CHANGELOG1.md
+convco changelog > CHANGELOG.md
 ```
 
 ### Gitflow
