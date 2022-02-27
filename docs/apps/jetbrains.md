@@ -1,7 +1,7 @@
 #  JetBrains 
 
 ## Prerequisites
-Install **JDK** via **SDKMan** per [instructions](../platforms/java.md).
+Install **JDK** via **SDKMan** per [instructions](../platforms/java/java.md).
 
 ## Install
 

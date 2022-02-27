@@ -4,7 +4,7 @@
 1. **Frontends:** Angular, React, Vue.js, [svelte](https://svelte.dev) - prefered. 
 2. **Backends:** [nestjs](https://nestjs.com)
 
-you can use [npm](./npm.md) (default) or [pnpm](./pnpm.md) as Node **Package Manager**.
+you can use [npm](npm.md) (default) or [pnpm](pnpm.md) as Node **Package Manager**.
 
 ### Install
 

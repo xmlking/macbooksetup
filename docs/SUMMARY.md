@@ -2,7 +2,6 @@
 
 - [Mac Setup](../README.md)
 - Getting Started
-  - [Why](essentials/why.md)
   - [Xcode](essentials/xcode.md)
   - [Homebrew](essentials/brew.md)
   - [System Preferences](essentials/system-preferences.md)
@@ -15,22 +14,31 @@
   - [VSCode](apps/vscode.md)
   - [Xcode](apps/xcode.md)
   - [Benthos](apps/benthos.md)
+  - [Rancher Desktop](apps/rancher-desktop.md)
 - Platforms
-  - [Java](platforms/java.md)
-  - [Node](platforms/node.md)
-    - [NPM](platforms/npm.md)
-    - [PNPM](platforms/pnpm.md)
-  - [GoLang](platforms/golang.md)
+  - [Java](platforms/java/java.md)
+  - Node
+    - [Node](platforms/node/node.md)
+    - [NPM](platforms/node/npm.md)
+    - [PNPM](platforms/node/pnpm.md)
+  - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust.md)
   - [Python](platforms/python.md)
 - DevOps
-  - [Rancher Desktop](devops/rancher-desktop.md)
-  - [kubectl](devops/kubectl.md)
-  - [helm](devops/helm.md)
+  - [Docker](devops/docker.md)
+  - [Kubernetes](devops/kubernetes.md)
+  - [Helm](devops/helm.md)
   - [Kustomize](devops/Kustomize.md)
   - [kustomizer](devops/kustomizer.md)
-  - [gcloud](devops/gcloud.md)
-  - [Changelog](devops/changelog.md)
+  - [Terraform](devops/terraform.md)
+  - GitOps
+    - [Workflow](devops/workflow.md)
+    - [Girflow](devops/gitflow.md)
+    - [Changelog](devops/changelog.md)
+    - [GitOps](devops/gitops.md)
+  - Cloud
+    - [gcloud](devops/cloud/gcloud.md)
+    - [azure](devops/cloud/azure.md)
 - Tips
   - [Git](tips/git.md)
   - [MacOS](tips/macos.md)

@@ -24,6 +24,8 @@ function getMyIP()
 # Functions for iTerm2 Status Bar (3.3+)
 function iterm2_print_user_vars() {
   if [ -x "$(command -v kubectl)" ]; then
-    iterm2_set_user_var kubecontext $(kubectl config current-context)
+    iterm2_set_user_var kubecontext $(kubectl config current-context 2> /dev/null || echo "None")
+    # Offline mode
+    #iterm2_set_user_var kubecontext cat ~/.kube/config | grep -i "current-context" | awk '{print $2}'
   fi
 }
