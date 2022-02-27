@@ -16,7 +16,8 @@ You can install Jetbrains _Early Access Program_ [(EAP)](https://www.jetbrains.c
 
 ## Customizations
 If you prefer _Commit_ panel as tab in _git_ panel, you can change via:<br/>
-You may disable "Use non-modal commit interface" option in "Preferences | Version Control | Commit".
+You may disable "Use non-modal commit interface" option in `Preferences | Version Control | Commit.`
+
 ![jetbrains-preferences-commit](../images/jetbrains-preferences-commit.png)
 
 ### IntelliJ IDEA

@@ -27,17 +27,27 @@ From iTerm2 Menu, select:
 ### Appearance
 
 Follow the screenshots and apply settings as shown:
+
 ![iterm-general-startup](../images/iterm-general-startup.png)
+
 ![iterm-general-closing](../images/iterm-general-closing.png)
+
 ![iterm-appearance-general](../images/iterm-appearance-general.png)
+
 ![iterm-profiles-window](../images/iterm-profiles-window.png)
+
 Go into Preferences and uncheck the indicators: `Profiles > Terminal > Show mark indicators`.
 It will conflict with our _starship_ prompt.
+
 ![iterm-profiles-terminal](../images/iterm-profiles-terminal.png)
+
 ![iterm-profiles-session](../images/iterm-profiles-session.png)
+
 Click `Configure Status Bar` button, and then `Advanced` button<br/>
 enable iterm2 Session [Restoration](https://iterm2.com/documentation-restoration.html)
+
 ![iterm-profiles-session-statusbar-advanced](../images/iterm-profiles-session-statusbar-advanced.png)
+
 ![iterm-profiles-session-statusbar](../images/iterm-profiles-session-statusbar.png)
 
 Add _kubecontext_ Status Bar component
@@ -53,6 +63,7 @@ Add _kubecontext_ Status Bar component
 
 Under _Preferences → Profile → ("Default") → Keys → Key Mappings:_<br/>
 Click the `Presets` dropdown and select `Natural Text Editing`
+
 ![iterm-profiles-keys](../images/iterm-profiles-keys.png)
 
 ### Colors and Fonts
@@ -61,6 +72,7 @@ Under  _Preference → Profile → Default → Colors → Color Presets:_<br/>
 **Install Color Preset:**
 Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
 or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file, install, then select the one the installed preset.
+
 ![iterm-profiles-colors](../images/iterm-profiles-colors.png)
 
 #### Note
@@ -70,15 +82,18 @@ or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file, install, then
 > In order to correct this, go into iTerm2's setting, navigate to  _Preference → Profile → Default → Colors_, and make sure that the colors for `Basic Colors → Background` and `ANSI Colors → Black: Bright`  are different.
 
 From _Preference → Profile → Default → Colors_, Adjust `Black Bright` under `ANSI colors`:
+
 ![iterm-profiles-colors-adjust](../images/iterm-profiles-colors-adjust.png)
 
 Under  _Preference → Profile → Default → Text:_<br/>
 Select Font: `Meslo LGM Nerd Font Mono`, `FiraCode Nerd Font Mono`  Or  `Hack Nerd Font Mono` and Check `Use ligatures`
+
 ![iterm-profiles-text](../images/iterm-profiles-text.png)
 
 ### Working Directory
 
 Under  _Preferences → Profiles → General → Working Directory → Advanced Configuration_, set:
+
 ![iterm-working-directory](../images/iterm-working-directory.png)
 
 ## Extensions
