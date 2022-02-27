@@ -67,6 +67,8 @@ It provides the following commands:
 ```shell
 # commit a new feature and then run git commit with the interactive patch switch
 convco commit --feat -- --patch
+# check logs
+git log --pretty=oneline
 # Check a range of revisions for compliance.
 convco check $remote_sha..$local_sha
 convco version --bump
