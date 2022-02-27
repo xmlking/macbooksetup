@@ -1,6 +1,6 @@
-#Development Workflow
+# Workflow
 
-Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
+**Development Workflow:** Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
 Simplify **Developer Workflow** and provide a great **Developer Experience (DX)**
 
 **Highlights**

@@ -5,10 +5,11 @@ Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local developm
 **[Rancher Desktop](https://rancherdesktop.io)** Kubernetes and Container Management on the Desktop. Is the replacement for **Docker for Mac**
 
 It includes:
-4. [lima](https://github.com/lima-vm/lima)
-1. [ontainerD](https://containerd.io)
-2. [k3s](https://k3s.io/)
-3. [traefik](https://traefik.io/)
+
+1. [lima](https://github.com/lima-vm/lima)
+2. [containerD](https://containerd.io)
+3. [k3s](https://k3s.io/)
+4. [traefik](https://traefik.io/)
 
 
 After _Rancher Desktop_ is installed, users will have access to these supporting utilities:

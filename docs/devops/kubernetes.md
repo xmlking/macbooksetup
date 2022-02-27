@@ -24,7 +24,10 @@ kubens -
 ```
 
 ### k9s
-
+Kubernetes CLI To Manage Your Clusters In Style!
+```shell
+k9s
+```
 ### Kubectl commands
 > commonly used Kubectl commands
 
