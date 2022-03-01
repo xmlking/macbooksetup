@@ -17,8 +17,7 @@
   - [Rancher Desktop](apps/rancher-desktop.md)
 - Platforms
   - [Java](platforms/java/java.md)
-  - Node
-    - [Node](platforms/node/node.md)
+  - [Node](platforms/node/node.md)
     - [NPM](platforms/node/npm.md)
     - [PNPM](platforms/node/pnpm.md)
   - [GoLang](platforms/go/golang.md)
@@ -31,11 +30,11 @@
   - [Kustomize](devops/Kustomize.md)
   - [kustomizer](devops/kustomizer.md)
   - [Terraform](devops/terraform.md)
-  - GitOps
-    - [Workflow](devops/workflow.md)
-    - [Girflow](devops/gitflow.md)
-    - [Changelog](devops/changelog.md)
-    - [GitOps](devops/gitops.md)
+  - [Development Workflow](devops/devflow/development-workflow.md)
+    - [Girflow](devops/devflow/gitflow.md)
+    - [Changelog](devops/devflow/changelog.md)
+    - [GitOps](devops/devflow/gitops.md)
+    - [YubiKey](devops/devflow/yubikey.md)
   - Cloud
     - [gcloud](devops/cloud/gcloud.md)
     - [azure](devops/cloud/azure.md)

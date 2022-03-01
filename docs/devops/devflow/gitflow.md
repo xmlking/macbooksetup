@@ -8,7 +8,7 @@ Read  __gitflow-avh__ [wiki](https://github.com/petervanderdoes/gitflow-avh/wiki
 
 ### GitFlow Commands
 
-![Gitflow](../images/gitflow-commands.png)
+![Gitflow](../../images/gitflow-commands.png)
 
 ### Initialization
 

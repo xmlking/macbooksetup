@@ -1,9 +1,10 @@
-# Workflow
+# Development Workflow
 
-**Development Workflow:** Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
+Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
 Simplify **Developer Workflow** and provide a great **Developer Experience (DX)**
 
 **Highlights**
+- Monorepo (apps & libs)
 - Fully automated release
 - Enforce [Semantic Versioning](https://semver.org) specification
 - Use formalized commit message convention to document changes in the codebase
@@ -83,7 +84,7 @@ convco changelog > CHANGELOG.md
 by [Vincent Driessen](https://nvie.com/about/).  
 It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
-![Gitflow](../images/gitflow-overview.webp)
+![Gitflow](../../images/gitflow-overview.webp)
 
 Follow [Gitflow Usage](./gitflow.md)
 
