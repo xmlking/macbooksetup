@@ -8,7 +8,7 @@ Community-authored. Write, edit, share.
 
 Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 
-### Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)
+**Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)**
 
 ## Contributors
 

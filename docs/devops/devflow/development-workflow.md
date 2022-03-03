@@ -21,21 +21,20 @@ Here, we’ve standardised on:
 
 ## Install
 
-1. [convco](https://convco.github.io/) git extension
+1. [Cocogitto](https://docs.cocogitto.io) is a CLI for _Conventional Commits_ and _Semantic Versioning_.
+
+   **Cocogitto** comes with two standalone binaries : `coco` and `cog`.<br/>
+   **Note: `coco` has been deprecated in favor of the `cog commit` command.**
 
     ```shell
-     # install and configure `convco` git extension
-     brew install convco/formulae/convco
+    # brew not available yet
+    cargo install --locked cocogitto
     ```
 
-    Recommend Git alias: (TODO: [Not supported yet](https://github.com/ttys3/git-cz))
-    ```shell
-    # use "git cc" for quick commit
-    git config --global alias.cc 'convco commit'
-    git config --global alias.ck 'convco check'
-    git config --global alias.cl 'convco changelog'
-    git config --global alias.cv 'convco version'
-    ```
+   Add shell completions
+   ```shell
+   cog generate-completions zsh > /opt/homebrew/share/zsh-completions/_cog
+   ```
 
 2. [gitflow](https://github.com/petervanderdoes/gitflow-avh) git extension
 
@@ -54,31 +53,6 @@ Here, we’ve standardised on:
 
 ## Usage
 
-### Convco
-A git subcommand for creating conventional-friendly commit messages.
-
-[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a specification for adding _human_ and _machine-readable_ meaning to commit messages.
-
-It provides the following commands:
-  * **convco changelog**: Create a changelog file.
-  * **convco check**: Checks if a range of commits is following the convention.
-  * **convco commit**: Helps to make conventional commits.
-  * **convco version**: Finds out the current or next version.
-
-```shell
-# commit a new feature and then run git commit with the interactive patch switch
-convco commit --feat -- --patch
-# check logs
-git log --pretty=oneline
-# Check a range of revisions for compliance.
-convco check $remote_sha..$local_sha
-convco version --bump
-# It is useful to use it with release tools, such as cargo-release:
-cargo release $(convco version --bump)
-# changelog
-convco changelog > CHANGELOG.md
-```
-
 ### Gitflow
 [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) is a branching model for Git, created
 by [Vincent Driessen](https://nvie.com/about/).  
@@ -87,6 +61,65 @@ It has attracted a lot of attention because it is very well suited to collaborat
 ![Gitflow](../../images/gitflow-overview.webp)
 
 Follow [Gitflow Usage](./gitflow.md)
+
+### Cocogitto
+[Cocogitto](https://docs.cocogitto.io) is a CLI and GitOps toolbox for the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [Semver]((https://semver.org/)) specifications.
+
+#### Configure
+Initialize an existing repo with `cog init` which generate `cog.toml` file in project's root.
+Customize as per [instructions](https://docs.cocogitto.io/config/#general)
+
+Check commit history with `cog check`
+
+To protect your commit history, and your git remote, cog have builtins [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+
+```shell
+ # You can install them all Or one by one, specifying the hook name
+cog install-hook all
+cog install-hooks pre-push
+cog install-hook commit-msg
+```
+
+`cog log`  displays additional conventional commit information.
+
+#### Commit
+To create conventional commits you can use the `cog commit` command.
+Examples:
+```shell
+# cog commit [OPTIONS] <TYPE> <MESSAGE> [SCOPE]
+
+# With cog
+cog commit feat "add awesome feature"
+
+# With git
+git commit -m "feat: add awesome feature"
+```
+
+#### Changelogs
+
+`cog changelog` can generate changelog automatically.
+
+You can specify a custom changelog range or tag like so :
+```shell
+# Display the changelog between `^1` and `2.0.0`
+cog changelog --at 2.0.0
+
+# From `8806a5` to `1.0.0`
+cog changelog 8806a5..1.0.0
+
+# From `8806a5` to `HEAD`
+cog changelog 8806a55..
+
+# From first commit to `1.0.0`
+cog changelog 8806a5..1.0.0
+
+cog changelog --at 0.1.0 -t remote --remote github.com --owner xmlking --repository  macbooksetup
+cog changelog > CHANGELOG1.md
+```
+
+#### Automatic versioning
+`cog bump` will calculate the next version based on your commit history since the latest semver tag.
+
 
 ### Changelog
 
