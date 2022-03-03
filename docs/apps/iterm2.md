@@ -174,6 +174,7 @@ Search previous used commands using **Arrows**
 | Arrows  | Result                    |
 |---------|---------------------------|
 | ↑ ↓     | History Search            |
+| ^ i     | Completion Search         |
 | ⌥ + ← → | Jump Word                 |
 | ⌘ + ← → | Jump line beginning / end |
 
