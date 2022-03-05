@@ -17,6 +17,8 @@ brew install protobuf
 brew install grpc
 # certs for mTLS
 brew install step
+# ko is a tool for build/publish/deploy container images  for Go applications
+brew install ko
 ```
 
 
