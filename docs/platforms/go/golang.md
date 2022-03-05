@@ -186,7 +186,7 @@ go mod vendor
 
 ### FAQ
 
-1. What `go build` do?
+#### What `go build` do?
 
 What the go command does depends on whether we run it for a "normal" package or for the special  "main" package.
 
@@ -201,6 +201,26 @@ What the go command does depends on whether we run it for a "normal" package or 
 Basically you can use `go build` as a check that the packages can be built (along with their dependencies) while `go install` also (permanently) installs the results in the proper folders of your  $GOPATH.
 
 It is also worth noting that starting with Go 1.5 `go install` also removes executables created by go build
+
+#### How to cross Compiling on MacOS For Linux runtime?
+
+```shell
+brew install FiloSottile/musl-cross/musl-cross
+
+CGO_ENABLED=1 CC=x86_64-linux-musl-gcc CXX=x86_64-linux-musl-g++ \
+ko resolve -P -f deploy/ > release.yaml
+```
+
+---
+
+### Learning
+1. Signup for https://golangweekly.com/
+2. Data Journey with Golang, GraphQL and Microservices. Ref: [YouTube](https://youtu.be/hIScta6OxQ8) <br/>
+   talks about BigTable --> Data Microservices (Go-Micro) --> GraphQL Gateway-gqlgen (ACL check permission at field level, codegen)
+3. Interfaces , genarics  (concrete types vs abstract types). Ref: [YouTube](https://www.youtube.com/watch?v=E75b9kuyRKw&list=PLtDHwjb79JK0nrR7UaiavgUDmyuhkVET7&index=5&t=0s) <br/>
+   Lessons Learned: "Always Return Concrete types, receive interfaces as perameters"
+4. Heap vs Stack memory. Ref: [YouTube](https://www.youtube.com/watch?v=ZMZpH4yT7M0&feature=youtu.be) <br/>
+   Are pointers a performance optimization? Ref: [medium](https://medium.com/@vCabbage/go-are-pointers-a-performance-optimization-a95840d3ef85)
 
 ---
 

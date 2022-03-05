@@ -11,6 +11,11 @@ brew install --cask --appdir=~/Applications visual-studio-code
 
 ### Plugins
 
+List VS Code extension:
+```bash
+code --list-extensions | xargs -L 1 echo code --install-extension
+```
+
 ## Customizations
 
 VSCode Settings. Use settings from [.vscode](../../apps/vscode) for new project.

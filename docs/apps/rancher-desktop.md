@@ -90,6 +90,8 @@ nerdctl login -u aaaa -p bbb
 # Log in to your repository, I am using GitHub container registry
 echo $GHCR_TOKEN | nerdctl login  -u xmlking --password-stdin ghcr.io
 
+# docker login -u {github_username} -p {[token](https://github.com/settings/tokens)} ghcr.io
+
 # inspect image 
 nerdctl image inspect redislabs/redismod:edge
 
