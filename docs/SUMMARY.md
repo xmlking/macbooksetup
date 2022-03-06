@@ -24,6 +24,7 @@
   - [Rust](platforms/rust.md)
   - [Python](platforms/python.md)
 - DevOps
+  - [dnsmasq](devops/dnsmasq.md)
   - [Docker](devops/docker.md)
   - [Kubernetes](devops/kubernetes.md)
   - [Helm](devops/helm.md)

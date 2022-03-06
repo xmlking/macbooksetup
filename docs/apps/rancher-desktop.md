@@ -32,7 +32,7 @@ It is recommended assign:
 Download and install the latest binary _[Rancher.Desktop-x.x.x-mac.aarch64.zip]_ for M1 MacBooks from [here](https://github.com/rancher-sandbox/rancher-desktop/releases), 
 Unpack and move `Rancher Desktop.app` to `/Applications`<br/>
 if you get Error: `Error Directory /usr/local/bin doesn't exist` , follow [workaround](https://github.com/rancher-sandbox/rancher-desktop/issues/1441) <br/>
-As of Rancher.Desktop-1.0.1, the temp workaround is:
+As of Rancher.Desktop-1.1.1, the temp workaround is:
 ```shell
 sudo chmod 775 /private/var/run/rancher-desktop-lima
 #sudo chown -R "$USER":staff /private/var/run/rancher-desktop-lima
@@ -187,13 +187,12 @@ rpk topic consume twitch_chat --brokers=localhost:9092
 
 ### traefik
 
-How to expose traefik v2 dashboard?
+How to expose **traefik** v2 dashboard?
 
-https://github.com/rancher-sandbox/rancher-desktop/issues/896
+create `dashboard.yaml` file
 
-create `dashboard.yaml` route
-
-```yaml
+```shell
+cat << 'EOF' > dashboard.yaml
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -207,8 +206,8 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
+EOF
 ```
-
 
 ```shell
 kubectl -n kube-system apply -f dashboard.yaml

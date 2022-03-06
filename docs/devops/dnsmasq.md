@@ -1,15 +1,32 @@
 # dnsmasq
+**dnsmasq** is a _lightweight_, easy to configure _DNS forwarder_, designed to provide DNS.<br/> 
+It can serve the names of _local machines_ which are not in the **global DNS**.
+
+This setup is **Optional**.<br/>
+According to [RFC 2606 (1999)](https://www.rfc-editor.org/rfc/rfc2606) the TLD `.localhost` is reserved for use for testing locally.
+**MacOS** by default support `.localhost` domain name i.e.,  `http://traefik.localhost` 
+If you want to use any other custom TLD, follow next steps.
 
 ## Install
 
-```bash
-brew install dnsmasq
+For this guide, we will be using `.test` as the TLD. Let’s start by installing it:
 
-# edit and add `address=/test/127.0.0.1`
-subl /usr/local/etc/dnsmasq.conf
+```shell
+brew install dnsmasq
 ```
 
-```bash
+We edit the configuration file with:
+```shell
+# edit and add `address=/test/127.0.0.1`
+subl /usr/local/etc/dnsmasq.conf
+$ Or
+echo 'address=/.test/127.0.0.1' > /opt/homebrew/etc/dnsmasq.conf
+```
+
+
+Now we only have to start it and add it to the resolvers:
+
+```shell
 sudo brew services start dnsmasq
 ```
 
@@ -36,11 +53,20 @@ brew upgrade/reinstall/uninstall.
 ```
 
 ## Test
+
+You can try if it is correctly setup by pinging any **.test** domain like `test.test`
+
+```shell
+ping test.test
+```
+
 ```bash
 dig testing.testing.one.two.three.test @127.0.0.1
 ```
 
-### Configuring OS X
+If the ping works congrats, you have finished configuring your environment!
+
+### Configuring MacOS
 
 ```bash
 sudo mkdir -p /etc/resolver
@@ -48,7 +74,6 @@ sudo tee /etc/resolver/test >/dev/null <<EOF
 nameserver 127.0.0.1
 EOF
 ```
-
 
 ## Reference
 - https://passingcuriosity.com/2013/dnsmasq-dev-osx/
