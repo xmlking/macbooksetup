@@ -18,6 +18,20 @@ Here, we’ve standardised on:
 - [Semantic Versioning 2.0.0](https://semver.org/) for versioning
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages
 
+## Prerequisites 
+
+**Git** installed via brew `brew install git`<br/>
+And `which git` should output `/opt/homebrew/bin/git`.
+
+Copy `.gitconfig` file as described in [Dotfiles](../../essentials/dotfiles.md) to your home directory. i.e., `~/.gitconfig`<br/>
+Next, we'll define your Git user (should be the same name and email you use for GitHub):
+```shell
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@youremail.com"
+```
+
+Also copy `.gitattributes` and `.gitignore` files as described in [Dotfiles](../../essentials/dotfiles.md) to your home's `my` directory. i.e., `~/my`<br/>
+Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/developers/gitignore?templates=macos) and fill it what you need.
 
 ## Install
 

@@ -57,17 +57,23 @@ After installing your choice of font, you have to configure each _Editor_ and _T
 ### Apps
 Install essential _Apps_ via brew cask
 
-Since many of us won't have _admin_ rights on **Company** issued MacBooks, we will be installing software into **User's** Applications (i.e., `~/Applications`) directory:<br/> 
+Since many of us won't have _admin_ rights on **Company** issued MacBooks, we will be installing software into **User's** Applications (i.e., `~/Applications`) directory:<br/>
 
 > If you have admin privilege, you can skip `--appdir=~/Applications` flag
+
+#### Development Tools
+- [iterm2](https://iterm2.com): macOS Terminal Replacement
+- [Sublimetext](https://www.sublimetext.com): lightweight text/markdown editor
+- [VSCode](https://code.visualstudio.com): lightweight code editor
+- [Jetbrains](https://www.jetbrains.com/toolbox-app/): toolbox to install jetbrains IDEs
 
 ```shell
 brew install --cask --appdir=~/Applications iterm2
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
-brew install --cask --appdir=~/Applications microsoft-remote-desktop
 ```
+
 Other benefit of installing `Apps` via `Brew` is, it links binaries to `/opt/homebrew/bin` which is added to `$PATH`.
 
     'subl' to '/opt/homebrew/bin/subl'
@@ -77,6 +83,63 @@ So, you can open _projects/directors_ from command-line in _VSCode_ or _Sublime-
 ```shell
 code ~/Developer/Work/tools/macbooksetup
 subl ~/Developer/Work/tools/macbooksetup
+```
+
+#### Productivity
+- [Alfred](https://www.alfredapp.com): Spotlight on steroids.
+
+```shell
+brew install --cask --appdir=~/Applications alfred
+```
+
+#### Other 
+- Google Chrome
+- Microsoft Remote Desktop: rdp (optional)
+- [OBS](https://obsproject.com): Record your screen with audio, mouse highlight and other features. (optional)
+- [logitech-options](https://www.logitech.com/en-us/software/options.html): logitech driver, install only if you have _MX mouse_ (optional)
+- [zoom](): app for meetings (optional)
+- [slack](): app for communication (optional)
+
+```shell
+brew install --cask --appdir=~/Applications google-chrome
+brew install --cask --appdir=~/Applications microsoft-remote-desktop
+brew install --cask --appdir=~/Applications obs
+# Logitech Options software - will prompt for password.
+brew tap "homebrew/cask-drivers"
+brew install --cask --appdir=~/Applications logitech-options
+# Remote communication (optional)
+brew install --cask --appdir=~/Applications zoom
+brew install --cask --appdir=~/Applications slack
+```
+
+#### Mac App Store apps
+
+Install apps from `Mac App Store` with [mas](https://github.com/mas-cli/mas)
+
+Usage
+```shell
+brew install mas
+# search 
+mas search Xcode
+# install 
+mas install <appID>
+# list installed apps
+mas list
+# list all applications with pending updates.
+mas outdated
+# To install all pending updates run:
+mas upgrade
+```
+
+
+- [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12): window management (optional)
+- [Twitter](https://twitter.com/): micro blog for tech news (optional)
+
+```shell
+# Magnet
+mas install 441258766
+# Twitter
+mas install 409789998
 ```
 
 Customize above applications further from: [Apps](../apps) docs
