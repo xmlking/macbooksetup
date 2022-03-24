@@ -35,6 +35,7 @@
     - [Girflow](devops/devflow/gitflow.md)
     - [Changelog](devops/devflow/changelog.md)
     - [GitOps](devops/devflow/gitops.md)
+    - [Documentation](devops/devflow/documentation.md)
     - [YubiKey](devops/devflow/yubikey.md)
   - Cloud
     - [gcloud](devops/cloud/gcloud.md)

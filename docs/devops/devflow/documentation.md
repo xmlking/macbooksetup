@@ -12,6 +12,7 @@ Recommended minimal documentation for each project:
 * **README.md** - Should contain Project goals, big picture, list of features, developer's workflow to contribute to repo. 
 * **[Project Boards](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards)** to keep tracking releases, milestones, features and project status. 
 * **Roadmap** should include short and long term goals. 
+* **Changelog** - Automatically [generate](https://goreleaser.com/customization/changelog/) changelog as part for release process. 
 * **[Code Owners](https://docs.gitlab.com/ee/user/project/code_owners.html)** -  [CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) file contain resources who own specific module in the repository and who should review before PRs are merged.  
 * **Architecture Decision Record [(ADR)](https://github.com/xmlking/grpc-starter-kit/blob/develop/docs/adr/ADR.md)** - is a document that captures an important architectural decision made along with its context and consequences.
 * **Style Guide** - Coding Style Guide
@@ -80,6 +81,8 @@ To generate it, markdown provides a shortcut: An easy auto-generation. All the t
 ``` 
 <div align="center">![tomcat-cat](https://tomcat.apache.org/res/images/tomcat.png)</div>
 ```
+
+<div align="center">![tomcat-cat](https://tomcat.apache.org/res/images/tomcat.png)</div>
 
 ### Diagrams
 
