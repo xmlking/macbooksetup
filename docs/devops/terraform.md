@@ -18,7 +18,7 @@ A typical infrastructure of a product can be categorized into the following thre
 ### Project Layout
 All the terraform code written should follow a consistent code structure. Below can be an example:
 
-![code-structure](../images/terraform-code-structure.png)
+![terraform-code-structure](../images/terraform-code-structure.png)
 - _modules :_ This folder should contain terraform code for resource creation . Examples : vpc,rds,subnets etc. Creating modules promotes reusability, hence reducing code duplication. Also each of the sub-folders/resources in modules should contain a structure like : main.tf , variables.tf , output.tf
 - _policy :_ This folder should contain policy documents such as IAM role policies as json files .So this folder should act as a collection of policies which would be used by the modules folder. Examples : rds_iam_role_polcy.json , etc.
 - _scripts :_ The folder should contain any scripts such as shells scripts or python scripts used for any resource handling or creation . Hence it acts a common place of any kind of script we write for our infra.

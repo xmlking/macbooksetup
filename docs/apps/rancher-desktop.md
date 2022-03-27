@@ -4,6 +4,10 @@ Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local developm
 
 **[Rancher Desktop](https://rancherdesktop.io)** Kubernetes and Container Management on the Desktop. Is the replacement for **Docker for Mac**
 
+Download and install the latest binary for your platform from [rancherdesktop.io](https://rancherdesktop.io/).
+Unpack and move `Rancher Desktop.app` to `/Applications`<br/>
+_e.g., Rancher.Desktop-x.y.z.aarch64.dmg for Mac M1_
+
 It includes:
 
 1. [lima](https://github.com/lima-vm/lima)
@@ -17,35 +21,26 @@ After _Rancher Desktop_ is installed, users will have access to these supporting
 - [Helm](https://helm.sh/)
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [nerdctl](https://github.com/containerd/nerdctl)
-- [Moby](https://github.com/moby/moby)
+- **rdctl** - Do all action you can do at _Rancher Desktop_ UI via command line
+    ```shell
+    rdctl list-settings
+    rdctl set --container-runtime dockerd --kubernetes-version 1.23.4
+    rdctl shutdown
+    ```
 
-## Prerequisites
+## Configuration
 
 It is recommended assign:
 * 8 GB of memory
 * 4 CPU
+* Enable **Traefik**
 
 ![rancher-desktop-settings](../images/rancher-desktop-settings.png)
+![rancher-desktop-utilities](../images/rancher-desktop-utilities.png)
 
-## Install
+##  DevOps tools
 
-Download and install the latest binary _[Rancher.Desktop-x.x.x-mac.aarch64.zip]_ for M1 MacBooks from [here](https://github.com/rancher-sandbox/rancher-desktop/releases), 
-Unpack and move `Rancher Desktop.app` to `/Applications`<br/>
-if you get Error: `Error Directory /usr/local/bin doesn't exist` , follow [workaround](https://github.com/rancher-sandbox/rancher-desktop/issues/1441) <br/>
-As of Rancher.Desktop-1.1.1, the temp workaround is:
-```shell
-sudo chmod 775 /private/var/run/rancher-desktop-lima
-#sudo chown -R "$USER":staff /private/var/run/rancher-desktop-lima
-mkdir -p /usr/local/bin
-sudo chmod go+w /usr/local/bin
-#sudo chown "$USER":staff /usr/local/bin
-```
-Once the fix is release, consider reverting `/usr/local/bin` mode.
-```shell
-sudo chmod go-w /usr/local/bin
-```
-
-Optional DevOps tools for SREs
+Install optional DevOps tools for SREs
 ```shell
 brew install kubectx # to switch kube context, namespace quickly. https://github.com/ahmetb/kubectx 
 brew install kubens # to switch kube  quickly 
@@ -54,9 +49,20 @@ brew install kustomize # Kubernetes native configuration management
 brew install stefanprodan/tap/kustomizer # package manager for distributing Kubernetes configuration as OCI artifacts
 brew install derailed/k9s/k9s # Manage Your k8s In Style!
 brew install istioctl # Istio configuration command line utility 
-brew install dive # A tool for exploring each layer in a docker image
+brew install dive # A tool for exploring a docker image, layer contents, and discovering ways to shrink the size of your Docker/OCI image
 brew install crane # A tool for interacting with remote images and registries.
+brew install cosign # Container Signing, Verification and Storage in an OCI registry. 
 brew install skaffold # build and deploy docker images
+go install sigs.k8s.io/bom/cmd/bom@latest # Create SPDX-compliant Bill of Materials
+```
+
+**nerdctl** runs inside the lima VM, so the **cosign** binary has to be installed inside the VM as well.<br/>
+Install **cosign** with following script as workaround for [issue](https://github.com/rancher-sandbox/rancher-desktop/issues/1905)
+
+```shell
+LIMA_HOME="$HOME/Library/Application Support/rancher-desktop/lima" \
+"/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin/limactl" shell 0 sudo apk add cosign \
+--repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 ```
 
 ## Usage
@@ -88,8 +94,8 @@ nerdctl -n k8s.io images
 
 nerdctl login -u aaaa -p bbb
 # Log in to your repository, I am using GitHub container registry
-echo $GHCR_TOKEN | nerdctl login  -u xmlking --password-stdin ghcr.io
-
+export GITHUB_PACKAGES_TOKEN=ghp_YOUR_TOKEN
+echo $GITHUB_PACKAGES_TOKEN | nerdctl login ghcr.io -u xmlking --password-stdin
 # docker login -u {github_username} -p {[token](https://github.com/settings/tokens)} ghcr.io
 
 # inspect image 
@@ -144,6 +150,15 @@ Verify the container image while pulling:
 nerdctl pull --verify=cosign devopps/hello-world
 ```
 
+_Currently, above integrated command: `nerdctl push --sign=cosign`  [don't work](https://github.com/rancher-sandbox/rancher-desktop/issues/1905). workaround:_ 
+```shell
+# push first 
+nerdctl push -ghcr.io/xmlking/grpc-starter-kit/base:v0.2.0
+# then sigh and verify
+COSIGN_EXPERIMENTAL=1 cosign sign ghcr.io/xmlking/grpc-starter-kit/base:v0.2.0
+COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/xmlking/grpc-starter-kit/base:v0.2.0
+```
+
 #### Generate and upload the SBOM
 
 We will use the **syft** to generate the SBOM and once its generated we will attach to image using **cosign**
@@ -154,7 +169,7 @@ cosign attach sbom --sbom latest.spdx ghcr.io/xmlking/sampleapp:0.0.1
 ```
 
 ### Dive
-To debug docker image layers:
+To explore docker image layers:
 
 ```bash
 dive spring-service:1.6.5-SNAPSHOT

@@ -107,6 +107,11 @@ cog commit feat "add awesome feature"
 
 # With git
 git commit -m "feat: add awesome feature"
+
+# Breaking changes
+cog commit fix -B "add fix a nasty bug" cli
+# Commit Body and footers
+cog commit refactor -e -B "drop support for Node 6" runtime 
 ```
 
 #### Changelogs
