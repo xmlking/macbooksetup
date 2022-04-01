@@ -4,23 +4,82 @@ Guide to setup `golang` development environment on _MacOS_ without admin privile
 
 You can use either JetBrains **GoLand** or **VSCode** as your go IDE.
 
-### Install
+Recommended _tools/libs_ for **Go** projects:
+#### Tools
+1. **GoReleaser** - Cross-compile and Release to GitHub
+2. **protobuf** - gRPC code gen tool and serialization library
+3. **ko** - Build, sign and publish OCI images from source code.
+#### Libraries
+1. **testify** - Unit and integration testing 
+2. **[mockery](https://github.com/vektra/mockery)** -  generate mocks for golang interfaces
+3. **[entgo](https://entgo.io)** - An entity framework for Go
+
+## Install
 
 ```shell
 brew install go
+# verify 
+go version                                                                                                                                                                          ☸ rancher-desktop on ☁️  
+# go version go1.18 darwin/arm64
+
+```
+
+### Multiple go versions
+If you need multiple versions for testing...
+
+```shell
+brew install go@1.17
+# brew switch
+brew unlink go
+brew link go@1.17
+# abd back to 1.18
+brew unlink go
+brew link  go
 ```
 
 Optional tools for GoLang Developers
 ```shell
+# buf: proto tool https://buf.build/docs/tour-1
+brew install bufbuild/buf/buf
+
 brew install protobuf
-# grpc cli client
-brew install grpc
 # certs for mTLS
 brew install step
 # ko is a tool for build/publish/deploy container images  for Go applications
 brew install ko
+# grpc cli client
+brew install grpcurl
+# bloomrpc is a UI client for gRPC (optional)
+# install `bloomrpc` via `brew` into ~/Applications)
+brew cask install --appdir=~/Applications bloomrpc
+
 ```
 
+```shell
+# Update outdated Go dependencies interactively
+# Usage: go-mod-upgrade ./...
+go install github.com/oligot/go-mod-upgrade@latest
+# for static check/linter
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+# mockery
+go install github.com/vektra/mockery/v2@latest
+# linter and tool for proto files
+# *** (if you use brew to install buf, skip next line) ***
+go install github.com/bufbuild/buf/cmd/buf@latest
+
+# Install protoc plugins
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install github.com/srikrsna/protoc-gen-gotag@latest
+go install entgo.io/contrib/entproto/cmd/protoc-gen-entgrpc@latest
+
+# Installing PGV can currently only be done from source: 
+# from user's home directory, run
+go get -d github.com/envoyproxy/protoc-gen-validate
+cd ~/go/src/github.com/envoyproxy/protoc-gen-validate
+git pull
+make build
+```
 
 Make sure you have following in your `~/my/paths.zsh`
 ```shell
@@ -234,3 +293,4 @@ ko resolve -P -f deploy/ > release.yaml
     1. <https://github.com/golang-standards/project-layout>
     2. <https://code.fb.com/security/service-encryption/>
 4. <https://medium.com/@amsokol.com/tutorial-how-to-develop-go-grpc-microservice-with-http-rest-endpoint-middleware-kubernetes-daebb36a97e9>
+5. goreleaser [supply-chain-example](https://github.com/goreleaser/supply-chain-example)

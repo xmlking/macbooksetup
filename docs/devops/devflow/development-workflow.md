@@ -103,10 +103,10 @@ Examples:
 # cog commit [OPTIONS] <TYPE> <MESSAGE> [SCOPE]
 
 # With cog
-cog commit feat "add awesome feature"
+cog commit feat "add awesome feature" cli
 
 # With git
-git commit -m "feat: add awesome feature"
+git commit -m "feat(cli): add awesome feature"
 
 # Breaking changes
 cog commit fix -B "add fix a nasty bug" cli
