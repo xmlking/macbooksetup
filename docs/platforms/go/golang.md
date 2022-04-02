@@ -51,8 +51,7 @@ brew install ko
 brew install grpcurl
 # bloomrpc is a UI client for gRPC (optional)
 # install `bloomrpc` via `brew` into ~/Applications)
-brew cask install --appdir=~/Applications bloomrpc
-
+brew install --cask --appdir=~/Applications bloomrpc
 ```
 
 ```shell

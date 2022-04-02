@@ -8,7 +8,7 @@ Examples include: “gcloud”, “gsutil”, and “bq” among others.
 Install Google cloud SDK using your favourite method, e.g. `Brew` or download `macOS 64-bit(arm64, Apple M1 silicon)` directly from [google](https://cloud.google.com/sdk/docs/install)
 
 ```shell
-brew cask install google-cloud-sdk
+rew install --cask google-cloud-sdk
 # Note: if you see failures (e.g., 503) during the google-cloud-sdk installation, you may need to set your python proxy and re-run the command. e.g.,
 # export HTTP_PROXY="http://user:password@hostname:port"
 # export HTTPS_PROXY="http://user:password@hostname:port"
