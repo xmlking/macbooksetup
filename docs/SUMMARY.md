@@ -33,6 +33,8 @@
   - [Terraform](devops/terraform.md)
   - [Development Workflow](devops/devflow/development-workflow.md)
     - [Girflow](devops/devflow/gitflow.md)
+    - [Git](devops/devflow/git.md)
+      - [GitHub CLL](devops/devflow/gh.md)
     - [Changelog](devops/devflow/changelog.md)
     - [GitOps](devops/devflow/gitops.md)
     - [Documentation](devops/devflow/documentation.md)
