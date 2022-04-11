@@ -29,20 +29,39 @@ You may disable "Use non-modal commit interface" option in `Preferences | Versio
 
 - Go to `Preferences | Languages & Frameworks | Markdown` install and check `Mermaid` Markdown extensions
 
+Try one of the below fonts and pick what you like. `Preferences --> Editor --> Font`
+1. JetBrain Mono with Ligatures Enabled
+2. Monaco with Ligatures Enabled
+
 ### IntelliJ IDEA
 
+#### Recommended Plugins 
 Install following plugins from `Preferences --> Plugins`
 
-1.
+1. [Xcode Theme](https://plugins.jetbrains.com/plugin/15727-xcode-theme)
+2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
+3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+4. [Pieces](https://plugins.jetbrains.com/plugin/17328-pieces)
+5. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
+6. [kotest](https://plugins.jetbrains.com/plugin/14080-kotest)
+7. [Kotlin Fill Class](https://plugins.jetbrains.com/plugin/10942-kotlin-fill-class)
+
 
 ### Goland
 
+#### Recommended Plugins
 Install following plugins from `Preferences --> Plugins`
 
-1.
+1. [Xcode Theme](https://plugins.jetbrains.com/plugin/15727-xcode-theme)
+2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
+3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+4. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
 
 ### WebStorm
 
+#### Recommended Plugins
 Install following plugins from `Preferences --> Plugins`
 
 1. Svelte
+2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
+3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
