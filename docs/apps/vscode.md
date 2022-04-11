@@ -13,12 +13,20 @@ brew install --cask --appdir=~/Applications visual-studio-code
 
 Useful extensions:
 
-- ESLint
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - Git history
-- GitLens
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - Highlight Matching Tag
 - Prettier — Code formatter
+- Markdown table of content
+- [GitHub copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
+
+
+For Angular/NodeJS projects:
+
+- ESLint
+- Angular's language service
 
 List VS Code extension:
 ```bash

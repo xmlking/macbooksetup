@@ -1,6 +1,8 @@
 {
   "recommendations": [
     "golang.go",
+    "github.copilot",
+    "eamodio.gitlens",
     "streetsidesoftware.code-spell-checker",
     "paulvarache.vscode-taskfile",
     "bufbuild.vscode-buf",
