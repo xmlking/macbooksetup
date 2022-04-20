@@ -9,6 +9,8 @@
     "ms-azuretools.vscode-docker",
     "zxh404.vscode-proto3",
     "xaver.clang-format",
+    "esbenp.prettier-vscode",
+    "yzhang.markdown-all-in-one",
     "EditorConfig.EditorConfig",
     "humao.rest-client",
     "PKief.material-icon-theme",

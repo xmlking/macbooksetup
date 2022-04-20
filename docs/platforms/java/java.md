@@ -47,6 +47,13 @@ sdk install kotlin
 #optional
 sdk install scala
 sdk install springboot
+
+#spark
+# spark/hadoop currently don't support Java 17
+sdk install java 11.0.14-zulu
+sdk use java 11.0.14-zulu 
+# install `spark-shell`, `spark-submit` cli
+sdk install spark
 ```
 
 > TODO: Add graalVM when [M1 support is releases](https://github.com/oracle/graal/issues/2666)

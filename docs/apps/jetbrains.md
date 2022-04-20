@@ -30,38 +30,49 @@ You may disable "Use non-modal commit interface" option in `Preferences | Versio
 - Go to `Preferences | Languages & Frameworks | Markdown` install and check `Mermaid` Markdown extensions
 
 Try one of the below fonts and pick what you like. `Preferences --> Editor --> Font`
+
 1. JetBrain Mono with Ligatures Enabled
 2. Monaco with Ligatures Enabled
 
-### IntelliJ IDEA
+#### Recommended Plugins
 
-#### Recommended Plugins 
-Install following plugins from `Preferences --> Plugins`
+Recommended Plugins for all JetBrains products
 
 1. [Xcode Theme](https://plugins.jetbrains.com/plugin/15727-xcode-theme)
+    1. Choose either **Xcode** **Light** or **Dark** theme from `Preferences --> Appearance & Behavior --> Appearance`
 2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
 3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
-4. [Pieces](https://plugins.jetbrains.com/plugin/17328-pieces)
-5. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
-6. [kotest](https://plugins.jetbrains.com/plugin/14080-kotest)
-7. [Kotlin Fill Class](https://plugins.jetbrains.com/plugin/10942-kotlin-fill-class)
+4. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
+    1. [Getting Started with GitHub Copilot in JetBrains](https://github.com/github/copilot-docs/blob/main/docs/jetbrains/gettingstarted.md#getting-started-with-github-copilot-in-jetbrains)
 
+### IntelliJ IDEA
+
+#### Recommended Plugins
+
+Install following plugins from `Preferences --> Plugins`
+
+1. [kotest](https://plugins.jetbrains.com/plugin/14080-kotest)
+2. [Kotlin Fill Class](https://plugins.jetbrains.com/plugin/10942-kotlin-fill-class)
+3. [Pieces](https://plugins.jetbrains.com/plugin/17328-pieces)
 
 ### Goland
 
 #### Recommended Plugins
+
 Install following plugins from `Preferences --> Plugins`
 
-1. [Xcode Theme](https://plugins.jetbrains.com/plugin/15727-xcode-theme)
-2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
-3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
-4. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
+1. [Protocol Buffer Editor plugin](https://plugins.jetbrains.com/plugin/14004-protocol-buffers/)
+2. [Terraform and HCL](https://plugins.jetbrains.com/plugin/7808-terraform-and-hcl/)
 
 ### WebStorm
 
 #### Recommended Plugins
+
 Install following plugins from `Preferences --> Plugins`
 
 1. Svelte
-2. [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
-3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+
+
+## Tips
+
+JetBrains' [Markdown Syntax](https://www.jetbrains.com/help/hub/Markdown-Syntax.html#quick-notes-markdown-links)
