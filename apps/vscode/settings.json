@@ -25,7 +25,7 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   ////////// Terminal //////////
-  "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono, Monospace",
   // "terminal.integrated.fontSize": 16,
   // Workbench
   "workbench.editor.limit.enabled": true,
