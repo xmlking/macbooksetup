@@ -6,7 +6,7 @@ Install **JDK** via **SDKMan** per [instructions](../platforms/java/java.md).
 
 ## Install
 
-[JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/) added (🧊)icon to _menubar_. From _Toolbox_, you can
+[JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/) added (🧊)icon to _menu-bar_. From _Toolbox_, you can
 install:
 
 1. IntelliJ IDEA - _Java/Kotlin IDE_
@@ -15,17 +15,23 @@ install:
 4. CLion - _Rust/C/C++ IDE_
 5. PyCharm - _Python IDE_
 
-You can install Jetbrains _Early Access Program_ [(EAP)](https://www.jetbrains.com/resources/eap/) software from this **
-Toolbox** to try beta features.
+You can also install Jetbrains _Early Access Program_ [(EAP)](https://www.jetbrains.com/resources/eap/) software from this **Toolbox** to try _beta_ features.
 
 ## Customizations
 
+### Local Changes
+
 If you prefer _Commit_ panel as tab in _git_ panel, you can change via:<br/>
-You may disable "Use non-modal commit interface" option in `Preferences | Version Control | Commit.`
+You may Uncheck **Use non-modal commit interface** option in `Preferences | Version Control | Commit.`
 
 ![jetbrains-preferences-commit](../images/jetbrains-preferences-commit.png)
 
-### For ALl
+|                                          Before                                           |                                          After                                          |
+|:-----------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
+| ![jetbrains-preferences-commit-before](../images/jetbrains-preferences-commit-before.png) | ![jetbrains-preferences-commit-after](../images/jetbrains-preferences-commit-after.png) |   
+|                   IntelliJ IDEA - version control local changes hidden                    |                 IntelliJ IDEA - version control local changes revealed                  |
+
+### Mermaid 
 
 - Go to `Preferences | Languages & Frameworks | Markdown` install and check `Mermaid` Markdown extensions
 
@@ -33,6 +39,8 @@ Try one of the below fonts and pick what you like. `Preferences --> Editor --> F
 
 1. JetBrain Mono with Ligatures Enabled
 2. Monaco with Ligatures Enabled
+
+### For All (IntelliJ, GoLand, WebStorm ...)
 
 #### Recommended Plugins
 
@@ -71,7 +79,6 @@ Install following plugins from `Preferences --> Plugins`
 Install following plugins from `Preferences --> Plugins`
 
 1. Svelte
-
 
 ## Tips
 
