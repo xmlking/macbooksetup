@@ -122,19 +122,18 @@ fi
 
 ### non-admin
 
-If you don't have **admin** access to your laptop(e.g., company issued laptop), recomend installing **brew** in your home directory.
+If you don't have **admin/sudo** access to your laptop(e.g., company issued laptop), recomend installing **brew** in your home directory.
 In this case follow these steps
 
 ```shell
 cd $HOME
-git clone https://github.com/mxcl/homebrew.git
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 ```
 
-Then add brew to front of PATH by editing your shell profile file and adding below lines:
+Then add brew to front of PATH by editing your shell profile file: `.zprofile` and adding below line:
 
 ```
-export BREW_HOME=$HOME/homebrew
-export PATH=$BREW_HOME/bin:$PATH
+eval "$($HOME/homebrew/bin/brew shellenv)"
 ```
 
 ## Usage
