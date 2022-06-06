@@ -79,5 +79,12 @@ in `Privacy` tab, I added:
 * Turn on Firewall
 
 ## Safari
+### Session
 * Safari --> Preferences --> General
   * _Safari open with:_ `All windows from last session`
+
+### Developer Menu
+
+> Before you can access the developer console in Safari, you first need to enable the **Developer Menu**. To do that, go into Safari's preferences (**Safari Menu > Preferences**) and select the **Advanced Tab**.
+
+![safari-dev-preferences](../images/safari-dev-preferences.png)
