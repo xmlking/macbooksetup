@@ -6,8 +6,27 @@ We will install other missing essential tools used frequently by _Developers_.
 ### Command-line tools
 Install essential _command-line tools_
 
+* [watch](https://cli.github.com/) — `watch` will run a command repeatedly and then display the output in an `ncurses` friendly manner. 
+* [jq](https://stedolan.github.io/jq/) —  `jq` is like `sed` for JSON data
+* [git](https://git-scm.com/) — `git` is a version control system CLI
+* git-flow-avh
+* git-chglog
+
+#### Better CLI Alternative Tools
+ 
+* [gh](https://cli.github.com/) —  `GitHub CLI` brings GitHub to your terminal. 
+* [bat](https://github.com/sharkdp/bat) — A syntax highlighting clone of `cat` and can stand in for `less`
+* [delta](https://github.com/dandavison/delta) — A syntax highlighting pager for `diff`-ing
+* [fd](https://github.com/sharkdp/fd) — A user-friendly version of `find`
+* [htop](https://htop.dev/) — An interactive replacement for `top`
+* [procs](https://github.com/dalance/procs) — A modern replacement for `ps`
+* [exa](https://the.exa.website/) — A modern replacement for `ls`
+* [ripgrep](https://github.com/BurntSushi/ripgrep) — An improved `grep`
+* [dust](https://github.com/bootandy/dust) — A more intuitive version of `du`
+* [duf](https://github.com/muesli/duf) — A better `df` alternative
+* [prettyping](https://github.com/denilsonsa/prettyping) —A pretty wrapper around `ping`
+
 ```shell
-# tools
 brew install watch
 brew install jq
 
@@ -18,12 +37,17 @@ brew install git-flow-avh # helps to adopt GitFlow as git branching model https:
 brew tap git-chglog/git-chglog # CHANGELOG generator
 brew install git-chglog
 
+# Better CLI alternative Tools
 brew install ack
 brew install tree
 brew install vim
 brew install subversion # Yes, it is required to install some brew formulas :(
 brew install exa # replacement for LS. https://the.exa.website
 brew install bat # a better `cat`
+brew install git-delta  # a better git `diff`
+brew install fd # user-friendly alternative to `find`
+brew install ripgrep # a better `grep` use: rg
+brew install htop # a better `top`
 brew install httpie
 brew install go-task/tap/go-task # better then a Makefile
 ```
