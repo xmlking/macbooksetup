@@ -62,6 +62,7 @@ Install following plugins from `Preferences --> Plugins`
 1. [kotest](https://plugins.jetbrains.com/plugin/14080-kotest)
 2. [Kotlin Fill Class](https://plugins.jetbrains.com/plugin/10942-kotlin-fill-class)
 3. [Pieces](https://plugins.jetbrains.com/plugin/17328-pieces)
+4. [CodeMR](https://plugins.jetbrains.com/plugin/10811-codemr)
 
 ### Goland
 

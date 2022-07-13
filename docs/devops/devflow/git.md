@@ -7,13 +7,68 @@ Copy `.gitconfig` file as described in [Dotfiles](../../essentials/dotfiles.md) 
 Next, we'll define your Git user (should be the same name and email you use for GitHub):
 ```shell
 git config --global user.name "Your Name Here"
-git config --global user.email "your_email@youremail.com"
+git config --global user.email "your_email@company.com"
 ```
 
 Also copy `.gitattributes` and `.gitignore` files as described in [Dotfiles](../../essentials/dotfiles.md) to your home's `my` directory. i.e., `~/my`<br/>
-Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/developers/gitignore?templates=macos) and fill it what you need.
+Customize your `.gitignore` by visiting [gitignore.io](https://www.toptal.com/developers/gitignore?templates=macos) and fill it what you need.
+
+##  autocrlf
+
+**Why do you want this ?**
+
+Because _Git_ will see diffs between files shared between _Linux_ and _Windows_ due to differences in line ending handling ( Windows uses _CR_ and Unix _LF_)
+
+TL;DR,  Using `git config core.autocrlf true` can help, but **not** on a multi-developers(Windows and MacOS) projects.
+This setting has to be the same on each developer machine, and that's not always the case.
+
+### Recommendations
+1. Global settings for line endings
+   - Set `core.autocrlf` to **input** on **MacOS** 
+       ```
+       git config --global core.autocrlf input
+       ```
+   - Set `core.autocrlf` to **true** on **Windows**
+       ```
+       git config --global core.autocrlf true
+       ```
+       
+2. Set a _global_ [.gitattributes](../../../dotfiles/my/.gitattributes) to your home directory, as described in [Dotfiles](../../essentials/dotfiles.md).
+3. Pick a platform specific `.gitattributes` from [here](https://github.com/alexkaratarakis/gitattributes) and `.gitignore`  from [gitignore.io](https://www.toptal.com/developers/gitignore?templates=macos), add them to your project root. 
+    > Explore **Web** project template [here](../../../apps/git).
 
 
+### Normalize line endings
+
+If you have any binary files in the repository that:
+1. are not correctly marked as binary in `gitattributes`, and 
+2. happen to contain both CRLFs and LFs files,
+
+Then follow the instructions [here](https://stackoverflow.com/questions/1510798/trying-to-fix-line-endings-with-git-filter-branch-but-having-no-luck/1511273#1511273) (echoed on [GitHub's help pages](https://help.github.com/articles/dealing-with-line-endings/)) to convert the repository to contain only LF line-endings
+
+This Gist normalizes repo by forcing everything to use Unix style.
+
+
+```shell
+# From the root of your repository remove everything from the index
+git rm --cached -rf .
+
+# Change the autocrlf setting of the repository (you may want to use `true` on windows):
+git config core.autocrlf input
+
+# Re-add all the deleted files to the index
+# (You should get lots of messages like:
+#   warning: CRLF will be replaced by LF in <file>.)
+git diff --cached --name-only -z | xargs -n 50 -0 git add -f
+
+# Commit
+git commit -m "Normalize all the line endings"
+
+# If you're doing this on a Unix/MacOS clone then optionally remove
+# the working tree and re-check everything out with the correct line endings.
+git ls-files -z | xargs -0 rm
+git checkout .
+```
 
 ## Using HTTPS for GitHub (recommended)
 
