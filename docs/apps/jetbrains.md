@@ -79,7 +79,11 @@ Install following plugins from `Preferences --> Plugins`
 
 Install following plugins from `Preferences --> Plugins`
 
-1. Svelte
+1. [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)
+2. [Vitest Runner](https://plugins.jetbrains.com/plugin/19220-vitest-runner)
+3. [.env files support](https://plugins.jetbrains.com/plugin/9525--env-files-support)
+4. [Protocol Buffers](https://plugins.jetbrains.com/plugin/14004-protocol-buffers)
+5. [Toml](https://plugins.jetbrains.com/plugin/8195-toml)
 
 ## Tips
 
