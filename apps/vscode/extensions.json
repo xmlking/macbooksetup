@@ -1,21 +1,48 @@
 {
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+  // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
-    "golang.go",
-    "github.copilot",
+    // General
     "eamodio.gitlens",
-    "streetsidesoftware.code-spell-checker",
-    "paulvarache.vscode-taskfile",
-    "bufbuild.vscode-buf",
-    "ms-azuretools.vscode-docker",
-    "zxh404.vscode-proto3",
-    "xaver.clang-format",
+    "github.github-vscode-theme",
+    "github.vscode-pull-request-github",
     "esbenp.prettier-vscode",
     "yzhang.markdown-all-in-one",
     "EditorConfig.EditorConfig",
     "humao.rest-client",
     "PKief.material-icon-theme",
     "hediet.vscode-drawio",
-    "github.github-vscode-theme",
-    "github.vscode-pull-request-github"
-  ]
+    "GitHub.copilot",
+    "mikestead.dotenv",
+    // GolLang
+    "golang.go",
+    "paulvarache.vscode-taskfile",
+    "bufbuild.vscode-buf",
+    "ms-azuretools.vscode-docker",
+    "zxh404.vscode-proto3",
+    "xaver.clang-format",
+    // WebApps
+    "ardenivanov.svelte-intellisense",
+    "bradlc.vscode-tailwindcss",
+    "codezombiech.gitignore",
+    "cschleiden.vscode-github-actions",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "ms-playwright.playwright",
+    "ms-vsliveshare.vsliveshare",
+    "seatonjiang.gitmoji-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "stylelint.vscode-stylelint",
+    "svelte.svelte-vscode",
+    "Tyriar.sort-lines",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "vunguyentuan.vscode-css-variables",
+    "wix.vscode-import-cost",
+    "wmaurer.change-case",
+    "ZixuanChen.vitest-explorer"
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": []
 }

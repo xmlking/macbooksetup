@@ -1,129 +1,169 @@
 {
-  "window.zoomLevel": 1,
-  "explorer.sortOrder": "type",
-  ////////// scm //////////
-  "scm.defaultViewMode": "tree",
-  ////////// Editor //////////
-  "editor.autoIndent": "full",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.cursorStyle": "line",
-  // "editor.fontSize": 16,
-  "editor.fontFamily": " SourceCodePro-Regular, FiraCode-Retina, Menlo",
-  "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": false,
-  "editor.formatOnSave": true,
-  "editor.letterSpacing": 0.5,
-  "editor.lineHeight": 25,
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "none",
-  "editor.tabCompletion": "on",
-  "editor.tabSize": 2,
-  "editor.wordWrap": "off",
-  ////////// Terminal //////////
-  "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono, Monospace",
-  // "terminal.integrated.fontSize": 16,
-  // Workbench
-  "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 8,
-  "workbench.editor.highlightModifiedTabs": true,
-  // File settings
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/*.js.map": {
-      "when": "$(basename)"
-    }
-  },
-  "files.associations": {
-    "Makefile*": "makefile"
-  },
-  // "files.hotExit": "onExit",
-  "files.defaultLanguage": "go",
-  "files.trimTrailingWhitespace": true,
-  ////////// Go //////////
-  "go.testFlags": [
-    "-v",
-    "-count=1"
-  ],
-  "go.testTimeout": "5s",
-  "go.useLanguageServer": true,
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": [
-    "--fast",
-    "--config=.github/linters/.golangci.yml"
-  ],
-  ////////// Spell checker //////////
-  "cSpell.language": "en",
-  // Map spelling errors to Hints so that they don't show up in the Problems pane.
-  "cSpell.diagnosticLevel": "Hint",
-  // This makes the spell checker more lenient when two words are jammed together.
-  "cSpell.allowCompoundWords": true,
-  // This is the default list of filetypes to spell check except with proto3 added.
-  "cSpell.enabledLanguageIds": [
-    "asciidoc",
-    "css",
-    "go",
-    "html",
-    "javascript",
-    "json",
-    "markdown",
-    "plaintext",
-    "python",
-    "rust",
-    "scss",
-    "text",
-    "typescript",
-    "typescriptreact",
-    "yml",
-    "proto3",
-  ],
-  // This is a whitelist of words that we think we spell just fine.
-  "cSpell.words": [
-    "grpc",
-    "log",
-    "proto",
-    "protobuf",
-    "timeout",
-  ],
-  ////////// Proto //////////
-  "clang-format.style": "google",
-  "protoc": {
-    "options": [
-      "--proto_path=${workspaceRoot}/proto",
-      "--proto_path=${env.GOPATH}/src"
-    ]
-  },
-  ////////// REST client //////////
-  "rest-client.environmentVariables": {
-    "$shared": {
-      "client-id": "ngxapi",
-      "username": "sumo3",
-      "password": "demo",
-      "api-gateway-url": "http://localhost:8080"
-    },
-    "local": {
-      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-      "api-url": "http://localhost:3000"
-    },
-    "local-admin": {
-      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-      "api-url": "http://localhost:3000",
-      "username": "ngxadmin",
-      "password": "ngxadmin"
-    },
-    "production": {
-      "oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-      "api-url": "https://api.kashmora.com"
-    }
-  }
+	"window.zoomLevel": 1,
+	"explorer.sortOrder": "type",
+	////////// scm //////////
+	"scm.defaultViewMode": "tree",
+	////////// Editor //////////
+	"editor.autoIndent": "full",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true
+	},
+	"editor.cursorBlinking": "solid",
+	"editor.cursorSmoothCaretAnimation": true,
+	"editor.cursorStyle": "line",
+	// "editor.fontSize": 16, // or "window.zoomLevel": 1,
+	"editor.fontFamily": " SourceCodePro-Regular, FiraCode-Retina, Menlo",
+	"editor.fontLigatures": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": false,
+	"editor.formatOnSave": true,
+	// "editor.letterSpacing": 0.5,
+	// "editor.lineHeight": 25,
+	"editor.minimap.enabled": false,
+	"editor.renderWhitespace": "none",
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 2,
+	"editor.wordWrap": "off",
+	////////// Terminal //////////
+	"terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono, Monospace",
+	// "terminal.integrated.fontSize": 16, // or "window.zoomLevel": 1,
+	////////// Workbench //////////
+	"workbench.colorTheme": "GitHub Dark Default",
+	"workbench.editor.limit.enabled": true,
+	"workbench.editor.limit.value": 8,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.iconTheme": "material-icon-theme",
+	////////// File settings //////////
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 1000,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/*.js": {
+			"when": "$(basename).ts"
+		},
+		"**/*.js.map": {
+			"when": "$(basename)"
+		}
+	},
+	"files.associations": {
+		"Makefile*": "makefile"
+	},
+	// "files.hotExit": "onExit",
+	"files.defaultLanguage": "go",
+	"files.trimTrailingWhitespace": true,
+
+	////////// GoLang //////////
+	"go.testFlags": ["-v", "-count=1"],
+	"go.testTimeout": "5s",
+	"go.useLanguageServer": true,
+	"go.lintTool": "golangci-lint",
+	"go.lintFlags": ["--fast", "--config=.github/linters/.golangci.yml"],
+
+	////////// Rust //////////
+	"rust-analyzer.inlayHints.chainingHints": false,
+	"rust-analyzer.inlayHints.typeHints": false,
+
+	////////// Terraform //////////
+	"terraform.telemetry.enabled": false,
+	"terraform.indexing": {
+		"enabled": true,
+		"liveIndexing": false,
+		"delay": 500,
+		"exclude": [".terraform/**/*", "**/.terraform/**/*"]
+	},
+	"terraform.languageServer": {
+		"external": true,
+		"args": ["serve"]
+	},
+
+	////////// Spell checker //////////
+	"cSpell.language": "en",
+	// Map spelling errors to Hints so that they don't show up in the Problems pane.
+	"cSpell.diagnosticLevel": "Hint",
+	// This makes the spell checker more lenient when two words are jammed together.
+	"cSpell.allowCompoundWords": true,
+	// This is the default list of filetypes to spell check except with proto3 added.
+	"cSpell.enabledLanguageIds": ["asciidoc", "css", "go", "html", "javascript", "json", "markdown", "plaintext", "python", "rust", "scss", "text", "typescript", "typescriptreact", "yml", "proto3", "svelte"],
+	// This is a whitelist of words that we think we spell just fine.
+	"cSpell.userWords": ["grpc", "log", "proto", "protobuf", "timeout"],
+	"cSpell.ignorePaths": ["node_modules", "**/node_modules", "**/node_modules/**", ".git", "*rc"],
+
+	////////// svelte //////////
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.format.config.svelteStrictMode": true,
+	"svelte.plugin.svelte.useNewTransformation": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.plugin.svelte.compilerWarnings": {
+		// "css-unused-selector": "ignore",
+		// "a11y-label-has-associated-control": "ignore"
+	},
+
+	////////// vitest //////////
+	"vitest.include": ["**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx,svelte}"],
+	"vitest.exclude": ["**/node_modules/**", "**/dist/**", "**/cypress/**", "**/.{idea,git,cache,output,temp}/**", "**/ignored.test.ts", "tests/**"],
+
+	////////// tailwindCSS //////////
+	"tailwindCSS.emmetCompletions": true,
+
+	////////// eslint //////////
+	"eslint.validate": ["javascript", "typescript", "svelte", "yaml"],
+
+	////////// Proto //////////
+	"clang-format.style": "google",
+	"protoc": {
+		"options": ["--proto_path=${workspaceRoot}/proto", "--proto_path=${env.GOPATH}/src"]
+	},
+
+	////////// Prettier //////////
+	// Make sure we're using prettier for all filetypes
+	// Need this because we need to override the default json and svelte formatters that folks might have configured
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	////////// REST client //////////
+	"rest-client.environmentVariables": {
+		"$shared": {
+			"client-id": "ngxapi",
+			"username": "sumo3",
+			"password": "demo",
+			"api-gateway-url": "http://localhost:8080"
+		},
+		"local": {
+			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+			"api-url": "http://localhost:3000"
+		},
+		"local-admin": {
+			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+			"api-url": "http://localhost:3000",
+			"username": "ngxadmin",
+			"password": "ngxadmin"
+		},
+		"production": {
+			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
+			"api-url": "https://api.kashmora.com"
+		}
+	}
 }
