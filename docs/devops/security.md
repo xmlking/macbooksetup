@@ -38,6 +38,34 @@ The following checks were performed on each of these signatures:
   - Any certificates were verified against the Fulcio roots.
 ```
 
+### Gitsign
+[Gitsign](https://github.com/sigstore/gitsign) enable Keyless Git/commits signing with your own GitHub / OIDC identity.
+
+#### Install
+```shell
+go install github.com/sigstore/gitsign@latest
+```
+#### Configuration
+Single Repository:
+```shell
+cd /path/to/my/repository
+git config --local commit.gpgsign true  # Sign all commits
+git config --local gpg.x509.program gitsign  # Use gitsign for signing
+git config --local gpg.format x509  # gitsign expects x509 args
+```
+All respositories:
+```shell
+git config --global commit.gpgsign true  # Sign all commits
+git config --global gpg.x509.program gitsign  # Use gitsign for signing
+git config --global gpg.format x509  # gitsign expects x509 args
+```
+#### Usage
+```shell
+$ git commit --allow-empty --message="Signed commit"
+[main cb6eee1] Signed commit
+$ git --no-pager log --show-signature -1
+```
+
 ### Software Bill of Materials 
 
 For the _micro-apps_ project we publish a _Software Bill of Materials (SBOM)_ with each release. The SBOM is generated with [Syft](https://github.com/anchore/syft) in the [SPDX](https://spdx.dev/) format.

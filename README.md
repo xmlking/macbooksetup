@@ -8,7 +8,7 @@ Community-authored. Write, edit, share.
 
 Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 
-### Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)
+**Finally, sync your [Dotfiles](./docs/essentials/dotfiles.md)**
 
 ## Contributors
 
@@ -24,3 +24,4 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 - [My Ultimate M1 Mac Developer Setup](https://codeburst.io/my-ultimate-m1-mac-developer-setup-cfdb2daeed2d)
 - [Sourabhbajaj's macOS Setup Guide](https://sourabhbajaj.com/mac-setup/index.html)
 - https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal
+- [Te BEST Mac Terminal Setup for 2022](https://bdarfler.medium.com/the-best-mac-terminal-setup-for-2022-44bf6e3c1a6e)

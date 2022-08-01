@@ -1,4 +1,4 @@
-# MacOS tips
+# MacOS
 
 
 - Grep three lines....
@@ -43,3 +43,16 @@
   127.0.0.1 kubernetes.docker.internal
   # End of section
   ```
+  
+- find process running on a given port
+  ```shell
+  sudo lsof -i tcp:1668
+  
+  lsof -nP +c 15 | grep LISTEN
+  ```
+
+- tree view of filesystem
+  ```shell
+  tree -d -C -L 2
+  ```
+  

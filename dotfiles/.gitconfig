@@ -1,12 +1,25 @@
 [user]
-	name = first last name
-	email = me@email.com
+    name = first last name
+    email = me@email.com
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [core]
-	excludesfile = ~/my/.gitignore
-	attributesfile = ~/my/.gitattributes
-	autocrlf = input
+    excludesfile = ~/my/.gitignore
+    attributesfile = ~/my/.gitattributes
+    autocrlf = input
+# delta config
+	pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+    side-by-side = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 # so much color
 [color]
     ui = always
@@ -19,9 +32,9 @@
     whitespace = red reverse
 [color "diff-highlight"]
     oldNormal = red bold
-    oldHighlight = "red bold 52"
-    newNormal = "green bold"
-    newHighlight = "green bold 22"
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -31,12 +44,14 @@
     changed = green
     untracked = cyan
 [filesystem "JetBrains s.r.o|11.0.5|/dev/disk1s1"]
-	timestampResolution = 8000 nanoseconds
-	minRacyThreshold = 0 nanoseconds
+    timestampResolution = 8000 nanoseconds
+    minRacyThreshold = 0 nanoseconds
 [filesystem "Eclipse OpenJ9|11.0.6|/dev/disk1s1"]
-	timestampResolution = 13000 nanoseconds
-	minRacyThreshold = 0 nanoseconds
+    timestampResolution = 13000 nanoseconds
+    minRacyThreshold = 0 nanoseconds
 [init]
-	defaultBranch = develop
+    defaultBranch = develop
 [pull]
     rebase = false
+[alias]
+# 	cc = convco commit

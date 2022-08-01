@@ -6,24 +6,46 @@ We will install other missing essential tools used frequently by _Developers_.
 ### Command-line tools
 Install essential _command-line tools_
 
+* [watch](https://cli.github.com/) — `watch` will run a command repeatedly and then display the output in an `ncurses` friendly manner. 
+* [jq](https://stedolan.github.io/jq/) —  `jq` is like `sed` for JSON data
+* [git](https://git-scm.com/) — `git` is a version control system CLI
+* git-flow-avh
+* git-chglog
+
+#### Better CLI Alternative Tools
+ 
+* [gh](https://cli.github.com/) —  `GitHub CLI` brings GitHub to your terminal. 
+* [bat](https://github.com/sharkdp/bat) — A syntax highlighting clone of `cat` and can stand in for `less`
+* [delta](https://github.com/dandavison/delta) — A syntax highlighting pager for `diff`-ing
+* [fd](https://github.com/sharkdp/fd) — A user-friendly version of `find`
+* [htop](https://htop.dev/) — An interactive replacement for `top`
+* [procs](https://github.com/dalance/procs) — A modern replacement for `ps`
+* [exa](https://the.exa.website/) — A modern replacement for `ls`
+* [ripgrep](https://github.com/BurntSushi/ripgrep) — An improved `grep`
+* [dust](https://github.com/bootandy/dust) — A more intuitive version of `du`
+* [duf](https://github.com/muesli/duf) — A better `df` alternative
+* [prettyping](https://github.com/denilsonsa/prettyping) —A pretty wrapper around `ping`
+
 ```shell
-# tools
 brew install watch
 brew install jq
 
 brew install git
 brew install gh # GitHub official command line tool.
 # for first time use, run `gh auth login`
-brew install git-flow-avh # helps to adopt GitFlow as git branching model https://xmlking.gitbook.io/micro-apps/getting-started/gitflow
-brew tap git-chglog/git-chglog # CHANGELOG generator
-brew install git-chglog
 
+
+# Better CLI alternative Tools
 brew install ack
 brew install tree
 brew install vim
 brew install subversion # Yes, it is required to install some brew formulas :(
 brew install exa # replacement for LS. https://the.exa.website
 brew install bat # a better `cat`
+brew install git-delta  # a better git `diff`
+brew install fd # user-friendly alternative to `find`
+brew install ripgrep # a better `grep` use: rg
+brew install htop # a better `top`
 brew install httpie
 brew install go-task/tap/go-task # better then a Makefile
 ```
@@ -57,17 +79,23 @@ After installing your choice of font, you have to configure each _Editor_ and _T
 ### Apps
 Install essential _Apps_ via brew cask
 
-Since many of us won't have _admin_ rights on **Company** issued MacBooks, we will be installing software into **User's** Applications (i.e., `~/Applications`) directory:<br/> 
+Since many of us won't have _admin_ rights on **Company** issued MacBooks, we will be installing software into **User's** Applications (i.e., `~/Applications`) directory:<br/>
 
 > If you have admin privilege, you can skip `--appdir=~/Applications` flag
+
+#### Development Tools
+- [iterm2](https://iterm2.com): macOS Terminal Replacement
+- [Sublimetext](https://www.sublimetext.com): lightweight text/markdown editor
+- [VSCode](https://code.visualstudio.com): lightweight code editor
+- [Jetbrains](https://www.jetbrains.com/toolbox-app/): toolbox to install jetbrains IDEs
 
 ```shell
 brew install --cask --appdir=~/Applications iterm2
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
-brew install --cask --appdir=~/Applications microsoft-remote-desktop
 ```
+
 Other benefit of installing `Apps` via `Brew` is, it links binaries to `/opt/homebrew/bin` which is added to `$PATH`.
 
     'subl' to '/opt/homebrew/bin/subl'
@@ -77,6 +105,63 @@ So, you can open _projects/directors_ from command-line in _VSCode_ or _Sublime-
 ```shell
 code ~/Developer/Work/tools/macbooksetup
 subl ~/Developer/Work/tools/macbooksetup
+```
+
+#### Productivity
+- [Alfred](https://www.alfredapp.com): Spotlight on steroids.
+
+```shell
+brew install --cask --appdir=~/Applications alfred
+```
+
+#### Other 
+- Google Chrome
+- Microsoft Remote Desktop: rdp (optional)
+- [OBS](https://obsproject.com): Record your screen with audio, mouse highlight and other features. (optional)
+- [logitech-options](https://www.logitech.com/en-us/software/options.html): logitech driver, install only if you have _MX mouse_ (optional)
+- [zoom](): app for meetings (optional)
+- [slack](): app for communication (optional)
+
+```shell
+brew install --cask --appdir=~/Applications google-chrome
+brew install --cask --appdir=~/Applications microsoft-remote-desktop
+brew install --cask --appdir=~/Applications obs
+# Logitech Options software - will prompt for password.
+brew tap "homebrew/cask-drivers"
+brew install --cask --appdir=~/Applications logitech-options
+# Remote communication (optional)
+brew install --cask --appdir=~/Applications zoom
+brew install --cask --appdir=~/Applications slack
+```
+
+#### Mac App Store apps
+
+Install apps from `Mac App Store` with [mas](https://github.com/mas-cli/mas)
+
+Usage
+```shell
+brew install mas
+# search 
+mas search Xcode
+# install 
+mas install <appID>
+# list installed apps
+mas list
+# list all applications with pending updates.
+mas outdated
+# To install all pending updates run:
+mas upgrade
+```
+
+
+- [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12): window management (optional)
+- [Twitter](https://twitter.com/): micro blog for tech news (optional)
+
+```shell
+# Magnet
+mas install 441258766
+# Twitter
+mas install 409789998
 ```
 
 Customize above applications further from: [Apps](../apps) docs

@@ -9,6 +9,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Executable scripts from Python packages you install will be put in here
 export PATH=$HOME/Library/Python/3.8/bin:$PATH
 
+# RANCHER DESKTOP
+export PATH=$HOME/.rd/bin:$PATH
+
 # Android
 # export ANDROID_HOME=$HOME/Library/Android/sdk
 # export PATH=$PATH:$ANDROID_HOME/tools

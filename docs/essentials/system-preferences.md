@@ -10,8 +10,15 @@ The first thing you should do is update your system. To do that go: **Apple menu
 ## Trackpad
 
 * Point & Click
-  * Enable _Tap to click with one finger_
-  * Change _Secondary_ click to _Right_ corner
+  * Change _Secondary click_ `Click in bottom right corner`
+  * Enable _Tap to click_ - `Tap with one finger`
+
+* Enabling moving windows with a three finger gesture
+
+  The other trackpad change I recommend is to [enable moving windows with a three finger gesture](https://support.apple.com/en-us/HT204609).
+  > `System Preferences -> Accessibility -> Pointer Control -> Mouse & Trackpad -> Trackpad options… -> Enable dragging -> three finger drag`
+
+  ![settings-three-finger-drag](../images/settings-three-finger-drag.png)
 
 ## Mouse
 
@@ -52,8 +59,15 @@ Got to `Desktop & Screen Saver` _Setting_ and open `Hot Corners...` add `Lanchpa
 
 ## Spotlight
 
+Removing irrelevant search results:
+
 Uncheck _fonts, images, files_ etc.
-Uncheck the _keyboard shortcuts_ as we'll be replacing them with Alfred
+Uncheck the _keyboard shortcuts_ as we'll be replacing them with [Alfred](https://www.alfredapp.com)
+
+in `Privacy` tab, I added:
+1. `~/go`
+
+
 
 ## Accounts
 
@@ -65,5 +79,12 @@ Uncheck the _keyboard shortcuts_ as we'll be replacing them with Alfred
 * Turn on Firewall
 
 ## Safari
+### Session
 * Safari --> Preferences --> General
   * _Safari open with:_ `All windows from last session`
+
+### Developer Menu
+
+> Before you can access the developer console in Safari, you first need to enable the **Developer Menu**. To do that, go into Safari's preferences (**Safari Menu > Preferences**) and select the **Advanced Tab**.
+
+![safari-dev-preferences](../images/safari-dev-preferences.png)

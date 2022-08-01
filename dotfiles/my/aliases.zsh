@@ -52,6 +52,17 @@ alias mac.cleardns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder
 if [ -x "$(command -v bat)" ]; then
   alias cat="bat --theme='OneHalfLight'"
 fi
+if [ "$(command -v htop)" ]; then
+    alias top='htop --tree'
+fi
+# By default, fd ignores files and directories that are hidden or listed in the .gitignore.
+# `fda` & `rga` disable this feature
+if [ -x "$(command -v fd)" ]; then
+  alias fda='fd -IH'
+fi
+if [ -x "$(command -v rg)" ]; then
+  alias rga='rg -uuu'
+fi
 
 
 # Docker

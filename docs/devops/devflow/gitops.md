@@ -2,7 +2,7 @@
 
 CI/CD workflow and tech stack.
 
-![Gitflow](../images/dev-sec-ops.drawio.svg)
+![Gitflow](../../images/dev-sec-ops.drawio.svg)
 
 ## Development 
 
