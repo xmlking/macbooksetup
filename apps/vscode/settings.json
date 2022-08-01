@@ -3,10 +3,12 @@
 	"explorer.sortOrder": "type",
 	////////// scm //////////
 	"scm.defaultViewMode": "tree",
+	"conventionalCommits.scopes": ["workspace", "actions", "lint", "deps", "docs", "policy"],
 	////////// Editor //////////
 	"editor.autoIndent": "full",
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": true
+		"source.organizeImports": true,
+		"source.fixAll": true
 	},
 	"editor.cursorBlinking": "solid",
 	"editor.cursorSmoothCaretAnimation": true,
@@ -52,14 +54,12 @@
 	// "files.hotExit": "onExit",
 	"files.defaultLanguage": "go",
 	"files.trimTrailingWhitespace": true,
-
 	////////// GoLang //////////
 	"go.testFlags": ["-v", "-count=1"],
 	"go.testTimeout": "5s",
 	"go.useLanguageServer": true,
 	"go.lintTool": "golangci-lint",
 	"go.lintFlags": ["--fast", "--config=.github/linters/.golangci.yml"],
-
 	////////// Rust //////////
 	"rust-analyzer.inlayHints.chainingHints": false,
 	"rust-analyzer.inlayHints.typeHints": false,
@@ -105,16 +105,13 @@
 
 	////////// tailwindCSS //////////
 	"tailwindCSS.emmetCompletions": true,
-
 	////////// eslint //////////
 	"eslint.validate": ["javascript", "typescript", "svelte", "yaml"],
-
 	////////// Proto //////////
 	"clang-format.style": "google",
 	"protoc": {
 		"options": ["--proto_path=${workspaceRoot}/proto", "--proto_path=${env.GOPATH}/src"]
 	},
-
 	////////// Prettier //////////
 	// Make sure we're using prettier for all filetypes
 	// Need this because we need to override the default json and svelte formatters that folks might have configured
@@ -141,29 +138,5 @@
 	},
 	"[markdown]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-
-	////////// REST client //////////
-	"rest-client.environmentVariables": {
-		"$shared": {
-			"client-id": "ngxapi",
-			"username": "sumo3",
-			"password": "demo",
-			"api-gateway-url": "http://localhost:8080"
-		},
-		"local": {
-			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-			"api-url": "http://localhost:3000"
-		},
-		"local-admin": {
-			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-			"api-url": "http://localhost:3000",
-			"username": "ngxadmin",
-			"password": "ngxadmin"
-		},
-		"production": {
-			"oidc-issuer-url": "https://keycloak.kashmora.com/auth/realms/ngx",
-			"api-url": "https://api.kashmora.com"
-		}
 	}
 }

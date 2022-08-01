@@ -34,8 +34,9 @@ To install the following software, go to terminal and run:
 
 ```shell
 # if you want to manage java version with `sdkman`
-# java  `17.0.2-zulu` is current long-term support (LTS).
-sdk install java 17.0.2-zulu
+# java  `17.0.4-zulu` is current long-term support (LTS). 
+# pick latest LTS version at the time of installation.
+sdk install java 17.0.4-zulu
 java --version # verify
 
 sdk install gradle
@@ -49,9 +50,9 @@ sdk install scala
 sdk install springboot
 
 #spark
-# spark/hadoop currently don't support Java 17
-sdk install java 11.0.14-zulu
-sdk use java 11.0.14-zulu 
+# hadoop currently don't support Java 17 (as of 2022-08-01)
+sdk install java 11.0.16-zulu
+sdk use java 11.0.16-zulu 
 # install `spark-shell`, `spark-submit` cli
 sdk install spark
 ```
@@ -68,8 +69,8 @@ To see what is outdated for all Candidates
 sdk upgrade
 ```
 
-To remove old version e.g., gradle 7.4:
+To remove old version e.g., gradle 7.5:
 
 ```shell
-sdk remove gradle 7.4
+sdk remove gradle 7.5
 ```

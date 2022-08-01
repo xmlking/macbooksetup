@@ -32,7 +32,7 @@ brew install go@1.17
 # brew switch
 brew unlink go
 brew link go@1.17
-# abd back to 1.18
+# back to 1.18
 brew unlink go
 brew link  go
 ```
@@ -41,17 +41,24 @@ Optional tools for GoLang Developers
 ```shell
 # buf: proto tool https://buf.build/docs/tour-1
 brew install bufbuild/buf/buf
-
+# protobuf
 brew install protobuf
-# certs for mTLS
-brew install step
-# ko is a tool for build/publish/deploy container images  for Go applications
-brew install ko
 # grpc cli client
 brew install grpcurl
 # bloomrpc is a UI client for gRPC (optional)
 # install `bloomrpc` via `brew` into ~/Applications)
 brew install --cask --appdir=~/Applications bloomrpc
+# certs for mTLS
+brew install step
+
+## build & deploy
+# ko is a tool for build/publish/deploy container images  for Go applications
+brew install ko
+brew install goreleaser
+brew install skaffold
+brew tap anchore/syft
+brew install syft
+brew install cosign
 ```
 
 ```shell

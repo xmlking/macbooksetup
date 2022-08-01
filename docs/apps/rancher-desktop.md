@@ -51,6 +51,7 @@ brew install derailed/k9s/k9s # Manage Your k8s In Style!
 brew install istioctl # Istio configuration command line utility 
 brew install dive # A tool for exploring a docker image, layer contents, and discovering ways to shrink the size of your Docker/OCI image
 brew install crane # A tool for interacting with remote images and registries.
+brew tap anchore/syft && brew install syft # SBOM tool
 brew install cosign # Container Signing, Verification and Storage in an OCI registry. 
 brew install skaffold # build and deploy docker images
 go install sigs.k8s.io/bom/cmd/bom@latest # Create SPDX-compliant Bill of Materials

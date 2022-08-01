@@ -18,6 +18,9 @@ rustup-init
 Above command will add `$HOME/.cargo/env` to `~/.zshenv` `~/.profile`  and `~/.bash_profile` files. 
 we don't need this as we add `source "$HOME/.cargo/env"` to `~/my/extra.zsh` file.
 
+when prompted `Modify PATH variable? (Y/n)` enter `n`
+
+```shell
 ```shell
 rm -f   .zshenv .profile  .bash_profile
 ```

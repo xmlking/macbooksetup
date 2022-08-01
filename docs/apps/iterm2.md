@@ -62,7 +62,8 @@ Add _kubecontext_ Status Bar component
 ## Shortcut Keys
 
 Under _Preferences → Profile → ("Default") → Keys → Key Mappings:_<br/>
-Click the `Presets` dropdown and select `Natural Text Editing`
+Click the `Presets` dropdown and select `Natural Text Editing`. 
+When prompted: `Load Preset` click `Remove` button.
 
 ![iterm-profiles-keys](../images/iterm-profiles-keys.png)
 
@@ -70,8 +71,11 @@ Click the `Presets` dropdown and select `Natural Text Editing`
 
 Under  _Preference → Profile → Default → Colors → Color Presets:_<br/>
 **Install Color Preset:**
-Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
-or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file, install, then select the one the installed preset.
+Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors) 
+or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file to `~/Downloads` folder, 
+import the `.itermcolors` file, then select the `Clovis-iTerm2-Color-Scheme`  preset you just installed.
+
+> you have to rename `~/Downloads/Clovis-iTerm2-Color-Scheme.txt` file to `~/Downloads/Clovis-iTerm2-Color-Scheme.itermcolors.itermcolors` before importing.
 
 ![iterm-profiles-colors](../images/iterm-profiles-colors.png)
 

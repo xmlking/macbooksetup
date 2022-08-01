@@ -33,9 +33,7 @@ brew install jq
 brew install git
 brew install gh # GitHub official command line tool.
 # for first time use, run `gh auth login`
-brew install git-flow-avh # helps to adopt GitFlow as git branching model https://xmlking.gitbook.io/micro-apps/getting-started/gitflow
-brew tap git-chglog/git-chglog # CHANGELOG generator
-brew install git-chglog
+
 
 # Better CLI alternative Tools
 brew install ack
