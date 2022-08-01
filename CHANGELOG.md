@@ -1,8 +1,29 @@
-## Unreleased (b1c10e0..bf2f3e3)
+## Unreleased (b1c10e0..af4d22c)
+#### Bug Fixes
+- **(essentials)** Safari Developer Menu - (ac98001) - Sumanth Chinthagunta
+- **(vscode)** vscode terminal font fallback - (43673c0) - Sumanth Chinthagunta
 #### Documentation
+- **(apps)** updated go, rust vscode docs - (af4d22c) - Sumanth Chinthagunta
+- **(apps)** polish docs for Jetbrain - (9d25dc5) - Sumanth Chinthagunta
+- **(apps)** updated rancher desktop to latest version - (16c7c3c) - Sumanth Chinthagunta
+- **(devflow)** github cli - (adad8e8) - Sumanth Chinthagunta
 - **(devflow)** adding yubikey basic doc - (b1c10e0) - Sumanth Chinthagunta
+- **(devops)** updated Terraform - (4d59cd9) - Sumanth Chinthagunta
+- **(devops)** docs updated - (e106303) - Sumanth Chinthagunta
+- **(devops)** docs updated - (c6f6a95) - Sumanth Chinthagunta
+- **(devops)** adding dnsmasq - (0e500ec) - Sumanth Chinthagunta
+- **(essentials)** adding bindkey node for Completion Search - (c0b604f) - Sumanth Chinthagunta
+- **(git)** adding how to setup autocrlf to consistent line ending - (43ed460) - Sumanth Chinthagunta
+- **(platforms)** fix brew cask install - (fbd7895) - Sumanth Chinthagunta
+- **(plugins)** updated apps/vscode - (dae2247) - Sumanth Chinthagunta
+- **(plugins)** updated apps/jetbrain - (5ebc12d) - Sumanth Chinthagunta
+- **(tips)** adding git, mac, golang, node tips - (c921b5d) - Sumanth Chinthagunta
 #### Features
+- **(apps)** added JetBrains plugins - (e18f946) - Sumanth Chinthagunta
 - **(devops)** adding Cocogitto - (bf2f3e3) - Sumanth Chinthagunta
+- **(java)** adding spark cli - (2a3cc0d) - Sumanth Chinthagunta
+- **(platforms)** golang multi version - (d3987ec) - Sumanth Chinthagunta
+- **(root)** adding .vscode settings - (5ae4206) - Sumanth Chinthagunta
 
 - - -
 
