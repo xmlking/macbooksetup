@@ -3,8 +3,13 @@
 Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
 Simplify **Developer Workflow** and provide a great **Developer Experience (DX)**
 
+**Productivity Engineering**
+![engineering-productivity](../../images/engineering-productivity.png)
+Our ultimate goal:  1. Business value and  2.[Engineering excellence and culture](https://www.thoughtworks.com/insights/articles/engineering-productivity-governance-and-improvement-in-software-)
+
 **Highlights**
 - Monorepo (apps & libs)
+- Scaled [Trunk-Based Development](https://trunkbaseddevelopment.com/) with [Feature Flags](https://launchdarkly.com/blog/introduction-to-trunk-based-development/)
 - Fully automated release
 - Enforce [Semantic Versioning](https://semver.org) specification
 - Use formalized commit message convention to document changes in the codebase
@@ -13,10 +18,10 @@ Simplify **Developer Workflow** and provide a great **Developer Experience (DX)*
 
 Here, we’ve standardised on:
 
-- [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) as git branching model
-- [Semantic-Release](https://semantic-release.gitbook.io/semantic-release/) for release process
-- [Semantic Versioning 2.0.0](https://semver.org/) for versioning
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages
+- Scaled [Trunk-Based Development](https://trunkbaseddevelopment.com/) as _git branching model_
+- [Semantic-Release](https://semantic-release.gitbook.io/semantic-release/) _for release process_
+- [Semantic Versioning 2.0.0](https://semver.org/) _for versioning_
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) _for commit messages_
 
 ## Prerequisites 
 
@@ -67,7 +72,7 @@ Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/devel
 
 ## Usage
 
-### Gitflow
+### ~~Gitflow~~
 [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) is a branching model for Git, created
 by [Vincent Driessen](https://nvie.com/about/).  
 It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
@@ -75,6 +80,17 @@ It has attracted a lot of attention because it is very well suited to collaborat
 ![Gitflow](../../images/gitflow-overview.webp)
 
 Follow [Gitflow Usage](./gitflow.md)
+
+> **Work-in-Progress:** We are switching to [Scaled Trunk-Based Development with Feature Flags](https://gitlab.com/gitlab-org/gitlab-ce/) from [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/).<br/>
+> This section will be updated soon.
+
+
+### Scaled Trunk-Based Development
+
+![scaled-trunk-based-development](../../images/scaled-trunk-based-development.png)
+
+#### Trunk-Based Development with Feature Flags
+![trunk-based-development-with-feature-flags](../../images/trunk-based-development-with-feature-flags.png)
 
 ### Cocogitto
 [Cocogitto](https://docs.cocogitto.io) is a CLI and GitOps toolbox for the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [Semver]((https://semver.org/)) specifications.
@@ -157,4 +173,7 @@ git-chglog -c .github/chglog/config.yml -o CHANGELOG.md --next-tag 2.0.0
 ```
 
 
- 
+ ## References
+- [Engineering productivity governance and improvement in software delivery](https://www.thoughtworks.com/insights/articles/engineering-productivity-governance-and-improvement-in-software-)
+- [Git Branching Strategies vs. Trunk-Based Development](https://launchdarkly.com/blog/git-branching-strategies-vs-trunk-based-development/)
+- [Trunk-Based Development with Feature Flags](https://launchdarkly.com/blog/introduction-to-trunk-based-development/)

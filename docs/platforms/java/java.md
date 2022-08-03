@@ -46,8 +46,9 @@ mvn --version # verify
 sdk install kotlin
 
 #optional
-sdk install scala
+sdk install quarkus
 sdk install springboot
+sdk install scala
 
 #spark
 # hadoop currently don't support Java 17 (as of 2022-08-01)
