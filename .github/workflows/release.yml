@@ -12,7 +12,7 @@ jobs:
 
       - name: Cocogitto release
         id: release
-        uses: oknozor/cocogitto-action@v2
+        uses: oknozor/cocogitto-action@v3
         with:
           release: true
           git-user: 'Cog Bot'
