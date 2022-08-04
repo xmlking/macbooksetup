@@ -18,6 +18,8 @@
     side-by-side = true
 [merge]
     conflictstyle = diff3
+    # https://docs.cocogitto.io/guide/#custom-commit-types
+    ff = only
 [diff]
     colorMoved = default
 # so much color

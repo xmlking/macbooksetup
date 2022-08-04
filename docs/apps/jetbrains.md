@@ -35,10 +35,16 @@ You may Uncheck **Use non-modal commit interface** option in `Preferences | Vers
 
 - Go to `Preferences | Languages & Frameworks | Markdown` install and check `Mermaid` Markdown extensions
 
-Try one of the below fonts and pick what you like. `Preferences --> Editor --> Font`
+### Fonts
+Try one of the below fonts for `Editor` and pick what you like. `Preferences --> Editor --> Font`
 
 1. JetBrain Mono with Ligatures Enabled
 2. Monaco with Ligatures Enabled
+
+Change fonts for embedded terminal to `MesloLGM Nerd Font Mono` at `Preferences  -> Editor -> Color Scheme -> Console Font`.
+
+![jetbrains-preferences-console-font](../images/jetbrains-preferences-console-font.png)
+
 
 ### For All (IntelliJ, GoLand, WebStorm ...)
 
