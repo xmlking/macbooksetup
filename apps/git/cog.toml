@@ -17,7 +17,7 @@ post_bump_hooks = [
 path = "CHANGELOG.md"
 template = "remote"
 remote = "github.com"
-repository = "macbooksetup"
+repository = "grpc-starter-kit"
 owner = "xmlking"
 authors = [{ username = "xmlking", signature = "Sumanth Chinthagunta"}]
 
