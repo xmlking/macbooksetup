@@ -1,12 +1,15 @@
+name: Release
 on:
   workflow_dispatch:
     branches: main
 
 jobs:
-  release:
+  cog_release:
+    runs-on: ubuntu-latest
     name: Perform release
-      - name: Checkout code
-        uses: actions/checkout@v2
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
