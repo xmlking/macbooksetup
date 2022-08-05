@@ -152,11 +152,25 @@ cog changelog > CHANGELOG1.md
 #### Automatic versioning
 `cog bump` will calculate the next version based on your commit history since the latest semver tag.
 
-Automatic versioning
+The bump subcommand will execute the following steps :
+
+1. Calculate the next version based on the commit types since the latest tag.
+2. Append the changes for this version to `CHANGELOG.md`.
+3. Execute a set configuration defined pre-bump hooks.
+4. Create a version commit containing changes made during the previous steps.
+5. Create a git tag on the version commit.
+6. Execute a set of configuration defined post-bump hook.
+
+This following command bump VERSION number and push **changes** and **tag** to remote
 ```shell
-cog bump -v <VERSION>
+# create tag with specified full VERSION
+cog bump -v <VERSION> 
+# create tag with specified patch version part bumped 
 cog bump --patch --pre "beta.1"
-cog bump --dry-run --auto 
+# dry-run: calculate the next version based on the commit types since the latest tag
+cog bump --auto --dry-run 
+# calculate the next version based on the commit types since the latest tag
+cog bump --auto
 ```
 
 #### GitHub Actions
