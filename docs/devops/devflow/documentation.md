@@ -79,10 +79,13 @@ To generate it, markdown provides a shortcut: An easy auto-generation. All the t
 
 #### Image position control
 ``` 
-<div align="center">![tomcat-cat](https://tomcat.apache.org/res/images/tomcat.png)</div>
+<div align="center">
+  <img src="https://tomcat.apache.org/res/images/tomcat.png" align="center">
+</div>
 ```
-
-<div align="center">![tomcat-cat](https://tomcat.apache.org/res/images/tomcat.png)</div>
+<div align="center">
+  <img src="https://tomcat.apache.org/res/images/tomcat.png"  align="center">
+</div>
 
 ### Diagrams
 
@@ -112,11 +115,11 @@ graph LR;
 
 ```
 <div align="center">
-  <img src="../../images/deployment.drawio.svg" width="60%">
+  <img src="../../images/deployment.drawio.svg" width="60%" align="center">
 </div>
 ```
 <div align="center">
-  <img src="../../images/deployment.drawio.svg" width="60%">
+  <img src="../../images/deployment.drawio.svg" width="60%" align="center">
 </div>
 
 ### Footnote
