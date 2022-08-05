@@ -26,11 +26,13 @@
 - DevOps
   - [dnsmasq](devops/dnsmasq.md)
   - [Docker](devops/docker.md)
+  - [Skaffold](devops/skaffold.md)
   - [Kubernetes](devops/kubernetes.md)
   - [Helm](devops/helm.md)
   - [Kustomize](devops/Kustomize.md)
   - [kustomizer](devops/kustomizer.md)
   - [Terraform](devops/terraform.md)
+  - [Security](devops/security.md)
   - [Development Workflow](devops/devflow/development-workflow.md)
     - [Git](devops/devflow/git.md)
       - [GitHub CLL](devops/devflow/gh.md)

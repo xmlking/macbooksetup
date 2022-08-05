@@ -15,7 +15,7 @@ Safeguarding artifact integrity across any software supply chain.
 4. Static Code Analysis with [CodeQL](https://colinsalmcorner.com/custom-codeql/)
 5. Vulnerabilities scanning with [Snyk](https://snyk.io/product/open-source-security-management/)
 6. Software Composition Analysis (SCA) with [OWASP Dependency-Check](https://jeremylong.github.io/DependencyCheck/) and [Dependabot](https://github.com/features/security)
-7. Risk and compliance as code ([RCaC](https://cloud.google.com/solutions/risk-and-compliance-as-code)) via [Open Policy Agent](https://www.openpolicyagent.org/) **Gatekeeper**
+7. Risk and compliance as code ([RCaC](https://cloud.google.com/solutions/risk-and-compliance-as-code)) via [Open Policy Agent](https://www.openpolicyagent.org/) with [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/) Or [Kyverno](https://kyverno.io/)
 
 ### Binary Authorization
 
