@@ -3,8 +3,10 @@
 Adopting best practices for Git **Branching, Versioning, Conventional Commits**, and **Release** process.<br/>
 Simplify **Developer Workflow** and provide a great **Developer Experience (DX)**
 
-![engineering-productivity](../../images/engineering-productivity.png)
-**Productivity Engineering**
+<p align="center">
+  <img   src="../../images/engineering-productivity.png" alt="engineering-productivity">
+</p>
+<h3 align="center">Productivity Engineering</h3>
 
 Our ultimate goal:  
 1. Business value  
