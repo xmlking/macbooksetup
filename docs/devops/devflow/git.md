@@ -35,7 +35,7 @@ This setting has to be the same on each developer machine, and that's not always
        
 2. Set a _global_ [.gitattributes](../../../dotfiles/my/.gitattributes) to your home directory, as described in [Dotfiles](../../essentials/dotfiles.md).
 3. Pick a platform specific `.gitattributes` from [here](https://github.com/alexkaratarakis/gitattributes) and `.gitignore`  from [gitignore.io](https://www.toptal.com/developers/gitignore?templates=macos), add them to your project root. 
-    > Explore **Web** project template [here](../../../apps/git/).
+    > Explore **Web** project template [Web.gitignore](../../../apps/git/Web.gitignore) and [Web.gitattributes](../../../apps/git/Web.gitattributes).
 
 
 ### Normalize line endings

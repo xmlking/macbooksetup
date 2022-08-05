@@ -4,6 +4,9 @@
 a lot of useful features.
 
 The Ultimate Guide to Your Terminal Makeover
+<p align="center">
+  <img   src="../images/iterm2.png" alt="iterm2">
+</p>
 
 ## Prerequisites
 

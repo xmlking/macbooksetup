@@ -2,9 +2,9 @@
 With Digital identify using OpenPGP keys, you can:
 - Authentication(SSH) to remote VMs(Cloud or on-Prem)
 - Authentication(SSH) to **GitHub**
-- sign Git **tags** and **commits**
-- Sign **docker** images 
-- Sign **SBOM** / CICD Build Stages
+- sign Git **tags** and **commits** with [gitsign](https://github.com/sigstore/gitsign)
+- Sign **docker** images with [cosign](https://github.com/sigstore/cosign)
+- Generate and Sign **SBOM** / **CICD Build Stages** with [syft](https://github.com/anchore/syft)
 
 GPG sign
 
