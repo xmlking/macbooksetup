@@ -4,11 +4,11 @@ branch_whitelist = ["master", "main"]
 
 pre_bump_hooks = [
     "echo {{version}}",
+    "gradle clean package",
 ]
 post_bump_hooks = [
     "git push",
     "git push --tags",
-#	"gh release create {{version}} -d -t 'Version {{version}}' -n \"$(cog changelog -a v{{version}})\"",
 ]
 
 [commit_types]

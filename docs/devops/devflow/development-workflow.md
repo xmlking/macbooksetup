@@ -92,11 +92,17 @@ Check the [docs](https://docs.cocogitto.io/guide/#repository-initialization) for
 Initialize an existing repo with `cog init` which generate `cog.toml` file in project's root.
 Customize as per [Instructions](https://docs.cocogitto.io/config/#general)
 
-You can copy my sample [cog.toml](../../../apps/git/cog.toml) file to your repo and customize it.<br/>
+You can copy language specific [GoLang](../../../apps/git/Go.cog.toml), [Java](../../../apps/git/Java.cog.toml),  [Node](../../../apps/git/Node.cog.toml) or [Generic](../../../apps/git/cog.toml) `cog.toml` file to your repository and customize it.<br/>
 
-Check commit history with `cog check`
+> Note: rename above file to `cog.toml`
 
+#### Check commit history
+
+
+#### Built-in git hooks
 To protect your commit history, and your git remote, cog have builtins [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+
+We recommend installing at lease `commit-msg` hook for each of your repositories.
 
 ```shell
  # You can install them all Or one by one, specifying the hook name
@@ -107,7 +113,26 @@ cog install-hook commit-msg
 git commit -m "WIP" --no-verify
 ```
 
-`cog log`  displays additional conventional commit information.
+#### Check commit history
+
+* Running `cog log`  displays additional conventional commit information.
+* Running `cog check` will check your commit history against the conventional commit specification
+
+```shell
+cog log
+cog check -l 
+# Options: --from-latest-tag or -l
+```
+
+#### Rewrite non-compliant commits
+Once you have spotted invalid commits you can quickly fix your commit history by running `cog edit`.
+
+> DANGER: Using `cog edit` will modify your commit history and change the commit SHA of edited commit and their child.
+
+```shell
+cog edit -l
+# Options: --from-latest-tag or -l
+```
 
 #### Commit
 To create conventional commits you can use the `cog commit` command.
