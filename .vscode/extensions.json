@@ -8,6 +8,7 @@
     "PKief.material-icon-theme",
     "hediet.vscode-drawio",
     "github.github-vscode-theme",
-    "github.vscode-pull-request-github"
+    "github.vscode-pull-request-github",
+    "bungcip.better-toml",
   ]
 }

@@ -26,19 +26,13 @@
     "*.psd"
   ],
   // "font_face": "Source Code Pro",
-  "font_face": "FiraCode Nerd Font",
-  "font_options": [
-    "gray_antialias"
-  ],
+  // "font_face": "FiraCode Nerd Font",
+  "font_face": "MesloLGM Nerd Font Mono",
+  "font_options": ["gray_antialias"],
   "font_size": 15,
-  "ignored_packages": [
-    "Markdown",
-    "Vintage"
-  ],
+  "ignored_packages": ["Markdown", "Vintage"],
   "open_files_in_new_window": false,
-  "rulers": [
-    80
-  ],
+  "rulers": [80],
   "theme": "Soda Light 3.sublime-theme",
   "translate_tabs_to_spaces": true,
   "word_wrap": true

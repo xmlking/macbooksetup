@@ -4,6 +4,12 @@
 	////////// scm //////////
 	"scm.defaultViewMode": "tree",
 	"conventionalCommits.scopes": ["workspace", "actions", "lint", "deps", "docs", "policy"],
+	////////// Search //////////
+	"search.exclude": {
+		"**/.git": true,
+		"**/node_modules": true,
+		"**/TODO": true
+	  },
 	////////// Editor //////////
 	"editor.autoIndent": "full",
 	"editor.codeActionsOnSave": {

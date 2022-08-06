@@ -1,78 +1,63 @@
 {
   "window.zoomLevel": 1,
   "explorer.sortOrder": "type",
-  // scm
+  ////////// scm //////////
   "scm.defaultViewMode": "tree",
-  "search.exclude": {
-    "**/.git": true,
-    "**/node_modules": true,
-    "**/TODO": true
-  },
-  // Editor
-  "editor.autoIndent": "full",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.cursorStyle": "line",
-  // "editor.fontSize": 16,
-  "editor.fontFamily": "FiraCode-Retina, SourceCodePro-Regular, Menlo",
-  "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": false,
-  "editor.formatOnSave": true,
-  "editor.letterSpacing": 0.5,
-  "editor.lineHeight": 25,
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "none",
-  "editor.tabCompletion": "on",
-  "editor.tabSize": 2,
-  "editor.wordWrap": "off",
-  // Terminal
-  "terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline",
-  // "terminal.integrated.fontSize": 16,
-  // Workbench
-  "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 8,
-  "workbench.editor.highlightModifiedTabs": true,
-  // File settings
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/*.js.map": {
-      "when": "$(basename)"
-    }
-  },
-  "files.associations": {
-    "Makefile*": "makefile"
-  },
-  // "files.hotExit": "onExit",
-  "files.defaultLanguage": "go",
-  "files.trimTrailingWhitespace": true,
-  // GoLang
-  "go.testFlags": [
-    "-v",
-    "-count=1"
-  ],
-  "go.useLanguageServer": true,
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": [
-    "--fast",
-    "--config=.github/linters/.golangci.yml"
-  ],
-  // Proto
-  "clang-format.style": "google",
-  "protoc": {
-    "options": [
-      "--proto_path=${workspaceRoot}/proto",
-      "--proto_path=${workspaceRoot}/third_party/proto",
-      "--proto_path=${env.GOPATH}/src"
-    ]
-  }
+	"conventionalCommits.scopes": ["workspace", "actions", "lint", "deps", "docs", "policy"],
+	////////// Search //////////
+	"search.exclude": {
+		"**/.git": true,
+		"**/node_modules": true,
+		"**/TODO": true
+	  },
+	////////// Editor //////////
+	"editor.autoIndent": "full",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true,
+		"source.fixAll": true
+	},
+	"editor.cursorBlinking": "solid",
+	"editor.cursorSmoothCaretAnimation": true,
+	"editor.cursorStyle": "line",
+	// "editor.fontSize": 16, // or "window.zoomLevel": 1,
+	"editor.fontFamily": " SourceCodePro-Regular, FiraCode-Retina, Menlo",
+	"editor.fontLigatures": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": false,
+	"editor.formatOnSave": true,
+	// "editor.letterSpacing": 0.5,
+	// "editor.lineHeight": 25,
+	"editor.minimap.enabled": false,
+	"editor.renderWhitespace": "none",
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 2,
+	"editor.wordWrap": "off",
+	////////// Terminal //////////
+	"terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono, Monospace",
+	// "terminal.integrated.fontSize": 16, // or "window.zoomLevel": 1,
+	////////// Workbench //////////
+	"workbench.colorTheme": "GitHub Dark Default",
+	"workbench.editor.limit.enabled": true,
+	"workbench.editor.limit.value": 8,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.iconTheme": "material-icon-theme",
+	////////// File settings //////////
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 1000,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/*.js": {
+			"when": "$(basename).ts"
+		},
+		"**/*.js.map": {
+			"when": "$(basename)"
+		}
+	},
+	"files.associations": {
+		"Makefile*": "makefile"
+	},
+	// "files.hotExit": "onExit",
+	"files.defaultLanguage": "go",
+	"files.trimTrailingWhitespace": true,
 }
