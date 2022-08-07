@@ -45,6 +45,53 @@ Make sure you enabled following settings. ie., `dockerd(moby)` , PATH manual etc
 |       ![rd-pref-vm](../images/rd-pref-vm.png)       |     ![rd-pref-runtime](../images/rd-pref-runtime.png)     |
 |      ![rd-pref-k8s](../images/rd-pref-k8s.png)      |                                                           |
 
+
+### Docker Experimental Features
+You can turn on experimental `Docker CLI` features in one of two ways. Either by setting an environment variable temporarily:
+```shell
+export DOCKER_CLI_EXPERIMENTAL=enabled
+```
+or by turning the feature on in the config file `$HOME/.docker/config.json` permanently:
+```json
+{
+  "experimental" : "enabled"
+}
+```
+
+> `docker version` should show `Client > Experimental : true`.
+
+
+Optionally, You can also turn on  [docker engine experimental features](# https://github.com/rancher-sandbox/rancher-desktop/discussions/1477):
+Change the docker engine configuration file `/etc/docker/daemon.json` or create one if it doesn’t exist already:
+
+To SSH into **lima VM** managed by `Rancher Desktop`, run this command:
+```shell
+LIMA_HOME="$HOME/Library/Application Support/rancher-desktop/lima" "/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin/limactl" shell 0
+
+ls -la /etc/docker/
+# to restart docker daemon inside lima VM
+sudo service docker restart
+```
+and added  `/etc/docker/daemon.json`  with the below settings
+
+```json
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "features": {
+    "buildkit": true
+  },
+  "experimental": false,
+  "dns": ["your custom dns", "8.8.8.8"],
+  "bip": "192.168.254.1/24",
+  "insecure-registries" : ["URL for your registry"]
+}
+```
+
 ## DevOps tools
 
 Install optional DevOps tools for SREs
@@ -76,6 +123,13 @@ docker volume ls
 docker network ls
 ```
 
+```shell
+# List builder instances
+docker buildx ls
+# inspect current builder instance
+docker buildx inspect
+docker buildx imagetools inspect <MULTI_PLATFORM_IMAGE>
+```
 ### Images
 
 ```shell
@@ -84,7 +138,6 @@ docker tag
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
 docker images
-docker images
 
 docker login -u aaaa -p bbb
 # Log in to your repository, I am using GitHub container registry
@@ -92,7 +145,8 @@ export GITHUB_PACKAGES_TOKEN=ghp_YOUR_TOKEN
 docker login -u {github_username} -p {[token](https://github.com/settings/tokens)} ghcr.io
 
 # inspect image
-docker image inspect redislabs/redismod:edge
+docker inspect redislabs/redismod:edge
+docker inspect --format "{{.Architecture}}" redislabs/redismod:edge
 
 # Remove one or more images
 docker rmi docker.vectorized.io/vectorized/redpanda:v21.11.2
