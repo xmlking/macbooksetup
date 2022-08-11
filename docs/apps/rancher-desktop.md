@@ -42,7 +42,6 @@ Make sure you enabled following settings. ie., `dockerd(moby)` , PATH manual etc
 |                                                     |                                                           |
 | :-------------------------------------------------: | :-------------------------------------------------------: |
 | ![rd-pref-behavior](../images/rd-pref-behavior.png) | ![rd-pref-environment](../images/rd-pref-environment.png) |
-|       ![rd-pref-vm](../images/rd-pref-vm.png)       |     ![rd-pref-runtime](../images/rd-pref-runtime.png)     |
 |      ![rd-pref-k8s](../images/rd-pref-k8s.png)      |                                                           |
 
 
@@ -129,6 +128,7 @@ docker buildx ls
 # inspect current builder instance
 docker buildx inspect
 docker buildx imagetools inspect <MULTI_PLATFORM_IMAGE>
+docker buildx imagetools inspect --raw nginx:alpine | jq
 ```
 ### Images
 
@@ -298,3 +298,4 @@ StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.co
 - Make Docker container respond to SIGTERM and SIGINT for gracefully shutdown
     - [Zombie reaping problem](https://www.back2code.me/2020/02/zombie-processes/)
     - [Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
+- [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
