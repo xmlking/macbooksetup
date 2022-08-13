@@ -13,6 +13,7 @@
   - [JetBrains](apps/jetbrains.md)
   - [VSCode](apps/vscode.md)
   - [Xcode](apps/xcode.md)
+  - [Marta](apps/marta.md)
   - [Benthos](apps/benthos.md)
   - [Rancher Desktop](apps/rancher-desktop.md)
 - Platforms

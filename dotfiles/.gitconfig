@@ -55,5 +55,7 @@
     defaultBranch = develop
 [pull]
     rebase = false
+[push]
+	autoSetupRemote = true
 [alias]
 # 	cc = convco commit
