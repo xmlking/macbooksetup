@@ -49,14 +49,14 @@ Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/devel
 [Cocogitto](https://docs.cocogitto.io) is a CLI for _Conventional Commits_ , _Semantic Versioning_ and Release.
  
 #### Install 
- ```shell
+```shell
  # brew not available yet
  cargo install --locked cocogitto
- ```
+```
 
 Add shell completions
 ```shell
-cog generate-completions zsh > /opt/homebrew/share/zsh-completions/_cog
+cog generate-completions zsh > $(brew --prefix)/share/zsh/site-functions/_cog
 ```
 
 

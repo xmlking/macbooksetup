@@ -21,7 +21,6 @@ we don't need this as we add `source "$HOME/.cargo/env"` to `~/my/extra.zsh` fil
 when prompted `Modify PATH variable? (Y/n)` enter `n`
 
 ```shell
-```shell
 rm -f   .zshenv .profile  .bash_profile
 ```
 

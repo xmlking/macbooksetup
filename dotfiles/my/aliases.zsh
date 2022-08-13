@@ -59,11 +59,18 @@ fi
 # `fda` & `rga` disable this feature
 if [ -x "$(command -v fd)" ]; then
   alias fda='fd -IH'
+  alias find='fda'
 fi
 if [ -x "$(command -v rg)" ]; then
   alias rga='rg -uuu'
+  alias grep='rga'
 fi
-
+if [ -x "$(command -v dust)" ]; then
+  alias du='dust'
+fi
+if [ -x "$(command -v procs)" ]; then
+  alias ps='procs'
+fi
 
 # Docker
 alias docker.cleancontainer='docker ps -a -q | xargs docker rm'

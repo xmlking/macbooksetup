@@ -45,12 +45,12 @@ gradle --version # verify
 mvn --version # verify
 sdk install kotlin
 
-#optional
+# optional
 sdk install quarkus
 sdk install springboot
 sdk install scala
 
-#spark
+# spark (optional
 # hadoop currently don't support Java 17 (as of 2022-08-01)
 sdk install java 11.0.16-zulu
 sdk use java 11.0.16-zulu 
@@ -70,8 +70,8 @@ To see what is outdated for all Candidates
 sdk upgrade
 ```
 
-To remove old version e.g., gradle 7.5:
+To remove old version e.g., gradle 7.5.1:
 
 ```shell
-sdk remove gradle 7.5
+sdk remove gradle 7.5.1
 ```

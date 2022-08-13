@@ -289,7 +289,6 @@ open http://traefik.localhost/dashboard/#/
 
 ## Reference
 
--
 StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 - [Signing images and creating SBOM using cosign](https://www.ijuned.com/Signing-images-and-creating-SBOM-using-cosign/)
 - A collection of useful things you can do with `crane`

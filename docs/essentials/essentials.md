@@ -44,9 +44,11 @@ brew install exa # replacement for LS. https://the.exa.website
 brew install bat # a better `cat`
 brew install git-delta  # a better git `diff`
 brew install fd # user-friendly alternative to `find`
+brew install procs # a modern replacement for `ps`
+brew install dust # a better `du`
 brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`
-brew install httpie
+brew install httpie # a better `curl`
 brew install go-task/tap/go-task # better then a Makefile
 ```
 
@@ -94,6 +96,8 @@ brew install --cask --appdir=~/Applications iterm2
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
+# optional
+brew install --cask --appdir=~/Applications marta
 ```
 
 Other benefit of installing `Apps` via `Brew` is, it links binaries to `/opt/homebrew/bin` which is added to `$PATH`.
