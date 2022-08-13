@@ -68,15 +68,17 @@ git config --global gpg.format x509  # gitsign expects x509 args
 Signing Commits
 ```shell
 git commit --allow-empty --message="feat(apps): adding gitsign cli"
+# verify
 git verify-commit HEAD
-git --no-pager log --show-signature -1
 git log --show-signature -1
 ```
 Signing Commits
 ```shell
 git tag v0.0.1
+# verify
 git verify-tag v0.0.1
 ```
+
 ### Software Bill of Materials 
 
 For the _micro-apps_ project we publish a _Software Bill of Materials (SBOM)_ with each release. The SBOM is generated with [Syft](https://github.com/anchore/syft) in the [SPDX](https://spdx.dev/) format.
