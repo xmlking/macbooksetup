@@ -45,6 +45,7 @@ brew install bat # a better `cat`
 brew install git-delta  # a better git `diff`
 brew install fd # user-friendly alternative to `find`
 brew install procs # a modern replacement for `ps`
+procs --completion-out zsh > $(brew --prefix)/share/zsh/site-functions/_procs
 brew install dust # a better `du`
 brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`

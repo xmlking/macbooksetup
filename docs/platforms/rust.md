@@ -40,8 +40,8 @@ rustup self update
 
 Enable tab completion for Zsh
 ```shell
-# rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completio
-rustup completions zsh > ~/.zfunc/_rustup
+# rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
+rustup completions zsh > $(brew --prefix)/share/zsh/site-functions/_rustup 
 ```
 
 To update `rust`

@@ -59,7 +59,6 @@ fi
 # `fda` & `rga` disable this feature
 if [ -x "$(command -v fd)" ]; then
   alias fda='fd -IH'
-  alias find='fda'
 fi
 if [ -x "$(command -v rg)" ]; then
   alias rga='rg -uuu'
