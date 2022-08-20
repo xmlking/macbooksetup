@@ -52,7 +52,7 @@
     timestampResolution = 13000 nanoseconds
     minRacyThreshold = 0 nanoseconds
 [init]
-    defaultBranch = develop
+    defaultBranch = main
 [pull]
     rebase = false
 [push]
