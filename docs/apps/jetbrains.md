@@ -58,6 +58,7 @@ Recommended Plugins for all JetBrains products
 3. [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
 4. [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot)
     1. [Getting Started with GitHub Copilot in JetBrains](https://github.com/github/copilot-docs/blob/main/docs/jetbrains/gettingstarted.md#getting-started-with-github-copilot-in-jetbrains)
+5. [Diagrams - drawio](https://plugins.jetbrains.com/plugin/15635-diagrams-net-integration)
 
 ### IntelliJ IDEA
 
