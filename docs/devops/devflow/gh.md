@@ -68,12 +68,21 @@ gh pr list
 See the list of available extensions at https://github.com/topics/gh-extension
 
 ### Recommended Extensions
-1. [gh-releaser](https://github.com/carlsberg/gh-releaser)
-2. [gh-dependency-report](https://github.com/andyfeller/gh-dependency-report)
-3. [gh-dash](gh extension install dlvhdr/gh-dash)
+1. [gh-dash](https://github.com/dlvhdr/gh-dash)
+2. [gh-releaser](https://github.com/carlsberg/gh-releaser)
+3. [gh-dependency-report](https://github.com/andyfeller/gh-dependency-report)
+
 
 ```shell
-gh extensions install carlsberg/gh-releaser
+gh extension install dlvhdr/gh-dash
+gh extension install carlsberg/gh-releaser
+gh extension install andyfeller/gh-dependency-report
+```
+
+Usage 
+
+```shell
+# gh dependency-report xmlking
 ```
 
 Viewing installed extensions
