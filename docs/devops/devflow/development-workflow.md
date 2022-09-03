@@ -8,8 +8,8 @@ Simplify **Developer Workflow** and provide a great **Developer Experience (DX)*
 </p>
 <h3 align="center">Productivity Engineering</h3>
 
-Our ultimate goal:  
-1. Business value  
+Our ultimate goal:
+1. Business value
 2. [Engineering excellence and culture](https://www.thoughtworks.com/insights/articles/engineering-productivity-governance-and-improvement-in-software-)
 
 ## Highlights
@@ -28,7 +28,7 @@ Here, we’ve standardised on:
 - [Semantic Versioning 2.0.0](https://semver.org/) _for versioning_
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) _for commit messages_
 
-## Prerequisites 
+## Prerequisites
 
 **Git** installed via brew `brew install git`<br/>
 And `which git` should output `/opt/homebrew/bin/git`.
@@ -47,8 +47,8 @@ Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/devel
 
 ### Cocogitto
 [Cocogitto](https://docs.cocogitto.io) is a CLI for _Conventional Commits_ , _Semantic Versioning_ and Release.
- 
-#### Install 
+
+#### Install
 ```shell
  # brew not available yet
  cargo install --locked cocogitto
@@ -64,7 +64,7 @@ cog generate-completions zsh > $(brew --prefix)/share/zsh/site-functions/_cog
 
 ### ~~Gitflow~~
 [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) is a branching model for Git, created
-by [Vincent Driessen](https://nvie.com/about/).  
+by [Vincent Driessen](https://nvie.com/about/).
 It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
 ![Gitflow](../../images/gitflow-overview.webp)
@@ -82,7 +82,7 @@ Follow [Gitflow Usage](./gitflow.md)
 #### Trunk-Based Development with Feature Flags
 ![trunk-based-development-with-feature-flags](../../images/trunk-based-development-with-feature-flags.png)
 
- 
+
 ### Cocogitto
 [Cocogitto](https://docs.cocogitto.io) is a CLI and GitOps toolbox for the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [Semver]((https://semver.org/)) specifications.
 
@@ -96,9 +96,6 @@ You can copy language specific [GoLang](../../../apps/git/Go.cog.toml), [Java](.
 
 > Note: rename above file to `cog.toml`
 
-#### Check commit history
-
-
 #### Built-in git hooks
 To protect your commit history, and your git remote, cog have builtins [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 
@@ -111,27 +108,6 @@ cog install-hooks pre-push
 cog install-hook commit-msg
 # If you need to bypass `git hooks` use the --no-verify flag.
 git commit -m "WIP" --no-verify
-```
-
-#### Check commit history
-
-* Running `cog log`  displays additional conventional commit information.
-* Running `cog check` will check your commit history against the conventional commit specification
-
-```shell
-cog log
-cog check -l 
-# Options: --from-latest-tag or -l
-```
-
-#### Rewrite non-compliant commits
-Once you have spotted invalid commits you can quickly fix your commit history by running `cog edit`.
-
-> DANGER: Using `cog edit` will modify your commit history and change the commit SHA of edited commit and their child.
-
-```shell
-cog edit -l
-# Options: --from-latest-tag or -l
 ```
 
 #### Commit
@@ -149,8 +125,39 @@ git commit -m "feat(cli): add awesome feature"
 # Breaking changes
 cog commit fix -B "add fix a nasty bug" cli
 # Commit Body and footers
-cog commit refactor -e -B "drop support for Node 6" runtime 
+cog commit refactor -e -B "drop support for Node 6" runtime
 ```
+
+#### Check commit history
+
+* Running `cog log`  displays additional conventional commit information.
+* Running `cog check` will check your commit history against the conventional commit specification
+
+```shell
+cog log
+cog check -l
+# Options: --from-latest-tag or -l
+```
+
+#### Rewrite non-compliant commits
+Once you have spotted invalid commits you can quickly fix your commit history by running `cog edit`.
+
+> DANGER: Using `cog edit` will modify your commit history and change the commit SHA of edited commit and their child.
+
+```shell
+cog edit -l
+# Options: --from-latest-tag or -l
+```
+
+Alternatively, you can use `git commit --amend` to fix commit messages:
+
+```shell
+# changing the latest Git commit message
+git commit --amend -m "fix(account): fix account create bug"
+# git push --force-with-lease repository-name branch-name
+git push --force-with-lease origin main
+```
+> If you want to rewrite multiple `non-conventional commit` messages, follow: [How to change a Git commit message after a push](https://www.educative.io/answers/how-to-change-a-git-commit-message-after-a-push)
 
 #### Changelogs
 
@@ -189,11 +196,11 @@ The bump subcommand will execute the following steps :
 This following command bump VERSION number and push **changes** and **tag** to remote
 ```shell
 # create tag with specified full VERSION
-cog bump -v <VERSION> 
-# create tag with specified patch version part bumped 
+cog bump -v <VERSION>
+# create tag with specified patch version part bumped
 cog bump --patch --pre "beta.1"
 # dry-run: calculate the next version based on the commit types since the latest tag
-cog bump --auto --dry-run 
+cog bump --auto --dry-run
 # calculate the next version based on the commit types since the latest tag
 cog bump --auto
 ```
@@ -201,7 +208,7 @@ cog bump --auto
 #### GitHub Actions
 Check the _GitHub Actions_ for **Cocogitto** [Here](../../../.github/workflows)
 
- 
+
 
 
  ## References

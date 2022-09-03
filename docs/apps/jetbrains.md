@@ -45,6 +45,19 @@ Change fonts for embedded terminal to `MesloLGM Nerd Font Mono` at `Preferences 
 
 ![jetbrains-preferences-console-font](../images/jetbrains-preferences-console-font.png)
 
+### Enabling Annotation Processing
+**Lombok** uses annotation processing through APT. So, when the compiler calls it, the library generates new source files based on annotations in the originals.
+
+**Annotation processing isn't enabled by default, though.**
+
+Therefore, the first thing to do is to enable annotation processing in our project.
+
+We need to go to the `Preferences | Build, Execution, Deployment | Compiler | Annotation Processors` and make sure of the following:
+
+1. `Enable annotation processing box` is checked
+2. `Obtain processors from project classpath` option is selected
+
+![jetbrains-preferences-lombok](../images/jetbrains-preferences-lombok.webp)
 
 ### For All (IntelliJ, GoLand, WebStorm ...)
 
