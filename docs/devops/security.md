@@ -1,9 +1,8 @@
-# Security 
+# Security
 
 This document outlines an overview of security considerations for `micro-apps` services, components, artifacts, as well as configuration options for Kubernetes cluster.
 
 Safeguarding artifact integrity across any software supply chain.
-
 
 ## Supply Chain Security
 
@@ -19,11 +18,12 @@ Safeguarding artifact integrity across any software supply chain.
 
 ### Binary Authorization
 
-Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed on Google Kubernetes Engine (GKE). 
-With Binary Authorization, you can require images to be signed by trusted authorities during the development process and then enforce signature validation when deploying. 
+Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed on Google Kubernetes Engine (GKE).
+With Binary Authorization, you can require images to be signed by trusted authorities during the development process and then enforce signature validation when deploying.
 By enforcing validation, you can gain tighter control over your container environment by ensuring only verified images are integrated into the build-and-release process.
 
 ### Cosign
+
 All container images are signed using [Sigstore](https://www.sigstore.dev/) **Cosign** and _GitHub OIDC_
 
 To verify the authenticity of container images, install cosign and run:
@@ -39,15 +39,20 @@ The following checks were performed on each of these signatures:
 ```
 
 ### Gitsign
+
 [Gitsign](https://github.com/sigstore/gitsign) enable Keyless Git/commits signing with your own GitHub / OIDC identity.
 
 #### Install
+
 ```shell
 brew install sigstore/tap/gitsign
 # go install github.com/sigstore/gitsign@latest
 ```
+
 #### Configuration
+
 Single Repository:
+
 ```shell
 cd /path/to/my/repository
 git config --local commit.gpgsign true  # Sign all commits
@@ -55,7 +60,9 @@ git config --local tag.gpgsign true  # Sign all tags
 git config --local gpg.x509.program gitsign  # Use gitsign for signing
 git config --local gpg.format x509  # gitsign expects x509 args
 ```
+
 All Repositories:
+
 ```shell
 git config --global commit.gpgsign true  # Sign all commits
 git config --global tag.gpgsign true  # Sign all tags
@@ -66,20 +73,23 @@ git config --global gpg.format x509  # gitsign expects x509 args
 #### Usage
 
 Signing Commits
+
 ```shell
 git commit --allow-empty --message="feat(apps): adding gitsign cli"
 # verify
 git verify-commit HEAD
 git log --show-signature -1
 ```
+
 Signing Commits
+
 ```shell
 git tag v0.0.1
 # verify
 git verify-tag v0.0.1
 ```
 
-### Software Bill of Materials 
+### Software Bill of Materials
 
 For the _micro-apps_ project we publish a _Software Bill of Materials (SBOM)_ with each release. The SBOM is generated with [Syft](https://github.com/anchore/syft) in the [SPDX](https://spdx.dev/) format.
 
@@ -89,15 +99,15 @@ The `spdx.json` file is available for download on the GitHub release page e.g.:
 curl -sL https://github.com/xmlking/micro-apps/releases/download/v0.3.1/micro_0.3.1_sbom.spdx.json | jq
 ```
 
-### Pod security standard 
+### Pod security standard
 
 The  deployments are configured in conformance with the Kubernetes [restricted pod security standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted):
 
 - all Linux capabilities are dropped
-- the root filesystem is set to read-only 
-- the seccomp profile is set to the runtime default 
-- run as non-root is enabled 
-- the filesystem group is set to 1337 
+- the root filesystem is set to read-only
+- the seccomp profile is set to the runtime default
+- run as non-root is enabled
+- the filesystem group is set to 1337
 - the user and group ID is set to 65534
 
 ### Kubernetes' security standard

@@ -60,6 +60,9 @@
 	// "files.hotExit": "onExit",
 	"files.defaultLanguage": "go",
 	"files.trimTrailingWhitespace": true,
+	"[markdown]": {
+		"files.trimTrailingWhitespace": false
+	},
 	////////// GoLang //////////
 	"go.testFlags": ["-v", "-count=1"],
 	"go.testTimeout": "5s",
@@ -140,9 +143,6 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[markdown]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }
