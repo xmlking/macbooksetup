@@ -55,7 +55,8 @@
     defaultBranch = main
 [pull]
     rebase = false
+[fetch]
+    prune = true
 [push]
+    default = current
 	autoSetupRemote = true
-[alias]
-# 	cc = convco commit

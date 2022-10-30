@@ -5,12 +5,16 @@ Guide to setup `golang` development environment on _MacOS_ without admin privile
 You can use either JetBrains **GoLand** or **VSCode** as your go IDE.
 
 Recommended _tools/libs_ for **Go** projects:
+
 #### Tools
+
 1. **GoReleaser** - Cross-compile and Release to GitHub
 2. **protobuf** - gRPC code gen tool and serialization library
 3. **ko** - Build, sign and publish OCI images from source code.
+
 #### Libraries
-1. **testify** - Unit and integration testing 
+
+1. **testify** - Unit and integration testing
 2. **[mockery](https://github.com/vektra/mockery)** -  generate mocks for golang interfaces
 3. **[entgo](https://entgo.io)** - An entity framework for Go
 
@@ -25,6 +29,7 @@ go version                                                                      
 ```
 
 ### Multiple go versions
+
 If you need multiple versions for testing...
 
 ```shell
@@ -38,6 +43,7 @@ brew link  go
 ```
 
 Optional tools for GoLang Developers
+
 ```shell
 # buf: proto tool https://buf.build/docs/tour-1
 brew install bufbuild/buf/buf
@@ -88,10 +94,12 @@ make build
 ```
 
 Make sure you have following in your `~/my/paths.zsh`
+
 ```shell
 # Executable scripts from GoLang packages you install will be put in here
 export PATH=$PATH:$(go env GOPATH)/bin
 ```
+
 for complete project example with **VSCode** settings, refer [hello](https://github.com/xmlking/hello) project
 
 #### Workspace
@@ -111,6 +119,7 @@ mkdir  -p ~/Developer/Work/go/hello
 #### Initialize module
 
 > this will create `go.mod` file
+
 ```shell
 cd ~/Developer/Work/go/hello
 
@@ -143,6 +152,7 @@ go build
 #  ./... pattern matches all the packages within the current module.
 go build ./...
 ```
+
 > Note: The go.mod file was updated to include explicit versions for your dependencies
 > In contrast, `go build` and `go test` will not remove dependencies from `go.mod` that are no longer required and only update `go.mod` based on the current build invocation's tags/OS/architecture.
 
@@ -160,8 +170,9 @@ go test all
 #### Install
 
 > this will copy binary into `$GOPATH/bin` i.e.,  `~/go/bin`
+
 ```shell
-$ go install 
+go install 
 ```
 
 #### Release
@@ -174,6 +185,7 @@ go mod tidy
 #  test and  validate your module
 go test all
 ```
+
 Ensure your `go.sum` file is committed along with your `go.mod` file.
 
 A new module version may be published by pushing a tag to the repository that contains the module source code.
@@ -193,7 +205,6 @@ go help build
 ```shell
 go fmt hello.go
 ```
-
 
 #### Daily Workflow
 
@@ -258,10 +269,12 @@ go mod vendor
 What the go command does depends on whether we run it for a "normal" package or for the special  "main" package.
 
 **For packages**
+
 * `go build`   builds your package then discards the results.
 * `go install` builds then installs the package in your $GOPATH/pkg directory.
 
 **For commands (package main)**
+
 * `go build`   builds the command and leaves the result in the current working directory.
 * `go install` builds the command in a temporary directory then moves it to $GOPATH/bin.
 
@@ -281,7 +294,8 @@ ko resolve -P -f deploy/ > release.yaml
 ---
 
 ### Learning
-1. Signup for https://golangweekly.com/
+
+1. Signup for <https://golangweekly.com/>
 2. Data Journey with Golang, GraphQL and Microservices. Ref: [YouTube](https://youtu.be/hIScta6OxQ8) <br/>
    talks about BigTable --> Data Microservices (Go-Micro) --> GraphQL Gateway-gqlgen (ACL check permission at field level, codegen)
 3. Interfaces , genarics  (concrete types vs abstract types). Ref: [YouTube](https://www.youtube.com/watch?v=E75b9kuyRKw&list=PLtDHwjb79JK0nrR7UaiavgUDmyuhkVET7&index=5&t=0s) <br/>

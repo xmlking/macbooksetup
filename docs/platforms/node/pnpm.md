@@ -26,4 +26,4 @@ pnpx create-nx-workspace@latest --package-manager pnpm
 
 ## Reference
 
-- https://medium.com/pixel-and-ink/switching-an-nx-repo-to-pnpm-5b1cbd5c3797
+- <https://medium.com/pixel-and-ink/switching-an-nx-repo-to-pnpm-5b1cbd5c3797>

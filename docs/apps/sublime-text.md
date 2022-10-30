@@ -1,6 +1,7 @@
 # Sublime-text
 
 ## Prerequisites
+
 `Source Code Pro` Font should be installed as described in [Essentials](../essentials/essentials.md#Fonts) section.
 
 ## Install
@@ -38,7 +39,7 @@ Go to `Preferences -> Select Theme...` and pick `Soda Light 3` or any other them
 
 ## Customization
 
-Go to `Preferences -> Settings` and copy and paste following `JSON` in _**Right Panel**_ 
+Go to `Preferences -> Settings` and copy and paste following `JSON` in _**Right Panel**_
 
 > Note: you can use my user [preferences](../../apps/sublimetext/preferences.json)
 

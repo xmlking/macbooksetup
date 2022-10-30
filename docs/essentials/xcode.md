@@ -1,9 +1,9 @@
 # Xcode
 
-The first thing you should install is [Xcode](https://developer.apple.com/xcode/) 
+The first thing you should install is [Xcode](https://developer.apple.com/xcode/)
 because it is the prerequisite for [brew](https://brew.sh/) and many other development tools.
 
-## Xcode
+## Xcode setup
 
 Download and install it from the App Store or from [Apple's website](https://developer.apple.com/xcode/).
 
@@ -27,6 +27,7 @@ xcode-select -p
 ```
 
 Check that you can run git:
+
 ```shell
 git --version
 # You should see: (latest version)
@@ -66,7 +67,6 @@ DevToolsSecurity -enable
 sudo dscl . append /Groups/_developer GroupMembership <username>
 ```
 
-
 ## Work Directories
 
 Go to terminal and run the following commands:
@@ -96,9 +96,9 @@ mkdir -p ~/Developer/Work/java
 mkdir -p ~/Developer/Work/python
  ```
 
-Then you can check out your GitHub projects into respective directories 
+Then you can check out your GitHub projects into respective directories
+
 ```shell
 cd ~/Developer/Work/tools
 git clone https://github.com/xmlking/macbooksetup.git
 ```
- 

@@ -6,7 +6,7 @@ Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local developm
 for **Docker for Mac**
 
 Download and install the latest binary for your platform from [rancherdesktop.io](https://rancherdesktop.io/).
-Unpack and move `Rancher Desktop.app` to `/Applications`<br/>
+Unpack and move `Rancher Desktop.app` to `/Applications`  
 _e.g., Rancher.Desktop-x.y.z.aarch64.dmg for Mac M1_
 
 It includes:
@@ -21,6 +21,7 @@ After _Rancher Desktop_ is installed, users will have access to these supporting
 - [Helm](https://helm.sh/)
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - **rdctl** - this CLI can be used to do all action that you can do at _Rancher Desktop_ UI via command-line
+
     ```shell
     # example:
     rdctl list-settings
@@ -33,9 +34,9 @@ After _Rancher Desktop_ is installed, users will have access to these supporting
 
 It is recommended assign:
 
-* 8 GB of memory
-* 4 CPU
-* Enable **Traefik**
+- 8 GB of memory
+- 4 CPU
+- Enable **Traefik**
 
 Make sure you enabled following settings. ie., `dockerd(moby)` , PATH manual etc.
 
@@ -44,13 +45,16 @@ Make sure you enabled following settings. ie., `dockerd(moby)` , PATH manual etc
 | ![rd-pref-behavior](../images/rd-pref-behavior.png) | ![rd-pref-environment](../images/rd-pref-environment.png) |
 |      ![rd-pref-k8s](../images/rd-pref-k8s.png)      |                                                           |
 
-
 ### Docker Experimental Features
+
 You can turn on experimental `Docker CLI` features in one of two ways. Either by setting an environment variable temporarily:
+
 ```shell
 export DOCKER_CLI_EXPERIMENTAL=enabled
 ```
+
 or by turning the feature on in the config file `$HOME/.docker/config.json` permanently:
+
 ```json
 {
   "experimental" : "enabled"
@@ -59,11 +63,11 @@ or by turning the feature on in the config file `$HOME/.docker/config.json` perm
 
 > `docker version` should show `Client > Experimental : true`.
 
-
 Optionally, You can also turn on  [docker engine's experimental features](https://github.com/rancher-sandbox/rancher-desktop/discussions/1477):<br/>
 Change the docker engine configuration file `/etc/docker/daemon.json` or create one if it doesn’t exist already:
 
 To SSH into **lima VM** managed by `Rancher Desktop`, run this command:
+
 ```shell
 LIMA_HOME="$HOME/Library/Application Support/rancher-desktop/lima" "/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin/limactl" shell 0
 
@@ -71,7 +75,8 @@ ls -la /etc/docker/
 # to restart docker daemon inside lima VM
 sudo service docker restart
 ```
-and added  `/etc/docker/daemon.json`  with the below settings. 
+
+and added  `/etc/docker/daemon.json`  with the below settings.
 > Make sure `dns`, `bip` values  match to your local network.
 
 ```json
@@ -131,6 +136,7 @@ docker buildx inspect
 docker buildx imagetools inspect <MULTI_PLATFORM_IMAGE>
 docker buildx imagetools inspect --raw nginx:alpine | jq
 ```
+
 ### Images
 
 ```shell
@@ -167,7 +173,7 @@ docker save -o local_jwsy_jade-shooter_v1.2.tar
 docker load -i local_jwsy_jade-shooter_v1.2.tar
 ```
 
-#### Encrypt image layers with [ocicrypt](https://github.com/containerd/nerdctl/blob/master/docs/ocicrypt.md).
+#### Encrypt image layers with [ocicrypt](https://github.com/containerd/nerdctl/blob/master/docs/ocicrypt.md)
 
 ```shell
 openssl genrsa -out mykey.pem
@@ -291,11 +297,12 @@ open http://traefik.localhost/dashboard/#/
 ## Reference
 
 StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
+
 - [Signing images and creating SBOM using cosign](https://www.ijuned.com/Signing-images-and-creating-SBOM-using-cosign/)
 - A collection of useful things you can do with `crane`
   is [here](https://github.com/google/go-containerregistry/blob/main/cmd/crane/recipes.md)
 - [Compendium of Kubernetes Application Deployment Tools](https://medium.com/@KarlKFI/compendium-of-kubernetes-application-deployment-tools-80a828c91e8f)
 - Make Docker container respond to SIGTERM and SIGINT for gracefully shutdown
-    - [Zombie reaping problem](https://www.back2code.me/2020/02/zombie-processes/)
-    - [Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
+  - [Zombie reaping problem](https://www.back2code.me/2020/02/zombie-processes/)
+  - [Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
 - [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)

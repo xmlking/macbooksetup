@@ -65,7 +65,7 @@ Add _kubecontext_ Status Bar component
 ## Shortcut Keys
 
 Under _Preferences → Profile → ("Default") → Keys → Key Mappings:_<br/>
-Click the `Presets` dropdown and select `Natural Text Editing`. 
+Click the `Presets` dropdown and select `Natural Text Editing`.
 When prompted: `Load Preset` click `Remove` button.
 
 ![iterm-profiles-keys](../images/iterm-profiles-keys.png)
@@ -74,8 +74,8 @@ When prompted: `Load Preset` click `Remove` button.
 
 Under  _Preference → Profile → Default → Colors → Color Presets:_<br/>
 **Install Color Preset:**
-Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors) 
-or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file to `~/Downloads` folder, 
+Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Color-Scheme.itermcolors)
+or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file to `~/Downloads` folder,
 import the `.itermcolors` file, then select the `Clovis-iTerm2-Color-Scheme`  preset you just installed.
 
 > you have to rename `~/Downloads/Clovis-iTerm2-Color-Scheme.txt` file to `~/Downloads/Clovis-iTerm2-Color-Scheme.itermcolors.itermcolors` before importing.
@@ -128,9 +128,9 @@ starship print-config # Prints the computed starship configuration
 
 ### ls & ll
 
-We will be replacing **ls** with [exa](https://the.exa.website)<br/>
+We will be replacing **ls** with [exa](https://the.exa.website)  
 [Features](https://the.exa.website/features/): _Colours, Grid view, Long view, Tree view, Git integration, Filtering and
-Icons_<br/>
+Icons_  
 Note: The **icon** characters must be present in the **font** you are using in your terminal
 
 ```shell
@@ -145,7 +145,7 @@ exa --long --header --group --git
 
 We also added following _alias_ to our [alias file](../../dotfiles/my/aliases.zsh), which is sourced from `~/.zshrc`
 
-```shell 
+```shell
 alias ls='exa  --header --group --git --long'
 alias ls.tree='exa --header --group --tree --level=2  --git --long --icons'
 
@@ -199,22 +199,22 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 ## iTerm2 More
 
-#### iTerm2 setup for day-to-day use
+### iTerm2 setup for day-to-day use
 
 > in iTerm2
 
-2. split screen horizontally
-3. go to the bottom screen and split it vertically
+1. split screen horizontally
+2. go to the bottom screen and split it vertically
 
 I was using top screen for the work with yaml files and kubectl.
 
 Left bottom screen was running:
 
-    watch kubectl get pods
+> watch kubectl get pods
 
 Right bottom screen was running:
 
-    watch "kubectl get events --sort-by='{.lastTimestamp}' | tail -6"
+> watch "kubectl get events --sort-by='{.lastTimestamp}' | tail -6"
 
 With such setup it was easy to observe in real time how my pods are being created.
 

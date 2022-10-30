@@ -1,34 +1,41 @@
 # Git
+
 Git tips and FAQ
- 
+
 - Show contributors
+
   ```shell
   git shortlog -s -n
   ```
 
 - Reverting a failed update
+
   ```shell
   git reset --hard # Reset any changes
   git clean -fd # Delete newly added files and directories
   ```
 
 - Prune local branches
+
   ```shell
   git remote prune origin --dry-run
   ```
   
-- GitHUb: change remote from `http` (https://github.com/xmlking/yeti.git) to `ssh`
+- GitHUb: change remote from `http` (<https://github.com/xmlking/yeti.git>) to `ssh`
+
   ```shell
   git remote set-url origin git@github.com:xmlking/yeti.git
   ```
 
 - Set git global config (which are already set for you in [dotfiles](../../dotfiles/.gitconfig))
+
   ```shell
   git config --global init.defaultBranch develop
   git config --global pull.rebase false
   ```
 
 - Rename git tags
+
   ```shell
   git tag new old
   git tag -d old
@@ -39,6 +46,7 @@ Git tips and FAQ
   ````
 
 - Undoing the Last Commit:
+
   ```shell
   git reset --soft HEAD~1
   # If you don't want to keep these changes, simply use the --hard flag. 
@@ -46,6 +54,7 @@ Git tips and FAQ
   ```
 
 - Tags
+
   ```shell
   git describe --tags
   
@@ -59,7 +68,6 @@ Git tips and FAQ
 - setup ssh keys for github and signing GPG key for commits and tags
 
   TODO **YubiKey**
-
 
 - 5 steps to change GitHub default branch from master to main
 
@@ -84,10 +92,10 @@ Git tips and FAQ
     # delete the master branch on the remote
     git push origin --delete master
     ```
+
     Ref: [5-steps-to-change-github-default-branch-from-master-to-main](https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/)
 
 - When to use Rebase vs merge?
   - When merging `feature -> main` or `release -> main` use **merge**
   - When merging `main --> feature` to keep your _feature_ branch up-to-date, use **rebase** <br/>
   Read jeffkreeftmeijer's [Rebase vs Merge](https://jeffkreeftmeijer.com/git-rebase/) blog
-

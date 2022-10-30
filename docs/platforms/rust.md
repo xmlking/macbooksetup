@@ -3,6 +3,7 @@
 Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
 
 ### Installation
+
 For installation, it's advised to use `rustup` as it will (among other things) allow you to switch between versions of Rust without having to download anything additional.
 
 ```shell
@@ -15,7 +16,7 @@ Use _rustup_ to install the Rust compiler (_rustc_) and the Rust package manager
 rustup-init
 ```
 
-Above command will add `$HOME/.cargo/env` to `~/.zshenv` `~/.profile`  and `~/.bash_profile` files. 
+Above command will add `$HOME/.cargo/env` to `~/.zshenv` `~/.profile`  and `~/.bash_profile` files.
 we don't need this as we add `source "$HOME/.cargo/env"` to `~/my/extra.zsh` file.
 
 when prompted `Modify PATH variable? (Y/n)` enter `n`
@@ -39,6 +40,7 @@ rustup self update
 ```
 
 Enable tab completion for Zsh
+
 ```shell
 # rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
 rustup completions zsh > $(brew --prefix)/share/zsh/site-functions/_rustup 

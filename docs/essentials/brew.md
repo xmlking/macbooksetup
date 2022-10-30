@@ -5,6 +5,7 @@
 ## Prerequisites
 
 Verify installation of **Command Line Tools for Xcode**
+
 ```shell
 sudo xcode-select --install
 ```
@@ -81,7 +82,7 @@ No analytics data has been sent yet (nor will any be during this install run).
     https://docs.brew.sh
 ```
 
-For first time only, run following commands<br/>
+For first time only, run following commands  
 
 > _This will create `~/.zprofile` file if it not exists or append `eval "$(/opt/homebrew/bin/brew shellenv)"` line to existing `~/.zprofile` file_
 
@@ -99,16 +100,19 @@ brew doctor
 If you get `Your system is ready to brew.`, you can move on to the next step.
 
 Brew anonymously collect _User Behaviour_ data. To prevent analytics from ever being sent, run:
+
 ```shell
 brew analytics off
 ```
 
 ### Homebrew Shell Completion
+
 Brew installs _completions_ and _functions_  into: `/opt/homebrew/share/zsh/site-functions` when a formula offers them.
 
 [Shell completions](https://docs.brew.sh/Shell-Completion) for external Homebrew commands are not automatically installed. To opt-in to using completions for external commands (if provided), they need to be linked to `HOMEBREW_PREFIX` by running `brew completions link`.
 
 To make Homebrew’s completions available in **zsh**, you must insert the Homebrew-managed `zsh/site-functions` path into your `FPATH` before initialising zsh’s completion facility. Add the following to your `~/.zshrc`:
+
 ```shell
 if type brew &>/dev/null
 then
@@ -118,6 +122,7 @@ autoload -Uz compinit
 compinit
 fi
 ```
+
 > Note that, this snippet must be added in the top if `~/.zshrc`
 
 ### non-admin
@@ -132,13 +137,14 @@ mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar 
 
 Then add brew to front of PATH by editing your shell profile file: `.zprofile` and adding below line:
 
-```
+```shell
 eval "$($HOME/homebrew/bin/brew shellenv)"
 ```
 
 ## Usage
 
 Troubleshooting:
+
 ```shell
 brew config
 brew doctor
@@ -148,6 +154,7 @@ brew --cellar # show where brew install software
 ```
 
 Example usage:
+
 ```shell
 brew install <formula> # to install a package (or Formula in Homebrew vocabulary) 
 brew search TEXT|/REGEX/ # to search for formulas
@@ -160,7 +167,7 @@ brew upgrade <formula> # to upgrade a specific formula
 brew uninstall<formula> # to uninstall a formula 
 ```
 
-Homebrew keeps older versions of formulas installed on your system, in case you want to roll back to an older version. 
+Homebrew keeps older versions of formulas installed on your system, in case you want to roll back to an older version.
 That is rarely necessary, so you can do some cleanup to get rid of those old versions:
 
 ```shell

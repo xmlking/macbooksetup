@@ -2,7 +2,6 @@
 
 Starting from **MacOS Monterey**,MacOS comes with **Python3**, **pip3** pre-installed. No need to install it explicitly.
 
-
 ## Setup
 
 May sure you added `export PATH=$HOME/Library/Python/3.8/bin:$PATH` to `~/my/paths.zsh`
@@ -13,7 +12,8 @@ May sure you added `export PATH=$HOME/Library/Python/3.8/bin:$PATH` to `~/my/pat
 python3 -m pip install --upgrade pip
 ```
 
-## Usage 
+## Usage  
+
 ```shell
 python3 --version
 pip3 --version
@@ -22,7 +22,8 @@ pip3 list
 pip3 show pip
 ```
 
-Optional 
+Optional
+
 ```shell
 # for ML
 pip3 install scipy

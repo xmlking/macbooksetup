@@ -29,10 +29,10 @@ The first thing you should do is update your system. To do that go: **Apple menu
 
 * Visual Settings
   * Change position to _Left_ and make the size of icons _Small_
-  * Check `Automatically hide and show the Dock` 
+  * Check `Automatically hide and show the Dock`
   * Uncheck `Show recent applications in Dock`
 
-## Mission Control 
+## Mission Control
 
 Launch “System Preferences” from the  Apple menu, and click on Mission Control
 
@@ -50,10 +50,12 @@ Launch “System Preferences” from the  Apple menu, and click on Mission Co
   * Uncheck all _Shared_ boxes
 
 ## Menubar
+
 * Add the _Display_ and _Bluetooth_ icons
 * Change _battery to Show percentage symbols_
 
 ## Hot Corners
+
 Got to `Desktop & Screen Saver` _Setting_ and open `Hot Corners...` add `Lanchpad`
 ![finder-favorites](../images/hot-corner.png)
 
@@ -65,21 +67,23 @@ Uncheck _fonts, images, files_ etc.
 Uncheck the _keyboard shortcuts_ as we'll be replacing them with [Alfred](https://www.alfredapp.com)
 
 in `Privacy` tab, I added:
+
 1. `~/go`
-
-
 
 ## Accounts
 
 * Add an _iCloud_ account and sync _Calendar, Find my Mac, Contacts_ etc.
 
 ## Security & Privacy
+
 * Set R`equire Password ... after sleep or screen saver begins to immediately`
 * Enable FileVault to encrypt your hard drive
 * Turn on Firewall
 
 ## Safari
+
 ### Session
+
 * Safari --> Preferences --> General
   * _Safari open with:_ `All windows from last session`
 

@@ -3,6 +3,7 @@
 ## Install
 
 install the CLI with SDKMAN!
+
 ```shell
 sdk install quarkus
 ```
@@ -32,7 +33,9 @@ Boom! Your Quarkus app is now running at `localhost:8080`
 ## Development
 
 ### Dev Run
+
 By default, quarkusDev sets the debug host to localhost
+
 ```shell
 # run in development mode
 quarkus dev
@@ -41,6 +44,7 @@ quarkus dev -Dsuspend -Ddebug
 ```
 
 ### Build
+
 ```shell
 quarkus build
 # building a native executable
@@ -55,6 +59,7 @@ quarkus extension add 'hibernate-validator'
 ```
 
 ### Test
+
 ```shell
 # running tests
 gradle test
@@ -63,5 +68,7 @@ gradle quarkusIntTest
 # running native tests
 gradle testNative
 ```
+
 ## Reference
+
 - [BUILDING QUARKUS APPS WITH GRADLE](https://quarkus.io/guides/gradle-tooling#dev-mode)

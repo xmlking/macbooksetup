@@ -56,8 +56,9 @@ npm outdated
 ncu -u
 
 # To install the new updates
-npm update 	or 	npm install
+npm update  or  npm install
 ```
 
 ## References
+
 - [Getting Started with npm Workspaces](https://ruanmartinelli.com/posts/npm-7-workspaces-1)

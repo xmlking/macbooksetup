@@ -28,14 +28,15 @@ You may Uncheck **Use non-modal commit interface** option in `Preferences | Vers
 
 |                                          Before                                           |                                          After                                          |
 |:-----------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
-| ![jetbrains-preferences-commit-before](../images/jetbrains-preferences-commit-before.png) | ![jetbrains-preferences-commit-after](../images/jetbrains-preferences-commit-after.png) |   
+| ![jetbrains-preferences-commit-before](../images/jetbrains-preferences-commit-before.png) | ![jetbrains-preferences-commit-after](../images/jetbrains-preferences-commit-after.png) |
 |                   IntelliJ IDEA - version control local changes hidden                    |                 IntelliJ IDEA - version control local changes revealed                  |
 
-### Mermaid 
+### Mermaid
 
 - Go to `Preferences | Languages & Frameworks | Markdown` install and check `Mermaid` Markdown extensions
 
 ### Fonts
+
 Try one of the below fonts for `Editor` and pick what you like. `Preferences --> Editor --> Font`
 
 1. JetBrain Mono with Ligatures Enabled
@@ -46,6 +47,7 @@ Change fonts for embedded terminal to `MesloLGM Nerd Font Mono` at `Preferences 
 ![jetbrains-preferences-console-font](../images/jetbrains-preferences-console-font.png)
 
 ### Enabling Annotation Processing
+
 **Lombok** uses annotation processing through APT. So, when the compiler calls it, the library generates new source files based on annotations in the originals.
 
 **Annotation processing isn't enabled by default, though.**

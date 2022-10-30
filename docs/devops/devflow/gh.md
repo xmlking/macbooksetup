@@ -42,6 +42,7 @@ gh repo sync
 ```
 
 ### alias
+
 ```shell
 # Aliases can be used to make shortcuts for gh commands or to compose multiple commands.
 gh alias set <alias> <expansion> [flags]
@@ -50,6 +51,7 @@ $ gh homework
 ```
 
 ### Miscellaneous
+
 ```shell
 # Open the GitHub repository in the web browser.
 gh browse
@@ -65,32 +67,36 @@ gh pr list
 ```
 
 ## Extensions
-See the list of available extensions at https://github.com/topics/gh-extension
+
+See the list of available extensions at <https://github.com/topics/gh-extension>
 
 ### Recommended Extensions
+
 1. [gh-dash](https://github.com/dlvhdr/gh-dash)
 2. [gh-releaser](https://github.com/carlsberg/gh-releaser)
 3. [gh-dependency-report](https://github.com/andyfeller/gh-dependency-report)
 
-
 ```shell
+gh extension install seachicken/gh-poi
 gh extension install dlvhdr/gh-dash
 gh extension install carlsberg/gh-releaser
 gh extension install andyfeller/gh-dependency-report
 ```
 
-Usage 
+Usage
 
 ```shell
 # gh dependency-report xmlking
 ```
 
 Viewing installed extensions
+
 ```shell
 gh extension list
 ```
 
 To install an extension in development from the current directory, use `.` as the value for the `repository` parameter.
+
 ```shell
 gh extension install <repository> [flags]
 
@@ -98,16 +104,22 @@ gh extension install owner/gh-extension
 gh extension install https://git.example.com/owner/gh-extension
 gh extension install .
 ```
+
 Updating extensions
+
 ```shell
 gh extension upgrade `extension`
 gh extension upgrade --all
 ```
+
 Uninstalling extensions
+
 ```shell
 gh extension remove `extension`
 ```
-Extensions 
+
+Extensions
+
 ```shell
 gh dash
 ```

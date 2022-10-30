@@ -14,8 +14,10 @@ to finish this task, run the following commands in terminal:
 # go to your home directory
 cd ~
 curl -L https://raw.githubusercontent.com/xmlking/macbooksetup/main/dotfiles/.zshrc -o ~/.zshrc
-# change `name` and `email` in `.gitconfig` after copy
 curl -L https://raw.githubusercontent.com/xmlking/macbooksetup/main/dotfiles/.gitconfig -o ~/.gitconfig
+# change `name` and `email` in `.gitconfig` after copying it, with:
+git config --global user.name <Your Full Name>
+git config --global user.email <Your Email>
 curl -L https://raw.githubusercontent.com/xmlking/macbooksetup/main/dotfiles/.config/starship.toml -o ~/.config/starship.toml
 mkdir ~/my && cd ~/my
 curl -L https://raw.githubusercontent.com/xmlking/macbooksetup/main/dotfiles/my/.gitattributes -o ~/my/.gitattributes

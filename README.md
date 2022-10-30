@@ -16,12 +16,12 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 
 ## References
 
-- https://sourabhbajaj.com/mac-setup/
-- https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html
-- https://gist.github.com/kevin-smets/8568070
-- https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
-- https://github.com/micro/micro/blob/master/network/config/kubernetes/gcloud.md
+- <https://sourabhbajaj.com/mac-setup/>
+- <https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html>
+- <https://gist.github.com/kevin-smets/8568070>
+- <https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961>
+- <https://github.com/micro/micro/blob/master/network/config/kubernetes/gcloud.md>
 - [My Ultimate M1 Mac Developer Setup](https://codeburst.io/my-ultimate-m1-mac-developer-setup-cfdb2daeed2d)
 - [Sourabhbajaj's macOS Setup Guide](https://sourabhbajaj.com/mac-setup/index.html)
-- https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal
+- <https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal>
 - [Te BEST Mac Terminal Setup for 2022](https://bdarfler.medium.com/the-best-mac-terminal-setup-for-2022-44bf6e3c1a6e)

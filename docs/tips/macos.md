@@ -1,6 +1,5 @@
 # MacOS
 
-
 - Grep three lines....
 
   ```shell
@@ -17,13 +16,15 @@
 - how to add multiple localhosts to mac, sothat I can run multiple services on same port?
 
   Add alias IPs for lo0
+
   ```shell
   sudo ifconfig lo0 alias 127.0.0.2
   sudo ifconfig lo0 alias 127.0.0.3
   ```
 
   Add  hostnames for each of those IPs in `/etc/hosts`
-  ```
+
+  ```shell
   ##
   # Host Database
   #
@@ -45,6 +46,7 @@
   ```
   
 - find process running on a given port
+
   ```shell
   sudo lsof -i tcp:1668
   
@@ -52,6 +54,7 @@
   ```
 
 - tree view of filesystem
+
   ```shell
   tree -d -C -L 2
   ```

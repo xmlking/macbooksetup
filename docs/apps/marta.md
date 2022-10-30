@@ -1,13 +1,14 @@
 # Marta
+
 File Manager for macOS
 
 This software is optional, intended for _Pro_ users.
 
-## Configuration 
+## Configuration
 
-User Preferences 
+User Preferences
 
-```
+```json
 behavior {
     theme "Kon"
 }
