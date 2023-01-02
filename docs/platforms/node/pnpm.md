@@ -1,27 +1,38 @@
 # pnpm
 
+## Install
+
+```shell
+brew install pnpm
+```
+
 ## Commands
 
 ```shell
-npm install -g pnpm
-# Upgrading
-pnpm add -g pnpm
-
+# add package to monorepo's root
 pnpm add debug -W
+# add package to global
 pnpm add debug --global
 
+# update package versions in a repo
 pnpm up
 pnpm up --latest
+
 pnpm ls prune
 pnpm ls
+
 pnpm audit
 pnpm why
+
+# Publish all packages in topological order from the workspace.
+pnpm publish -r
 ```
 
-### create Nx workspace
+### create SvelteKit workspace
 
 ```shell
-pnpx create-nx-workspace@latest --package-manager pnpm
+pnpm create svelte@latest svelte-starter-kit
+# select `yes` for TypeScript, ESLint, Prettier, Playwright and Vitest
 ```
 
 ## Reference

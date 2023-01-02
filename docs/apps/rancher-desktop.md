@@ -63,7 +63,7 @@ or by turning the feature on in the config file `$HOME/.docker/config.json` perm
 
 > `docker version` should show `Client > Experimental : true`.
 
-Optionally, You can also turn on  [docker engine's experimental features](https://github.com/rancher-sandbox/rancher-desktop/discussions/1477):<br/>
+Optionally, You can also turn on  [docker engine's experimental features](https://github.com/rancher-sandbox/rancher-desktop/discussions/1477):  
 Change the docker engine configuration file `/etc/docker/daemon.json` or create one if it doesn’t exist already:
 
 To SSH into **lima VM** managed by `Rancher Desktop`, run this command:
