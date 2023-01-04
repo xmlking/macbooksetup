@@ -28,6 +28,20 @@ pnpm why
 pnpm publish -r
 ```
 
+### Patching a node module
+
+In your project repo directory, run:
+
+```shell
+pnpm patch @auth/core@0.2.4
+```
+
+Output:
+> You can now edit the following folder: /private/var/folders/t_/2rzsqx111439_19vxd5f_p800000gp/T/f6f8c74999a108b642b97ab160392cd8
+> Once you're done with your changes, run "pnpm patch-commit /private/var/folders/t_/2rzsqx111439_19vxd5f_p800000gp/T/f6f8c74999a108b642b97ab160392cd8"'
+
+Edit the files you need to patch then run: `pnpm patch-commit "path-to-edited-module"`  as stated above.
+
 ### create SvelteKit workspace
 
 ```shell
