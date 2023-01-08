@@ -30,6 +30,7 @@
       - [GitHub CLL](devops/devflow/gh.md)
     - [GitOps](devops/devflow/gitops.md)
     - [Documentation](devops/devflow/documentation.md)
+    - [mkcert](devops/devflow/mkcert.md)
     - [YubiKey](devops/devflow/yubikey.md)
   - [dnsmasq](devops/dnsmasq.md)
   - [Docker](devops/docker.md)

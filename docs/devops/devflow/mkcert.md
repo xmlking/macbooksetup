@@ -12,7 +12,7 @@ brew install mkcert
 
 ```shell
 # NOTE: sudo is needed
-mkcert -install 
+mkcert -install
 # this will create root CA cert into: `mkcert -CAROOT` output
 mkcert -CAROOT
 ```
