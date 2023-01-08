@@ -36,7 +36,7 @@
   - [Skaffold](devops/skaffold.md)
   - [Kubernetes](devops/kubernetes.md)
   - [Helm](devops/helm.md)
-  - [Kustomize](devops/Kustomize.md)
+  - [Kustomize](devops/kustomize.md)
   - [kustomizer](devops/kustomizer.md)
   - [Terraform](devops/terraform.md)
   - [Security](devops/security.md)
