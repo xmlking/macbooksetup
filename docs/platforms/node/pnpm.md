@@ -6,6 +6,13 @@
 brew install pnpm
 ```
 
+Add following lines to [~/my/paths.zsh](../../../dotfiles/my/paths.zsh)
+```shell
+# pnpm
+export PNPM_HOME=$HOME/Library/pnpm
+export PATH=$PNPM_HOME:$PATH
+```
+
 ## Commands
 
 ```shell

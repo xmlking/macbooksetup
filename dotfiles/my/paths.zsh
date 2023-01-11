@@ -17,5 +17,9 @@ export PATH=$HOME/.rd/bin:$PATH
 # export PATH=$PATH:$ANDROID_HOME/tools
 # export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# pnpm
+export PNPM_HOME=$HOME/Library/pnpm
+export PATH=$PNPM_HOME:$PATH
+
 # At the end, add user's bin
 export PATH=$HOME/bin:$PATH
