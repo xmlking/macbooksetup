@@ -50,28 +50,13 @@ Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/devel
 
 #### Install
 ```shell
- # brew not available yet
- cargo install --locked cocogitto
-```
-
-Add shell completions
-```shell
-cog generate-completions zsh > $(brew --prefix)/share/zsh/site-functions/_cog
+brew install cocogitto
 ```
 
 
 ## Usage
 
-### ~~Gitflow~~
-[Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) is a branching model for Git, created
-by [Vincent Driessen](https://nvie.com/about/).
-It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
-
-![Gitflow](../../images/gitflow-overview.webp)
-
-Follow [Gitflow Usage](./gitflow.md)
-
-> **Work-in-Progress:** We are switching to [Scaled Trunk-Based Development with Feature Flags](https://gitlab.com/gitlab-org/gitlab-ce/) from [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/).<br/>
+> We are switched to [Scaled Trunk-Based Development with Feature Flags](https://gitlab.com/gitlab-org/gitlab-ce/) from [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/).<br/>
 > This section will be updated soon.
 
 

@@ -54,6 +54,7 @@ brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`
 brew install httpie # a better `curl`
 brew install go-task/tap/go-task # better then a Makefile
+brew install cocogitto # monorepo version/release managemnt 
 ```
 
 ### Fonts

@@ -13,13 +13,6 @@ The first thing you should do is update your system. To do that go: **Apple menu
   * Change _Secondary click_ `Click in bottom right corner`
   * Enable _Tap to click_ - `Tap with one finger`
 
-* Enabling moving windows with a three finger gesture
-
-  The other trackpad change I recommend is to [enable moving windows with a three finger gesture](https://support.apple.com/en-us/HT204609).
-  > `System Preferences -> Accessibility -> Pointer Control -> Mouse & Trackpad -> Trackpad options… -> Enable dragging -> three finger drag`
-
-  ![settings-three-finger-drag](../images/settings-three-finger-drag.png)
-
 ## Mouse
 
 * For Apple Magic Mouse
