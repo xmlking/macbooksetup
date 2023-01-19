@@ -5,6 +5,51 @@
 - **(runtime)** drop support for Node 6 - ([f89153f](https://github.com/xmlking/macbooksetup/commit/f89153feed297bfba3b7b969bf401260c082e02e)) - [@xmlking](https://github.com/xmlking)
 
 - - -
+## [v0.2.0](https://github.com/xmlking/macbooksetup/compare/v0.1.6..v0.2.0) - 2023-01-19
+#### Bug Fixes
+- **(JetBrains)** add Enabling Annotation Processing - ([a881bc7](https://github.com/xmlking/macbooksetup/commit/a881bc767c737080a1eeaaf7c7bb08c9a5991a4f)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** change from nerdctl to dockerd, adding config pics - ([3ab3378](https://github.com/xmlking/macbooksetup/commit/3ab3378fd558e9593bfd6d1266a676b7a044f48d)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** fix cog bump docs [skip ci] - ([8b3d9d1](https://github.com/xmlking/macbooksetup/commit/8b3d9d1ef17709228bdc1d4c388919e1e8529880)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** align image to center - ([9ea1397](https://github.com/xmlking/macbooksetup/commit/9ea13978d1d54c3974035df4913af7ef865fef53)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** align image to center - ([492645e](https://github.com/xmlking/macbooksetup/commit/492645e4a445cbde7df8ef3582a6e1dc5133ec04)) - [@xmlking](https://github.com/xmlking)
+- **(workspace)** fix github release - ([cf7fd41](https://github.com/xmlking/macbooksetup/commit/cf7fd4171b7e7ce9364fd5b9f93e93c3e421b6d0)) - [@xmlking](https://github.com/xmlking)
+- **(workspace)** fix oknozor/cocogitto-action verision - ([287a96c](https://github.com/xmlking/macbooksetup/commit/287a96cfa652188d61b5ff55554abc81e67eec2c)) - [@xmlking](https://github.com/xmlking)
+#### Documentation
+- **(apps)** adding Diagrams drawio for intellij - ([034bd7e](https://github.com/xmlking/macbooksetup/commit/034bd7e3f5b7ecaf52bad40f048381ad2e4aefda)) - [@xmlking](https://github.com/xmlking)
+- **(apps)** adding Diagrams drawio for intellij - ([9e43160](https://github.com/xmlking/macbooksetup/commit/9e43160d7384d79faa5451781276d437c7b46d97)) - [@xmlking](https://github.com/xmlking)
+- **(apps)** added Docker Experimental Features section for rancher-desktop - ([19993f2](https://github.com/xmlking/macbooksetup/commit/19993f20878e3d4a87016492301674c0b325e8d9)) - [@xmlking](https://github.com/xmlking)
+- **(devflow)** updated cog install via brew - ([80f48c6](https://github.com/xmlking/macbooksetup/commit/80f48c69f8e68c2310ba618d908ecb63a9544b1d)) - [@xmlking](https://github.com/xmlking)
+- **(devflow)** adding line to mkcert - ([4015a3d](https://github.com/xmlking/macbooksetup/commit/4015a3d25cc8321aa692ef254910f971411bf301)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** update Kustomize - ([0f00efe](https://github.com/xmlking/macbooksetup/commit/0f00efeb86edc14b752726bb37cf41bbcc51cf56)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** update Kustomize - ([3c1d4cc](https://github.com/xmlking/macbooksetup/commit/3c1d4cc32fbc6025541f3cd6ff29a036e85adcdc)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** updated gcloud docs - ([6e064f0](https://github.com/xmlking/macbooksetup/commit/6e064f095d99a1734c1abd4eede529a2f6c2e0f6)) - [@xmlking](https://github.com/xmlking)
+- **(essentials)** adding cog.toml samples - ([3d810c3](https://github.com/xmlking/macbooksetup/commit/3d810c3b96756a6b6514bcfdcbd73b86e52faaae)) - [@xmlking](https://github.com/xmlking)
+- **(node)** adding paths for pnpm - ([3f730d6](https://github.com/xmlking/macbooksetup/commit/3f730d6fba2b5a7283fd60b994c3471be7b0e78b)) - [@xmlking](https://github.com/xmlking)
+- **(pnpm)** adding patching node modules instructions - ([ff588c8](https://github.com/xmlking/macbooksetup/commit/ff588c843e3f3bebd577d26637c1db7044a72b33)) - [@xmlking](https://github.com/xmlking)
+- **(workspace)** :art: refactor devflow doc - ([81b8b3e](https://github.com/xmlking/macbooksetup/commit/81b8b3ee641e4058055262460663740b919cb1fa)) - [@xmlking](https://github.com/xmlking)
+#### Features
+- **(apps)** adding Wails app - ([8fbda0e](https://github.com/xmlking/macbooksetup/commit/8fbda0e578594173197911384496e2331d5a41d6)) - [@xmlking](https://github.com/xmlking)
+- **(apps)** updated Gitsign docs - ([4d79595](https://github.com/xmlking/macbooksetup/commit/4d795954710da6be8bba6fc85f494ef69e20ee60)) - [@xmlking](https://github.com/xmlking)
+- **(apps)** adding gitsign cli - ([bfe86fa](https://github.com/xmlking/macbooksetup/commit/bfe86fa6a9422f2d28602434f0b9f015414d4a00)) - [@xmlking](https://github.com/xmlking)
+- **(apps)** adding marta app - ([d427fd5](https://github.com/xmlking/macbooksetup/commit/d427fd5e40cd32da5e0eef5e961c559090321298)) - [@xmlking](https://github.com/xmlking)
+- **(devflow)** adding pnpm , mkcert docs - ([c0f76c0](https://github.com/xmlking/macbooksetup/commit/c0f76c0dd4d8565ef0e88ee24a59f1003c320186)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** polish git docs and remove GitFlow - ([385f67b](https://github.com/xmlking/macbooksetup/commit/385f67b321622019b9471d197256fba0e0e7d88a)) - [@xmlking](https://github.com/xmlking)
+- **(devops)** polish git docs and remove GitFlow - ([50c4608](https://github.com/xmlking/macbooksetup/commit/50c4608d2d0d978095b26019dc665670cbd5f9d2)) - [@xmlking](https://github.com/xmlking)
+- **(essentials)** adding dust,procs alternative tools for du and ps - ([8756b29](https://github.com/xmlking/macbooksetup/commit/8756b29c29fcefb927ad86f9c0e7f974ea32c2e1)) - [@xmlking](https://github.com/xmlking)
+- **(essentials)** adding dust,procs alternative tools for du and ps - ([227ec6e](https://github.com/xmlking/macbooksetup/commit/227ec6ed369c32dcd9085ea7af557666a8a97bfc)) - [@xmlking](https://github.com/xmlking)
+- **(workspace)** adding github actions for cocogitto - ([5a3c33d](https://github.com/xmlking/macbooksetup/commit/5a3c33d0e318011a36c3d18154bbc81b0632b315)) - [@xmlking](https://github.com/xmlking)
+#### Miscellaneous Chores
+- **(devvlow)** update Rancher Desktop experimental enabled section [skip ci] - ([b1c2e2a](https://github.com/xmlking/macbooksetup/commit/b1c2e2a993f8e5e75553b8bfc5ec149820b26a8c)) - [@xmlking](https://github.com/xmlking)
+#### Refactoring
+- **(docs)** :bug: remove unsued fonts - ([5277648](https://github.com/xmlking/macbooksetup/commit/5277648dbf7270b4ae2629dc2738fc3ef6e3faa0)) - [@xmlking](https://github.com/xmlking)
+#### Style
+- **(docs)** fix lint issues for markdown - ([b9f8564](https://github.com/xmlking/macbooksetup/commit/b9f856408a06f9fee4db2b81df33ba1b425da025)) - [@xmlking](https://github.com/xmlking)
+- **(docs)** fix lint issues for markdown - ([5dec9a1](https://github.com/xmlking/macbooksetup/commit/5dec9a171fc15a3ed1a6b3324456ed0e1803377d)) - [@xmlking](https://github.com/xmlking)
+- **(docs)** fix lint issues for markdown - ([d681e32](https://github.com/xmlking/macbooksetup/commit/d681e320d2ee0706f12bc87f8ea884ccec0dce72)) - [@xmlking](https://github.com/xmlking)
+- **(docs)** :fire: format docs - ([094707a](https://github.com/xmlking/macbooksetup/commit/094707a2c04b046e4d1c6041be3cdb761cee8c44)) - [@xmlking](https://github.com/xmlking)
+
+- - -
+
 
 ## [v0.1.5](https://github.com/xmlking/macbooksetup/compare/6c9b9133b0107499cb8445b89902310ffbc219f1..v0.1.5) - 2022-08-04
 #### Bug Fixes
