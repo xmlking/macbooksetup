@@ -7,9 +7,8 @@ CI/CD workflow and tech stack.
 ## Development 
 
 Main concepts of **Gitflow**:
-- **develop** branch will represent the currently developed release
-- **master/main** branch will represent the current release
-- **develop and master/main** branches will record the history of the project
+- **main** branch will represent the currently developed release
+- **main** branches will record the history of the project
 - **feature** branch will contain the feature-developed changes. each feature will usually have a feature branch.
 - **release** branch will represent the next phase of developed release before it is completed and merged to _master/main_ branch
 

@@ -12,8 +12,7 @@ Install essential _command-line tools_
 * [watch](https://cli.github.com/) — `watch` will run a command repeatedly and then display the output in an `ncurses` friendly manner.
 * [jq](https://stedolan.github.io/jq/) —  `jq` is like `sed` for JSON data
 * [git](https://git-scm.com/) — `git` is a version control system CLI
-* git-flow-avh
-* git-chglog
+* [cocogitto](https://github.com/cocogitto/cocogitto)
 
 #### Better CLI Alternative Tools
 
@@ -54,7 +53,7 @@ brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`
 brew install httpie # a better `curl`
 brew install go-task/tap/go-task # better then a Makefile
-brew install cocogitto # monorepo version/release managemnt 
+brew install cocogitto # monorepo version/release management 
 ```
 
 ### Fonts
