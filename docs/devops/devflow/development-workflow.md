@@ -58,33 +58,31 @@ brew install cocogitto
 
 ###  Branching Strategy
 
-We will be using branching strategy that is based on **GitHub flow**, but with a greater emphasis on safety when making changes to the **main** branch and the ability to scale to large projects and teams.
+We will be using branching strategy that is based on `GitHub Fow`, but with a greater emphasis on safety when making changes to the `main` branch and the ability to scale to large projects and teams.
 
 ![scaled-github-flow](../../images/github-flow.png)
 
 #### Main branch
-A single **main** branch is always production-ready – the tests are green, and all changes are verified. The **main** branch is protected, meaning direct commits are not allowed. 
+A single `main` branch is always production-ready – the tests are green, and all changes are verified. The `main` branch is protected, meaning direct commits are not allowed. 
 
 #### Feature branches
-Changes to the code are made in a separate **feature** branch. Always create your **feature** branches from **main**. 
+Changes to the code are made in a separate `feature` branch. Always create your `feature` branches from `main`. 
 
 #### Merge requests and quality gates
 To merge changes from a feature branch into main, you create a merge request that must pass through quality gates. Quality gates, which can be customized to fit your team’s workflow, are sets of conditions that have to be met in order to merge:
 
 - Approval in a turn-based code review. A reviewer comments on the code and passes the turn to the author to make revisions until the changes are finally approved by the reviewer. 
-- A successfully completed **GitHub Action** check job.
-- **An external check**, which passes if an external CI/CD service like **Codecov** reports that the build is successful. 
+- A successfully completed `GitHub Action` check job.
+- **An external check**, which passes if an external CI/CD service like `Codecov` reports that the build is successful. 
 
 #### Safe Merge
-Safe Merge is an additional safety step before finally merging changes from a **feature** branch into **main**. 
-GitHub Actions workflow perform quality checks with an Automation build and e2e testing in isolated env. If the checks are successful, the changes from **feature** are finally merged into **main**. 
+Safe Merge is an additional safety step before finally merging changes from a `feature` branch into `main`. 
+GitHub Actions workflow perform quality checks with an Automation build and e2e testing in isolated env. If the checks are successful, the changes from `feature` are finally merged into `main`. 
 
 #### Release branches
-If your project involves public releases, you should use **release** branches created from **main**. If necessary, last-minute changes are cherry-picked from **main** to a particular **release** branch.
+If your project involves public releases, you should use `release` branches created from `main`. If necessary, last-minute changes are cherry-picked from `main` to a particular `release` branch.
 
-Using this  flow allows you to:
-
-Configure quality gates to achieve higher-quality code and a stable, protected main branch, with:
+Following this flow allows you to configure `quality gates` to achieve higher-quality code and a stable, protected `main` branch, with:
 - Safe Merge for feature branches.
 - Code owners for mandatory reviews in critical code areas.
 - GitHub Actions build status as quality gate criteria for merge requests.
