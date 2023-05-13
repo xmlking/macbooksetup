@@ -14,7 +14,7 @@ Our ultimate goal:
 
 ## Highlights
 - Monorepo (apps & libs)
-- Scaled [Trunk-Based Development](https://trunkbaseddevelopment.com/) with [Feature Flags](https://launchdarkly.com/blog/introduction-to-trunk-based-development/)
+- [Scaled GitHub Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/) with [Feature Flags](https://launchdarkly.com/blog/introduction-to-trunk-based-development/)
 - Fully automated release
 - Enforce [Semantic Versioning](https://semver.org) specification
 - Use formalized commit message convention to document changes in the codebase
@@ -23,7 +23,7 @@ Our ultimate goal:
 
 Here, we’ve standardised on:
 
-- Scaled [Trunk-Based Development](https://trunkbaseddevelopment.com/) as _git branching model_
+- [Scaled GitHub Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/) as _git branching strategy_
 - [Semantic-Release](https://semantic-release.gitbook.io/semantic-release/) _for release process_
 - [Semantic Versioning 2.0.0](https://semver.org/) _for versioning_
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) _for commit messages_
@@ -56,17 +56,38 @@ brew install cocogitto
 
 ## Usage
 
-> We are switched to [Scaled Trunk-Based Development with Feature Flags](https://gitlab.com/gitlab-org/gitlab-ce/) from [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/).<br/>
-> This section will be updated soon.
+###  Branching Strategy
 
+We will be using branching strategy that is based on **GitHub flow**, but with a greater emphasis on safety when making changes to the **main** branch and the ability to scale to large projects and teams.
 
-### Scaled Trunk-Based Development
+![scaled-github-flow](../../images/github-flow.png)
 
-![scaled-trunk-based-development](../../images/scaled-trunk-based-development.png)
+#### Main branch
+A single **main** branch is always production-ready – the tests are green, and all changes are verified. The **main** branch is protected, meaning direct commits are not allowed. 
 
-#### Trunk-Based Development with Feature Flags
-![trunk-based-development-with-feature-flags](../../images/trunk-based-development-with-feature-flags.png)
+#### Feature branches
+Changes to the code are made in a separate **feature** branch. Always create your **feature** branches from **main**. 
 
+#### Merge requests and quality gates
+To merge changes from a feature branch into main, you create a merge request that must pass through quality gates. Quality gates, which can be customized to fit your team’s workflow, are sets of conditions that have to be met in order to merge:
+
+- Approval in a turn-based code review. A reviewer comments on the code and passes the turn to the author to make revisions until the changes are finally approved by the reviewer. 
+- A successfully completed **GitHub Action** check job.
+- **An external check**, which passes if an external CI/CD service like **Codecov** reports that the build is successful. 
+
+#### Safe Merge
+Safe Merge is an additional safety step before finally merging changes from a **feature** branch into **main**. 
+GitHub Actions workflow perform quality checks with an Automation build and e2e testing in isolated env. If the checks are successful, the changes from **feature** are finally merged into **main**. 
+
+#### Release branches
+If your project involves public releases, you should use **release** branches created from **main**. If necessary, last-minute changes are cherry-picked from **main** to a particular **release** branch.
+
+Using this  flow allows you to:
+
+Configure quality gates to achieve higher-quality code and a stable, protected main branch, with:
+- Safe Merge for feature branches.
+- Code owners for mandatory reviews in critical code areas.
+- GitHub Actions build status as quality gate criteria for merge requests.
 
 ### Cocogitto
 [Cocogitto](https://docs.cocogitto.io) is a CLI and GitOps toolbox for the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [Semver]((https://semver.org/)) specifications.
@@ -200,3 +221,4 @@ Check the _GitHub Actions_ for **Cocogitto** [Here](../../../.github/workflows)
 - [Engineering productivity governance and improvement in software delivery](https://www.thoughtworks.com/insights/articles/engineering-productivity-governance-and-improvement-in-software-)
 - [Git Branching Strategies vs. Trunk-Based Development](https://launchdarkly.com/blog/git-branching-strategies-vs-trunk-based-development/)
 - [Trunk-Based Development with Feature Flags](https://launchdarkly.com/blog/introduction-to-trunk-based-development/)
+- [Introducing the Space Git Flow](https://blog.jetbrains.com/space/2023/04/18/space-git-flow/)
