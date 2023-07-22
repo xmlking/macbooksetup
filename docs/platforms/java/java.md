@@ -10,6 +10,13 @@ Go to terminal and run:
 curl -s "https://get.sdkman.io" | zsh
 ```
 
+> Note: this is a known [issue](https://github.com/sdkman/sdkman-cli/issues/1204) which causes installation fail. the temp workaround is:
+
+```shell
+curl -s "https://get.sdkman.io" | bash
+```
+
+
 Then execute contents in file via:
 
 ```shell
