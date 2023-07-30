@@ -61,7 +61,7 @@ eval "$(ssh-agent -s)"
 ssh-add -l
 # Let's add our first key to the agent! If you haven't changed the default folder and file name, you can use the following command:
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-# Enter previous passphrase when prompted 
+# Enter previously used passphrase when prompted
 ```
 
 > Note: The `--apple-use-keychain` option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `--apple-use-keychain` option.
