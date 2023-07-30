@@ -14,7 +14,7 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 
 ### Contributors Guild
 
-## References1
+## References
 
 - <https://sourabhbajaj.com/mac-setup/>
 - <https://sandor-nemeth.github.io/2017/09/30/setup-mackbook-pro-for-development.html>
