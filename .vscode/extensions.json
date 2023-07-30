@@ -10,6 +10,6 @@
     "hediet.vscode-drawio",
     "github.github-vscode-theme",
     "github.vscode-pull-request-github",
-    "bungcip.better-toml",
+    "tamasfe.even-better-toml"
   ]
 }
