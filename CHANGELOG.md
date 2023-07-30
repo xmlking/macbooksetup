@@ -5,6 +5,12 @@
 - **(runtime)** drop support for Node 6 - ([f89153f](https://github.com/xmlking/macbooksetup/commit/f89153feed297bfba3b7b969bf401260c082e02e)) - [@xmlking](https://github.com/xmlking)
 
 - - -
+## [v0.2.2](https://github.com/xmlking/macbooksetup/compare/v0.2.1..v0.2.2) - 2023-07-30
+#### Bug Fixes
+- test commit signing - ([d1ad098](https://github.com/xmlking/macbooksetup/commit/d1ad0989cacf11764419cba34dffedb477446bf3)) - [@xmlking](https://github.com/xmlking)
+
+- - -
+
 ## [v0.2.1](https://github.com/xmlking/macbooksetup/compare/v0.2.0..v0.2.1) - 2023-07-30
 #### Bug Fixes
 - Testing SSH signing - ([f5ac63f](https://github.com/xmlking/macbooksetup/commit/f5ac63ff00f493574d7a8301b6b71b26415d80fe)) - [@xmlking](https://github.com/xmlking)
