@@ -5,6 +5,21 @@
 - **(runtime)** drop support for Node 6 - ([f89153f](https://github.com/xmlking/macbooksetup/commit/f89153feed297bfba3b7b969bf401260c082e02e)) - [@xmlking](https://github.com/xmlking)
 
 - - -
+## [v0.2.1](https://github.com/xmlking/macbooksetup/compare/v0.2.0..v0.2.1) - 2023-07-30
+#### Bug Fixes
+- Testing SSH signing - ([f5ac63f](https://github.com/xmlking/macbooksetup/commit/f5ac63ff00f493574d7a8301b6b71b26415d80fe)) - [@xmlking](https://github.com/xmlking)
+#### Documentation
+- adding Branching Strategy - ([b26bbb9](https://github.com/xmlking/macbooksetup/commit/b26bbb9af575c8b41c5993e817cebb172b27568d)) - [@xmlking](https://github.com/xmlking)
+- adding Branching Strategy - ([e6661df](https://github.com/xmlking/macbooksetup/commit/e6661dfcd3f83654b5cb6787e412af5e8ac60c46)) - [@xmlking](https://github.com/xmlking)
+- cleanup - ([781e998](https://github.com/xmlking/macbooksetup/commit/781e998590d84d181fd762ab778ca28a3d4d8ab5)) - [@xmlking](https://github.com/xmlking)
+#### Tests
+- Testing SSH signing - ([2bcfa39](https://github.com/xmlking/macbooksetup/commit/2bcfa39811815b3936c652d079fa514dc2717958)) - [@xmlking](https://github.com/xmlking)
+- Testing SSH signing - ([683062f](https://github.com/xmlking/macbooksetup/commit/683062fd1f74bcb7ee2d9878d713aee3358a7f97)) - [@xmlking](https://github.com/xmlking)
+- Testing SSH signing - ([8755b17](https://github.com/xmlking/macbooksetup/commit/8755b17bf85c2aa732869826e27bd48fa374993e)) - [@xmlking](https://github.com/xmlking)
+- Testing SSH signing - ([ab96347](https://github.com/xmlking/macbooksetup/commit/ab96347bf0832fc2d069b144fd1f428fb5ab224b)) - [@xmlking](https://github.com/xmlking)
+
+- - -
+
 ## [v0.2.0](https://github.com/xmlking/macbooksetup/compare/v0.1.6..v0.2.0) - 2023-01-19
 #### Bug Fixes
 - **(JetBrains)** add Enabling Annotation Processing - ([a881bc7](https://github.com/xmlking/macbooksetup/commit/a881bc767c737080a1eeaaf7c7bb08c9a5991a4f)) - [@xmlking](https://github.com/xmlking)
