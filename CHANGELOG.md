@@ -7,6 +7,14 @@
 - - -
 ## [v0.2.2](https://github.com/xmlking/macbooksetup/compare/v0.2.1..v0.2.2) - 2023-07-30
 #### Bug Fixes
+- test commit sign - ([f8ccc13](https://github.com/xmlking/macbooksetup/commit/f8ccc13183326a1a7077c5c6e2e5a939118ba437)) - [@xmlking](https://github.com/xmlking)
+- test commit signing - ([a4f0016](https://github.com/xmlking/macbooksetup/commit/a4f001698737553ecc5a4132fc9c27e5adbe9d70)) - [@xmlking](https://github.com/xmlking)
+- test commit signing - ([d1ad098](https://github.com/xmlking/macbooksetup/commit/d1ad0989cacf11764419cba34dffedb477446bf3)) - [@xmlking](https://github.com/xmlking)
+
+- - -
+
+## [v0.2.2](https://github.com/xmlking/macbooksetup/compare/v0.2.1..v0.2.2) - 2023-07-30
+#### Bug Fixes
 - test commit signing - ([d1ad098](https://github.com/xmlking/macbooksetup/commit/d1ad0989cacf11764419cba34dffedb477446bf3)) - [@xmlking](https://github.com/xmlking)
 
 - - -
