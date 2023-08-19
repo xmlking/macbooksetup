@@ -130,6 +130,9 @@ git commit -m "feat(cli): add awesome feature"
 cog commit fix -B "add fix a nasty bug" cli
 # Commit Body and footers
 cog commit refactor -e -B "drop support for Node 6" runtime
+
+# Commit with skip-ci
+cog commit docs "added cli options" cli --skip-ci "[skip ci]"
 ```
 
 #### Check commit history
@@ -207,7 +210,19 @@ cog bump --patch --pre "beta.1"
 cog bump --auto --dry-run
 # calculate the next version based on the commit types since the latest tag
 cog bump --auto
+# with skip-ci
+cog bump --auto --skip-ci "[skip-ci]"
 ```
+
+#### Get the current version 
+```shell
+cog get-version
+cog -v get-version
+# If working on a monorepo you can also specify the target package:
+cog -v get-version --package gill-db
+cog get-version --fallback 0.1.0
+```
+
 
 #### GitHub Actions
 Check the _GitHub Actions_ for **Cocogitto** [Here](../../../.github/workflows)

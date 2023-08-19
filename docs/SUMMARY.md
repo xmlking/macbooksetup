@@ -21,6 +21,7 @@
   - [Node](platforms/node/node.md)
     - [NPM](platforms/node/npm.md)
     - [PNPM](platforms/node/pnpm.md)
+    - [Monorepo](platforms/node/monorepo.md)
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust.md)
   - [Python](platforms/python.md)
