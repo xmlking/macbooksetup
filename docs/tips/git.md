@@ -15,6 +15,23 @@ Git tips and FAQ
   git clean -fd # Delete newly added files and directories
   ```
 
+- Is there a way to remove all ignored files from a local git working tree?
+
+  ```
+  git-clean - Remove untracked files from the working tree
+  -d for removing directories
+  -f remove forcefully
+  -n Don’t actually remove anything, just show what would be done.
+  -X Remove only files ignored by Git. This may be useful to rebuild everything from scratch, but keep manually created files.
+  ```
+
+  ```shell
+  # dry-run
+  git clean -dfX -n 
+  # if above command looks good, then run this:
+  git clean -dfX 
+  ```
+
 - Prune local branches
 
   ```shell
