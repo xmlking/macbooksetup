@@ -10,23 +10,23 @@
 # https://github.com/Danimoth/gitattributes/blob/master/Web.gitattributes
 
 # These files are text and should be normalized (Convert crlf => lf)
-*.php		text
-*.css		text
-*.js		text
-*.json 		text
-*.htm 		text
-*.html 		text
-*.xml 		text
-*.txt 		text
-*.ini 		text
-*.inc 		text
-*.pl 		text
-*.rb 		text
-*.py 		text
-*.scm 		text
-*.sql 		text
+*.php		    text
+*.css		    text
+*.js		    text
+*.json 		  text
+*.htm 		  text
+*.html 		  text
+*.xml 		  text
+*.txt 		  text
+*.ini 		  text
+*.inc 		  text
+*.pl 		    text
+*.rb 		    text
+*.py 		    text
+*.scm 		  text
+*.sql 		  text
 .htaccess 	text
-*.sh 		text
+*.sh 		    text
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
@@ -38,19 +38,19 @@
 *.mov 		binary
 *.mp4 		binary
 *.mp3 		binary
-*.flv 		binary
-*.fla 		binary
+*.flv 		 binary
+*.fla 		 binary
 *.swf 		binary
-*.gz 		binary
+*.gz 		  binary
 *.zip 		binary
-*.7z 		binary
+*.7z 		  binary
 *.ttf 		binary
 *.cur 		binary
 *.eot 		binary
 *.woff 		binary
 *.pyc 		binary
 *.pdf 		binary
-*.ez 		binary
+*.ez 		  binary
 *.bz2 		binary
 *.swp 		binary
 *.wav 		binary

@@ -1,6 +1,7 @@
 [user]
     name = first last name
     email = me@email.com
+	# signingkey = /Users/<login>/.ssh/id_ed25519_github.pub
 [credential]
     helper = osxkeychain
 [core]
@@ -60,3 +61,13 @@
 [push]
     default = current
     autoSetupRemote = true
+	followTags = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = false
+[gpg "ssh"]
+	# allowedSignersFile = /Users/<login>/.ssh/allowed_signers
+[diff "lockb"]
+	textconv = bun
+	binary = true

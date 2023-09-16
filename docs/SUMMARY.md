@@ -19,9 +19,11 @@
 - Platforms
   - [Java](platforms/java/java.md)
   - [Node](platforms/node/node.md)
+    - [Bub](platforms/node/bun.md)
     - [NPM](platforms/node/npm.md)
     - [PNPM](platforms/node/pnpm.md)
     - [Monorepo](platforms/node/monorepo.md)
+    - [Turborepo](platforms/node/turborepo.md)
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust.md)
   - [Python](platforms/python.md)
