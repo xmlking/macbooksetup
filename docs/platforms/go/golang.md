@@ -24,7 +24,7 @@ Recommended _tools/libs_ for **Go** projects:
 brew install go
 # verify 
 go version                                                                                                                                                                          ☸ rancher-desktop on ☁️  
-# go version go1.19 darwin/arm64
+# go version go1.21.1 darwin/arm64
 
 ```
 
@@ -33,11 +33,11 @@ go version                                                                      
 If you need multiple versions for testing...
 
 ```shell
-brew install go@1.18
+brew install go@1.19
 # brew switch
 brew unlink go
-brew link go@1.18
-# back to 1.19
+brew link go@1.19
+# back to 1.21
 brew unlink go
 brew link  go
 ```
