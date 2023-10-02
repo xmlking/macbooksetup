@@ -123,6 +123,9 @@ go install sigs.k8s.io/bom/cmd/bom@latest # Create SPDX-compliant Bill of Materi
 docker info
 docker version
 docker stats
+docker context list
+# to use tools like dive, you may need to switch context to rancher-desktop
+docker context use rancher-desktop
 docker top CONTAINER
 docker volume ls
 docker network ls
