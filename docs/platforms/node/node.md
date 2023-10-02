@@ -27,15 +27,17 @@ npm --version
 node --version
 # To see available node versions
 brew search node
+# Install any version e.g. 18
+brew install node@18
 # To unlink from current version
 brew unlink node
-# Install any version e.g. 12
-brew install node@12
 # To link a different installed version
-brew link node@12 
-brew link --force --overwrite node@12 # some time u have to do this
+brew link node@18
+brew link --force --overwrite node@18 # some time u have to do this
 # To see your current node version (again)
 node --version
+# to schitch back to latest node version
+
 ```
 
 ### Publish
