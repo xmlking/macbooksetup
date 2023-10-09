@@ -87,3 +87,7 @@ In your project's `.vscode/settings.json` file, set **fontFamily** for _editor_ 
 | Opt + C              | Check/Uncheck task list item |
 | Ctrl/Cmd + Shift + V | Toggle preview               |
 |                      |                              |
+
+
+## References
+- [VS code setup for Svelte](https://webjeda.com/blog/vscode-setup-svelte)
