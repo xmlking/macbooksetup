@@ -256,6 +256,9 @@ docker exec -it infra_redpanda_1 rpk version
 docker exec -it infra_redpanda_1 rpk topic list
 docker exec -it infra_redpanda_1 rpk cluster info
 
+# verify if docker `compose` getting correctly resolved application config from .env
+docker compose config # implicitly set `env-file` to `.env`
+docker compose --env-file .env --env-file .secrets config  # explicitly set `env-file` to `.env` and `.secrets`
 
 docker exec -it redpanda-1 \
 rpk topic produce twitch_chat --brokers=localhost:9092
@@ -309,3 +312,4 @@ StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.co
   - [Zombie reaping problem](https://www.back2code.me/2020/02/zombie-processes/)
   - [Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
 - [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
+- [Docker Compose: Fragments, Configs top-level element, Secrets top-level element](https://github.com/compose-spec/compose-spec/blob/master/spec.md#configs-top-level-element)
