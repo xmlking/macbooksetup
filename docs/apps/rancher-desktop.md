@@ -260,6 +260,10 @@ docker exec -it infra_redpanda_1 rpk cluster info
 docker compose config # implicitly set `env-file` to `.env`
 docker compose --env-file .env --env-file .secrets config  # explicitly set `env-file` to `.env` and `.secrets`
 
+# ssh to container (if needed to debug)
+docker compose exec -it redpanda \
+rpk topic consume twitch_chat --brokers=localhost:9092
+# Or
 docker exec -it redpanda-1 \
 rpk topic produce twitch_chat --brokers=localhost:9092
 docker exec -it redpanda-1 \
