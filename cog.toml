@@ -11,6 +11,8 @@ post_bump_hooks = [
     "git push --tags",
 ]
 
+skip_ci = "[skip ci]"
+
 [commit_types]
 
 [changelog]
