@@ -51,6 +51,9 @@ Customize your `.gitignore` visiting [gitignore.io](https://www.toptal.com/devel
 #### Install
 ```shell
 brew install cocogitto
+
+# add shell completions (run this everytime you update cog)
+cog generate-completions zsh > $(brew --prefix)/share/zsh-completions/_cog
 ```
 
 
