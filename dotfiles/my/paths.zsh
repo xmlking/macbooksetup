@@ -17,12 +17,5 @@ export PATH=$HOME/Library/Python/3.8/bin:$PATH
 # export PATH=$PATH:$ANDROID_HOME/tools
 # export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# pnpm (optional): uncomment if you use pnpm
-export PNPM_HOME=$HOME/Library/pnpm
-export PATH=$PNPM_HOME:$PATH
-
-# bun (optional): uncomment if you use bun
-# export PATH=$HOME/.bun/bin:$PATH
-
 # At the end, add user's bin
 export PATH=$HOME/bin:$PATH
