@@ -1,8 +1,12 @@
 # Monorepo
 
-Monorepos are very popular in modern application development because of their immense benefits. A monorepo is a single repository having multiple distinct projects with well-defined associations. Note that monorepo is not a monolith; in fact, it is the opposite of a monolith.
+Monorepos are very popular in modern application development because of their immense benefits.
+A monorepo is a single repository having multiple distinct projects with well-defined associations.
+Note that monorepo is not a monolith; in fact, it is the opposite of a monolith.
 
 It is very easy to make cross-cutting code changes across different applications (/backend, /frontend) in a single atomic commit.
+
+Learn more about monorepo at [monorepo.tools](https://monorepo.tools/)
 
 In this document, we will using [Turborepo](https://turbo.build/) to implement Monorepos
 
