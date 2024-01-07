@@ -16,6 +16,13 @@
     "hediet.vscode-drawio",
     "mikestead.dotenv",
     "vivaxy.vscode-conventional-commits",
+    "alberto-varela.monorepo-focus-workspace",
+    // inlang (i18n)
+    "inlang.vs-code-extension",
+    // markdown
+    "unifiedjs.vscode-mdx",
+    "bierner.markdown-mermaid",
+    "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
     // Rust
     "tamasfe.even-better-toml",
     // GolLang
@@ -37,7 +44,10 @@
     "stylelint.vscode-stylelint",
     "svelte.svelte-vscode",
     "ardenivanov.svelte-intellisense",
-    "fivethree.vscode-svelte-snippets",
+    "moalamri.inline-fold",
+    "JakobKruse.svelte-kit-snippets",
+    "pivaszbs.svelte-autoimport",
+    "Selemondev.vscode-shadcn-svelte",
     "Tyriar.sort-lines",
     "VisualStudioExptTeam.vscodeintellicode",
     "vunguyentuan.vscode-css-variables",
@@ -45,7 +55,8 @@
     "wmaurer.change-case",
     "ZixuanChen.vitest-explorer",
     "GraphQL.vscode-graphql",
-    "moalamri.inline-fold"
+    // astro
+    "astro-build.astro-vscode"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": ["ardenivanov.svelte-intellisense"]

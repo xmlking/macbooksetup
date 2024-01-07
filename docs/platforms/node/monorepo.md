@@ -47,10 +47,16 @@ Following are some of the commands to use Turborepo:
 - `turbo prune --scope=<target>` creates a sparse/partial monorepo with a pruned lockfile for a target package.
 - Remote Caching commands: `turbo login` and `turbo link`
 
-### Prerequisites  
-```shell
-pnpm install turbo --global
-```
+### Prerequisites
+
+1. Turbo CLI
+  ```shell
+  pnpm add -g turbo@latest
+  ```
+2. VS Code monorepo plugin: [Monorepo Focus Workspace](https://marketplace.visualstudio.com/items?itemName=alberto-varela.monorepo-focus-workspace)
+  ```shell
+  code --install-extension alberto-varela.monorepo-focus-workspace
+  ```
 
 ## Playbook  
 ```shell

@@ -1,5 +1,7 @@
 # Turborepo
 
+A **monorepo** is a single repository containing multiple distinct projects, with well-defined relationships. learn more at [monorepo.tools](https://monorepo.tools/)
+
 [Turborepo](https://turbo.build/repo/docs/handbook)enable managing deployable **apps** and associated [Sharing Code](https://turbo.build/repo/docs/handbook/sharing-code) in single git repo.  
 Sharing Code cab be either [Internal Packages](https://turbo.build/repo/docs/handbook/sharing-code/internal-packages) or [External Packages](https://turbo.build/repo/docs/handbook/publishing-packages)
 
@@ -13,14 +15,16 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - WebApps
-  - `playground`: an experimental [svelte-kit](https://kit.svelte.dev/) web app to play with new ideas.
-  - `docs`: a sample documentation [svelte-kit](https://kit.svelte.dev/) web app
-  - `web`: a sample [svelte-kit](https://kit.svelte.dev/) web app
+  - `playground`: an **experimental** [svelte-kit](https://kit.svelte.dev/) web app to play with new ideas.
+  - `docs`: a sample **documentation** web app build with astro's [starlight](https://starlight.astro.build/)
+  - `web`: a sample **landing page** web app build with [astro](https://astro.build/)
+  - `console`: a sample **dashboard** web app build with [svelte-kit](https://kit.svelte.dev/)
 - Packages
   - `ui`: a stub Svelte component library shared by both `web` and `docs` applications
-  - `eslint-config-custom`: `eslint` configurations (includes `eslint-plugin-svelte` and `eslint-config-prettier`)
-  - `tailwind-config`: shared `tailwindcss` configurations (includes etc...)
-  - `helpers`: utility functions used throughout the monorepo
+  - `eslint-config`: `eslint` configurations (includes `eslint-plugin-svelte` and `eslint-config-prettier`)
+  - `prettier-config`: shared `prettier` configurations (plugins etc...)
+  - `typescript-config`: shared `tsconfig` files
+  - `utils`: utility functions used throughout the monorepo
 
 ### Utilities
 
@@ -32,10 +36,14 @@ This Turborepo has some additional tools already setup for you:
 
 ## Prerequisite
 
-```bash
-pnpm add -g turbo@latest
-# bun add -g turbo@latest
-```
+1. Turbo CLI
+  ```shell
+  pnpm add -g turbo@latest
+  ```
+2. VS Code monorepo plugin: [Monorepo Focus Workspace](https://marketplace.visualstudio.com/items?itemName=alberto-varela.monorepo-focus-workspace)
+  ```shell
+  code --install-extension alberto-varela.monorepo-focus-workspace
+  ```
 
 ## Setup
 
@@ -57,6 +65,15 @@ npx turbo link
 ```
 
 ## Usage
+
+### Environment
+
+### App Environment Variables
+
+> Turbo is working on [first-class solution](https://turbo.build/repo/docs/handbook/dev#using-environment-variables) to load **dotEnv** files.  
+> Meanwhile we recommend using a library called [dotenv-run](https://github.com/chihab/dotenv-run) to solve this problem.
+
+~~turbo automatically include environment variables from `.env` , `.secrets` as we set them at `globalDotEnv` in `turbo.json`~~
 
 ### Run
 
@@ -84,24 +101,27 @@ turbo build --filter=playground... --graph
 ### Maintenance
 
 migrate command which both upgrades your repo to the specified version (latest by default) of turbo, and runs any codemods required.
+
 ```shell
-bunx  @turbo/codemod migrate
+pnpx  @turbo/codemod migrate
 ```
 
-### Other
+### Docker Build
 
 ```shell
+# for dockerfile
 turbo prune --scope=playground --docker
 ```
 
-## Bun
+## Guides
 
 ```shell
-bun run build
-bun run dev
-bun run dev  --filter=playground
-bun run lint
-bunx turbo login
+turbo build
+turbo dev
+turbo dev  --filter=playground
+turbo lint
+turbo run generate
+pnpx turbo login
 
-bun run turbo prune --scope=playground --docker
+turbo prune --scope=playground --docker
 ```

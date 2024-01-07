@@ -27,12 +27,14 @@ Useful extensions:
 - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
   - [Getting Started with GitHub Copilot in Visual Studio Code](https://github.com/github/copilot-docs/blob/main/docs/visualstudiocode/gettingstarted.md)
+- Drawing
+- [excalidraw Editor](https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor)
 - [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
-
-- For Angular/NodeJS projects:
-
+- Internationalization and localization (i18n)
+  - [inlang – i18n](https://marketplace.visualstudio.com/items?itemName=inlang.vs-code-extension)
+- Monorepo
+  - [Monorepo Workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace) helps to pick Workspaces To Focus On
 - ESLint
-- Angular's language service
 
 **List VS Code extension:**
 
