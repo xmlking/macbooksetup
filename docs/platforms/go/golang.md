@@ -51,9 +51,8 @@ brew install bufbuild/buf/buf
 brew install protobuf
 # grpc cli client
 brew install grpcurl
-# bloomrpc is a UI client for gRPC (optional)
-# install `bloomrpc` via `brew` into ~/Applications)
-brew install --cask --appdir=~/Applications bloomrpc
+# postman is a UI client for gRPC (optional)
+brew install --cask --appdir=~/Applications postman
 # certs for mTLS
 brew install step
 

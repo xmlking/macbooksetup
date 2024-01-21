@@ -29,3 +29,10 @@ case ":$PATH:" in
   *":$BUN_HOME:"*) ;;
   *) export PATH="$BUN_HOME:$PATH" ;;
 esac
+
+# add GoLang's globally installed executable packages to PATH
+GO_HOME=$(go env GOPATH)/bin
+case ":$PATH:" in
+  *":$GO_HOME:"*) ;;
+  *) export PATH="$GO_HOME:$PATH" ;;
+esac

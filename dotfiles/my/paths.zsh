@@ -3,11 +3,9 @@
 # Paths
 ## Add commonly used folders to $PATH, Order is important.
 
-# Executable scripts from GoLang packages you install will be put in here
-export PATH=$PATH:$(go env GOPATH)/bin
-
-# Executable scripts from Python packages you install will be put in here
-export PATH=$HOME/Library/Python/3.8/bin:$PATH
+# If you install `python`` via `brew``, you have to manually set path to unversioned `python` `python-config`, `pip`.
+# Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to `python3`, `python3-config`, `pip3`
+export PATH=$(brew --prefix python)/libexec/bin:$PATH
 
 # RANCHER DESKTOP (optional): uncomment if you use RANCHER DESKTOP
 # export PATH=$HOME/.rd/bin:$PATH

@@ -8,14 +8,14 @@
 # ls (overwrite MacOS ls & ll alias)
 #alias ll="ls -AlhG"
 
-# exa
-if [ "$(command -v exa)" ]; then
+# eza
+if [ "$(command -v eza)" ]; then
     unalias -m 'ls'
     unalias -m 'll'
-    alias ls='exa --header --group --git --long'
-    alias ls.tree='exa --header --group --tree --level=2  --git --long --icons'
-    alias ll='exa --header --group --git --long --all'
-    alias ll.tree='exa --header --group --tree --level=2  --git --long --icons --all'
+    alias ls='eza --header --group --git --long'
+    alias ls.tree='eza --header --group --tree --level=2  --git --long --icons'
+    alias ll='eza --header --group --git --long --all'
+    alias ll.tree='eza --header --group --tree --level=2  --git --long --icons --all'
 fi
 
 # my favorite aliases

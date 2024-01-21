@@ -128,29 +128,29 @@ starship print-config # Prints the computed starship configuration
 
 ### ls & ll
 
-We will be replacing **ls** with [exa](https://the.exa.website)  
+We will be replacing **ls** with [eza](https://eza.rocks/)  
 [Features](https://the.exa.website/features/): _Colours, Grid view, Long view, Tree view, Git integration, Filtering and
 Icons_  
 Note: The **icon** characters must be present in the **font** you are using in your terminal
 
 ```shell
-brew install exa
+brew install eza
 ```
 
 Usage:
 
 ```shell
-exa --long --header --group --git
+eza --long --header --group --git
 ```
 
 We also added following _alias_ to our [alias file](../../dotfiles/my/aliases.zsh), which is sourced from `~/.zshrc`
 
 ```shell
-alias ls='exa  --header --group --git --long'
-alias ls.tree='exa --header --group --tree --level=2  --git --long --icons'
+alias ls='eza  --header --group --git --long'
+alias ls.tree='eza --header --group --tree --level=2  --git --long --icons'
 
-alias ll='exa --header --group --long --all'
-alias ll.tree='exa --header --group --tree --level=2  --git --long --icons --all'
+alias ll='eza --header --group --long --all'
+alias ll.tree='eza --header --group --tree --level=2  --git --long --icons --all'
 ```
 
 ### Shell Completions

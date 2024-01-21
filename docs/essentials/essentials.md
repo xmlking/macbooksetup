@@ -22,7 +22,7 @@ Install essential _command-line tools_
 * [fd](https://github.com/sharkdp/fd) — A user-friendly version of `find`
 * [htop](https://htop.dev/) — An interactive replacement for `top`
 * [procs](https://github.com/dalance/procs) — A modern replacement for `ps`
-* [exa](https://the.exa.website/) — A modern replacement for `ls`
+* [eza](https://eza.rocks/) — A modern replacement for `ls`
 * [ripgrep](https://github.com/BurntSushi/ripgrep) — An improved `grep`
 * [dust](https://github.com/bootandy/dust) — A more intuitive version of `du`
 * [duf](https://github.com/muesli/duf) — A better `df` alternative
@@ -42,7 +42,7 @@ brew install ack
 brew install tree
 brew install vim
 brew install subversion # Yes, it is required to install some brew formulas :(
-brew install exa # replacement for LS. https://the.exa.website
+brew install eza # replacement for LS. https://eza.rocks/
 brew install bat # a better `cat`
 brew install git-delta  # a better git `diff`
 brew install fd # user-friendly alternative to `find`
