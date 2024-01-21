@@ -3,7 +3,7 @@
 # Paths
 ## Add commonly used folders to $PATH, Order is important.
 
-# If you install `python`` via `brew``, you have to manually set path to unversioned `python` `python-config`, `pip`.
+# If you install `python` via `brew`, you have to manually set path to unversioned `python` `python-config`, `pip`.
 # Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to `python3`, `python3-config`, `pip3`
 export PATH=$(brew --prefix python)/libexec/bin:$PATH
 
