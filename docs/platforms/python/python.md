@@ -76,18 +76,38 @@ Pipenv manages dependencies on a per-project basis. To install packages, change 
 cd project_folder
 # Install from Pipfile, if there is one:
 pipenv install
-# This will install the excellent `Requests` library and create a Pipfile for you in your project’s directory if not already present
+```
+
+To install a Python package for your project
+```shell
+# This will install the excellent `Requests` library and 
+# creates a Pipfile for you in your project’s directory if not already present
 pipenv install requests
 # Or Specifying Versions of a Package
 pipenv install requests==2.13.0
-# Pipenv Upgrade Workflow
-pipenv update --outdated
 # Importing from requirements.txt
 pipenv install -r path/to/requirements.txt
-# To create a new virtualenv, using a specific version of Python you have installed
-pipenv --python 3.11
-# 
+# Pipenv will let you keep the two environments separate using the --dev flag. For example:
+pipenv install --dev nose2
+```
+
+```shell
+# Pipenv Upgrade Workflow
+pipenv update --outdated
+# Checks for PyUp Safety security vulnerabilities
 pipenv check
+# To create a new virtualenv, using a specific version of Python you have installed
+pipenv --python 3.12
+# Activate Virtual Environment
+pipenv shell
 ```
 
 > Generally, keep both `Pipfile` and `Pipfile.lock` in version control.
+
+## Running your code
+```shell
+pipenv run python rock.py
+# (Or) You can activate the virtual environment then run the file
+pipenv shell
+python rock.py
+```
