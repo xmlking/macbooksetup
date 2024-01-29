@@ -1,5 +1,11 @@
 # Helm
 
+## Install
+
+```shell
+brew install helm
+```
+
 ## Using
 ```shell
 # update charts repo

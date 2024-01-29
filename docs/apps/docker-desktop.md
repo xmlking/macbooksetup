@@ -1,36 +1,18 @@
-# Rancher Desktop
+# Docker Desktop
 
 Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local development.
 
-> NOTE: you need either **Docker Desktop** ([free for personal use](https://www.docker.com/pricing/))  or **Rancher Desktop** (free). Pick one only.
+> NOTE: you need either **Docker Desktop** ([free for personal use](https://www.docker.com/pricing/))  or **Rancher Desktop** (free). pick one only
 
-**[Rancher Desktop](https://rancherdesktop.io)** Container Management and Kubernetes on the Desktop. Is the replacement
-for **[Docker Desktop](./docker-desktop.md)**. Use either one of them.
+**[Docker Desktop](https://www.docker.com/products/docker-desktop/)** Container Management and Kubernetes on the Desktop. 
 
-Download and install the latest binary for your platform from [rancherdesktop.io](https://rancherdesktop.io/).
-Unpack and move `Rancher Desktop.app` to `/Applications`  
-_e.g., Rancher.Desktop-x.y.z.aarch64.dmg for Mac M1_
+Download and install the latest binary for your platform from [www.docker.com](https://www.docker.com/products/docker-desktop/).
+Unpack and move `Docker Desktop.app` to `/Applications`  
 
 It includes:
 
-1. [lima](https://github.com/lima-vm/lima)
-2. [containerD](https://containerd.io)
-3. [k3s](https://k3s.io/)
-4. [traefik](https://traefik.io/)
-
-After _Rancher Desktop_ is installed, users will have access to these supporting utilities:
-
-- [Helm](https://helm.sh/)
-- [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
-- **rdctl** - this CLI can be used to do all action that you can do at _Rancher Desktop_ UI via command-line
-
-    ```shell
-    # example:
-    rdctl list-settings
-    rdctl set --container-runtime dockerd --kubernetes-version 1.24.3
-    rdctl set --kubernetes-enabled=true
-    rdctl shutdown
-    ```
+1. docker
+2. kubernetes (*you have to explicitly enable kubernetes in settings if you need it*)
 
 ## Configuration
 
@@ -38,65 +20,89 @@ It is recommended assign:
 
 - 8 GB or above memory
 - minimum 4 CPU
-- Enable **Traefik**
+- Enable **[kubernetes](https://docs.docker.com/desktop/kubernetes/)** (optional)
 
-Make sure you enabled following settings. ie., `dockerd(moby)` , PATH manual etc.
+## Addons
 
-|                                                     |                                                           |
-| :-------------------------------------------------: | :-------------------------------------------------------: |
-| ![rd-pref-behavior](../images/rd-pref-behavior.png) | ![rd-pref-environment](../images/rd-pref-environment.png) |
-|      ![rd-pref-k8s](../images/rd-pref-k8s.png)      |                                                           |
+List of optional addons for kubernetes running in **Docker Desktop**
 
-### Docker Experimental Features
+### Helm (optional)
 
-You can turn on experimental `Docker CLI` features in one of two ways. Either by setting an environment variable temporarily:
+Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher-Desktop, Docker-Desktop doesnot include **Helm** by default. 
 
 ```shell
-export DOCKER_CLI_EXPERIMENTAL=enabled
+brew install helm
 ```
 
-or by turning the feature on in the config file `$HOME/.docker/config.json` permanently:
+### Cert Manager (optional)
 
-```json
-{
-  "experimental" : "enabled"
-}
+TODO
+- LetsEncrypt
+
+### Traefik (optional)
+
+[Run Traefik with Kubernetes in Docker Desktop](https://doc.traefik.io/traefik/getting-started/install-traefik/)
+
+Install and configure Traefik Proxy to use the Gateway API
+
+**Gateway API** is not installed on Kubernetes clusters by default.  
+
+![ingress-vs-gateway-api](../images/ingress-vs-gateway-api.webp)
+
+![gateway-api](../images/gateway-api.png)
+
+Deploy Gateway API CRD's::
+```shell
+# install CRDs if already not installed. 
+#  kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
+#   { kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.0.0" | kubectl apply -f -; }
+
+ kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
+  { kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl apply -f -; }
+
+# customresourcedefinition.apiextensions.k8s.io/gatewayclasses.gateway.networking.k8s.io created
+# customresourcedefinition.apiextensions.k8s.io/gateways.gateway.networking.k8s.io created
+# customresourcedefinition.apiextensions.k8s.io/httproutes.gateway.networking.k8s.io created
+# customresourcedefinition.apiextensions.k8s.io/referencegrants.gateway.networking.k8s.io created
+
+# DANGER: Remove the Gateway API CRDs if they are no longer needed:
+kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl delete -f -
 ```
 
-> `docker version` should show `Client > Experimental : true`.
+Deploying Traefik Proxy v3.0
+```shell
+helm repo add traefik https://traefik.github.io/charts
+helm repo update
 
-Optionally, You can also turn on  [docker engine's experimental features](https://github.com/rancher-sandbox/rancher-desktop/discussions/1477):  
-Change the docker engine configuration file `/etc/docker/daemon.json` or create one if it doesn’t exist already:
+# create k8 namespace for traefik
+kubectl create ns traefik
 
-To SSH into **lima VM** managed by `Rancher Desktop`, run this command:
+# This will install and start traefik in your local cluster
+helm install traefik \
+traefik/traefik \
+--namespace traefik \
+--set image.tag=v3.0 \
+--set ingressRoute.dashboard.entryPoints="{web,websecure}" \
+--set experimental.kubernetesGateway.enabled=true \
+--wait
+
+# in case of you want to rollback above installation
+helm uninstall traefik  --namespace traefik
+```
+verify
+
+```bash
+kubectl get all -n traefik
+kubectl describe svc traefik --namespace traefik | grep Ingress | awk '{print $3}'
+```
+The service named `service/traefik` should get a EXTERNAL-IP of `localhost` which can be seen in the list printed above
+
+This means that you can access the Traefik load balancer by navigating to http://localhost/dashboard/#/ in your browser.  
 
 ```shell
-LIMA_HOME="$HOME/Library/Application Support/rancher-desktop/lima" "/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin/limactl" shell 0
-
-ls -la /etc/docker/
-# to restart docker daemon inside lima VM
-sudo service docker restart
-```
-
-and added  `/etc/docker/daemon.json`  with the below settings.
-> Make sure `dns`, `bip` values  match to your local network.
-
-```json
-{
-  "builder": {
-    "gc": {
-      "defaultKeepStorage": "20GB",
-      "enabled": true
-    }
-  },
-  "features": {
-    "buildkit": true
-  },
-  "experimental": false,
-  "dns": ["your custom dns", "8.8.8.8"],
-  "bip": "192.168.254.1/24",
-  "insecure-registries" : ["URL for your registry"]
-}
+# kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" -n traefik --output=name) -n traefik 9000:9000
+open http://traefik.localhost/dashboard/#/
+open https://traefik.localhost/dashboard/#/
 ```
 
 ## DevOps tools
@@ -126,8 +132,8 @@ docker info
 docker version
 docker stats
 docker context list
-# to use tools like dive, you may need to switch context to rancher-desktop
-docker context use rancher-desktop
+# to use tools like dive, you may need to switch context to docker-desktop
+docker context use docker-desktop
 docker top CONTAINER
 docker volume ls
 docker network ls
@@ -319,3 +325,4 @@ StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.co
   - [Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
 - [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
 - [Docker Compose: Fragments, Configs top-level element, Secrets top-level element](https://github.com/compose-spec/compose-spec/blob/master/spec.md#configs-top-level-element)
+- [Kubernetes Ingress Vs Gateway API](https://medium.com/google-cloud/kubernetes-ingress-vs-gateway-api-647ee233693d)
