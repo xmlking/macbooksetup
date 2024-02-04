@@ -19,7 +19,7 @@ unzip -P localhost apps/traefik/certs/localhost.direct.zip -d apps/traefik/certs
 
 ## Traefik with Docker Compose
 
-Use [compose.yml](../../apps/traefik/compose.yml), [certs](../../apps/traefik/certs/) and [traefik.yml. dynamic.yml](../../apps/traefik/) to setup docker compose env.
+Use [compose.yml](../../apps/traefik/compose.yml), [certs](../../apps/traefik/certs) and [traefik.yml. dynamic.yml](../../apps/traefik) to setup docker compose env.
 
 ![network-diagram-compose-tls-traefik.png](../images/network-diagram-compose-tls-traefik.png)
 
