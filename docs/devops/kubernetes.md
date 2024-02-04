@@ -189,6 +189,11 @@ bb wget -qO- http://demo:8888
 bb sh
 ```
 
+```shell
+# after SSH to container, you can use this command to check connectivity to external host
+nc -zv some_egress_hostname 1433
+```
+
 #### Container Security
 > for better security add following securityContext settings to manifest
 ```yaml

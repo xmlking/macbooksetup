@@ -34,12 +34,14 @@ Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher
 brew install helm
 ```
 
-### Cert Manager (optional)
+### Traefik with Compose (optional)
 
-TODO
-- LetsEncrypt
+![network-diagram-compose-tls-traefik.png](../images/network-diagram-compose-tls-traefik.png)
 
-### Traefik (optional)
+
+### Traefik with Kubernetes (optional)
+
+Refer [Step 4: Use it on the TLS Store in values.yaml file for this Helm Chart](https://github.com/traefik/traefik-helm-chart/blob/master/EXAMPLES.md#provide-default-certificate-with-cert-manager-and-cloudflare-dns)
 
 [Run Traefik with Kubernetes in Docker Desktop](https://doc.traefik.io/traefik/getting-started/install-traefik/)
 
@@ -326,3 +328,4 @@ StevenACoffman's [Docker Best Practices and Antipatterns](https://gist.github.co
 - [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
 - [Docker Compose: Fragments, Configs top-level element, Secrets top-level element](https://github.com/compose-spec/compose-spec/blob/master/spec.md#configs-top-level-element)
 - [Kubernetes Ingress Vs Gateway API](https://medium.com/google-cloud/kubernetes-ingress-vs-gateway-api-647ee233693d)
+- [Kubernetes & Traefik with local Wildcard certificates](https://hugo.md/post/kubernetes-and-traefik/)

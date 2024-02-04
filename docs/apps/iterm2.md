@@ -78,7 +78,7 @@ Download  [Clovis-iTerm2-Color-Scheme](../../apps/iterm2/colors/Clovis-iTerm2-Co
 or [one-dark](../../apps/iterm2/colors/one-dark.itermcolors) file to `~/Downloads` folder,
 import the `.itermcolors` file, then select the `Clovis-iTerm2-Color-Scheme`  preset you just installed.
 
-> you have to rename `~/Downloads/Clovis-iTerm2-Color-Scheme.txt` file to `~/Downloads/Clovis-iTerm2-Color-Scheme.itermcolors.itermcolors` before importing.
+> you have to rename `~/Downloads/Clovis-iTerm2-Color-Scheme.txt` file to `~/Downloads/Clovis-iTerm2-Color-Scheme.itermcolors` before importing.
 
 ![iterm-profiles-colors](../images/iterm-profiles-colors.png)
 
