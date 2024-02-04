@@ -34,78 +34,9 @@ Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher
 brew install helm
 ```
 
-### Traefik with Compose (optional)
+### Traefik (optional)
 
-![network-diagram-compose-tls-traefik.png](../images/network-diagram-compose-tls-traefik.png)
-
-
-### Traefik with Kubernetes (optional)
-
-Refer [Step 4: Use it on the TLS Store in values.yaml file for this Helm Chart](https://github.com/traefik/traefik-helm-chart/blob/master/EXAMPLES.md#provide-default-certificate-with-cert-manager-and-cloudflare-dns)
-
-[Run Traefik with Kubernetes in Docker Desktop](https://doc.traefik.io/traefik/getting-started/install-traefik/)
-
-Install and configure Traefik Proxy to use the Gateway API
-
-**Gateway API** is not installed on Kubernetes clusters by default.  
-
-![ingress-vs-gateway-api](../images/ingress-vs-gateway-api.webp)
-
-![gateway-api](../images/gateway-api.png)
-
-Deploy Gateway API CRD's::
-```shell
-# install CRDs if already not installed. 
-#  kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
-#   { kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.0.0" | kubectl apply -f -; }
-
- kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
-  { kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl apply -f -; }
-
-# customresourcedefinition.apiextensions.k8s.io/gatewayclasses.gateway.networking.k8s.io created
-# customresourcedefinition.apiextensions.k8s.io/gateways.gateway.networking.k8s.io created
-# customresourcedefinition.apiextensions.k8s.io/httproutes.gateway.networking.k8s.io created
-# customresourcedefinition.apiextensions.k8s.io/referencegrants.gateway.networking.k8s.io created
-
-# DANGER: Remove the Gateway API CRDs if they are no longer needed:
-kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl delete -f -
-```
-
-Deploying Traefik Proxy v3.0
-```shell
-helm repo add traefik https://traefik.github.io/charts
-helm repo update
-
-# create k8 namespace for traefik
-kubectl create ns traefik
-
-# This will install and start traefik in your local cluster
-helm install traefik \
-traefik/traefik \
---namespace traefik \
---set image.tag=v3.0 \
---set ingressRoute.dashboard.entryPoints="{web,websecure}" \
---set experimental.kubernetesGateway.enabled=true \
---wait
-
-# in case of you want to rollback above installation
-helm uninstall traefik  --namespace traefik
-```
-verify
-
-```bash
-kubectl get all -n traefik
-kubectl describe svc traefik --namespace traefik | grep Ingress | awk '{print $3}'
-```
-The service named `service/traefik` should get a EXTERNAL-IP of `localhost` which can be seen in the list printed above
-
-This means that you can access the Traefik load balancer by navigating to http://localhost/dashboard/#/ in your browser.  
-
-```shell
-# kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" -n traefik --output=name) -n traefik 9000:9000
-open http://traefik.localhost/dashboard/#/
-open https://traefik.localhost/dashboard/#/
-```
+Follow this setup [GUIDE](./traefik.md) to add **Traefik Proxy** with **Docker Compose** or local **Kubernetes** running in  `Docker-Desktop`
 
 ## DevOps tools
 

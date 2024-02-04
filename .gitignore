@@ -2,3 +2,6 @@
 .idea/
 .DS_Store
 TODO
+
+apps/traefik/certs/localhost.direct.crt
+apps/traefik/certs/localhost.direct.key

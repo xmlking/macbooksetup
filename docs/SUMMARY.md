@@ -17,6 +17,7 @@
   - [Benthos](apps/benthos.md)
   - [Docker Desktop](apps/docker-desktop.md)
   - [Rancher Desktop](apps/rancher-desktop.md)
+  - [Traefik](apps/traefik.md)
 - Platforms
   - [Java](platforms/java/java.md)
   - [Node](platforms/node/node.md)

@@ -2,8 +2,9 @@
 global:
   sendAnonymousUsage: false
 
+# set to DEBUG if needed
 log:
-  level: DEBUG
+  level: INFO
 
 ping:
   entryPoint: web
