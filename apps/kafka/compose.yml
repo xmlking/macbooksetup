@@ -1,0 +1,354 @@
+version: '3.9'
+###########################################################################
+# top-level Extensions
+###########################################################################
+x-streams-user: &streams-user root
+
+###########################################################################
+# top-level Config
+# `dev` password: admin
+###########################################################################
+configs:
+  ksql_users:
+    content: |
+      admin: admin,${ADMIN_PASSWORD:-admin}
+      dev: MD5:21232f297a57a5a743894a0e4a801fc3,developer
+  ksql_jaas:
+    content: |
+      KsqlServer-Props {
+          org.eclipse.jetty.jaas.spi.PropertyFileLoginModule required
+          file="/conf/kafka_ksql.password"
+          debug="false";
+      };
+  connect_users:
+    content: |
+      admin: ${ADMIN_PASSWORD-admin}
+      dev: ${DEV_PASSWORD-admin}
+  connect_jaas:
+    content: |
+      KafkaConnect {
+        org.apache.kafka.connect.rest.basic.auth.extension.PropertyFileLoginModule required
+        file="/conf/kafka_connect.password";
+      };
+
+###########################################################################
+# top-level Secrets
+###########################################################################
+secrets:
+  authorized_keys:
+    file: .secrets
+
+services:
+  ###########################################################################
+  # postgres database
+  ###########################################################################
+  postgres:
+    image: postgres:16
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+#      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    command: >
+      -c wal_level=logical
+      -c max_wal_senders=1
+      -c max_replication_slots=1
+    #   -c listen_addresses = '*'
+
+  ###########################################################################
+  # kafka broker + schema registry
+  ###########################################################################
+  redpanda:
+    image: redpandadata/redpanda:v23.2.12
+    hostname: redpanda
+    container_name: redpanda
+    user: 101:101
+    # comment `platform` if you are using windows or intel mac.
+    platform: 'linux/arm64/v8'
+    ports:
+      - 8081:8081
+      - 8082:8082
+      - 9092:9092
+      - 9644:9644
+      - 29092:29092
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy:.+true' || exit 1"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    volumes:
+      - redpanda:/var/lib/redpanda/data
+    command:
+      - redpanda start
+      - --overprovisioned
+      - --smp 1
+      - --memory 1G
+      - --reserve-memory 0M
+      - --node-id 0
+      - --check=false
+      - --kafka-addr PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr PLAINTEXT://redpanda:29092,OUTSIDE://localhost:9092
+      - --pandaproxy-addr 0.0.0.0:8082
+      - --advertise-pandaproxy-addr redpanda:8082
+      - --set redpanda.enable_transactions=true
+      - --set redpanda.enable_idempotence=true
+      - --set redpanda.auto_create_topics_enabled=false
+
+  ###########################################################################
+  # kafka connect
+  # https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/docker-image/
+  # Ref: https://github.com/provectus/kafka-ui/blob/53a6553765a806eda9905c43bfcfe09da6812035/documentation/compose/kafka-ui-connectors-auth.yaml
+  ###########################################################################
+  connect:
+    image: redpandadata/connectors:v1.0.13 # no connectors included
+#    image: redpandadata/connectors:1.0.0-dev-e81f871 # this includes some connectors
+    hostname: connect
+    container_name: connect
+    platform: 'linux/arm64'
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    ports:
+      - "8083:8083"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ./infra/kafka/plugins:/opt/kafka/connect-plugins # enable this, when connect-image has no connectors included
+    environment:
+      CONNECT_CONFIGURATION: |
+        key.converter=org.apache.kafka.connect.converters.ByteArrayConverter
+        value.converter=org.apache.kafka.connect.converters.ByteArrayConverter
+        group.id=ksql-connect-cluster
+        offset.storage.topic=_connectors_offsets
+        config.storage.topic=_connectors_configs
+        status.storage.topic=_connectors_status
+        config.storage.replication.factor=-1
+        offset.storage.replication.factor=-1
+        status.storage.replication.factor=-1
+      CONNECT_BOOTSTRAP_SERVERS: redpanda:29092
+      CONNECT_PLUGIN_PATH: "/opt/kafka/connect-plugins,/usr/share/java"
+      CONNECT_METRICS_ENABLED: "false"
+      CONNECT_GC_LOG_ENABLED: "false"
+      CONNECT_HEAP_OPTS: -Xms512M -Xmx512M # -Xms1G -Xmx1G
+      CONNECT_LOG_LEVEL: INFO
+      CONNECT_LOG4J_LOGGERS: org.apache.kafka.clients.NetworkClient=WARN,org.apache.kafka.connect.runtime.rest.RestServer=WARN
+
+  ###########################################################################
+  # Kafka Connect
+  # Ref: https://github.com/provectus/kafka-ui/blob/53a6553765a806eda9905c43bfcfe09da6812035/documentation/compose/kafka-ui-connectors-auth.yaml
+  ###########################################################################
+  connect2:
+    image: confluentinc/cp-kafka-connect:7.5.2
+    hostname: connect
+    container_name: connect2
+    platform: 'linux/arm64'
+    ports:
+      - 8083:8083
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ./infra/kafka/plugins:/opt/kafka/connect-plugins # enable this, when connect-image has no connectors included
+    configs:
+      - source: connect_users
+        target: /conf/kafka_connect.password
+      - source: connect_jaas
+        target: /conf/kafka_connect.jaas
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: redpanda:29092
+      CONNECT_GROUP_ID: ksql-connect-cluster
+      CONNECT_CONFIG_STORAGE_TOPIC: _connect_configs
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_OFFSET_STORAGE_TOPIC: _connect_offset
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_STATUS_STORAGE_TOPIC: _connect_status
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://redpanda:8081
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://redpanda:8081
+      CONNECT_INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_INTERNAL_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components,/opt/kafka/connect-plugins"
+      CONNECT_METRICS_ENABLED: "false"
+      CONNECT_GC_LOG_ENABLED: "false"
+      CONNECT_HEAP_OPTS: -Xms512M -Xmx512M # -Xms1G -Xmx1G
+      CONNECT_LOG_LEVEL: INFO
+      CONNECT_LOG4J_LOGGERS: org.apache.kafka.clients.NetworkClient=WARN,org.apache.kafka.connect.runtime.rest.RestServer=WARN
+      # REST API Settings
+      CONNECT_REST_PORT: 8083
+      CONNECT_REST_ADVERTISED_HOST_NAME: connect
+      CONNECT_REST_EXTENSION_CLASSES: org.apache.kafka.connect.rest.basic.auth.extension.BasicAuthSecurityRestExtension
+      KAFKA_OPTS: "-Djava.security.auth.login.config=/conf/kafka_connect.jaas"
+
+
+  ###########################################################################
+  # ksqldb server
+  # Ref: https://github.com/geoHeil/streaming-example/blob/master/docker-compose.yml
+  # Ref: https://redpanda.com/blog/ksqldb-materialized-cache
+  ###########################################################################
+  ksqldb:
+    image: confluentinc/ksqldb-server:0.29.0
+    hostname: ksqldb
+    container_name: ksqldb
+    # comment `platform` if you are using windows or intel mac.
+    platform: 'linux/amd64'
+    depends_on:
+      redpanda:
+        condition: service_healthy
+      connect:
+        condition: service_healthy
+    ports:
+      - "8088:8088"
+      - "1099:1099"
+#      - "8083:8083"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/healthcheck"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+#    volumes:
+#      - ./infra/kafka/plugins/:/usr/share/kafka/plugins/
+    configs:
+      - source: ksql_users
+        target: /conf/kafka_ksql.password
+      - source: ksql_jaas
+        target: /conf/kafka_ksql.jaas
+    environment:
+      KSQL_LISTENERS: "http://0.0.0.0:8088"
+      KSQL_HOST_NAME: ksqldb
+      KSQL_KSQL_ADVERTISED_LISTENER: http://ksqldb:8088
+      KSQL_BOOTSTRAP_SERVERS: "redpanda:29092"
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+      # --- to get state-store lag information ---
+      KSQL_KSQL_HEARTBEAT_ENABLE: "true"
+      KSQL_KSQL_LAG_REPORTING_ENABLE: "true"
+      # --- ksqlDB processing log config ---
+      KSQL_LOG4J_ROOT_LOGLEVEL: INFO
+      KSQL_LOG4J_PROCESSING_LOG_BROKERLIST: "redpanda:29092"
+      KSQL_LOG4J_PROCESSING_LOG_TOPIC: default_ksql_processing_log
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_NAME: default_ksql_processing_log
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+      KSQL_SASL_MECHANISM: PLAIN
+      USERNAME: admin
+      PASSWORD: admin
+      KSQL_SASL_JAAS_CONFIG: |
+        org.apache.kafka.common.security.plain.PlainLoginModule required \
+        username=$${USERNAME} \
+        password=$${PASSWORD};
+      KSQL_AUTHENTICATION_SKIP_PATHS: "/healthcheck,/info,/lag"
+      KSQL_OPTS: >
+        -Dconfluent.support.metrics.enable=false
+        -Djava.security.auth.login.config=/conf/kafka_ksql.jaas
+      ## Configuration to add external Kafka Connect support.(Choose either external or embedded Kafka Connect)
+      KSQL_KSQL_CONNECT_URL: http://connect:8083
+      ## Configuration to embed Kafka Connect support.
+#      KSQL_CONNECT_REST_ADVERTISED_HOST_NAME: 'ksqldb'
+#      KSQL_CONNECT_REST_PORT: 8083
+#      KSQL_CONNECT_GROUP_ID: "ksql-connect-cluster"
+#      KSQL_CONNECT_BOOTSTRAP_SERVERS: "redpanda:29092"
+#      KSQL_CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
+#      KSQL_CONNECT_VALUE_CONVERTER: "io.confluent.connect.avro.AvroConverter"
+#      KSQL_CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+#      KSQL_CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+#      KSQL_CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+#      KSQL_CONNECT_CONFIG_STORAGE_TOPIC: "_ksql-connect-configs"
+#      KSQL_CONNECT_OFFSET_STORAGE_TOPIC: "_ksql-connect-offsets"
+#      KSQL_CONNECT_STATUS_STORAGE_TOPIC: "_ksql-connect-statuses"
+#      KSQL_CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+#      KSQL_CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+#      KSQL_CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+#      KSQL_CONNECT_PLUGIN_PATH: "/usr/share/kafka/plugins"
+    restart: unless-stopped
+
+  ###########################################################################
+  # ksqldb cli
+  ###########################################################################
+  ksqldb-cli:
+    image: confluentinc/ksqldb-cli:0.29.0
+    container_name: ksqldb-cli
+    # comment `platform` if you are using windows or intel mac.
+    # platform: 'linux/amd64'
+    entrypoint: /bin/sh
+    tty: true
+    volumes:
+      - ./src/ehc-uc:/etc/sql
+#    depends_on:
+#      redpanda:
+#        condition: service_healthy
+#      ksqldb:
+#        condition: service_healthy
+
+###########################################################################
+# Console UI
+# http://localhost:9090/admin/health
+# http://localhost:9090/admin/startup
+# http://localhost:9090/admin/metrics
+###########################################################################
+  console:
+    image: redpandadata/console:v2.3.5
+    hostname: console
+    container_name: console
+    # comment `platform` if you are using windows or intel mac.
+    platform: 'linux/arm64/v8'
+#    depends_on:
+#      redpanda:
+#        condition: service_healthy
+#      connect:
+#        condition: service_healthy
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/admin/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    entrypoint: /bin/sh
+    command: -c "echo \"$$CONSOLE_CONFIG_FILE\" > /tmp/config.yml; /app/console"
+    environment:
+      CONFIG_FILEPATH: /tmp/config.yml
+      CONSOLE_CONFIG_FILE: |
+        analytics:
+          enabled: false
+        kafka:
+          brokers: ["redpanda:29092"]
+          schemaRegistry:
+            enabled: true
+            urls: ["http://redpanda:8081"]
+        redpanda:
+          adminApi:
+            enabled: true
+            urls: ["http://redpanda:9644"]
+        connect:
+          enabled: true
+          clusters:
+            - name: local-connect-cluster
+              url: "http://connect:8083"
+              username: admin
+              password: admin
+#        - name: embedded-connect-cluster
+#          url: "http://ksqldb:8083"
+
+
+volumes:
+  redpanda: null
+  kafkaui: null
+  db_data: null

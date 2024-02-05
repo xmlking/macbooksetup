@@ -62,7 +62,7 @@ kubectl get po --all-namespaces | awk '{if ($4 ~ /Evicted/) system ("kubectl -n 
 ### Namespaces and Context
 
 > Execute the kubectl Command for Creating Namespaces
-```bash
+```shell
 # Namespace for Developers
 kubectl create -f namespace-dev.json
 # Namespace for Testers
@@ -96,12 +96,12 @@ kubectl config current-context
 ```
 
 > see cluster-info
-```bash
+```shell
 kubectl cluster-info
 ```
 > nested kubectl commands
 
-```bash
+```shell
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=servicegraph -o jsonpath='{.items[0].metadata.name}') 8082:8088
 ```
 
@@ -115,7 +115,7 @@ curl http://localhost:8080/api/v1/namespaces/default/pods
 ```
 
 ### Accessing logs
-```bash
+```shell
 # get all the logs for a given pod:
 kubectl logs my-pod-name
 # keep monitoring the logs
@@ -127,7 +127,7 @@ kubectl alpha diff -f mything.yml
 ```
 
 ### Execute commands in running Pods
-```bash
+```shell
 kubectl exec -it my-pod-name -- /bin/sh
 ```
 
@@ -141,7 +141,7 @@ kubectl -n=staging set image -f sample-app-deployment.yaml sample-app=xmlking/ng
 
 ### Rolling back deployments
 > Once you run `kubectl apply -f manifest.yml`
-```bash
+```shell
 # To get all the deploys of a deployment, you can do:
 kubectl rollout history deployment/DEPLOYMENT-NAME
 # Once you know which deploy you’d like to roll back to, you can run the following command (given you’d like to roll back to the 100th deploy):
@@ -151,7 +151,7 @@ kubectl rollout undo deployment/DEPLOYMENT_NAME
 ```
 
 ### Tips and Tricks
-```bash
+```shell
 # Show resource utilization per node:
 kubectl top node
 # Show resource utilization per pod:
@@ -163,7 +163,7 @@ kubectl get po --v=8
 ```
 
 ####  troubleshoot headless services
-```bash
+```shell
 k get ep
 # ssh to one of the container and run dns check:
 host <httpd-discovery>
@@ -171,7 +171,7 @@ host <httpd-discovery>
 
 #### Alias
 
-```bash
+```shell
 alias k="kubectl"
 alias watch="watch "
 alias kg="kubectl get"
@@ -183,14 +183,18 @@ alias bb="kubectl run busybox --image=busybox:1.30.1 --rm -it --restart=Never --
 
 > you can use `busybox` for debuging inside cluster
 
-```bash
+```shell
 bb nslookup demo
 bb wget -qO- http://demo:8888
 bb sh
 ```
 
+> after SSH to a container, you can use this command to check connectivity to external host
 ```shell
-# after SSH to container, you can use this command to check connectivity to external host
+ # install netcat only if missing
+apt update && apt -y install netcat
+# example connectivity tests
+nc -vz host.docker.internal 80
 nc -zv some_egress_hostname 1433
 ```
 
@@ -214,7 +218,7 @@ securityContext:
 #### Debug k8s
 
 For many steps here you will want to see what a `Pod` running in the k8s cluster sees. The simplest way to do this is to run an interactive busybox `Pod`:
-```bash
+```shell
 kubectl run -it --rm --restart=Never busybox --image=busybox sh
 ```
 
@@ -224,7 +228,7 @@ Ephemeral containers are useful for interactive troubleshooting when `kubectl ex
 
 This allows a user to inspect a running pod without restarting it and without having to enter the container itself to, for example, check the filesystem, execute additional debugging utilities, or initial network requests from the pod network namespace. Part of the motivation for this enhancement is to also eliminate most uses of SSH for node debugging and maintenance
 
-```bash
+```shell
 # First, create a pod for the example: 
 kubectl run ephemeral-demo --image=k8s.gcr.io/pause:3.1 --restart=Never
 # add a debugging container 
@@ -232,7 +236,7 @@ kubectl alpha debug -it ephemeral-demo --image=busybox --target=ephemeral-demo
 ```
 
 #### Generateing k8s YAML from local files using `--dry-run`
-```bash
+```shell
 # generate a kubernetes tls file
 kubectl create secret tls keycloak-secrets-tls \
 --key tls.key --cert tls.crt \
