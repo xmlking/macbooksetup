@@ -1,0 +1,435 @@
+version: "3.9"
+
+###########################################################################
+# top-level Extensions
+###########################################################################
+x-extra_hosts: &extra_hosts
+  extra_hosts:
+    - host.docker.internal:host-gateway
+    - traefik.localhost.direct:host-gateway
+    - postgres.localhost.direct:host-gateway
+    - console.localhost.direct:host-gateway
+    - connect.localhost.direct:host-gateway
+    - redpanda.localhost.direct:host-gateway
+###########################################################################
+# top-level Config
+# `user` password: user
+# `admin` password: admin
+###########################################################################
+configs:
+  .htpasswd:
+    content: |
+      user:$$apr1$$YOwuFkyc$$Exhx4Xoe0c.5SEDKjC3kz1
+      admin:$$apr1$$6Rri7sub$$PmETYWtbZZaiL6QdtELte1
+  ksql_users:
+    content: |
+      admin: admin,${ADMIN_PASSWORD:-admin}
+      dev: MD5:21232f297a57a5a743894a0e4a801fc3,developer
+  ksql_jaas:
+    content: |
+      KsqlServer-Props {
+          org.eclipse.jetty.jaas.spi.PropertyFileLoginModule required
+          file="/conf/kafka_ksql.password"
+          debug="false";
+      };
+  connect_users:
+    content: |
+      admin: ${ADMIN_PASSWORD-admin}
+      dev: ${DEV_PASSWORD-admin}
+  connect_jaas:
+    content: |
+      KafkaConnect {
+        org.apache.kafka.connect.rest.basic.auth.extension.PropertyFileLoginModule required
+        file="/conf/kafka_connect.password";
+      };
+###########################################################################
+# top-level Secrets
+###########################################################################
+secrets:
+  authorized_keys:
+    file: .secrets
+
+services:
+  ###########################################################################
+  # traefik proxy
+  # Open:
+  # https://traefik.localhost.direct/
+  ###########################################################################
+  traefik:
+    image: traefik:v3.0
+    hostname: traefik
+    container_name: traefik
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./apps/traefik:/etc/traefik:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      timeout: 60s
+      interval: 15s
+      start_period: 60s
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.traefik.entrypoints: web,websecure
+      traefik.http.routers.traefik.rule: Host(`traefik.localhost.direct`)
+      traefik.http.routers.traefik.tls: "true"
+      traefik.http.services.traefik.loadbalancer.server.port: "8080"
+  ###########################################################################
+  # postgres database
+  ###########################################################################
+  postgres:
+    image: postgres:16
+    restart: always
+    hostname: postgres
+    container_name: postgres
+    command: >
+      -c wal_level=logical
+      -c max_wal_senders=1
+      -c max_replication_slots=1
+    #   -c listen_addresses = '*'
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      #- ./apps/postgres/initdb.d:/docker-entrypoint-initdb.d:ro
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres -q"]
+      # test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      timeout: 30s
+      interval: 10s
+      retries: 3
+      start_period: 60s
+    depends_on:
+      traefik:
+        condition: service_healthy
+  ###########################################################################
+  # kafka broker + schema registry
+  # Open:
+  # https://redpanda.localhost.direct/
+  ###########################################################################
+  redpanda:
+    image: redpandadata/redpanda:v23.3.4
+    hostname: redpanda
+    container_name: redpanda
+    expose:
+      - 8081
+      - 8082
+      - 9644
+      - 9092
+      - 29092
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "9092:9092"
+    volumes:
+      - redpanda:/var/lib/redpanda/data
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - "1G"
+      - --reserve-memory
+      - "0M"
+      - --node-id
+      - "0"
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://redpanda:9092
+      - --check=false
+      - --advertise-pandaproxy-addr redpanda:8082
+      - --set redpanda.enable_transactions=true
+      - --set redpanda.enable_idempotence=true
+    healthcheck:
+      test:
+        ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy:.+true' || exit 1"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    depends_on:
+      traefik:
+        condition: service_healthy
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.redpanda.entrypoints: websecure
+      traefik.http.routers.redpanda.rule: Host(`redpanda.localhost.direct`) && PathPrefix(`/`)
+      traefik.http.routers.redpanda.service: redpanda
+      traefik.http.routers.redpanda.tls: "true"
+      traefik.http.services.redpanda.loadbalancer.server.port: "8082"
+  ###########################################################################
+  # kafka connect
+  # Ref: https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/docker-image/
+  # Ref: https://github.com/provectus/kafka-ui/blob/53a6553765a806eda9905c43bfcfe09da6812035/documentation/compose/kafka-ui-connectors-auth.yaml
+  # Open:
+  # https://connect.localhost.direct/
+  ###########################################################################
+  connect:
+    #    image: debezium/connect:2.5.1.Final
+    image: redpandadata/connectors:v1.0.15 # no connectors included
+    #    image: redpandadata/connectors:1.0.0-dev-e81f871 # this includes some connectors
+    hostname: connect
+    container_name: connect
+    #    ports:
+    #      - "8083:8083"
+    expose:
+      - 8083
+    volumes:
+      - ./apps/kafka/plugins:/opt/kafka/connect-plugins # enable this, when connect-image has no connectors included
+    environment:
+      CONNECT_CONFIGURATION: |
+        key.converter=org.apache.kafka.connect.converters.ByteArrayConverter
+        value.converter=org.apache.kafka.connect.converters.ByteArrayConverter
+        group.id=ksql-connect-cluster
+        offset.storage.topic=_connectors_offsets
+        config.storage.topic=_connectors_configs
+        status.storage.topic=_connectors_status
+        config.storage.replication.factor=-1
+        offset.storage.replication.factor=-1
+        status.storage.replication.factor=-1
+      CONNECT_BOOTSTRAP_SERVERS: redpanda:29092
+      CONNECT_PLUGIN_PATH: "/opt/kafka/connect-plugins,/usr/share/java"
+      CONNECT_METRICS_ENABLED: "false"
+      CONNECT_GC_LOG_ENABLED: "false"
+      CONNECT_HEAP_OPTS: -Xms512M -Xmx512M # -Xms1G -Xmx1G
+      CONNECT_LOG_LEVEL: INFO
+      CONNECT_LOG4J_LOGGERS: org.apache.kafka.clients.NetworkClient=WARN,org.apache.kafka.connect.runtime.rest.RestServer=WARN
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      traefik:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+    #      postgres:
+    #        condition: service_healthy
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.connect.entrypoints: websecure
+      traefik.http.routers.connect.rule: Host(`connect.localhost.direct`)
+      traefik.http.routers.connect.service: connect
+      traefik.http.routers.connect.tls: "true"
+      traefik.http.services.connect.loadbalancer.server.port: "8083"
+  ###########################################################################
+  # ksqldb server
+  # Ref: https://github.com/geoHeil/streaming-example/blob/master/docker-compose.yml
+  # Ref: https://redpanda.com/blog/ksqldb-materialized-cache
+  # Ref: k8 https://github.com/confluentinc/confluent-kubernetes-examples/tree/master/quickstart-deploy/kraft-quickstart
+  # Open:
+  # https://ksqldb.localhost.direct/healthcheck
+  ###########################################################################
+  ksqldb:
+    #    image: confluentinc/ksqldb-server:0.29.0
+    image: confluentinc/cp-ksqldb-server:7.6.0
+    hostname: ksqldb
+    container_name: ksqldb
+    expose:
+      - 8088
+    #      - 8083
+    configs:
+      - source: ksql_users
+        target: /conf/kafka_ksql.password
+      - source: ksql_jaas
+        target: /conf/kafka_ksql.jaas
+    environment:
+      KSQL_LISTENERS: "http://0.0.0.0:8088"
+      KSQL_HOST_NAME: ksqldb
+      KSQL_KSQL_ADVERTISED_LISTENER: http://ksqldb:8088
+      KSQL_BOOTSTRAP_SERVERS: "redpanda:29092"
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+      # --- to get state-store lag information ---
+      KSQL_KSQL_HEARTBEAT_ENABLE: "true"
+      KSQL_KSQL_LAG_REPORTING_ENABLE: "true"
+      # --- ksqlDB processing log config ---
+      KSQL_LOG4J_ROOT_LOGLEVEL: INFO
+      KSQL_LOG4J_PROCESSING_LOG_BROKERLIST: "redpanda:29092"
+      KSQL_LOG4J_PROCESSING_LOG_TOPIC: default_ksql_processing_log
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_NAME: default_ksql_processing_log
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+      KSQL_SASL_MECHANISM: PLAIN
+      USERNAME: admin
+      PASSWORD: admin
+      KSQL_SASL_JAAS_CONFIG: |
+        org.apache.kafka.common.security.plain.PlainLoginModule required \
+        username=$${USERNAME} \
+        password=$${PASSWORD};
+      KSQL_AUTHENTICATION_SKIP_PATHS: "/healthcheck,/info,/lag"
+      KSQL_OPTS: >
+        -Dconfluent.support.metrics.enable=false
+        -Djava.security.auth.login.config=/conf/kafka_ksql.jaas
+      ## Configuration to add external Kafka Connect support.(Choose either external or embedded Kafka Connect)
+      KSQL_KSQL_CONNECT_URL: http://connect:8083
+      ## Configuration to embed Kafka Connect support.
+    #      KSQL_CONNECT_REST_ADVERTISED_HOST_NAME: 'ksqldb'
+    #      KSQL_CONNECT_REST_PORT: 8083
+    #      KSQL_CONNECT_GROUP_ID: "ksql-connect-cluster"
+    #      KSQL_CONNECT_BOOTSTRAP_SERVERS: "redpanda:29092"
+    #      KSQL_CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
+    #      KSQL_CONNECT_VALUE_CONVERTER: "io.confluent.connect.avro.AvroConverter"
+    #      KSQL_CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+    #      KSQL_CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: "http://redpanda:8081"
+    #      KSQL_CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+    #      KSQL_CONNECT_CONFIG_STORAGE_TOPIC: "_ksql-connect-configs"
+    #      KSQL_CONNECT_OFFSET_STORAGE_TOPIC: "_ksql-connect-offsets"
+    #      KSQL_CONNECT_STATUS_STORAGE_TOPIC: "_ksql-connect-statuses"
+    #      KSQL_CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+    #      KSQL_CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+    #      KSQL_CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+    #      KSQL_CONNECT_PLUGIN_PATH: "/usr/share/kafka/plugins"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/healthcheck"]
+      interval: 45s
+      timeout: 15s
+      retries: 5
+    depends_on:
+      traefik:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+      connect:
+        condition: service_healthy
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.ksqldb.entrypoints: websecure
+      traefik.http.routers.ksqldb.rule: Host(`ksqldb.localhost.direct`)
+      traefik.http.routers.ksqldb.service: ksqldb
+      traefik.http.routers.ksqldb.tls: "true"
+      traefik.http.services.ksqldb.loadbalancer.server.port: "8088"
+  ###########################################################################
+  # Console UI
+  # http://console.localhost.direct/admin/health
+  # http://console.localhost.direct/admin/startup
+  # http://console.localhost.direct/admin/metrics
+  ###########################################################################
+  console:
+    image: redpandadata/console:v2.4.3
+    hostname: console
+    container_name: console
+    expose:
+      - 8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/admin/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      traefik:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+      connect:
+        condition: service_healthy
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.console.entrypoints: websecure
+      traefik.http.routers.console.rule: Host(`console.localhost.direct`)
+      traefik.http.routers.console.service: console
+      traefik.http.routers.console.tls: "true"
+      traefik.http.services.console.loadbalancer.server.port: "8080"
+    entrypoint: /bin/sh
+    command: -c "echo \"$$CONSOLE_CONFIG_FILE\" > /tmp/config.yml; /app/console"
+    environment:
+      CONFIG_FILEPATH: /tmp/config.yml
+      CONSOLE_CONFIG_FILE: |
+        analytics:
+          enabled: false
+        kafka:
+          brokers: ["redpanda:29092"]
+          schemaRegistry:
+            enabled: true
+            urls: ["http://redpanda:8081"]
+        redpanda:
+          adminApi:
+            enabled: true
+            urls: ["http://redpanda:9644"]
+        connect:
+          enabled: true
+          clusters:
+            - name: local-connect-cluster
+              url: "http://connect:8083"
+              username: admin
+              password: admin
+#        - name: embedded-connect-cluster
+#          url: "http://ksqldb:8083"
+###########################################################################
+# proton
+# Open: https://proton.localhost.direct/healthcheck
+###########################################################################
+#  proton:
+#    image: ghcr.io/timeplus-io/proton:latest
+#    hostname: proton
+#    container_name: proton
+#    # pull_policy: always
+#    expose:
+#      - 3218
+#      - 8123
+#      - 8463
+#    ports:
+##      - "3218:3218" # http port for JDBC driver, default streaming mode
+#      - "8123:8123" # http port for JDBC driver, default batch mode
+#      - "8463:8463" # native port for proton client
+#    environment:
+#      TELEMETRY_ENABLED: false
+#    depends_on:
+#      traefik:
+#        condition: service_healthy
+#      redpanda:
+#        condition: service_healthy
+#      connect:
+#        condition: service_healthy
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.proton.entrypoints: websecure
+#      traefik.http.routers.proton.rule: Host(`proton.localhost.direct`)
+#      traefik.http.routers.proton.service: proton
+#      traefik.http.routers.proton.tls: 'true'
+#      traefik.http.services.proton.loadbalancer.server.port: '8463'
+###########################################################################
+# grafana for proton
+# Ref: https://github.com/timeplus-io/proton-grafana-source
+# Open: https://proton.localhost.direct/
+###########################################################################
+#  grafana:
+#    image: grafana/grafana:latest
+#    pull_policy: always
+#    expose:
+#      - 3000
+#    environment:
+#      GF_AUTH_ANONYMOUS_ENABLED: 1
+#      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+#      GF_INSTALL_PLUGINS: timeplus-proton-datasource
+#    volumes:
+#      - ./apps/grafana/provisioning:/etc/grafana/provisioning
+#    depends_on:
+#      traefik:
+#        condition: service_healthy
+#      proton:
+#        condition: service_healthy
+#    labels:
+#      traefik.enable: 'true'
+#      traefik.http.routers.grafana.entrypoints: websecure
+#      traefik.http.routers.grafana.rule: Host(`proton.localhost.direct`)
+#      traefik.http.routers.grafana.service: grafana
+#      traefik.http.routers.grafana.tls: 'true'
+#      traefik.http.services.grafana.loadbalancer.server.port: '3000'
+###########################################################################
+# volumes
+###########################################################################
+volumes:
+  redpanda:
+  pgdata:
+  proton:
