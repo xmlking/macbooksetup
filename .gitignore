@@ -3,5 +3,6 @@
 .DS_Store
 TODO
 
-apps/traefik/certs/localhost.direct.crt
-apps/traefik/certs/localhost.direct.key
+# traefik.me certs
+apps/compose/certs/traefik.me.crt
+apps/compose/certs/traefik.me.key
