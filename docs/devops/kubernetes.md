@@ -236,11 +236,21 @@ kubectl alpha debug -it ephemeral-demo --image=busybox --target=ephemeral-demo
 ```
 
 #### Generateing k8s YAML from local files using `--dry-run`
+
 ```shell
 # generate a kubernetes tls secret from files
 kubectl create secret tls keycloak-secrets-tls \
 --key key.pem --cert cert.pem \
 -o yaml --dry-run=client > keycloak-secrets-tls.yml
+```
+
+verify
+
+```shell
+# verify by getting from k8
+kubectl get secret keycloak-secrets-tls-o jsonpath="{.data.tls.crt}" | base64 --decode
+# verify from file 
+yq '.data."tls.crt"' keycloak-secrets-tls.yml | base64 --decode
 ```
 
 #### iTerm2 tips
