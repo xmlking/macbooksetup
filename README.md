@@ -25,3 +25,4 @@ Follow guide: [Mac Setup Gitbook](https://xmlking.gitbook.io/macos-setup/)
 - [Sourabhbajaj's macOS Setup Guide](https://sourabhbajaj.com/mac-setup/index.html)
 - <https://www.stefanjudis.com/blog/declutter-emojify-and-prettify-your-iterm2-terminal>
 - [Te BEST Mac Terminal Setup for 2022](https://bdarfler.medium.com/the-best-mac-terminal-setup-for-2022-44bf6e3c1a6e)
+- [Everduin94 dotfiles](https://github.com/Everduin94/dotfiles)
