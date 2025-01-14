@@ -3,6 +3,8 @@
 Install local PostgreSQL database for your projects and PoCs.  
 We will be using [TimescaleDB](https://www.timescale.com/) as **PostgreSQL** which add extentions `pgvectorscale` and `pgai` to support [AI](https://www.timescale.com/ai)
 
+**pgvectorscale** builds on **pgvector** with higher performance embedding search and cost-efficient storage for AI applications.
+
 ## Setup
 
 1. At the command prompt, add the TimescaleDB Homebrew tap:

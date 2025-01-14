@@ -4,7 +4,7 @@ Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local developm
 
 > NOTE: you need either **Docker Desktop** ([free for personal use](https://www.docker.com/pricing/))  or **Rancher Desktop** (free). pick one only
 
-**[Docker Desktop](https://www.docker.com/products/docker-desktop/)** Container Management and Kubernetes on the Desktop. 
+**[Docker Desktop](https://www.docker.com/products/docker-desktop/)** Container Management and Kubernetes on the Desktop.
 
 Download and install the latest binary for your platform from [www.docker.com](https://www.docker.com/products/docker-desktop/).
 Unpack and move `Docker Desktop.app` to `/Applications`  
@@ -28,7 +28,7 @@ List of optional addons for kubernetes running in **Docker Desktop**
 
 ### Helm (optional)
 
-Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher-Desktop, Docker-Desktop doesnot include **Helm** by default. 
+Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher-Desktop, Docker-Desktop doesnot include **Helm** by default.
 
 ```shell
 brew install helm
@@ -70,6 +70,8 @@ docker context use docker-desktop
 docker top CONTAINER
 docker volume ls
 docker network ls
+docker system prune -a
+docker system df
 ```
 
 ```shell

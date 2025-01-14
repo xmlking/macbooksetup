@@ -36,7 +36,6 @@ brew install git
 brew install gh # GitHub official command line tool.
 # for first time use, run `gh auth login`
 
-
 # Better CLI alternative Tools
 brew install ack
 brew install tree

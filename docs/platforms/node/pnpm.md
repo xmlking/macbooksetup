@@ -2,15 +2,32 @@
 
 ## Install
 
+> [!NOTE]
+> Since v16.13, Node.js is shipping Corepack for managing package managers.
+
 ```shell
-brew install pnpm
+brew install node
+# This will automatically install pnpm on your system.
+corepack enable pnpm
 ```
 
 Add following lines to [~/my/paths.zsh](../../../dotfiles/my/paths.zsh)
+
 ```shell
 # pnpm
 export PNPM_HOME=$HOME/Library/pnpm
 export PATH=$PNPM_HOME:$PATH
+```
+
+## Project Setup
+
+> [!NOTE]
+> You can pin the version of pnpm used on your project using the following command
+
+```shell
+# for example to pin pnpm version for spectacular
+cd ~/Developer/Work/SPA/spectacular
+corepack use pnpm@latest-10 
 ```
 
 ## Commands
@@ -29,7 +46,10 @@ pnpm ls prune
 pnpm ls
 
 pnpm audit
-pnpm why
+# find why a specific package installed 
+pnpm why vite
+# for monorepo use -r to search all sub projects
+pnpm why vite -r
 
 # Publish all packages in topological order from the workspace.
 pnpm publish -r
