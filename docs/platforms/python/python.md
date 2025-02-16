@@ -1,5 +1,8 @@
 # Python
 
+> [!NOTE]
+> We are switch to [uv](https://docs.astral.sh/uv/) for python setup (TODO)
+
 ## Install
 
 We will not be using  **Python** that get added by installing the command-line tools with  `xcode-select --install`.  
@@ -9,11 +12,12 @@ Instead we will install latest **Python3** and **pip3** via `brew`
 > Apple does not include *Python3* in the MacOS **Sonoma** distribution, but it get added when installing the *command-line tools* with: `xcode-select --install`
 
 install Python 3:
+
 ```shell
 brew install python
 ```
 
-### Configure 
+### Configure
 
 Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to  
 `python3`, `python3-config`, `pip3` etc., respectively, have been installed into  
@@ -35,6 +39,7 @@ It is designed to be more user-friendly than using **virtualenv** and **pip** se
 A Virtual Environment is a tool to keep the dependencies required by different projects in separate places, by creating virtual Python environments for them. It solves the `Project X depends on version 1.x but, Project Y needs 4.x` dilemma, and keeps your global **site-packages** directory clean and manageable.
 
 Use **brew** to install **Pipenv**:
+
 ```shell
 brew install pipenv
 ```
@@ -79,6 +84,7 @@ pipenv install
 ```
 
 To install a Python package for your project
+
 ```shell
 # This will install the excellent `Requests` library and 
 # creates a Pipfile for you in your project’s directory if not already present
@@ -105,6 +111,7 @@ pipenv shell
 > Generally, keep both `Pipfile` and `Pipfile.lock` in version control.
 
 ## Running your code
+
 ```shell
 pipenv run python rock.py
 # (Or) You can activate the virtual environment then run the file

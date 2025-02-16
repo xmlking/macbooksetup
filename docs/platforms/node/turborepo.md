@@ -37,10 +37,13 @@ This Turborepo has some additional tools already setup for you:
 ## Prerequisite
 
 1. Turbo CLI
+
   ```shell
   pnpm add -g turbo@latest
   ```
+
 2. VS Code monorepo plugin: [Monorepo Focus Workspace](https://marketplace.visualstudio.com/items?itemName=alberto-varela.monorepo-focus-workspace)
+
   ```shell
   code --install-extension alberto-varela.monorepo-focus-workspace
   ```
@@ -59,8 +62,8 @@ pnpx create-turbo@latest -e with-svelte
 ### Setup Remote Caching for Turborepo on Vercel
 
 ```shell
-npx turbo login
-npx turbo link
+pnpx turbo login
+pnpx turbo link
 # bunx turbo login
 ```
 

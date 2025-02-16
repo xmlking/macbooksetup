@@ -9,6 +9,14 @@
 brew install node
 # This will automatically install pnpm on your system.
 corepack enable pnpm
+# You can pin the version of pnpm used on your project using the following command:
+corepack use pnpm@latest-10
+```
+
+To upgrade in the future:
+
+```shell
+corepack up
 ```
 
 Add following lines to [~/my/paths.zsh](../../../dotfiles/my/paths.zsh)
@@ -41,9 +49,11 @@ pnpm add debug --global
 # update package versions in a repo
 pnpm up
 pnpm up --latest
+pnpm up --latest --global
 
 pnpm ls prune
 pnpm ls
+pnpm ls --global
 
 pnpm audit
 # find why a specific package installed 

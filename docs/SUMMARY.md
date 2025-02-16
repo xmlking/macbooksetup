@@ -8,23 +8,22 @@
   - [Essentials](essentials/essentials.md)
   - [Dotfiles](essentials/dotfiles.md)
 - Applications
-  - [iTerm2](apps/iterm2.md)
+  - [Ghostty](apps/ghostty.md)
   - [Sublime-text](apps/sublime-text.md)
   - [JetBrains](apps/jetbrains.md)
   - [VSCode](apps/vscode.md)
   - [Xcode](apps/xcode.md)
   - [Marta](apps/marta.md)
   - [Benthos](apps/benthos.md)
-  - [Docker Desktop](apps/docker-desktop.md)
-  - [Rancher Desktop](apps/rancher-desktop.md)
+  - [OrbStack](apps/orbstack.md)
   - [Traefik](apps/traefik.md)
+  - [n8n](apps/n8n.md)
 - Platforms
   - [Java](platforms/java/java.md)
   - [Node](platforms/node/node.md)
     - [Bub](platforms/node/bun.md)
     - [NPM](platforms/node/npm.md)
     - [PNPM](platforms/node/pnpm.md)
-    - [Monorepo](platforms/node/monorepo.md)
     - [Turborepo](platforms/node/turborepo.md)
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust/rust.md)
@@ -37,6 +36,7 @@
     - [Documentation](devops/devflow/documentation.md)
     - [mkcert](devops/devflow/mkcert.md)
     - [YubiKey](devops/devflow/yubikey.md)
+  - [Monorepo](devops/monorepo.md)
   - [dnsmasq](devops/dnsmasq.md)
   - [Docker](devops/docker.md)
   - [Skaffold](devops/skaffold.md)
@@ -49,7 +49,7 @@
   - Cloud
     - [gcloud](devops/cloud/gcloud.md)
     - [azure](devops/cloud/azure.md)
+    - [aws](devops/cloud/aws.md)
 - Tips
   - [Git](tips/git.md)
   - [MacOS](tips/macos.md)
-

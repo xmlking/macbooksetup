@@ -3,6 +3,9 @@
 [iTerm2](https://iterm2.com) is an open source replacement for Apple's Terminal. It's highly customizable and comes with
 a lot of useful features.
 
+> [!NOTE]
+> We are switching to  [Ghostty](./ghostty.md)  terminal from **iterm2**
+
 The Ultimate Guide to Your Terminal Makeover
 <p align="center">
   <img   src="../images/iterm2.png" alt="iterm2">

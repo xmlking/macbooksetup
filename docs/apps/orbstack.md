@@ -1,42 +1,64 @@
-# Docker Desktop
+# OrbStack
 
-Provides **Docker**, **Kubernetes** runtime and CLI **tools** for local development.
+**OrbStack** is **Docker Desktop** alternative, is the fast, light, and easy way to run Docker Containers like they’re native on Mac.
 
-> NOTE: you need either **Docker Desktop** ([free for personal use](https://www.docker.com/pricing/))  or **Rancher Desktop** (free). pick one only
+## Features
 
-**[Docker Desktop](https://www.docker.com/products/docker-desktop/)** Container Management and Kubernetes on the Desktop.
+- [Zero-config domain names](https://docs.orbstack.dev/docker/domains) for both docker-compose and kubernetes
+  - E.g., `n8n.agentic.orb.local` , `nginx.default.svc.cluster.local`
+- Get free local [https certs](https://docs.orbstack.dev/features/https) for both docker-compose and kubernetes
+  - E.g., `https://n8n.agentic.orb.local/`
+- [Command line & CI](https://docs.orbstack.dev/headless)
+- [Kubernetes](https://docs.orbstack.dev/kubernetes/)
+- [Debug Shell](https://docs.orbstack.dev/features/debug)
+- [Menu bar app](https://docs.orbstack.dev/menu-bar)
 
-Download and install the latest binary for your platform from [www.docker.com](https://www.docker.com/products/docker-desktop/).
-Unpack and move `Docker Desktop.app` to `/Applications`  
-
-It includes:
-
-1. docker
-2. kubernetes (*you have to explicitly enable kubernetes in settings if you need it*)
-
-## Configuration
-
-It is recommended assign:
-
-- 8 GB or above memory
-- minimum 4 CPU
-- Enable **[kubernetes](https://docs.docker.com/desktop/kubernetes/)** (optional)
-
-## Addons
-
-List of optional addons for kubernetes running in **Docker Desktop**
-
-### Helm (optional)
-
-Install [Helm](../devops/helm.md) package manager for Kubernetes. unlike Rancher-Desktop, Docker-Desktop doesnot include **Helm** by default.
+## Usage
 
 ```shell
-brew install helm
+orb logs docker
+orb config show
+docker context show
+orb restart docker
+orb migrate docker
+# If you're running low on disk space, you can clear the cache manually:
+docker builder prune -a
 ```
 
-### Traefik (optional)
+### Side-by-side
 
-Follow this setup [GUIDE](./traefik.md) to add **Traefik Proxy** with **Docker Compose** or local **Kubernetes** running in  `Docker-Desktop`
+```shell
+# Switch to OrbStack
+docker context use orbstack
+# Switch to Docker Desktop
+docker context use desktop-linux
+```
+
+(Optional) Add docker registry mirror if needed in Corp env:
+
+```json
+  "features": {
+    "buildkit": true
+  },
+  {
+    "registry-mirrors": ["https://my-docker-repo-mirror.my.company.com"]
+  }
+```
+
+### Networking
+
+How to get all ip addresses on a docker network?
+
+```shell
+docker network ls
+docker inspect agentic_default
+```
+
+## Reference
+
+- [Multi-platform builds](https://docs.orbstack.dev/docker/images)
+- [Switching from Docker Desktop to OrbStack on macOS](https://betterstack.com/community/guides/scaling-docker/switching-to-orbstack-on-macos/)
+- [OrbStack networking](https://docs.orbstack.dev/docker/network)
 
 ## DevOps tools
 
