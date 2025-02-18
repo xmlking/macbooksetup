@@ -13,6 +13,23 @@
 - [Debug Shell](https://docs.orbstack.dev/features/debug)
 - [Menu bar app](https://docs.orbstack.dev/menu-bar)
 
+## Install
+
+```shell
+brew install --cask orbstack
+```
+
+> [!NOTE]
+> After install, when you open for first time, It will need **admin** access to finish setup.
+
+It will also add following lines to `~/.zprofile`
+
+```shell
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+```
+
 ## Usage
 
 ```shell
