@@ -27,7 +27,7 @@
     - [Turborepo](platforms/node/turborepo.md)
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust/rust.md)
-  - [Python](platforms/python/python.md)
+  - [Python](platforms/python/uv.md)
 - DevOps
   - [Development Workflow](devops/devflow/development-workflow.md)
     - [Git](devops/devflow/git.md)

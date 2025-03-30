@@ -1,7 +1,7 @@
-# Python
+# Python (deprecated)
 
 > [!NOTE]
-> We are switch to [uv](https://docs.astral.sh/uv/) for python setup (TODO)
+> We are switch to [uv](https://docs.astral.sh/uv/) for python setup. please follow [uv](uv.md)
 
 ## Install
 

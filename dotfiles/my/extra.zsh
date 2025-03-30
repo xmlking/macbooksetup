@@ -36,3 +36,10 @@ case ":$PATH:" in
   *":$GO_HOME:"*) ;;
   *) export PATH="$GO_HOME:$PATH" ;;
 esac
+
+# add uv's globally installed packages to PATH
+UV_TOOL_BIN_DIR="$HOME/.local/bin"
+case ":$PATH:" in
+  *":$UV_TOOL_BIN_DIR:"*) ;;
+  *) export PATH="$UV_TOOL_BIN_DIR:$PATH" ;;
+esac
