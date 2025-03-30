@@ -1,6 +1,6 @@
 # UV
 
-**UV** is a modern, high-performance Python package manager and installer written in Rust.
+[UV](https://docs.astral.sh/uv/) is a modern, high-performance Python package manager and installer written in Rust.
 
 Key features that make UV stand out:
 
@@ -42,9 +42,9 @@ cd explore-uv
 uv sync         # create lockfiles, install Python deps
 ```
 
-Git is automatically initialized and main git-related files like .gitignore and an empty README.md are generated.
+Git is automatically initialized and main git-related files like `.gitignore` and an empty `README.md` are generated.
 
-### Advanced Dependency Management With UV
+### Dependency Management With UV
 
 #### Adding initial dependencies to the project
 
@@ -64,7 +64,7 @@ uv add 'requests; sys_platform="linux"'
 The first time you run the add command, UV creates a new virtual environment in the current working directory and installs the specified dependencies. On subsequent runs, UV will reuse the existing virtual environment and only install or update the newly requested packages, ensuring efficient dependency management.
 
 > [!TIP]
-You can also just edit these dependencies manually (this is what I usually do), and just run `uv sync` whenever you do, to update your `uv.lock` (you shouldn’t edit these manually) and your `venv`.
+> You can also just edit these dependencies manually (this is what I usually do), and just run `uv sync` whenever you do, to update your `uv.lock` (you shouldn’t edit these manually) and your `venv`.
 
 To remove a dependency from the environment and the `pyproject.toml` file, you can use the `uv remove` command. It will uninstall the package and all its child-dependencies:
 
@@ -120,7 +120,7 @@ requires-python = ">=3.9"
 
 ### What Are UV Tools And How to Use Them?
 
-Some Python packages are exposed as command-line tools like `ruff` for code formatting and linting, `pytest` for testing, `pyright` for type checking, etc. UV provides two special interfaces to manage these packages:
+Some Python packages are exposed as command-line tools like `ruff` or `black` for code formatting and linting, `pytest` for testing, `pyright` for type checking, etc. UV provides two special interfaces to manage these packages:
 
 UV provides two special interfaces to manage these packages:
 
@@ -250,6 +250,61 @@ You can always still run `uv run ruff format` or whatever
     | pip freeze                      | uv pip freeze                      |
     | pip list                        | uv pip list                        |
 
+### Monorepo
+
+This is the bonus section!  
+If you’re building something in a big team, and you don’t have a monolith, you’re likely to have multiple apps and libraries intermingling.
+
+The best place to start is to have a glance at the uv [Workspace docs](https://docs.astral.sh/uv/concepts/projects/workspaces/). Then I recommend checking out the example python monorepos: [uv-monorepo](https://github.com/JasperHG90/uv-monorepo), [postmodern-mono](https://github.com/carderne/postmodern-mono)
+
+#### Structure
+
+There are three packages split into libs and apps:
+
+* **libs**: importable packages, never run independently, do not have entry points
+* **apps**: have entry points, never imported
+
+> Note that neither of these definitions are enforced by anything in `Python` or `uv`.
+>
+```shell
+.
+├── pyproject.toml              # root pyproject
+├── uv.lock
+├── libs
+│   └── greeter
+│       ├── pyproject.toml      # package dependencies here
+│       └── agentic          # all packages are namespaced
+│           └── greeter
+│               └── __init__.py
+└── apps
+    ├── server
+    │   ├── pyproject.toml      # this one depends on libs/greeter
+    │   ├── Dockerfile          # and it gets a Dockerfile
+    │   └── agentic
+    │       └── server
+    │           └── __init__.py
+    └── mycli
+        ├── pyproject.toml      # this one has a cli entrypoint
+        └── agentic
+            └── mycli
+                └── __init__.py
+```
+
+In a workspace, each package defines its own `pyproject.toml`, but the workspace shares a single lockfile, ensuring that the workspace operates with a consistent set of dependencies.
+
+#### Getting started
+
+To create a workspace, add a `tool.uv.workspace` table to a `pyproject.toml`, which will implicitly create a workspace rooted at that package.
+
+> [!TIP]
+> By default, running `uv init` inside an existing package will add the newly created member to the workspace, creating a `tool.uv.workspace` table in the workspace root if it doesn't already exist.
+
+```shell
+uv run --package server ruff format
+```
+
+> Dependencies between workspace members are editable.
+
 ## Commands
 
 ### Managing Python Versions in UV
@@ -272,18 +327,21 @@ To learn more about [managing Python versions with UV](https://docs.astral.sh/uv
 uv export -o requirements.txt
 ```
 
-### Maintenance
+### Utility
 
 ```shell
 # self update
 uv self update
 # clear cache
 uv cache clean
+# Remove outdated cache entries
+uv cache prune
 ```
 
 ## References
 
-* <https://github.com/astral-sh/uv/blob/main/docs/getting-started/features.md>
-* <https://docs.astral.sh/uv/guides/projects/>
-* <https://rdrn.me/postmodern-python/>
-* <https://www.datacamp.com/tutorial/python-uv>
+* How to Learn Python From Scratch in 2025: [An Expert Guide](https://www.datacamp.com/blog/how-to-learn-python-expert-guide)
+* UV [features](https://github.com/astral-sh/uv/blob/main/docs/getting-started/features.md)
+* UV [Working on projects](https://docs.astral.sh/uv/guides/projects/)
+* Beyond Hypermodern: [Python is easy now](https://rdrn.me/postmodern-python/)
+* Python UV: [The Ultimate Guide to the Fastest Python Package Manager](https://www.datacamp.com/tutorial/python-uv)
