@@ -298,6 +298,17 @@ To create a workspace, add a `tool.uv.workspace` table to a `pyproject.toml`, wh
 
 > [!TIP]
 > By default, running `uv init` inside an existing package will add the newly created member to the workspace, creating a `tool.uv.workspace` table in the workspace root if it doesn't already exist.
+>
+
+Setup apps/libs projects in monorepo
+
+```shell
+cd apps
+uv init --app server --description 'agents server'
+uv init --app cli --description 'cli app'
+cd ../libs
+uv init --lib utils  --description 'Utility functions'
+```
 
 ```shell
 uv run --package server ruff format
