@@ -39,19 +39,16 @@ brew install gh # GitHub official command line tool.
 # Better CLI alternative Tools
 brew install ack
 brew install tree
-brew install vim
 brew install subversion # Yes, it is required to install some brew formulas :(
 brew install eza # replacement for LS. https://eza.rocks/
 brew install bat # a better `cat`
 brew install git-delta  # a better git `diff`
 brew install fd # user-friendly alternative to `find`
 brew install procs # a modern replacement for `ps`
-procs --completion-out zsh > $(brew --prefix)/share/zsh/site-functions/_procs
 brew install dust # a better `du`
 brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`
 brew install httpie # a better `curl`
-brew install go-task/tap/go-task # better then a Makefile
 brew install cocogitto # monorepo version/release management 
 ```
 
@@ -136,7 +133,6 @@ brew install --cask --appdir=~/Applications alfred
 * Microsoft Remote Desktop: rdp (optional)
 * [OBS](https://obsproject.com): Record your screen with audio, mouse highlight and other features. (optional)
 * [logitech-options](https://www.logitech.com/en-us/software/options.html): logitech driver, install only if you have _MX mouse_ (optional)
-* [zoom](https://zoom.us/): app for meetings (optional)
 * [slack](https://slack.com/): app for communication (optional)
 
 ```shell
@@ -149,36 +145,6 @@ brew install --cask --appdir=~/Applications logitech-options
 # Remote communication (optional)
 brew install --cask --appdir=~/Applications zoom
 brew install --cask --appdir=~/Applications slack
-```
-
-#### Mac App Store apps
-
-Install apps from `Mac App Store` with [mas](https://github.com/mas-cli/mas)
-
-Usage
-
-```shell
-brew install mas
-# search 
-mas search Xcode
-# install 
-mas install <appID>
-# list installed apps
-mas list
-# list all applications with pending updates.
-mas outdated
-# To install all pending updates run:
-mas upgrade
-```
-
-* [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12): window management (optional)
-* [Twitter](https://twitter.com/): micro blog for tech news (optional)
-
-```shell
-# Magnet
-mas install 441258766
-# Twitter
-mas install 409789998
 ```
 
 Customize above applications further from: [Apps](../apps) docs

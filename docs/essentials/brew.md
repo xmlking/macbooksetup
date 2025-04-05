@@ -127,6 +127,9 @@ fi
 
 ### non-admin
 
+> [!CAUTION]
+> Installing homebrew in non-standared location like below, will cause some packages not work properly.
+
 If you don't have **admin/sudo** access to your laptop(e.g., company issued laptop), recomend installing **brew** in your home directory.
 In this case follow these steps
 
