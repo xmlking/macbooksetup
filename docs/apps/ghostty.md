@@ -4,11 +4,20 @@
 
 > [!NOTE]
 > We are switching to **Ghostty** terminal from [iterm2](./iterm2.md)
-> We may also need to follow some setup docs from [iterm2](./iterm2.md) until all docs are moved to **Ghostty**
+
+The Ultimate Guide to Your Terminal Makeover
+<p align="center">
+  <img   src="../images/ghostty.png" alt="ghostty">
+</p>
+
+## Prerequisites
+
+Fonts should be installed as described in [Essentials](../essentials/essentials.md#Fonts) section.
 
 ## Install
 
 ```shell
+# if you haven't already installed ghostty, run:
 brew install --cask ghostty
 ```
 
