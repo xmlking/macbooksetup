@@ -77,9 +77,7 @@ alias ll.tree='eza --header --group --tree --level=2  --git --long --icons --all
 
 ### Shell Completions
 
-We will be installing [zsh-completions](https://github.com/zsh-users/zsh-completions)
-, [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+We will be installing [zsh-completions](https://github.com/zsh-users/zsh-completions), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ```shell
 brew install zsh-completions
