@@ -58,7 +58,7 @@ uv add requests=2.1.2
 # Change the bounds of a package's constraints:
 uv add 'requests<3.0.0'
 # Make a dependency platform-specific:
-uv add 'requests; sys_platform="linux"' 
+uv add 'requests; sys_platform="linux"'
 ```
 
 The first time you run the add command, UV creates a new virtual environment in the current working directory and installs the specified dependencies. On subsequent runs, UV will reuse the existing virtual environment and only install or update the newly requested packages, ensuring efficient dependency management.
@@ -166,7 +166,7 @@ uv add --dev pyright
 venvPath = "."          # uv installs the venv in the current dir
 venv = ".venv"          #       in a folder called `.venv`
 strict = ["**/*.py"]    # use 'strict' checking on all files
-pythonVersion = "3.13"  # if library, specify the _lowest_ you support
+pythonVersion = "3.12"  # if library, specify the _lowest_ you support
 ```
 
 And now you can run it with `uv run pyright`. And, as with the formatters/linters, you should get it integrated with your editor.
@@ -252,7 +252,7 @@ You can always still run `uv run ruff format` or whatever
 
 ### Monorepo
 
-This is the bonus section!  
+This is the bonus section!
 If you’re building something in a big team, and you don’t have a monolith, you’re likely to have multiple apps and libraries intermingling.
 
 The best place to start is to have a glance at the uv [Workspace docs](https://docs.astral.sh/uv/concepts/projects/workspaces/). Then I recommend checking out the example python monorepos: [uv-monorepo](https://github.com/JasperHG90/uv-monorepo), [postmodern-mono](https://github.com/carderne/postmodern-mono)
@@ -310,8 +310,17 @@ cd ../libs
 uv init --lib utils  --description 'Utility functions'
 ```
 
+run from root when using `--package` option
+
 ```shell
+# run format with ruff
 uv run --package server ruff format
+# or format via poe
+uv run --package server poe fmt
+# add dependency to individual package
+uv add --package cli typer
+# run individual package script
+uv run --package cli ai_agents_cli
 ```
 
 > Dependencies between workspace members are editable.
