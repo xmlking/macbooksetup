@@ -2,6 +2,10 @@
 
 [UV](https://docs.astral.sh/uv/) is a modern, high-performance Python package manager and installer written in Rust.
 
+<p align="center">
+  <img   src="../../images/uv-performance.svg" alt="uv-performance">
+</p>
+
 Key features that make UV stand out:
 
 * Lightning-fast package installation and dependency resolution
