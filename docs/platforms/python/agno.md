@@ -2,7 +2,7 @@
 
 [Agno](https://docs.agno.com/) is a lightweight library for building Multimodal Agents.
 
-![agno-workspace](https://mintlify.s3.us-west-1.amazonaws.com/agno/images/workspace.png)
+![agno-workspace](../../images/agno-workspace.png)
 
 ## Prerequisite
 
