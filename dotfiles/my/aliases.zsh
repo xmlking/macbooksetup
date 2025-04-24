@@ -35,7 +35,13 @@ alias gpd='git push --dry-run'
 alias gpoat='git push origin --all && git push origin --tags'
 
 # Kubernetes
-alias watch='watch '
+alias k="kubectl"
+alias watch="watch "
+alias kg="kubectl get"
+alias kgdep="kubectl get deployment"
+alias ksys="kubectl --namespace=kube-system"
+alias kd="kubectl describe"
+alias bb="kubectl run busybox --image=busybox:1.36.1 --rm -it --restart=Never --command --"
 
 # Paths
 alias go.work='cd ~/Developer/Work'
@@ -44,6 +50,7 @@ alias go.rust='cd ~/Developer/Work/rust'
 alias go.spa='cd ~/Developer/Work/SPA'
 alias go.java='cd ~/Developer/Work/java'
 alias go.tools='cd ~/Developer/Work/tools'
+alias go.python='cd ~/Developer/Work/python'
 
 # Mac
 alias mac.cleardns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed'
