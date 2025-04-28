@@ -26,11 +26,7 @@ uv tool install "agno[aws]"
 > They help us manage our *Agentic System* as code.
 
 ```shell
-ag ws create --template agent-app --name agent-app
-# or use aws app template
-ag ws create -t agent-app-aws -n agent-app
-# or use aws api template
-ag ws create -t agent-api-aws -n agent-api
+ag ws create --template agent-api --name my-agents
 ```
 
 This will create a folder named `agent-app` with the following structure:
@@ -39,7 +35,6 @@ This will create a folder named `agent-app` with the following structure:
 agent-app                   # root directory
 ├── agents                  # your Agents go here
 ├── api                     # your Api routes go here
-├── ui                      # your Streamlit apps go here
 ├── db                      # your database tables go here
 ├── Dockerfile               # Dockerfile for the application
 ├── pyproject.toml          # python project definition

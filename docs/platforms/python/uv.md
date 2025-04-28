@@ -102,6 +102,29 @@ To add a dependency to a specific group, use the `--group` flag:
 uv add --group group_name package_name
 ```
 
+#### Managing Tools: Global vs. Project-Specific
+
+**uv** makes it easy to install CLI tools
+
+##### Installing Global Tools
+
+```shell
+uv tool install black
+```
+
+This makes **black** available across all your projects but keeps it in its isolated virtual environment, avoiding system-wide conflicts.
+
+##### Project-Specific Tools
+
+If you need a tool for a specific project, add it directly as a dependency:
+
+```shell
+uv add --group dev ruff
+```
+
+This keeps the tool local to your project and listed in your `pyproject.toml`.
+Your other projects remain unaffected, allowing for isolated development environments.
+
 ### Running Python scripts with UV
 
 Once you install the necessary dependencies, you can start working on your Python scripts as usual. UV provides a few different ways to run Python code:
@@ -111,6 +134,13 @@ uv run hello.py
 ```
 
 The run command ensures that the script is executed inside the virtual environment UV created for the project.
+
+#### Environment variables
+
+`uv run` can load [environment variables](https://docs.astral.sh/uv/configuration/files/#env) from dotenv files (e.g., `.env`, `.env.local`, `.env.development`), powered by the [dotenvy](https://github.com/allan2/dotenvy) crate.  
+To load a `.env` file from a dedicated location, set the `UV_ENV_FILE` environment variable, or pass the `--env-file` flag to `uv run`.
+
+The `--env-file` flag can be provided multiple times, with subsequent files overriding values defined in previous files.
 
 ### Changing Python versions for the current project
 
@@ -134,7 +164,7 @@ UV provides two special interfaces to manage these packages:
     uv tool run black hello.py
     ```
 
-2. Using the shorter and more convenient `uvx` command:
+2. Running Tools Ephemerally with `uvx` command:
 
     ```shell
     uvx black hello.py
@@ -369,3 +399,5 @@ uv cache prune
 * UV [Working on projects](https://docs.astral.sh/uv/guides/projects/)
 * Beyond Hypermodern: [Python is easy now](https://rdrn.me/postmodern-python/)
 * Python UV: [The Ultimate Guide to the Fastest Python Package Manager](https://www.datacamp.com/tutorial/python-uv)
+* [Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+* Mastering Python Project Management with uv: Part 2 — [Deep Dives and Advanced Use](https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part-2-deep-dives-and-advanced-use-1e2540e6f4a6)
