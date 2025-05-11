@@ -63,8 +63,6 @@ We recommend:
 * **Terminal Font:** _Meslo LG, FiraCode Nerd Font or Hack Nerd Font_ from [nerd-fonts](https://www.nerdfonts.com/font-downloads)
 
 ```shell
-brew tap homebrew/cask-fonts
-
 # Terminal Fonts
 # brew install --cask font-<FONT NAME>-nerd-font
 brew install --cask font-meslo-lg-nerd-font
@@ -98,7 +96,6 @@ Since many of us won't have _admin_ rights on **Company** issued MacBooks, we wi
 * [Jetbrains](https://www.jetbrains.com/toolbox-app/): toolbox to install jetbrains IDEs
 
 ```shell
-brew install --cask --appdir=~/Applications iterm2
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
