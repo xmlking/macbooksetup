@@ -24,11 +24,15 @@ kubens -
 ```
 
 ### k9s
+
 Kubernetes CLI To Manage Your Clusters In Style!
+
 ```shell
 k9s
 ```
+
 ### Kubectl commands
+>
 > commonly used Kubectl commands
 
 > you can pratice kubectl commands at [katacoda](https://www.katacoda.com/courses/kubernetes/playground) playground
@@ -62,6 +66,7 @@ kubectl get po --all-namespaces | awk '{if ($4 ~ /Evicted/) system ("kubectl -n 
 ### Namespaces and Context
 
 > Execute the kubectl Command for Creating Namespaces
+
 ```shell
 # Namespace for Developers
 kubectl create -f namespace-dev.json
@@ -72,6 +77,7 @@ kubectl create -f namespace-prod.json
 ```
 
 > Assign a Context to Each Namespace
+
 ```
 # Assign dev context to development namespace
 kubectl config set-context dev --namespace=dev --cluster=minikube --user=minikube
@@ -82,6 +88,7 @@ kubectl config set-context prod --namespace=prod --cluster=minikube --user=minik
 ```
 
 > Switch to the Appropriate Context
+
 ```
 # List contexts
 kubectl config get-contexts
@@ -96,9 +103,11 @@ kubectl config current-context
 ```
 
 > see cluster-info
+
 ```shell
 kubectl cluster-info
 ```
+
 > nested kubectl commands
 
 ```shell
@@ -115,6 +124,7 @@ curl http://localhost:8080/api/v1/namespaces/default/pods
 ```
 
 ### Accessing logs
+
 ```shell
 # get all the logs for a given pod:
 kubectl logs my-pod-name
@@ -127,12 +137,15 @@ kubectl alpha diff -f mything.yml
 ```
 
 ### Execute commands in running Pods
+
 ```shell
 kubectl exec -it my-pod-name -- /bin/sh
 ```
 
 ### CI/CD
+>
 > Redeploy newly build image to existing k8s deployment
+
 ```
 BUILD_NUMBER = 1.5.0-SNAPSHOT // GIT_SHORT_SHA
 kubectl diff -f sample-app-deployment.yaml
@@ -140,7 +153,9 @@ kubectl -n=staging set image -f sample-app-deployment.yaml sample-app=xmlking/ng
 ```
 
 ### Rolling back deployments
+>
 > Once you run `kubectl apply -f manifest.yml`
+
 ```shell
 # To get all the deploys of a deployment, you can do:
 kubectl rollout history deployment/DEPLOYMENT-NAME
@@ -151,6 +166,7 @@ kubectl rollout undo deployment/DEPLOYMENT_NAME
 ```
 
 ### Tips and Tricks
+
 ```shell
 # Show resource utilization per node:
 kubectl top node
@@ -162,7 +178,8 @@ watch kubectl top node
 kubectl get po --v=8
 ```
 
-####  troubleshoot headless services
+#### troubleshoot headless services
+
 ```shell
 k get ep
 # ssh to one of the container and run dns check:
@@ -190,6 +207,7 @@ bb sh
 ```
 
 > after SSH to a container, you can use this command to check connectivity to external host
+
 ```shell
  # install netcat only if missing
 apt update && apt -y install netcat
@@ -199,7 +217,9 @@ nc -zv some_egress_hostname 1433
 ```
 
 #### Container Security
+>
 > for better security add following securityContext settings to manifest
+
 ```yaml
 securityContext:
   # Blocking Root Containers
@@ -214,10 +234,10 @@ securityContext:
       add: ["NET_BIND_SERVICE"]
 ```
 
-
 #### Debug k8s
 
 For many steps here you will want to see what a `Pod` running in the k8s cluster sees. The simplest way to do this is to run an interactive busybox `Pod`:
+
 ```shell
 kubectl run -it --rm --restart=Never busybox --image=busybox sh
 ```
@@ -253,8 +273,10 @@ kubectl get secret keycloak-secrets-tls-o jsonpath="{.data.tls.crt}" | base64 --
 yq '.data."tls.crt"' keycloak-secrets-tls.yml | base64 --decode
 ```
 
-#### iTerm2 tips
-> in iTerm2
+#### Ghostty tips
+>
+> in Ghostty
+
 1. split screen horizontally
 2. go to the bottom screen and split it vertically
 
@@ -262,11 +284,10 @@ I was using top screen for the work with yaml files and kubectl.
 
 Left bottom screen was running:
 
-    watch kubectl get pods
+  watch kubectl get pods
 
 Right bottom screen was running:
 
-    watch "kubectl get events --sort-by='{.lastTimestamp}' | tail -6"
+  watch "kubectl get events --sort-by='{.lastTimestamp}' | tail -6"
 
 With such setup it was easy to observe in real time how my pods are being created.
-

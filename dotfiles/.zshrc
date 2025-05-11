@@ -1,6 +1,3 @@
-# iterm shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
 # use starship prompt
 if type starship  &>/dev/null; then
 	eval "$(starship init zsh)"
