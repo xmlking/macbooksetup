@@ -100,6 +100,7 @@ brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
 # optional
+brew install --cask --appdir=~/Applications windsurf # VSCode alternative
 brew install --cask --appdir=~/Applications marta
 ```
 
