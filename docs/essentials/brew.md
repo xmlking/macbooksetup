@@ -12,79 +12,23 @@ sudo xcode-select --install
 
 ## Install
 
-Go to terminal and run:
+The ~/.zshrc doesn’t exist by default in macOS, so you need to create it.
+
+Go to *Terminal* and run:
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+touch ~/.zshrc
 ```
 
-Output should look like this:
+Not install brew from *Terminal*
 
-```log
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-==> Checking for `sudo` access (which may request your password)...
-Password:
-==> This script will install:
-/opt/homebrew/bin/brew
-/opt/homebrew/share/doc/homebrew
-/opt/homebrew/share/man/man1/brew.1
-/opt/homebrew/share/zsh/site-functions/_brew
-/opt/homebrew/etc/bash_completion.d/brew
-/opt/homebrew
-==> The following new directories will be created:
-/opt/homebrew/bin
-/opt/homebrew/etc
-/opt/homebrew/include
-/opt/homebrew/lib
-/opt/homebrew/sbin
-/opt/homebrew/share
-/opt/homebrew/var
-/opt/homebrew/opt
-/opt/homebrew/share/zsh
-/opt/homebrew/share/zsh/site-functions
-/opt/homebrew/var/homebrew
-/opt/homebrew/var/homebrew/linked
-/opt/homebrew/Cellar
-/opt/homebrew/Caskroom
-/opt/homebrew/Frameworks
-==> The Xcode Command Line Tools will be installed.
-
-HEAD is now at 6661f5b14 Merge pull request #12904 from Homebrew/dependabot/bundler/Library/Homebrew/json_schemer-0.2.19
-==> Tapping homebrew/core
-remote: Enumerating objects: 1146232, done.
-remote: Counting objects: 100% (63/63), done.
-remote: Compressing objects: 100% (39/39), done.
-remote: Total 1146232 (delta 38), reused 47 (delta 24), pack-reused 1146169
-Receiving objects: 100% (1146232/1146232), 456.18 MiB | 10.26 MiB/s, done.
-Resolving deltas: 100% (792672/792672), done.
-From https://github.com/Homebrew/homebrew-core
- * [new branch]              master     -> origin/master
-HEAD is now at 383269fb392 checkov: update 2.0.885 bottle.
-Warning: /opt/homebrew/bin is not in your PATH.
-  Instructions on how to configure your shell for Homebrew
-  can be found in the 'Next steps' section below.
-==> Installation successful!
-
-==> Homebrew has enabled anonymous aggregate formulae and cask analytics.
-Read the analytics documentation (and how to opt-out) here:
-  https://docs.brew.sh/Analytics
-No analytics data has been sent yet (nor will any be during this install run).
-
-==> Homebrew is run entirely by unpaid volunteers. Please consider donating:
-  https://github.com/Homebrew/brew#donations
-
-==> Next steps:
-- Run these two commands in your terminal to add Homebrew to your PATH:
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-- Run brew help to get started
-- Further documentation:
-    https://docs.brew.sh
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 For first time only, run following commands  
 
-> _This will create `~/.zprofile` file if it not exists or append `eval "$(/opt/homebrew/bin/brew shellenv)"` line to existing `~/.zprofile` file_
+> *This will create `~/.zprofile` file if it not exists or append `eval "$(/opt/homebrew/bin/brew shellenv)"` line to existing `~/.zprofile` file*
 
 ```shell
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
@@ -99,7 +43,7 @@ brew doctor
 
 If you get `Your system is ready to brew.`, you can move on to the next step.
 
-Brew anonymously collect _User Behaviour_ data. To prevent analytics from ever being sent, run:
+Brew anonymously collect *User Behaviour* data. To prevent analytics from ever being sent, run:
 
 ```shell
 brew analytics off
@@ -107,7 +51,7 @@ brew analytics off
 
 ### Homebrew Shell Completion
 
-Brew installs _completions_ and _functions_  into: `/opt/homebrew/share/zsh/site-functions` when a formula offers them.
+Brew installs *completions* and *functions*  into: `/opt/homebrew/share/zsh/site-functions` when a formula offers them.
 
 [Shell completions](https://docs.brew.sh/Shell-Completion) for external Homebrew commands are not automatically installed. To opt-in to using completions for external commands (if provided), they need to be linked to `HOMEBREW_PREFIX` by running `brew completions link`.
 

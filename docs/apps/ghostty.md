@@ -18,7 +18,7 @@ Fonts should be installed as described in [Essentials](../essentials/essentials.
 
 ```shell
 # if you haven't already installed ghostty, run:
-brew install --cask ghostty
+brew install --cask --appdir=~/Applications ghostty
 ```
 
 ## Configuration

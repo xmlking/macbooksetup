@@ -34,7 +34,7 @@ export PATH=$PNPM_HOME:$PATH
 
 ```shell
 # for example to pin pnpm version for spectacular
-cd ~/Developer/Work/SPA/spectacular
+cd ~/Developer/Work/web/spectacular
 corepack use pnpm@latest-10 
 ```
 

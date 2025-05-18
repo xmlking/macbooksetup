@@ -86,10 +86,10 @@ mkdir ~/Applications
 mkdir -p ~/Developer/Apps
 
 mkdir -p ~/Developer/Work
-# Make `SPA`, `go`, `java` etc directories under ~/Developer/Work:
+# Make `web`, `go`, `java` etc directories under ~/Developer/Work:
 mkdir -p ~/Developer/Work/tools
 mkdir -p ~/Developer/Work/node
-mkdir -p ~/Developer/Work/SPA
+mkdir -p ~/Developer/Work/web
 mkdir -p ~/Developer/Work/go
 mkdir -p ~/Developer/Work/rust
 mkdir -p ~/Developer/Work/java

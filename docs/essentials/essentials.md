@@ -39,7 +39,6 @@ brew install gh # GitHub official command line tool.
 # Better CLI alternative Tools
 brew install ack
 brew install tree
-brew install subversion # Yes, it is required to install some brew formulas :(
 brew install eza # replacement for LS. https://eza.rocks/
 brew install bat # a better `cat`
 brew install git-delta  # a better git `diff`
@@ -54,7 +53,7 @@ brew install cocogitto # monorepo version/release management
 
 ### Fonts
 
-We need developer friendly fonts for **Terminals** (_iterm2, macOS Terminal app_) and **Editors** (_IntelliJ, VSCode,  sublime-text_) to enhance visual experience.
+We need developer friendly fonts for **Terminals** (_ghostty, macOS Terminal app_) and **Editors** (_IntelliJ, VSCode,  sublime-text_) to enhance visual experience.
 You can explore various fonts for IDEs at [Programming Fonts](https://www.programmingfonts.org) website.
 
 We recommend:
@@ -89,13 +88,13 @@ Since many of us won't have _admin_ rights on **Company** issued MacBooks, we wi
 
 #### Development Tools
 
-* [iterm2](https://iterm2.com): macOS Terminal Replacement
-
+* [ghostty](https://ghostty.org): macOS Terminal Replacement
 * [Sublimetext](https://www.sublimetext.com): lightweight text/markdown editor
 * [VSCode](https://code.visualstudio.com): lightweight code editor
 * [Jetbrains](https://www.jetbrains.com/toolbox-app/): toolbox to install jetbrains IDEs
 
 ```shell
+brew install --cask --appdir=~/Applications ghostty
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications jetbrains-toolbox
@@ -135,14 +134,14 @@ brew install --cask --appdir=~/Applications alfred
 
 ```shell
 brew install --cask --appdir=~/Applications google-chrome
-brew install --cask --appdir=~/Applications microsoft-remote-desktop
-brew install --cask --appdir=~/Applications obs
 # Logitech Options software - will prompt for password.
 brew tap "homebrew/cask-drivers"
 brew install --cask --appdir=~/Applications logitech-options
 # Remote communication (optional)
 brew install --cask --appdir=~/Applications zoom
 brew install --cask --appdir=~/Applications slack
+brew install --cask --appdir=~/Applications discord
+brew install --cask --appdir=~/Applications obs
 ```
 
 Customize above applications further from: [Apps](../apps) docs
