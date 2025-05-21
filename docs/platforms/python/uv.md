@@ -397,6 +397,7 @@ uv cache prune
 * How to Learn Python From Scratch in 2025: [An Expert Guide](https://www.datacamp.com/blog/how-to-learn-python-expert-guide)
 * UV [features](https://github.com/astral-sh/uv/blob/main/docs/getting-started/features.md)
 * UV [Working on projects](https://docs.astral.sh/uv/guides/projects/)
+* UV [Python Developer Tooling Handbook](https://pydevtools.com/handbook/)
 * Beyond Hypermodern: [Python is easy now](https://rdrn.me/postmodern-python/)
 * Python UV: [The Ultimate Guide to the Fastest Python Package Manager](https://www.datacamp.com/tutorial/python-uv)
 * [Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)

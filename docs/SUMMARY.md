@@ -28,6 +28,7 @@
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust/rust.md)
   - [Python](platforms/python/uv.md)
+    - [Testing](platforms/python/testing.md)
     - [Agno AI](platforms/python/agno.md)
 - DevOps
   - [Development Workflow](devops/devflow/development-workflow.md)
