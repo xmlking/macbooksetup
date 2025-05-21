@@ -154,7 +154,7 @@ requires-python = ">=3.9"
 
 ### What Are UV Tools And How to Use Them?
 
-Some Python packages are exposed as command-line tools like `ruff` or `black` for code formatting and linting, `pytest` for testing, `pyright` for type checking, etc. UV provides two special interfaces to manage these packages:
+Some Python packages are exposed as command-line tools like `ruff` or `black` for code formatting and linting, `pytest` for testing, `ty` for type checking, etc. UV provides two special interfaces to manage these packages:
 
 UV provides two special interfaces to manage these packages:
 
@@ -187,25 +187,32 @@ uv run ruff check --fix    # lint   (what flake8 used to do)
 
 #### Typing
 
-first install it
+first install [ty](https://pydevtools.com/handbook/reference/ty/)
 
 ```shell
-uv add --dev pyright
+uv add --dev ty
 ```
 
-[configure](https://github.com/microsoft/pyright/blob/main/docs/configuration.md) it
+[configure](https://github.com/astral-sh/ty/blob/main/docs/reference/configuration.md) it
+
+Example configuration:
 
 ```toml
-[tool.pyright]
-venvPath = "."          # uv installs the venv in the current dir
-venv = ".venv"          #       in a folder called `.venv`
-strict = ["**/*.py"]    # use 'strict' checking on all files
-pythonVersion = "3.12"  # if library, specify the _lowest_ you support
+[tool.ty]
+respect-ignore-files = true
+
+[tool.ty.rules]
+unused-ignore-comment = "warn"
+redundant-cast = "ignore"
+possibly-unbound-attribute = "error"
+possibly-unbound-import = "error"
 ```
 
-And now you can run it with `uv run pyright`. And, as with the formatters/linters, you should get it integrated with your editor.
+And now you can run it with `uv run ty check example.py`. And, as with the type checker, you should get it integrated with your [editor](https://marketplace.visualstudio.com/items?itemName=astral-sh.ty).
 
 #### Testing
+
+Refer for full testing [docs](./testing.md)
 
 ```shell
 uv add --dev pytest
@@ -397,7 +404,7 @@ uv cache prune
 * How to Learn Python From Scratch in 2025: [An Expert Guide](https://www.datacamp.com/blog/how-to-learn-python-expert-guide)
 * UV [features](https://github.com/astral-sh/uv/blob/main/docs/getting-started/features.md)
 * UV [Working on projects](https://docs.astral.sh/uv/guides/projects/)
-* UV [Python Developer Tooling Handbook](https://pydevtools.com/handbook/)
+* UV ***[Python Developer Tooling Handbook](https://pydevtools.com/handbook/)
 * Beyond Hypermodern: [Python is easy now](https://rdrn.me/postmodern-python/)
 * Python UV: [The Ultimate Guide to the Fastest Python Package Manager](https://www.datacamp.com/tutorial/python-uv)
 * [Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
