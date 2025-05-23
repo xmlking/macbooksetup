@@ -1,13 +1,13 @@
 # Essentials
 
-**MacOS** comes with `python3`, `ruby`, `git` _preinstalled_. <br/>
+**MacOS** comes with `python3`, `ruby`, `git` _preinstalled_.  
 We will install other missing essential tools used frequently by _Developers_.
 
 ## Tools
 
 ### Command-line tools
 
-Install essential _command-line tools_
+Install [essential](https://www.youtube.com/watch?v=rWMQ-g2QDsI) _command-line tools_
 
 * [watch](https://cli.github.com/) — `watch` will run a command repeatedly and then display the output in an `ncurses` friendly manner.
 * [jq](https://stedolan.github.io/jq/) —  `jq` is like `sed` for JSON data
