@@ -25,6 +25,40 @@ brew install --cask --appdir=~/Applications ghostty
 
 **Zero Configuration Philosophy** - Ghostty is designed to work out of the box with no configuration for most users.
 
+Optionally you can customize `Ghostty` via config file at `HOME/.config/ghostty/config`
+
+- Color Theme
+- Custom Keybindings
+- Fonts
+
+```shell
+# Listing Available Themes and Preview
+ghostty +list-themes
+# To display the default configuration
+ghostty +show-config --default
+ghostty +show-config --default --docs
+# Reloading the Configuration
+Cmd+Shift+, (comma)
+#  see the default Keybindings
+ghostty +list-keybinds --default
+```
+
+My `HOME/.config/ghostty/config`
+
+```properties
+theme = catppuccin-mocha
+
+window-height=36
+window-width=160
+window-padding-x = 24
+window-padding-y = 24
+
+# font-family = "Berkeley Mono"
+font-size = 16
+macos-titlebar-style = "tabs"
+keybind = shift+enter=text:\n
+```
+
 ## Extensions
 
 ### Prompt
