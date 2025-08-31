@@ -7,54 +7,56 @@ We will be using [TimescaleDB](https://www.timescale.com/) as **PostgreSQL** whi
 
 ## Setup
 
+Install and configure [TimescaleDB on Postgres](https://docs.tigerdata.com/self-hosted/latest/install/installation-macos/)
+
 1. At the command prompt, add the TimescaleDB Homebrew tap:
 
-```shell
-brew tap timescale/tap
-```
+    ```shell
+    brew tap timescale/tap
+    ```
 
 2. Install TimescaleDB and psql:
 
-```shell
-Install TimescaleDB and psql:
-```
+    ```shell
+    brew install timescaledb libpq
+    ```
 
 3. Update your path to include psql.
 
-```shell
-brew link --force libpq
-```
+    ```shell
+    brew link --force libpq
+    ```
 
 4. Run the timescaledb-tune script to configure your database:
 
-```shell
-timescaledb-tune --quiet --yes
-```
+    ```shell
+    timescaledb-tune --quiet --yes
+    ```
 
 5. Change to the directory where the setup script is located. It is typically, located at
 
-`/opt/homebrew/Cellar/timescaledb/<VERSION>/bin/`, where `<VERSION>`is the version of `timescaledb` that you installed:
+    `/opt/homebrew/Cellar/timescaledb/<VERSION>/bin/`, where `<VERSION>`is the version of `timescaledb` that you installed:
 
-```shell
-cd /opt/homebrew/Cellar/timescaledb/<VERSION>/bin/
-```
+    ```shell
+    cd /opt/homebrew/Cellar/timescaledb/<VERSION>/bin/
+    ```
 
 6. Run the setup script to complete installation.
 
-```shell
-./timescaledb_move.sh
-```
+    ```shell
+    ./timescaledb_move.sh
+    ```
 
 7. Login to PostgreSQL as postgres
 
-```shell
-sudo -u postgres psql
-```
+    ```shell
+    sudo -u postgres psql
+    ```
 
 8. Set the password for postgres (optional)
 
-```shell
-\password postgres
-```
+    ```shell
+    \password postgres
+    ```
 
 When you have set the password, type `\q` to exit psql.
