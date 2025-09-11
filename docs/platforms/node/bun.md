@@ -5,8 +5,7 @@
 ## Install
 
 ```shell
-brew tap oven-sh/bun # for macOS and Linux
-brew install bun
+brew install oven-sh/bun/bun
 # Upgrading bun itself
 bun upgrade
 ```
