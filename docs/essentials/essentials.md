@@ -98,11 +98,15 @@ brew install --cask --appdir=~/Applications ghostty
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
 brew install --cask --appdir=~/Applications webstorm
-brew install --cask orbstack # orbstack need to be in system apps
+# orbstack/container need to be in system apps
+brew install --cask container # Apple’s Native Alternative to Docker: MacOS 26 needed
+# brew install --cask orbstack  # alternative to apple native container
 # optional
 brew install --cask --appdir=~/Applications windsurf # VSCode alternative
 brew install --cask --appdir=~/Applications marta
 ```
+
+ Apple’s container [Docs](https://swapnasagarpradhan.medium.com/getting-started-with-apples-container-cli-on-macos-a-native-alternative-to-docker-fc303e08f5cd)
 
 Other benefit of installing `Apps` via `Brew` is, it links binaries to `/opt/homebrew/bin` which is added to `$PATH`.
 
