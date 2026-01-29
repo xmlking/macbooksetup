@@ -48,7 +48,7 @@ Cmd+Shift+, (comma)
 My `~/.config/ghostty/config`
 
 ```properties
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 window-height=36
 window-width=160
