@@ -116,3 +116,12 @@ Git tips and FAQ
   - When merging `feature -> main` or `release -> main` use **merge**
   - When merging `main --> feature` to keep your _feature_ branch up-to-date, use **rebase** <br/>
   Read jeffkreeftmeijer's [Rebase vs Merge](https://jeffkreeftmeijer.com/git-rebase/) blog
+
+- Git worktrees
+  Many developers want to run multiple coding agents in parallel, in the same repository. But how do you keep your agents from getting in each others' way?
+  [Git worktrees](https://git-scm.com/docs/git-worktree) are a common technique for this. They allow you to check out multiple branches simultaneously, in separate directories, all sharing the same Git history
+
+  ```shell
+  # Create a worktree and change to its directory
+  git worktree add -B my-branch && cd ../my-branch
+  ```
