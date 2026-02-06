@@ -14,7 +14,8 @@ Instead we will install latest **Python3** and **pip3** via `brew`
 install Python 3:
 
 ```shell
-brew install python
+# brew install python
+uv python install --default
 ```
 
 ### Configure

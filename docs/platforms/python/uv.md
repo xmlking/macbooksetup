@@ -29,6 +29,11 @@ Add `UV_TOOL_BIN_DIR` to paths
 > [!NOTE]
 > We automatically add it to path, if you use our **dotfiles**, See [extra.zsh](../../../dotfiles/my/extra.zsh)
 
+To install the latest Python version:
+```shell
+uv python install --default
+```
+
 ```shell
 export PATH="$HOME/.local/bin:$PATH"
 ```
@@ -372,6 +377,8 @@ uv run --package cli ai_agents_cli
 
 ```shell
 uv python install # Install Python versions.
+# uv only installs a versioned executable by default. To install python and python3 executables, include the experimental --default option:
+uv python install --default
 uv python list # View available Python versions.
 uv python list --only-installed # Listing existing Python versions
 uv python find # Find an installed Python version.
