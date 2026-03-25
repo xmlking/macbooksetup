@@ -49,6 +49,7 @@ brew install ripgrep # a better `grep` use: rg
 brew install htop # a better `top`
 brew install httpie # a better `curl`
 brew install cocogitto # monorepo version/release management
+brew install minio/stable/mc # minio CLI
 ```
 
 ### Fonts
