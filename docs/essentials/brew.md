@@ -48,6 +48,11 @@ Brew anonymously collect *User Behaviour* data. To prevent analytics from ever b
 ```shell
 brew analytics off
 ```
+(Optional) if cask install not working i.e, `brew install --cask ...`, then run
+
+```shell
+brew tap homebrew/cask
+```
 
 ### Homebrew Shell Completion
 
