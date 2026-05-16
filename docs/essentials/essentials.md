@@ -98,13 +98,13 @@ Since many of us won't have _admin_ rights on **Company** issued MacBooks, we wi
 brew install --cask --appdir=~/Applications ghostty
 brew install --cask --appdir=~/Applications sublime-text
 brew install --cask --appdir=~/Applications visual-studio-code
+brew install --cask --appdir=~/Applications tablepro # universal database client
 # optional
 # orbstack/container need to be in system apps
 brew install --cask container # Apple’s Native Alternative to Docker: MacOS 26 needed
 # brew install --cask orbstack  # alternative to apple native container
 brew install --cask --appdir=~/Applications webstorm
 brew install --cask --appdir=~/Applications pycharm
-brew install --cask --appdir=~/Applications windsurf # VSCode alternative
 brew install --cask --appdir=~/Applications marta
 ```
 
