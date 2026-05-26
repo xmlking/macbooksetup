@@ -156,3 +156,4 @@ bindkey "^[[B" history-beginning-search-forward-end
 ## Reference
 
 - Configuration [Docs](https://ghostty.org/docs/config)
+- [pyyupsk's ghostty config](https://github.com/pyyupsk/ghostty)
