@@ -8,7 +8,7 @@ fd
 gh
 git
 git-delta
-httpie
+curlie
 jq
 mkcert
 node
