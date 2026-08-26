@@ -16,6 +16,7 @@
   - [Marta](apps/marta.md)
   - [Benthos](apps/benthos.md)
   - [OrbStack](apps/orbstack.md)
+  - [Orchard](apps/orchard.md)
   - [Traefik](apps/traefik.md)
   - [n8n](apps/n8n.md)
 - Platforms
@@ -24,6 +25,7 @@
     - [Bub](platforms/node/bun.md)
     - [NPM](platforms/node/npm.md)
     - [PNPM](platforms/node/pnpm.md)
+    - [Vite+](platforms/node/vite-plus.md)
     - [Turborepo](platforms/node/turborepo.md)
   - [GoLang](platforms/go/golang.md)
   - [Rust](platforms/rust/rust.md)

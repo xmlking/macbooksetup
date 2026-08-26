@@ -43,3 +43,10 @@ case ":$PATH:" in
   *":$UV_TOOL_BIN_DIR:"*) ;;
   *) export PATH="$UV_TOOL_BIN_DIR:$PATH" ;;
 esac
+
+# Vite+ bin (https://viteplus.dev)
+VP_BIN_DIR="$HOME/.local/share/vite-plus/bin"
+case ":$PATH:" in
+  *":$VP_BIN_DIR:"*) ;;
+  *) export PATH="$VP_BIN_DIR:$PATH" ;;
+esac
