@@ -20,3 +20,12 @@ function getMyIP()
     local myip=$(ifconfig | grep 172 | awk '{print $2; exit}')
     echo "$myip"
 }
+
+# kill port
+function killport() {
+  if [ -z "$1" ]; then
+    echo "Usage: killport <PORT>"
+  else
+    kill -9 $(lsof -t -i:$1) && echo "Killed process on port $1"
+  fi
+}
