@@ -7,6 +7,8 @@
 #disabled = false
 #threshold = 1
 
+command_timeout = 1000
+
 right_format = "$kubernetes $gcloud"
 [kubernetes]
 disabled = false
