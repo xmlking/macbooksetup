@@ -41,6 +41,12 @@ symbol = " "
 [git_branch]
 symbol = " "
 
+[custom.git_tag]
+command = "git describe --tags --exact-match 2>/dev/null"
+when = true
+shell = "sh"
+format = "[\\(🏷 $output\\)]($style) "
+
 [golang]
 symbol = " "
 
