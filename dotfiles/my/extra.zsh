@@ -19,8 +19,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # add pnpm's globally installed packages to PATH
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 
 # add bun's globally installed packages to PATH
@@ -29,6 +29,9 @@ case ":$PATH:" in
   *":$BUN_HOME:"*) ;;
   *) export PATH="$BUN_HOME:$PATH" ;;
 esac
+
+# Vite+ bin (https://viteplus.dev)
+[[ -s "$HOME/.config/vite-plus/env" ]] && . "$HOME/.config/vite-plus/env"
 
 # add GoLang's globally installed executable packages to PATH
 GO_HOME=$(go env GOPATH)/bin
@@ -42,11 +45,4 @@ UV_TOOL_BIN_DIR="$HOME/.local/bin"
 case ":$PATH:" in
   *":$UV_TOOL_BIN_DIR:"*) ;;
   *) export PATH="$UV_TOOL_BIN_DIR:$PATH" ;;
-esac
-
-# Vite+ bin (https://viteplus.dev)
-VP_BIN_DIR="$HOME/.local/share/vite-plus/bin"
-case ":$PATH:" in
-  *":$VP_BIN_DIR:"*) ;;
-  *) export PATH="$VP_BIN_DIR:$PATH" ;;
 esac
